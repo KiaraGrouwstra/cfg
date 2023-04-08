@@ -92,6 +92,7 @@
     isNormalUser = true;
     description = "Kiara Grouwstra";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -119,6 +120,9 @@
 
   programs = {
     mtr.enable = true;
+    browserpass.enable = true;
+    firefox.nativeMessagingHosts.browserpass = true;
+  };
 
   # List services that you want to enable:
 
