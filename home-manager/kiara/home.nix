@@ -37,7 +37,6 @@
     pinentry-gtk2
     zsh
     amp
-    starship
     wezterm
     firefox
     thunderbird
@@ -76,22 +75,6 @@
   };
 
   services.kdeconnect.enable = true;
-
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
-  };
 
   programs.emacs = {
     enable = true;
