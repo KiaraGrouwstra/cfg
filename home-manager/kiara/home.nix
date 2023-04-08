@@ -89,6 +89,20 @@
   };
   programs.offlineimap.enable = true;
 
+  # installed apps don’t show up in "Show Applications"
+  # https://github.com/nix-community/home-manager/issues/1439#issuecomment-1106208294
+  home.activation = {
+    linkDesktopApplications = {
+      after = [ "writeBoundary" "createXdgUserDirectories" ];
+      before = [ ];
+      data = ''
+        rm -rf ${config.xdg.dataHome}/"applications/home-manager"
+        mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
+        cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
+      '';
+    };
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
