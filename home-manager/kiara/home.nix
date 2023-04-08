@@ -6,6 +6,26 @@
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
 
+  # # If I can't dance to it, it's not my revolution. - Emma Goldman
+  gtk = {
+    enable = true;
+
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Amber";
+    };
+
+    iconTheme = {
+      package = pkgs.paper-icon-theme;
+      name = "Paper-Mono-Dark";
+    };
+
+    theme = {
+      package = pkgs.adementary-theme;
+      name = "Adementary-dark";
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     mtr
