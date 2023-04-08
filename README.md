@@ -49,7 +49,3 @@ home-manager generations
 export n=1
 $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --only-matching '/nix/store/.*'`/activate)
 ```
-
-## todo
-
-- nextcloud: gnome online accounts
