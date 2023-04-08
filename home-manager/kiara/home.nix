@@ -61,6 +61,7 @@
     most
     offlineimap
     kdeconnect
+    gnomeExtensions.random-wallpaper
   ];
 
   services.gpg-agent = {
