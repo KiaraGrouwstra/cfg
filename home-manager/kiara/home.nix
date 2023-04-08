@@ -60,6 +60,7 @@
     tealdeer
     browserpass
     most
+    offlineimap
   ];
 
   services.gpg-agent = {
@@ -67,6 +68,18 @@
     enableSshSupport = true;
     pinentryFlavor = "gtk2";
   };
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [
+      epkgs.nix-mode
+      epkgs.magit
+      epkgs.tramp
+      epkgs.notmuch
+      epkgs.offlineimap
+    ];
+  };
+  programs.offlineimap.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
