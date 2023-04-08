@@ -21,3 +21,4 @@ mkdir -p ~/.config/nixpkgs/ && ln -s $PWD/home-manager/$USER/home.nix ~/.config/
 
 - https://github.com/mcdonc/.nixconfig
 - https://gitlab.com/KiaraGrouwstra/nix-config
+- https://mynixos.com/
