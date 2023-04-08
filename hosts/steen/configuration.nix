@@ -92,10 +92,6 @@
     isNormalUser = true;
     description = "Kiara Grouwstra";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
   };
 
   environment.gnome.excludePackages = (with pkgs; [
