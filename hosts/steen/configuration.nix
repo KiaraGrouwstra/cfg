@@ -134,6 +134,11 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # needed for gnpug
+  services.pcscd.enable = true;
+  services.dbus.packages = [ pkgs.gcr ];
+  # if not working run: `pkill gpg-agent`
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
