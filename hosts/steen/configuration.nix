@@ -56,7 +56,18 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
+  services.xserver.desktopManager.gnome = {
+    extraGSettingsOverrides = ''
+      [org.gnome.shell]
+      favorite-apps=['org.gnome.Nautilus.desktop', 'org.wezfurlong.wezterm.desktop', 'firefox.desktop', 'thunderbird.desktop', 'signal-desktop-beta.desktop', 'codium.desktop', 'org.keepassxc.KeePassXC.desktop']
+    '';
+
+    extraGSettingsOverridePackages = with pkgs; [
+      gnome.gnome-shell
+    ];
+  };
+
+  # keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
