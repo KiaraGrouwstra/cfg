@@ -21,7 +21,9 @@ mkdir -p ~/.config/nixpkgs/ && ln -s $PWD/home-manager/$USER/home.nix ~/.config/
 
 - https://github.com/mcdonc/.nixconfig
 - https://gitlab.com/KiaraGrouwstra/nix-config
-- https://search.nixos.org/packages
-- https://search.nixos.org/options
-- https://mipmip.github.io/home-manager-option-search/
 - https://mynixos.com/
+- https://mipmip.github.io/home-manager-option-search/
+
+## todo
+
+- nextcloud: gnome online accounts
