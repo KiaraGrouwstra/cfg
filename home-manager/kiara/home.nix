@@ -6,7 +6,7 @@
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
 
-  # # If I can't dance to it, it's not my revolution. - Emma Goldman
+  # If I can't dance to it, it's not my revolution. - Emma Goldman
   gtk = {
     enable = true;
 
@@ -36,7 +36,6 @@
     gnupg
     pinentry-gtk2
     zsh
-    emacs
     amp
     wezterm
     firefox
