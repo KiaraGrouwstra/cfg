@@ -62,6 +62,11 @@
     offlineimap
     kdeconnect
     gnomeExtensions.random-wallpaper
+    vlc
+    gnome.gnome-music
+    stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
+    # webtorrent_desktop
+    nodePackages.webtorrent-cli
   ];
 
   services.gpg-agent = {
