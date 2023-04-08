@@ -58,7 +58,6 @@
     texlive.combined.scheme-minimal
     tealdeer
     browserpass
-    most
     offlineimap
     kdeconnect
     gnomeExtensions.random-wallpaper
