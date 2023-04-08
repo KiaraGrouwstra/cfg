@@ -49,6 +49,7 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-search-multi-word
+    any-nix-shell
     paper-icon-theme
     adementary-theme
     bibata-cursors
@@ -105,6 +106,28 @@
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
     "text/calendar" = [ "org.gnome.Calendar.desktop" ];
+  };
+
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    historySubstringSearch.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+      plugins = [
+        "git"
+        "thefuck"
+      ];
+      theme = "agnoster";
+    };
+    sessionVariables = {
+      EDITOR = "amp";
+      VISUAL = "amp";
+    };
   };
 
   # This value determines the Home Manager release that your
