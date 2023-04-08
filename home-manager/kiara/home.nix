@@ -60,6 +60,7 @@
     browserpass
     most
     offlineimap
+    kdeconnect
   ];
 
   services.gpg-agent = {
@@ -67,6 +68,8 @@
     enableSshSupport = true;
     pinentryFlavor = "gtk2";
   };
+
+  services.kdeconnect.enable = true;
 
   programs.emacs = {
     enable = true;
