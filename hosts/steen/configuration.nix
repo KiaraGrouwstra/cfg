@@ -147,6 +147,8 @@
   # networking.firewall.enable = false;
 
   virtualisation = {
+    # to use podman with ports as low as 80 run:
+    # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
     podman = {
       enable = true;
 
