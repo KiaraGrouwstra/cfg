@@ -131,6 +131,9 @@
       EDITOR = "amp";
       VISUAL = "amp";
     };
+    shellAliases = {
+      docker-compose = "podman-compose";
+    };
   };
 
   # This value determines the Home Manager release that your
