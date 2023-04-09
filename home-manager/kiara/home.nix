@@ -35,6 +35,7 @@
     wget
     curl
     git
+    git-crypt
     gnupg
     pinentry-gtk2
     zsh
