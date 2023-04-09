@@ -1,26 +1,16 @@
 # .nixconfig
 
-This is my setup for [NixOS](https://nixos.org/).
+This is my setup for [NixOS](https://nixos.org/) using [Nix Flakes](https://nixos.wiki/wiki/Flakes).
 
 ## usage
 
 follow instructions:
-- [nixos](https://github.com/mcdonc/.nixconfig) (`chown` + git + `ln`)
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone)
-
-### link configs
-
-```sh
-# nixos, for $myhost
-ln -s $PWD/hosts/$myhost/configuration.nix $PWD/configuration.nix
-# home manager
-mkdir -p ~/.config/nixpkgs/ && ln -s $PWD/home-manager/$USER/home.nix ~/.config/nixpkgs/home.nix
-```
+- [nixos](https://nixos.org/manual/nixos/stable): `nixos-rebuild --flake .#kiara-steen`
+- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#kiara@steen`
 
 ## references
 
-- https://github.com/mcdonc/.nixconfig
-- https://gitlab.com/KiaraGrouwstra/nix-config
+- https://github.com/JavaCafe01/frostedflakes
 - https://mynixos.com/
 - https://mipmip.github.io/home-manager-option-search/
 
