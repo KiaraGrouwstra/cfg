@@ -118,6 +118,7 @@
     wget
     curl
     git
+    cachix
   ];
 
   programs = {

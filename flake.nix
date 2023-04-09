@@ -53,6 +53,11 @@
       ];
     in
     {
+
+      imports = [
+        ./cachix.nix
+      ];
+
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
