@@ -87,6 +87,7 @@
       epkgs.tramp
       epkgs.notmuch
       epkgs.offlineimap
+      epkgs.org
     ];
   };
   programs.offlineimap.enable = true;
