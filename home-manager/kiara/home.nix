@@ -35,7 +35,7 @@
     wget
     curl
     git
-    git-crypt
+    git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
     gnupg
     pinentry-gtk2
     zsh
