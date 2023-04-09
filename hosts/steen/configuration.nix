@@ -160,6 +160,15 @@
     };
   };
 
+  fonts.fonts = with pkgs; [
+    powerline-fonts
+    twemoji-color-font
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-emoji-blob-bin
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
