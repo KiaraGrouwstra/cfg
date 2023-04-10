@@ -110,6 +110,7 @@
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
     "text/calendar" = [ "org.gnome.Calendar.desktop" ];
+    "application/pdf" = [ "evince.desktop" ];
   };
 
   programs.zsh = {
