@@ -150,7 +150,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  # (why does their nix-channel also have a 22.11?)
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "22.11";
 
   # Let Home Manager install and manage itself.

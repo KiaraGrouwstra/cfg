@@ -3,7 +3,7 @@
     "home": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "master"
         ],
         "utils": "utils"
       },

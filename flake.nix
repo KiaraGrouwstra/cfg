@@ -38,7 +38,7 @@
 
     # Default branch
     nixpkgs.follows = "stable";
-    home.inputs.nixpkgs.follows = "nixpkgs";
+    home.inputs.nixpkgs.follows = "master";
   };
 
   outputs = { self, nixpkgs, home, ... }@inputs:
