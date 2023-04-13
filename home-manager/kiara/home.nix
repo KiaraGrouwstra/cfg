@@ -71,6 +71,9 @@
     stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
     # webtorrent_desktop
     nodePackages.webtorrent-cli
+    borgbackup
+    borgmatic
+    vorta
   ];
 
   services.gpg-agent = {
