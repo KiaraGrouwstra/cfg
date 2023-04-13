@@ -30,6 +30,7 @@
   home.packages = with pkgs; [
     nixFlakes
     gnumake
+    zip
     mtr
     vim
     wget
