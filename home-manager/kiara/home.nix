@@ -71,6 +71,7 @@
     stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
     # webtorrent_desktop
     nodePackages.webtorrent-cli
+    gimp
     borgbackup
     borgmatic
     vorta
