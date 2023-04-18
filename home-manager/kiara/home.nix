@@ -75,6 +75,7 @@
     borgbackup
     borgmatic
     vorta
+    android-tools
   ];
 
   services.gpg-agent = {
