@@ -76,7 +76,7 @@
     borgmatic
     vorta
     android-tools
-    nextcloud
+    nextcloud-client
   ];
 
   services.gpg-agent = {
