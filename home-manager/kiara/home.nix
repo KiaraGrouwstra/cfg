@@ -86,7 +86,10 @@
     pinentryFlavor = "gtk2";
   };
 
-  services.kdeconnect.enable = true;
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
 
   programs.emacs = {
     enable = true;
