@@ -77,6 +77,7 @@
     vorta
     android-tools
     nextcloud-client
+    chromium
   ];
 
   services.gpg-agent = {
