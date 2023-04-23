@@ -42,6 +42,7 @@
     zsh
     amp
     wezterm
+    usbutils
     firefox
     thunderbird
     signal-desktop-beta
