@@ -54,6 +54,7 @@
     zsh-syntax-highlighting
     zsh-history-search-multi-word
     any-nix-shell
+    appimage-run
     paper-icon-theme
     adementary-theme
     bibata-cursors
