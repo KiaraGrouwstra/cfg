@@ -80,6 +80,8 @@
     android-tools
     nextcloud-client
     chromium
+    direnv
+    nix-direnv
   ];
 
   services.gpg-agent = {
@@ -102,6 +104,7 @@
       epkgs.notmuch
       epkgs.offlineimap
       epkgs.org
+      epkgs.direnv
     ];
   };
   programs.offlineimap.enable = true;
@@ -149,6 +152,12 @@
     shellAliases = {
       docker-compose = "podman-compose";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableZshIntegration = true;
   };
 
   # This value determines the Home Manager release that your
