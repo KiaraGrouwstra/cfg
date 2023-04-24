@@ -14,6 +14,7 @@ follow instructions:
 - https://github.com/JavaCafe01/nixos
 - https://mynixos.com/
 - https://mipmip.github.io/home-manager-option-search/
+- https://nur.nix-community.org/
 
 ## rollbacks
 
