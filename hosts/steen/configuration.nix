@@ -91,7 +91,11 @@
   users.users.kiara = {
     isNormalUser = true;
     description = "Kiara Grouwstra";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+    ];
     shell = pkgs.zsh;
   };
 
