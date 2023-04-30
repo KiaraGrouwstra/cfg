@@ -82,6 +82,9 @@
     chromium
     direnv
     nix-direnv
+    asdf-vm
+    gcc
+    python311
   ];
 
   services.gpg-agent = {
