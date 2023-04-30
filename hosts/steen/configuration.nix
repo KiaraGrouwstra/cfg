@@ -90,7 +90,7 @@
 
   users.users.kiara = {
     isNormalUser = true;
-    description = "Kiara Grouwstra";
+    description = "輝愛来 (kiara)";
     extraGroups = [
       "networkmanager"
       "wheel"
