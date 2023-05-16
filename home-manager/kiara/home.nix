@@ -69,6 +69,7 @@
     kdeconnect
     gnomeExtensions.random-wallpaper
     vlc
+    ffmpeg
     gnome.gnome-music
     stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
     # webtorrent_desktop
