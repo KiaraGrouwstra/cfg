@@ -95,6 +95,7 @@
       "networkmanager"
       "wheel"
       "adbusers"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
@@ -170,6 +171,11 @@
     };
     docker = {
       enable = true;
+      storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
 
