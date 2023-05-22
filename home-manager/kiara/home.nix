@@ -94,6 +94,10 @@
     pinentryFlavor = "gtk2";
   };
 
+  services.lorri = {
+    enable = true;
+  };
+
   services.kdeconnect = {
     enable = true;
     indicator = true;
