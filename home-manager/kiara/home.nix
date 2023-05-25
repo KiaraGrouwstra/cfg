@@ -66,6 +66,7 @@
     texlive.combined.scheme-minimal
     tealdeer
     calibre
+    okular
     browserpass
     offlineimap
     kdeconnect
