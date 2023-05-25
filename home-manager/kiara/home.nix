@@ -65,6 +65,7 @@
     podman-compose
     texlive.combined.scheme-minimal
     tealdeer
+    calibre
     browserpass
     offlineimap
     kdeconnect
