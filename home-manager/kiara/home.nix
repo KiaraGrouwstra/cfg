@@ -90,6 +90,7 @@
     gcc
     python311
     yarn
+    sqlite
   ];
 
   services.gpg-agent = {
