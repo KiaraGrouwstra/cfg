@@ -111,14 +111,14 @@
 
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.magit
-      epkgs.tramp
-      epkgs.notmuch
-      epkgs.offlineimap
-      epkgs.org
-      epkgs.direnv
+    extraPackages = epkgs: with epkgs; [
+      nix-mode
+      magit
+      tramp
+      notmuch
+      offlineimap
+      org
+      direnv
     ];
   };
   programs.offlineimap.enable = true;
