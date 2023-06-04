@@ -89,6 +89,7 @@
     asdf-vm
     gcc
     python311
+    python311Packages.bootstrapped-pip
     yarn
     sqlite
   ];
