@@ -89,6 +89,7 @@
     asdf-vm
     gcc
     python311
+    yarn
   ];
 
   services.gpg-agent = {
