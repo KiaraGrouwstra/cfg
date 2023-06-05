@@ -92,6 +92,7 @@
     python311Packages.bootstrapped-pip
     yarn
     sqlite
+    mariadb
   ];
 
   services.gpg-agent = {
