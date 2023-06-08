@@ -92,6 +92,7 @@
     python311Packages.bootstrapped-pip
     yarn
     sqlite
+    zlib
   ];
 
   services.gpg-agent = {
