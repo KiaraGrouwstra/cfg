@@ -94,6 +94,7 @@
     sqlite
     zlib
     pandoc
+    texlive.combined.scheme-basic
   ];
 
   services.gpg-agent = {
