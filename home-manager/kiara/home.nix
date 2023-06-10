@@ -93,6 +93,7 @@
     yarn
     sqlite
     zlib
+    pandoc
   ];
 
   services.gpg-agent = {
