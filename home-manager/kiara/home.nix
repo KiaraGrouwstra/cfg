@@ -63,7 +63,8 @@
     emacsPackages.guix
     keepassxc
     podman-compose
-    texlive.combined.scheme-basic
+    texlive.combined.scheme-full
+    font-awesome
     tealdeer
     calibre
     okular
