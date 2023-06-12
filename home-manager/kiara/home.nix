@@ -63,7 +63,7 @@
     emacsPackages.guix
     keepassxc
     podman-compose
-    texlive.combined.scheme-minimal
+    texlive.combined.scheme-basic
     tealdeer
     calibre
     okular
@@ -94,7 +94,6 @@
     sqlite
     zlib
     pandoc
-    texlive.combined.scheme-basic
   ];
 
   services.gpg-agent = {
