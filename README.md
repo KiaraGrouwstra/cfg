@@ -8,6 +8,7 @@ follow instructions:
 - [nixos](https://nixos.org/manual/nixos/stable): `nixos-rebuild --flake .#kiara-steen`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#kiara@steen`
+- updating: `nix flake update`
 
 ## references
 
