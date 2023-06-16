@@ -55,9 +55,10 @@
   # GNOME
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.windowManager.exwm.enable = true;
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kiara";
+  services.xserver.windowManager.exwm.enable = true;
+  services.xserver.displayManager.defaultSession = "gnome";
 
   services.xserver.desktopManager.gnome = {
     extraGSettingsOverrides = ''
