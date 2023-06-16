@@ -165,10 +165,12 @@
     sessionVariables = {
       EDITOR = "amp";
       VISUAL = "amp";
+      GUIX_PROFILE = "/home/kiara/.guix-profile";
     };
     shellAliases = {
       docker-compose = "podman-compose";
     };
+    initExtra = ". \"$GUIX_PROFILE/etc/profile\"";
   };
 
   programs.direnv = {

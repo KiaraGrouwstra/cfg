@@ -10,6 +10,8 @@ follow instructions:
 - [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#kiara@steen`
 - updating: `nix flake update`
 
+### [guix](https://github.com/NixOS/nixpkgs/pull/150130#issuecomment-993954344)
+
 ## references
 
 - https://github.com/JavaCafe01/nixos
