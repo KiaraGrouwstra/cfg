@@ -95,6 +95,7 @@
     sqlite
     zlib
     pandoc
+    element-desktop
   ];
 
   services.gpg-agent = {
