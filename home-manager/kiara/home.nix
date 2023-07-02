@@ -96,6 +96,7 @@
     zlib
     pandoc
     element-desktop
+    docker-compose
   ];
 
   services.gpg-agent = {
