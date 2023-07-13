@@ -97,6 +97,7 @@
     pandoc
     element-desktop
     docker-compose
+    brave
   ];
 
   services.gpg-agent = {
