@@ -12,6 +12,10 @@ follow instructions:
 
 ### [guix](https://github.com/NixOS/nixpkgs/pull/150130#issuecomment-993954344)
 
+```sh
+export PATH="/var/guix/profiles/per-user/root/current-guix/bin:$PATH"
+```
+
 ## references
 
 - https://github.com/JavaCafe01/nixos
