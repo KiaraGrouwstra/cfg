@@ -115,6 +115,8 @@
     indicator = true;
   };
 
+  services.gvfs.enable = true;
+
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: with epkgs; [
