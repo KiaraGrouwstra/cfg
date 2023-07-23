@@ -98,6 +98,7 @@
     element-desktop
     docker-compose
     brave
+    kubectl
   ];
 
   services.gpg-agent = {
@@ -114,8 +115,6 @@
     enable = true;
     indicator = true;
   };
-
-  services.gvfs.enable = true;
 
   programs.emacs = {
     enable = true;
