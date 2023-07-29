@@ -142,6 +142,7 @@
     curl
     git
     cachix
+    zoom-us
   ];
 
   programs = {
@@ -247,6 +248,8 @@
     "steam"
     "steam-original"
     "steam-run"
+    "zoom"
+    "zoom-us"
   ];
 
   # This value determines the NixOS release from which the default
