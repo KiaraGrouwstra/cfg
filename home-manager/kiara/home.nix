@@ -107,6 +107,7 @@
     helm-dashboard
     openlens
     # k8sgpt
+    argocd
   ];
 
   services.gpg-agent = {
