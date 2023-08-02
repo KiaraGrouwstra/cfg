@@ -99,6 +99,7 @@
     docker-compose
     brave
     kubectl
+    minikube
   ];
 
   services.gpg-agent = {
