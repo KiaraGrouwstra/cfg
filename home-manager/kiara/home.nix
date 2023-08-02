@@ -175,7 +175,10 @@
     shellAliases = {
       docker-compose = "podman-compose";
     };
-    initExtra = ". \"$GUIX_PROFILE/etc/profile\"";
+    initExtra = ''
+                  . \"$GUIX_PROFILE/etc/profile\"
+                  [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+                '';
   };
 
   programs.direnv = {
