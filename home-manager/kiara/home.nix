@@ -183,7 +183,7 @@
       docker-compose = "podman-compose";
     };
     initExtra = ''
-                  . \"$GUIX_PROFILE/etc/profile\"
+                  . "$GUIX_PROFILE/etc/profile"
                   [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
                 '';
   };
