@@ -98,8 +98,15 @@
     element-desktop
     docker-compose
     brave
+    terraform
+    terraform-providers.kubernetes
+    terraform-providers.helm
     kubectl
     minikube
+    kubernetes-helm
+    helm-dashboard
+    openlens
+    # k8sgpt
   ];
 
   services.gpg-agent = {
