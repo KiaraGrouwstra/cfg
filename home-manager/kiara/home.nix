@@ -108,6 +108,7 @@
     openlens
     # k8sgpt
     argocd
+    dos2unix
   ];
 
   services.gpg-agent = {
