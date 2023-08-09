@@ -143,6 +143,88 @@
     git
     cachix
     zoom-us
+
+    nixFlakes
+    gnumake
+    glib
+    zip
+    mtr
+    vim
+    wget
+    curl
+    git
+    git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
+    gnupg
+    pinentry-gtk2
+    zsh
+    amp
+    wezterm
+    usbutils
+    firefox
+    thunderbird
+    signal-desktop-beta
+    gnome.gnome-tweaks
+    vscodium
+    libreoffice-fresh
+    thefuck
+    pass
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-history-search-multi-word
+    any-nix-shell
+    appimage-run
+    paper-icon-theme
+    adementary-theme
+    bibata-cursors
+    emacsPackages.guix
+    keepassxc
+    podman-compose
+    texlive.combined.scheme-full
+    font-awesome
+    tealdeer
+    calibre
+    okular
+    browserpass
+    offlineimap
+    kdeconnect
+    gnomeExtensions.random-wallpaper
+    vlc
+    ffmpeg
+    gnome.gnome-music
+    stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
+    # webtorrent_desktop
+    nodePackages.webtorrent-cli
+    gimp
+    borgbackup
+    borgmatic
+    vorta
+    android-tools
+    nextcloud-client
+    chromium
+    direnv
+    nix-direnv
+    asdf-vm
+    gcc
+    python311
+    python311Packages.bootstrapped-pip
+    yarn
+    sqlite
+    zlib
+    pandoc
+    element-desktop
+    docker-compose
+    brave
+    terraform
+    terraform-providers.kubernetes
+    terraform-providers.helm
+    kubectl
+    minikube
+    kubernetes-helm
+    helm-dashboard
+    openlens
+    # k8sgpt
+    argocd
+    dos2unix
   ];
 
   programs = {
