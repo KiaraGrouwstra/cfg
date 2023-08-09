@@ -225,6 +225,8 @@
     # k8sgpt
     argocd
     dos2unix
+    flatpak
+    gnome.gnome-software
   ];
 
   programs = {
@@ -325,6 +327,8 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+
+  services.flatpak.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
