@@ -23,6 +23,7 @@ export PATH="/var/guix/profiles/per-user/root/current-guix/bin:$PATH"
 - https://mipmip.github.io/home-manager-option-search/
 - https://nur.nix-community.org/
 - https://packages.guix.gnu.org/
+- https://flathub.org/
 
 ## rollbacks
 
