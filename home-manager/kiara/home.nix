@@ -26,6 +26,9 @@
     };
   };
 
+  # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
+  manual.manpages.enable = false;
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     nixFlakes
@@ -165,7 +168,7 @@
     autocd = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
     oh-my-zsh = {
       enable = true;
