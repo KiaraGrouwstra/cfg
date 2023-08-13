@@ -227,6 +227,7 @@
     dos2unix
     flatpak
     gnome.gnome-software
+    prusa-slicer
   ];
 
   programs = {
