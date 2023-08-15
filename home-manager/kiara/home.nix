@@ -112,6 +112,7 @@
     # k8sgpt
     argocd
     dos2unix
+    speechd
   ];
 
   services.gpg-agent = {
