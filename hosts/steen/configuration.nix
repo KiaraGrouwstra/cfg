@@ -92,6 +92,8 @@
     #jack.enable = true;
   };
 
+  hardware.bluetooth.enable = true;
+
   users.users.kiara = {
     isNormalUser = true;
     description = "輝愛来 (kiara)";
