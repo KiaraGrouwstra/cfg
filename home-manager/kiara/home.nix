@@ -113,6 +113,7 @@
     argocd
     dos2unix
     speechd
+    gnome.gnome-boxes
   ];
 
   services.gpg-agent = {
