@@ -92,8 +92,12 @@
     nix-direnv
     asdf-vm
     gcc
-    python311
-    python311Packages.bootstrapped-pip
+    (python3.withPackages(ps : with ps; [
+      bootstrapped-pip
+      pandas
+      ipython
+      ipython-sql
+    ]))
     yarn
     sqlite
     zlib
