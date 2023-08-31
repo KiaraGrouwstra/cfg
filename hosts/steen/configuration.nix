@@ -256,6 +256,9 @@
     "zoom-us"
   ];
 
+  # https://github.com/NixOS/nixpkgs/pull/210453#issuecomment-1410035331
+  nixpkgs.config.firefox.speechSynthesisSupport = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
