@@ -118,6 +118,7 @@
     dos2unix
     speechd
     gnome.gnome-boxes
+    neovim
   ];
 
   services.gpg-agent = {
