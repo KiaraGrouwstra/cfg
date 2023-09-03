@@ -5,6 +5,7 @@
 
   inputs = {
     # Flake inputs
+    nix.url = github:nixos/nix;
     home.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
 
