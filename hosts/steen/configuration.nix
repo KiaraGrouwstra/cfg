@@ -102,6 +102,7 @@
       "wheel"
       "adbusers"
       "docker"
+      "libvirtd"
     ];
     shell = pkgs.zsh;
   };
@@ -178,6 +179,7 @@
   };
 
   virtualisation = {
+
     # to use podman with ports as low as 80 run:
     # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
     podman = {
@@ -190,6 +192,7 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
+
     docker = {
       enable = true;
       storageDriver = "btrfs";
@@ -198,7 +201,11 @@
         setSocketVariable = true;
       };
     };
+
+    # libvirtd
+    libvirtd.enable = true;
   };
+  programs.dconf.enable = true;
 
   fonts.fonts = with pkgs; [
     powerline-fonts
