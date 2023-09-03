@@ -119,6 +119,7 @@
     speechd
     gnome.gnome-boxes
     neovim
+    virt-manager
   ];
 
   services.gpg-agent = {
