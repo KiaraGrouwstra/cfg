@@ -117,9 +117,10 @@
     argocd
     dos2unix
     speechd
-    gnome.gnome-boxes
+    gnome.gnome-boxes  # broken: https://github.com/NixOS/nixpkgs/issues/226355
     neovim
     virt-manager
+    obs-studio
   ];
 
   services.gpg-agent = {
