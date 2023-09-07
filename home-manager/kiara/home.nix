@@ -189,8 +189,8 @@
       theme = "agnoster";
     };
     sessionVariables = {
-      EDITOR = "amp";
-      VISUAL = "amp";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       GUIX_PROFILE = "/home/kiara/.guix-profile";
     };
     shellAliases = {
