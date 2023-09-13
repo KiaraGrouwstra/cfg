@@ -11,6 +11,7 @@ follow instructions:
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
+- shell: `nix-shell --command zsh -p lolcat`
 
 ### [guix](https://github.com/NixOS/nixpkgs/pull/150130#issuecomment-993954344)
 
