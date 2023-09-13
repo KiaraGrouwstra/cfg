@@ -121,6 +121,7 @@
     neovim
     virt-manager
     obs-studio
+    woodpecker-cli
   ];
 
   services.gpg-agent = {
