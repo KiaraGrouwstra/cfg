@@ -123,6 +123,7 @@
     obs-studio
     woodpecker-cli
     git-interactive-rebase-tool
+    markdownlint-cli
   ];
 
   services.gpg-agent = {
