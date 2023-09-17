@@ -122,6 +122,7 @@
     virt-manager
     obs-studio
     woodpecker-cli
+    git-interactive-rebase-tool
   ];
 
   services.gpg-agent = {
