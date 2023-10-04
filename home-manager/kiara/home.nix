@@ -50,6 +50,7 @@
     firefox
     thunderbird
     signal-desktop
+    telegram-desktop
     gnome.gnome-tweaks
     vscodium
     libreoffice-fresh
