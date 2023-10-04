@@ -8,6 +8,8 @@
     nix.url = github:nixos/nix;
     home.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
+    nix-software-center.url = "github:vlinkz/nix-software-center";
+    nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
 
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
