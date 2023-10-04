@@ -125,6 +125,7 @@
     woodpecker-cli
     git-interactive-rebase-tool
     nodePackages.markdownlint-cli
+    prusa-slicer
   ];
 
   services.gpg-agent = {
