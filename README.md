@@ -5,6 +5,13 @@ This is my setup for [NixOS](https://nixos.org/) using [Nix Flakes](https://nixo
 ## usage
 
 follow instructions:
+- [download](https://nixos.org/download) / [install](https://nixos.org/manual/nixos/stable/#sec-installation) / boot [nixos](https://nixos.org/)
+- take access to nixos directory: `sudo chown -R $USER /etc/nixos/`
+- make it writeable?: `sudo chmod 0700 /etc/nixos/`
+- copy the contents of this repo to `/etc/nixos/`
+- place the original `configuration.nix` and `hardware-configuration.nix` into one of the hardware profiles in `hosts/`
+- in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
+- in `flake.nix` add the device profile
 - [nixos](https://nixos.org/manual/nixos/stable): `nixos-rebuild --flake .#kiara-steen`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#kiara@steen switch -b backup`
