@@ -86,6 +86,12 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
 
+        kiara-hammer = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-linux";
+          modules = [ ./hosts/hammer/configuration.nix ];
+        };
+
         kiara-steen = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           system = "x86_64-linux";
@@ -97,6 +103,14 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
+
+        "kiara@hammer" = home.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/kiara/home.nix
+          ];
+        };
 
         "kiara@steen" = home.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
