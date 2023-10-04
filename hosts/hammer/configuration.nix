@@ -54,7 +54,7 @@
   services.xserver.desktopManager.gnome = {
     extraGSettingsOverrides = ''
       [org.gnome.shell]
-      favorite-apps=['org.gnome.Nautilus.desktop', 'org.wezfurlong.wezterm.desktop', 'firefox.desktop', 'thunderbird.desktop', 'signal-desktop-beta.desktop', 'codium.desktop', 'org.keepassxc.KeePassXC.desktop']
+      favorite-apps=['org.gnome.Nautilus.desktop', 'org.wezfurlong.wezterm.desktop', 'firefox.desktop', 'thunderbird.desktop', 'signal-desktop.desktop', 'codium.desktop', 'org.keepassxc.KeePassXC.desktop']
     '';
 
     extraGSettingsOverridePackages = with pkgs; [

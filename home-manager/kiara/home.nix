@@ -49,7 +49,7 @@
     usbutils
     firefox
     thunderbird
-    signal-desktop-beta
+    signal-desktop
     gnome.gnome-tweaks
     vscodium
     libreoffice-fresh
