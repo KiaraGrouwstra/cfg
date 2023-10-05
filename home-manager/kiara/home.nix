@@ -88,6 +88,7 @@
     offlineimap
     kdeconnect
     gnomeExtensions.random-wallpaper
+    gnomeExtensions.paperwm
     vlc
     ffmpeg
     gnome.gnome-music
@@ -244,6 +245,20 @@
       "switch-windows-backward" = ["<Shift><Alt>Tab"];
       "switch-applications" = ["<Super>Tab"];
       "switch-applications-backward" = ["<Super><Alt>Tab"];
+    };
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "org.gnome.Nautilus.desktop"
+        "org.wezfurlong.wezterm.desktop"
+        "firefox.desktop"
+        "thunderbird.desktop"
+        "signal-desktop-beta.desktop"
+        "codium.desktop"
+        "org.keepassxc.KeePassXC.desktop"
+      ];
+      # enabled-extensions = [
+      #   "paperwm@hedning:matrix.org"
+      # ];
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
