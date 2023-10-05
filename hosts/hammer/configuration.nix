@@ -74,6 +74,8 @@
 
   hardware.bluetooth.enable = true;
 
+  security.sudo.wheelNeedsPassword = false;
+
   users.users.kiara = {
     isNormalUser = true;
     description = "輝愛来 (kiara)";
