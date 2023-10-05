@@ -260,7 +260,9 @@
       #   "paperwm@hedning:matrix.org"
       # ];
     };
-    "org/gnome/shell/extensions/paperwm/use-default-background" = true;
+    "org/gnome/shell/extensions/paperwm" = {
+      use-default-background = true;
+    };
     "org/gnome/shell/extensions/paperwm/keybindings" = {
       "switch-left" = ["<Super>a" "<Super>Left"];
       "switch-right" = ["<Super>d" "<Super>Right"];
