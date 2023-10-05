@@ -195,6 +195,30 @@
     "application/pdf" = [ "evince.desktop" ];
     "application/x-code-workspace" = [ "codium.desktop" ];
     "text/plain" = [ "codium.desktop" ];
+    "image/jpeg"                = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/bmp"                 = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/gif"                 = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/jpg"                 = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/pjpeg"               = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/png"                 = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/tiff"                = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/webp"                = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-bmp"               = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-gray"              = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-icb"               = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-ico"               = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-png"               = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-portable-anymap"   = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-portable-bitmap"   = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-portable-graymap"  = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-portable-pixmap"   = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-xbitmap"           = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-xpixmap"           = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-pcx"               = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/svg+xml"             = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/svg+xml-compressed"  = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/vnd.wap.wbmp"        = [ "org.gnome.eog.desktop" "gimp.desktop" ];
+    "image/x-icns"              = [ "org.gnome.eog.desktop" "gimp.desktop" ];
   };
 
   programs.zsh = {
