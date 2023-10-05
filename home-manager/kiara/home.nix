@@ -138,6 +138,7 @@
     git-interactive-rebase-tool
     nodePackages.markdownlint-cli
     prusa-slicer
+    gnome.dconf-editor
   ];
 
   services.gpg-agent = {
@@ -237,6 +238,12 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+    };
+    "org/gnome/desktop/wm/keybindings" = {
+      "switch-windows" = ["<Alt>Tab"];
+      "switch-windows-backward" = ["<Shift><Alt>Tab"];
+      "switch-applications" = ["<Super>Tab"];
+      "switch-applications-backward" = ["<Super><Alt>Tab"];
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
