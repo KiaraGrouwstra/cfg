@@ -282,7 +282,7 @@
         "org.wezfurlong.wezterm.desktop"
         "firefox.desktop"
         "thunderbird.desktop"
-        "signal-desktop-beta.desktop"
+        "signal-desktop.desktop"
         "codium.desktop"
         "org.keepassxc.KeePassXC.desktop"
       ];
