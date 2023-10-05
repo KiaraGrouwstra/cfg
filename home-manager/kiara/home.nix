@@ -297,7 +297,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  xdg.configFile = {
+  home.file = {
     ".gitignore" = {
       source = ./dotfiles/.gitignore;
     };
