@@ -21,8 +21,20 @@
     };
 
     theme = {
-      package = pkgs.adementary-theme;
-      name = "Adementary-dark";
+      package = pkgs.palenight-theme;
+      name = "palenight";
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
     };
   };
 
@@ -194,6 +206,7 @@
       theme = "agnoster";
     };
     sessionVariables = {
+      GTK_THEME = "palenight";
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
@@ -222,6 +235,9 @@
   };
 
   dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];
