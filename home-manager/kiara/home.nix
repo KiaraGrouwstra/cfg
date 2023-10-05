@@ -188,9 +188,12 @@
   };
 
   xdg.mimeApps.defaultApplications = {
+    "inode/directory" = [ "org.gnome.Nautilus.desktop" "codium.desktop" ];
     "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
     "text/calendar" = [ "org.gnome.Calendar.desktop" ];
     "application/pdf" = [ "evince.desktop" ];
+    "application/x-code-workspace" = [ "codium.desktop" ];
+    "text/plain" = [ "codium.desktop" ];
   };
 
   programs.zsh = {
