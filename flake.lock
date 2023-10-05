@@ -143,6 +143,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1696547871,
+        "narHash": "sha256-02yizcTxT3xeJLfBmzqP+4wAk9xchmtqtSWjUdI3Mbw=",
+        "owner": "KiaraGrouwstra",
+        "repo": "nixos-hardware",
+        "rev": "96b3159a15b0c353fbca60ab6085f704104174a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KiaraGrouwstra",
+        "ref": "lenovo-ideapad-slim-5",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixos-unstable": {
       "locked": {
         "lastModified": 1696193975,
@@ -262,6 +278,7 @@
         "nix-software-center": "nix-software-center",
         "nix-zsh-completions": "nix-zsh-completions",
         "nixos-conf-editor": "nixos-conf-editor",
+        "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": [
           "stable"

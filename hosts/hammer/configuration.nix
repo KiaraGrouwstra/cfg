@@ -93,6 +93,14 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kiara";
 
+  # See https://linrunner.de/en/tlp/docs/tlp-faq.html#battery
+  services.tlp.extraConfig = ''
+    START_CHARGE_THRESH_BAT0=75
+    STOP_CHARGE_THRESH_BAT0=80
+    CPU_SCALING_GOVERNOR_ON_BAT=powersave
+    ENERGY_PERF_POLICY_ON_BAT=powersave
+  '';
+
   # guix
   users.extraUsers = lib.fold (a: b: a // b) { } (builtins.map
     (i: {

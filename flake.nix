@@ -10,7 +10,7 @@
     nur.url = "github:nix-community/NUR";
     nix-software-center.url = "github:vlinkz/nix-software-center";
     nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
-
+    nixos-hardware.url = "github:KiaraGrouwstra/nixos-hardware/lenovo-ideapad-slim-5";
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     stable.url = "github:nixos/nixpkgs/nixos-23.05";
@@ -44,7 +44,7 @@
     home.inputs.nixpkgs.follows = "master";
   };
 
-  outputs = { self, nixpkgs, home, ... }@inputs:
+  outputs = { self, nixpkgs, home, nixos-hardware, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -91,7 +91,10 @@
         kiara-hammer = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           system = "x86_64-linux";
-          modules = [ ./hosts/hammer/configuration.nix ];
+          modules = [
+            ./hosts/hammer/configuration.nix
+            nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          ];
         };
 
         kiara-steen = nixpkgs.lib.nixosSystem {
