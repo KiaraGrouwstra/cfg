@@ -142,6 +142,7 @@
     nodePackages.markdownlint-cli
     prusa-slicer
     gnome.dconf-editor
+    lapce
   ];
 
   services.gpg-agent = {
