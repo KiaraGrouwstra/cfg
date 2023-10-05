@@ -267,10 +267,10 @@
       "switch-down" = ["<Super>s" "<Super>Down"];
       "switch-monitor-left" = ["<Shift><Super>Left" "<Shift><Super>a"];
       "switch-monitor-right" = ["<Shift><Super>Right" "<Shift><Super>d"];
-      "move-left" = ["<Control><Super>comma" "<Shift><Super>comma" "<Control><Super>Left" "<Control><Super>a"];
-      "move-right" = ["<Control><Super>period" "<Shift><Super>period" "<Control><Super>Right" "<Control><Super>d"];
-      "move-monitor-left" = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a"];
-      "move-monitor-right" = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d"];
+      "move-left" = ["<Control><Super>comma" "<Shift><Super>comma" "<Control><Super>Left" "<Control><Super>a" "<Alt><Super>a"];
+      "move-right" = ["<Control><Super>period" "<Shift><Super>period" "<Control><Super>Right" "<Control><Super>d" "<Alt><Super>d"];
+      "move-monitor-left" = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
+      "move-monitor-right" = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
