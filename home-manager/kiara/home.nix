@@ -18,8 +18,8 @@
     };
 
     iconTheme = {
-      package = pkgs.paper-icon-theme;
-      name = "Paper-Mono-Dark";
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
 
     theme = {
