@@ -379,6 +379,8 @@
   };
 
   home.file = {
+    ".face".source = ./dotfiles/.face;
+    ".ssh/config".source = ./dotfiles/.ssh/config;
   };
 
 }
