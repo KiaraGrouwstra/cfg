@@ -305,6 +305,18 @@
       "move-monitor-left" = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
       "move-monitor-right" = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
     };
+    "org/gnome/desktop" = {
+      "interface/show-battery-percentage" = true;
+      "input-sources/xkb-options" = [
+        "terminate:ctrl_alt_bksp"
+        "caps:escape"
+      ];
+      "session/idle-delay" = 900;
+    };
+    "org/gnome/settings-daemon/plugins/power" = {
+      "sleep-inactive-ac-timeout" = 3600;
+      "sleep-inactive-battery-timeout" = 1200;
+    };
     # [microsoft keyboard](https://unix.stackexchange.com/a/714224)
     "org.gnome.shell.extensions.emoji-copy" = {
       emoji-keybinding = ["<Shift><Ctrl><Alt><Super>space"];
