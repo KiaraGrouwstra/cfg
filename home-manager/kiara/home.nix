@@ -281,6 +281,7 @@
       use-default-background = true;
     };
     "org/gnome/shell/extensions/paperwm/keybindings" = {
+      "close-window" = ["<Super>BackSpace" "<Super>q"];
       "switch-left" = ["<Super>a" "<Super>Left"];
       "switch-right" = ["<Super>d" "<Super>Right"];
       "switch-up" = ["<Super>w" "<Super>Up"];
