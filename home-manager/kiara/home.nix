@@ -108,12 +108,12 @@
     nix-direnv
     asdf-vm
     gcc
-    (python3.withPackages(ps : with ps; [
-      bootstrapped-pip
-      pandas
-      ipython
-      ipython-sql
-    ]))
+    # (python3.withPackages(ps : with ps; [
+    #   bootstrapped-pip
+    #   pandas
+    #   ipython
+    #   ipython-sql
+    # ]))
     yarn
     sqlite
     zlib
@@ -121,7 +121,7 @@
     element-desktop
     docker-compose
     brave
-    terraform
+    # terraform
     terraform-providers.kubernetes
     terraform-providers.helm
     kubectl
