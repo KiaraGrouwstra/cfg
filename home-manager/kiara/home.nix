@@ -143,6 +143,7 @@
     prusa-slicer
     gnome.dconf-editor
     lapce
+    peek
   ];
 
   services.gpg-agent = {
