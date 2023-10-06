@@ -91,6 +91,7 @@
     kdeconnect
     gnomeExtensions.random-wallpaper
     gnomeExtensions.paperwm
+    gnomeExtensions.emoji-copy
     vlc
     ffmpeg
     gnome.gnome-music
