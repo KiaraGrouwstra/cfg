@@ -10,7 +10,7 @@
     nur.url = "github:nix-community/NUR";
     nix-software-center.url = "github:vlinkz/nix-software-center";
     nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
-    nixos-hardware.url = "github:KiaraGrouwstra/nixos-hardware/lenovo-ideapad-slim-5";
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     stable.url = "github:nixos/nixpkgs/nixos-23.05";

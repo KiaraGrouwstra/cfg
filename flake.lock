@@ -145,16 +145,16 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1696591016,
-        "narHash": "sha256-fgA7u+xO8Ho2kGUKhaWUnVJ+sUa/57bPg90ekmToQdE=",
-        "owner": "KiaraGrouwstra",
+        "lastModified": 1696614066,
+        "narHash": "sha256-nAyYhO7TCr1tikacP37O9FnGr2USOsVBD3IgvndUYjM=",
+        "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "478ffe6b63ed92d3c2da23e6ffad539babff43ff",
+        "rev": "bb2db418b616fea536b1be7f6ee72fb45c11afe0",
         "type": "github"
       },
       "original": {
-        "owner": "KiaraGrouwstra",
-        "ref": "lenovo-ideapad-slim-5",
+        "owner": "nixos",
+        "ref": "master",
         "repo": "nixos-hardware",
         "type": "github"
       }
