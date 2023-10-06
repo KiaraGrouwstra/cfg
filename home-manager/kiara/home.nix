@@ -189,12 +189,12 @@
   };
 
   xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "org.gnome.Nautilus.desktop" "codium.desktop" ];
+    "inode/directory" = [ "org.gnome.Nautilus.desktop" "lapce.desktop" "codium.desktop" ];
     "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
     "text/calendar" = [ "org.gnome.Calendar.desktop" ];
     "application/pdf" = [ "evince.desktop" ];
-    "application/x-code-workspace" = [ "codium.desktop" ];
-    "text/plain" = [ "codium.desktop" ];
+    "application/x-code-workspace" = [ "lapce.desktop" "codium.desktop" ];
+    "text/plain" = [ "lapce.desktop" "codium.desktop" ];
     "image/jpeg"                = [ "org.gnome.eog.desktop" "gimp.desktop" ];
     "image/bmp"                 = [ "org.gnome.eog.desktop" "gimp.desktop" ];
     "image/gif"                 = [ "org.gnome.eog.desktop" "gimp.desktop" ];
