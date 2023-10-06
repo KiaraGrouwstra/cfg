@@ -305,6 +305,10 @@
       "move-monitor-left" = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
       "move-monitor-right" = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
     };
+    # [microsoft keyboard](https://unix.stackexchange.com/a/714224)
+    "org.gnome.shell.extensions.emoji-copy" = {
+      emoji-keybinding = ["<Shift><Ctrl><Alt><Super>space"];
+    };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];
