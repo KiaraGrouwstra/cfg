@@ -40,7 +40,7 @@
     };
 
     # Default branch
-    nixpkgs.follows = "stable";
+    nixpkgs.follows = "master";
     home.inputs.nixpkgs.follows = "master";
   };
 

@@ -196,7 +196,7 @@
   };
   programs.dconf.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     powerline-fonts
     twemoji-color-font
     noto-fonts
