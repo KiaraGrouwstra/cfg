@@ -382,6 +382,7 @@
     };
   };
 
+  # must `git add .` or new files won't be found
   home.file = {
     ".face".source = ./dotfiles/.face;
     ".ssh/config".source = ./dotfiles/.ssh/config;
