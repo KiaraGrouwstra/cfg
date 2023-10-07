@@ -92,6 +92,8 @@
     gnomeExtensions.random-wallpaper
     gnomeExtensions.paperwm
     gnomeExtensions.emoji-copy
+    gnomeExtensions.switch-x11-wayland-default-session
+    gnomeExtensions.zoom-wayland-extension
     vlc
     ffmpeg
     gnome.gnome-music
