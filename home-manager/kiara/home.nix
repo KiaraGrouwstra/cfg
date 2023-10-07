@@ -111,12 +111,12 @@
     nix-direnv
     asdf-vm
     gcc
-    # (python3.withPackages(ps : with ps; [
-    #   bootstrapped-pip
-    #   pandas
-    #   ipython
-    #   ipython-sql
-    # ]))
+    poetry
+    (python3.withPackages(ps : with ps; [
+      pandas
+      ipython
+      ipython-sql
+    ]))
     yarn
     sqlite
     zlib
