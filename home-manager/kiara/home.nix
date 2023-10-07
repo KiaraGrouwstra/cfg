@@ -113,6 +113,7 @@
     gcc
     poetry
     (python3.withPackages(ps : with ps; [
+      nautilus-open-any-terminal
       pandas
       ipython
       ipython-sql
