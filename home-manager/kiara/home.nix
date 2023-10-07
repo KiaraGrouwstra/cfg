@@ -147,6 +147,7 @@
     gnome.dconf-editor
     lapce
     peek
+    subversion
   ];
 
   services.gpg-agent = {
