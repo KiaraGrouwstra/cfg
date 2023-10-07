@@ -184,6 +184,8 @@
     noto-fonts-emoji-blob-bin
   ];
 
+  programs.plotinus.enable = true;
+
   # /root/.config/guix/current/lib/systemd/system/guix-daemon.service
   systemd.services.guix-daemon = {
     enable = true;
