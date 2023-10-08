@@ -276,6 +276,7 @@
         "signal-desktop.desktop"
         "codium.desktop"
         "org.keepassxc.KeePassXC.desktop"
+        "element-desktop.desktop"
       ];
       # enabled-extensions = [
       #   "paperwm@hedning:matrix.org"
