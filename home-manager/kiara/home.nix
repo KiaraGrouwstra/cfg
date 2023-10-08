@@ -277,6 +277,10 @@
     "org/gnome/nautilus" = {
       "icon-view/captions" = ["size" "none" "none"];
     };
+    "org/gnome/evince" = {
+      "default/inverted-colors" = true;
+      "default/show-sidebar" = false;
+    };
     "org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
