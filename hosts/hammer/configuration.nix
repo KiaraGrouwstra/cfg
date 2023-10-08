@@ -15,6 +15,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
+  # # Setup keyfile
+  # boot.initrd.secrets = {
+  #   "/crypto_keyfile.bin" = null;
+  # };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -175,6 +180,30 @@
       { from = 1714; to = 1764; } # KDE Connect
     ];  
   };
+
+  virtualisation = {
+    # to use podman with ports as low as 80 run:
+    # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
+    podman = {
+      enable = true;
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      # dockerCompat = true;
+      # NOTE: this doesn't replace Docker Swarm
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    docker = {
+      enable = true;
+      # storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    # libvirtd
+    libvirtd.enable = true;
+  };
+  programs.dconf.enable = true;
 
   fonts.packages = with pkgs; [
     powerline-fonts

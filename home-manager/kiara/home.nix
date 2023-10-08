@@ -148,6 +148,7 @@
     gnome.dconf-editor
     lapce
     peek
+    subversion
   ];
 
   services.gpg-agent = {
@@ -276,6 +277,7 @@
         "signal-desktop.desktop"
         "codium.desktop"
         "org.keepassxc.KeePassXC.desktop"
+        "element-desktop.desktop"
       ];
       # enabled-extensions = [
       #   "paperwm@hedning:matrix.org"
@@ -296,6 +298,8 @@
       "move-right" = ["<Control><Super>period" "<Shift><Super>period" "<Control><Super>Right" "<Control><Super>d" "<Alt><Super>d"];
       "move-monitor-left" = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
       "move-monitor-right" = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
+      "move-up-workspace" = ["<Control><Super>Page_Up" "<Alt><Super>Page_Up"];
+      "move-down-workspace" = ["<Control><Super>Page_Down" "<Alt><Super>Page_Down"];
     };
     "org/gnome/desktop" = {
       "interface/show-battery-percentage" = true;
@@ -338,6 +342,9 @@
     userName  = "Kiara Grouwstra";
     userEmail = "kiara@bij1.org";
     delta.enable = true;
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
     ignores = [
       # Compiled source #
       ###################
