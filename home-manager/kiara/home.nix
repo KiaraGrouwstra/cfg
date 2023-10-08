@@ -150,6 +150,8 @@
     lapce
     peek
     subversion
+    imagemagick
+    # cosmic-comp
   ];
 
   services.gpg-agent = {
