@@ -269,6 +269,9 @@
       "switch-applications" = ["<Super>Tab"];
       "switch-applications-backward" = ["<Super><Alt>Tab"];
     };
+    "org/gnome/nautilus" = {
+      "icon-view/captions" = ["size" "none" "none"];
+    };
     "org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
