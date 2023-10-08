@@ -84,6 +84,7 @@
     texlive.combined.scheme-full
     font-awesome
     tealdeer
+    evince
     calibre
     browserpass
     offlineimap
