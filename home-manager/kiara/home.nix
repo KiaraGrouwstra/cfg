@@ -85,7 +85,6 @@
     font-awesome
     tealdeer
     calibre
-    okular
     browserpass
     offlineimap
     kdeconnect
