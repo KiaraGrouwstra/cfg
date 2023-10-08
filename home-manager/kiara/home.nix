@@ -269,17 +269,17 @@
       color-scheme = "prefer-dark";
     };
     "org/gnome/desktop/wm/keybindings" = {
-      "switch-windows" = ["<Alt>Tab"];
-      "switch-windows-backward" = ["<Shift><Alt>Tab"];
-      "switch-applications" = ["<Super>Tab"];
-      "switch-applications-backward" = ["<Super><Alt>Tab"];
+      switch-windows = ["<Alt>Tab"];
+      switch-windows-backward = ["<Shift><Alt>Tab"];
+      switch-applications = ["<Super>Tab"];
+      switch-applications-backward = ["<Super><Alt>Tab"];
     };
-    "org/gnome/nautilus" = {
-      "icon-view/captions" = ["size" "none" "none"];
+    "org/gnome/nautilus/icon-view" = {
+      captions = ["size" "none" "none"];
     };
-    "org/gnome/evince" = {
-      "default/inverted-colors" = true;
-      "default/show-sidebar" = false;
+    "org/gnome/evince/default" = {
+      inverted-colors = true;
+      show-sidebar = false;
     };
     "org/gnome/shell" = {
       favorite-apps = [
@@ -300,34 +300,38 @@
       use-default-background = true;
     };
     "org/gnome/shell/extensions/paperwm/keybindings" = {
-      "close-window" = ["<Super>BackSpace" "<Super>q"];
-      "switch-left" = ["<Super>a" "<Super>Left"];
-      "switch-right" = ["<Super>d" "<Super>Right"];
-      "switch-up" = ["<Super>w" "<Super>Up"];
-      "switch-down" = ["<Super>s" "<Super>Down"];
-      "switch-monitor-left" = ["<Shift><Super>Left" "<Shift><Super>a"];
-      "switch-monitor-right" = ["<Shift><Super>Right" "<Shift><Super>d"];
-      "move-left" = ["<Control><Super>comma" "<Shift><Super>comma" "<Control><Super>Left" "<Control><Super>a" "<Alt><Super>a"];
-      "move-right" = ["<Control><Super>period" "<Shift><Super>period" "<Control><Super>Right" "<Control><Super>d" "<Alt><Super>d"];
-      "move-monitor-left" = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
-      "move-monitor-right" = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
-      "move-up-workspace" = ["<Control><Super>Page_Up" "<Alt><Super>Page_Up"];
-      "move-down-workspace" = ["<Control><Super>Page_Down" "<Alt><Super>Page_Down"];
+      close-window = ["<Super>BackSpace" "<Super>q"];
+      switch-left = ["<Super>a" "<Super>Left"];
+      switch-right = ["<Super>d" "<Super>Right"];
+      switch-up = ["<Super>w" "<Super>Up"];
+      switch-down = ["<Super>s" "<Super>Down"];
+      switch-monitor-left = ["<Shift><Super>Left" "<Shift><Super>a"];
+      switch-monitor-right = ["<Shift><Super>Right" "<Shift><Super>d"];
+      move-left = ["<Control><Super>comma" "<Shift><Super>comma" "<Control><Super>Left" "<Control><Super>a" "<Alt><Super>a"];
+      move-right = ["<Control><Super>period" "<Shift><Super>period" "<Control><Super>Right" "<Control><Super>d" "<Alt><Super>d"];
+      move-monitor-left = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
+      move-monitor-right = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
+      move-up-workspace = ["<Control><Super>Page_Up" "<Alt><Super>Page_Up"];
+      move-down-workspace = ["<Control><Super>Page_Down" "<Alt><Super>Page_Down"];
     };
-    "org/gnome/desktop" = {
-      "interface/show-battery-percentage" = true;
-      "input-sources/xkb-options" = [
+    "org/gnome/desktop/interface" = {
+      show-battery-percentage = true;
+    };
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = [
         "terminate:ctrl_alt_bksp"
         "caps:escape"
       ];
-      "session/idle-delay" = 900;
+    };
+    "org/gnome/desktop/session" = {
+      idle-delay = 900;
     };
     "org/gnome/settings-daemon/plugins/power" = {
-      "sleep-inactive-ac-timeout" = 3600;
-      "sleep-inactive-battery-timeout" = 1200;
+      sleep-inactive-ac-timeout = 3600;
+      sleep-inactive-battery-timeout = 1200;
     };
     # [microsoft keyboard](https://unix.stackexchange.com/a/714224)
-    "org.gnome.shell.extensions.emoji-copy" = {
+    "org/gnome/shell/extensions/emoji-copy" = {
       emoji-keybinding = ["<Shift><Ctrl><Alt><Super>space"];
     };
     "org/virt-manager/virt-manager/connections" = {
