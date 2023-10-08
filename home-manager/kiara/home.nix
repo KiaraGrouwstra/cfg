@@ -148,6 +148,7 @@
     prusa-slicer
     cura
     curaengine
+    octoprint
     gnome.dconf-editor
     lapce
     peek
