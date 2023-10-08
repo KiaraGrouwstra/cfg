@@ -128,10 +128,27 @@
     epiphany
     geary
     totem
-    tali
-    iagno
-    hitori
+    # games:
+    aisleriot
     atomix
+    five-or-more
+    four-in-a-row
+    pkgs.gnome-2048
+    gnome-chess
+    gnome-klotski
+    gnome-mahjongg
+    gnome-mines
+    gnome-nibbles
+    gnome-robots
+    gnome-sudoku
+    gnome-taquin
+    gnome-tetravex
+    hitori
+    iagno
+    lightsoff
+    quadrapassel
+    swell-foop
+    tali
   ]);
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
