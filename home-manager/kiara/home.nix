@@ -114,6 +114,7 @@
     poetry
     (python3.withPackages(ps : with ps; [
       nautilus-open-any-terminal
+      # ^ manually patch gsettings: https://github.com/NixOS/nixpkgs/issues/259586#issuecomment-1752107159
       pandas
       ipython
       ipython-sql
