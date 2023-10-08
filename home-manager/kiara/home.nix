@@ -146,6 +146,8 @@
     git-interactive-rebase-tool
     nodePackages.markdownlint-cli
     prusa-slicer
+    cura
+    curaengine
     gnome.dconf-editor
     lapce
     peek
