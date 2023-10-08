@@ -152,6 +152,8 @@
     subversion
     imagemagick
     # cosmic-comp
+    # cosmic-panel
+    # cosmic-applets
   ];
 
   services.gpg-agent = {
