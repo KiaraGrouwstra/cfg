@@ -396,6 +396,10 @@
 
   # must `git add .` or new files won't be found
   home.file = {
+    "Templates/Untitled.md".text = "";
+    "Templates/Untitled.odt".source = ./dotfiles/Templates/Untitled.odt;
+    "Templates/Untitled.ods".source = ./dotfiles/Templates/Untitled.ods;
+    "Templates/Untitled.odp".source = ./dotfiles/Templates/Untitled.odp;
     ".face".source = ./dotfiles/.face;
     ".ssh/config".source = ./dotfiles/.ssh/config;
   };
