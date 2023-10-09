@@ -198,6 +198,10 @@
     ];  
   };
 
+  services.locate.enable = true;
+  services.locate.locate = pkgs.mlocate;
+  services.locate.localuser = null;
+
   virtualisation = {
     # to use podman with ports as low as 80 run:
     # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
