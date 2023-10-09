@@ -149,6 +149,7 @@
     cura
     curaengine
     octoprint
+    rpi-imager
     gnome.dconf-editor
     lapce
     peek
