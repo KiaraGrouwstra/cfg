@@ -156,6 +156,7 @@
     subversion
     imagemagick
     idris2
+    hvm
   ];
 
   services.gpg-agent = {
