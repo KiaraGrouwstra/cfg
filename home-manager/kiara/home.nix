@@ -155,6 +155,7 @@
     peek
     subversion
     imagemagick
+    idris2
   ];
 
   services.gpg-agent = {
