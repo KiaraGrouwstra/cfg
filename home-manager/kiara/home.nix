@@ -150,6 +150,7 @@
     curaengine
     octoprint
     rpi-imager
+    arduinoOTA
     gnome.dconf-editor
     lapce
     peek
