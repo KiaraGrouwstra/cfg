@@ -158,6 +158,7 @@
     imagemagick
     idris2
     hvm
+    marble
   ];
 
   services.gpg-agent = {
