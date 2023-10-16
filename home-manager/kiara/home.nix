@@ -159,6 +159,7 @@
     idris2
     hvm
     marble
+    sshfs
   ];
 
   services.gpg-agent = {
