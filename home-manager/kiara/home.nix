@@ -160,6 +160,7 @@
     hvm
     marble
     sshfs
+    gettext
   ];
 
   services.gpg-agent = {
