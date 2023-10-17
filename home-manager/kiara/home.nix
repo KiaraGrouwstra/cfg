@@ -200,6 +200,7 @@
     "application/x-code-workspace" = [ "lapce.desktop" "codium.desktop" ];
     "text/plain" = [ "lapce.desktop" "codium.desktop" ];
     "text/markdown" = [ "codium.desktop" ];
+    "application/epub+zip" = [ "calibre-ebook-viewer.desktop" "calibre-ebook-edit.desktop" ];
   } // (builtins.listToAttrs (map (type: { "image/${type}" = [ "org.gnome.eog.desktop" "gimp.desktop" ]; }) [
     "jpeg"
     "bmp"
