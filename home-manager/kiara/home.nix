@@ -58,6 +58,7 @@
     gnupg
     pinentry-gtk2
     zsh
+    jq
     amp
     wezterm
     usbutils
