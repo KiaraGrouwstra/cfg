@@ -455,6 +455,7 @@
     "Templates/Untitled.odp".source = ./dotfiles/Templates/Untitled.odp;
     ".face".source = ./dotfiles/.face;
     ".ssh/config".source = ./dotfiles/.ssh/config;
+    ".config/amp/config.yml".source = ./dotfiles/.config/amp/config.yml;
   };
 
 }
