@@ -163,6 +163,7 @@
     marble
     sshfs
     gettext
+    arduino-cli
   ];
 
   services.gpg-agent = {
