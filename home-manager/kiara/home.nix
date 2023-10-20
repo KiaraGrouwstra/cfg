@@ -67,6 +67,7 @@
     signal-desktop
     telegram-desktop
     gnome.gnome-tweaks
+    dconf2nix
     vscodium
     libreoffice-fresh
     thefuck
