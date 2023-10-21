@@ -164,6 +164,7 @@
     sshfs
     gettext
     arduino-cli
+    xclip
   ];
 
   services.gpg-agent = {
