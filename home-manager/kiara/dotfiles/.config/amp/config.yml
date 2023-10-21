@@ -1,3 +1,14 @@
+types:
+  rs:
+    line_comment_prefix: //
+  sh:
+    line_comment_prefix: "#"
+  nix:
+    line_comment_prefix: "#"
+  py:
+    line_comment_prefix: "#"
+  rb:
+    line_comment_prefix: "#"
 keymap:
   normal:
     page_up:
