@@ -1,3 +1,5 @@
+**/secrets.yml
+/keys.txt
 /result
 /hardware-configuration.nix
 /configuration.nix

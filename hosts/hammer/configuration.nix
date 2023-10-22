@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.sops-nix.nixosModules.sops
     ];
 
   # Bootloader.
@@ -29,6 +30,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.unmanaged = [
+    "wifi 50"
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -83,6 +87,7 @@
 
   users.users.kiara = {
     isNormalUser = true;
+    hashedPasswordFile = config.sops.secrets.user-password-kiara.path;
     description = "輝愛来 (kiara)";
     extraGroups = [
       "networkmanager"
@@ -162,6 +167,8 @@
     curl
     git
     cachix
+    sops
+    rage
     inputs.nix-software-center.packages.${system}.nix-software-center
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
     gnome.nautilus-python
@@ -198,9 +205,11 @@
     ];  
   };
 
-  services.locate.enable = true;
-  services.locate.locate = pkgs.mlocate;
-  services.locate.localuser = null;
+  services.locate = {
+    enable = true;
+    package = pkgs.mlocate;
+    localuser = null;
+  };
 
   virtualisation = {
     # to use podman with ports as low as 80 run:
@@ -286,6 +295,25 @@
 
   # https://github.com/NixOS/nixpkgs/pull/210453#issuecomment-1410035331
   nixpkgs.config.firefox.speechSynthesisSupport = true;
+
+  sops = {
+    age.keyFile = "/etc/nixos/keys.txt"; # must have no password!
+    # It's also possible to use a ssh key, but only when it has no password:
+    #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
+    defaultSopsFile = ../../secrets.enc.yml;
+    secrets = {
+      age-keys = {};
+      user-password-kiara.neededForUsers = true;
+      wifi-home-password = {};
+    };
+  };
+
+  networking.wireless.enable = true;
+  networking.wireless.networks = {
+    "wifi 50" = {
+      psk = config.sops.secrets.wifi-home-password.path;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
