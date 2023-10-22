@@ -5,11 +5,28 @@
 
   inputs = {
     # Flake inputs
-    nix.url = github:nixos/nix;
-    home.url = "github:nix-community/home-manager";
+    nix = {
+      url = github:nixos/nix;
+      inputs.nixpkgs.follows = "master";
+    };
+    home = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "master";
+    };
     nur.url = "github:nix-community/NUR";
-    nix-software-center.url = "github:vlinkz/nix-software-center";
-    nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+    nix-software-center = {
+      url = "github:vlinkz/nix-software-center";
+      inputs.nixpkgs.follows = "master";
+      inputs.utils.follows = "flake-utils";
+    };
+    nixos-conf-editor = {
+      url = "github:vlinkz/nixos-conf-editor";
+      inputs.nixpkgs.follows = "master";
+      inputs.utils.follows = "flake-utils";
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     sops-nix = {
       url = "github:mic92/sops-nix";
@@ -18,9 +35,9 @@
     };
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
-    stable.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    # nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Non Flakes
 
@@ -46,7 +63,6 @@
 
     # Default branch
     nixpkgs.follows = "master";
-    home.inputs.nixpkgs.follows = "master";
   };
 
   outputs = { self, nixpkgs, home, nixos-hardware, ... }@inputs:
