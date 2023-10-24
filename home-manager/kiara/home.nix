@@ -1,44 +1,31 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, nix-colors, ... }:
 
 {
   home.enableNixpkgsReleaseCheck = false;
+
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    ./dotfiles.nix
+    ./emacs.nix
+    ./gammastep.nix
+    ./git.nix
+    # ./gtk.nix
+    ./kitty.nix
+    ./mime.nix
+    ./swaylock.nix
+    ./systemd-fixes.nix
+    ./tty-init.nix
+    ./wofi.nix
+    ./zathura.nix
+    ./zsh.nix
+  ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.atelier-dune;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
-
-  # If I can't dance to it, it's not my revolution. - Emma Goldman
-  gtk = {
-    enable = true;
-
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Amber";
-    };
-
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
-    };
-
-    theme = {
-      package = pkgs.palenight-theme;
-      name = "palenight";
-    };
-
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-  };
 
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
   manual.manpages.enable = false;
@@ -61,6 +48,7 @@
     git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
     gnupg
     pinentry-gtk2
+    xorg.xev
     zsh
     jq
     amp
@@ -145,7 +133,6 @@
     dos2unix
     speechd
     gnome.gnome-boxes  # broken: https://github.com/NixOS/nixpkgs/issues/226355
-    neovim
     virt-manager
     obs-studio
     woodpecker-cli
@@ -168,8 +155,66 @@
     sshfs
     gettext
     arduino-cli
+    arduino
     xclip
+    waybar
+    hyprpaper
+    gnome.nautilus
+    dolphin
+    bruno
+    wofi-emoji wtype
+    hyprpicker
+    wayshot
+    watershot
+    wl-screenrec
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    swayidle
+    sway-unwrapped  # for swaymsg
+    slurp
+    scrot
+    libsForQt5.kasts
+    lynx
+
+    # configure-gtk
+    wayland
+    xdg-utils # for opening default programs when clicking links
+    glib # gsettings
+    dracula-theme # gtk theme
+    grim # screenshot functionality
+    bemenu # wayland clone of dmenu
+    wdisplays # tool to configure displays
+    dunst
+
+    # image viewers:
+    swayimg
+    vimiv-qt
+    gnome.eog
+
+    # markdown:
+    glow
+    ghostwriter
+    apostrophe
+    okular
+    mdcat
+    # text editors:
+    libsForQt5.kate # Modern text editor built on the KDE Frameworks and Qt
+    nota # Maui's simple text editor for desktop and mobile
+
+    gitui
+
+    # file browser
+    ranger
+
   ];
+
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      nvchad
+    ];
+  };
+
+  programs.lesspipe.enable = true;
 
   services.gpg-agent = {
     enable = true;
@@ -186,111 +231,6 @@
     indicator = true;
   };
 
-  programs.emacs = {
-    enable = true;
-    extraPackages = epkgs: with epkgs; [
-      nix-mode
-      magit
-      tramp
-      notmuch
-      offlineimap
-      org
-      direnv
-    ];
-  };
-  programs.offlineimap.enable = true;
-
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "org.gnome.Nautilus.desktop" "lapce.desktop" "codium.desktop" ];
-    "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
-    "text/calendar" = [ "org.gnome.Calendar.desktop" ];
-    "application/pdf" = [ "org.gnome.Evince.desktop" ];
-    "application/x-code-workspace" = [ "lapce.desktop" "codium.desktop" ];
-    "text/plain" = [ "lapce.desktop" "codium.desktop" ];
-    "text/markdown" = [ "codium.desktop" ];
-    "application/epub+zip" = [ "calibre-ebook-viewer.desktop" "calibre-ebook-edit.desktop" ];
-  } // (builtins.listToAttrs (map (type: { "image/${type}" = [ "org.gnome.eog.desktop" "gimp.desktop" ]; }) [
-    "jpeg"
-    "bmp"
-    "gif"
-    "jpg"
-    "pjpeg"
-    "png"
-    "tiff"
-    "webp"
-    "x-bmp"
-    "x-gray"
-    "x-icb"
-    "x-ico"
-    "x-png"
-    "x-portable-anymap"
-    "x-portable-bitmap"
-    "x-portable-graymap"
-    "x-portable-pixmap"
-    "x-xbitmap"
-    "x-xpixmap"
-    "x-pcx"
-    "svg+xml"
-    "svg+xml-compressed"
-    "vnd.wap.wbmp"
-    "x-icns"
-  ])) // (builtins.listToAttrs (map (type: { "application/${type}" = [ "writer.desktop" ]; }) [
-    "vnd.openxmlformats-officedocument.wordprocessingml.document"
-    "vnd.openxmlformats-officedocument.wordprocessingml.template"
-    "msword"
-    "vnd.ms-word.document.macroEnabled.12"
-    "vnd.ms-word.template.macroEnabled.12"
-  ])) // (builtins.listToAttrs (map (type: { "application/vnd.${type}" = [ "calc.desktop" ]; }) [
-    "openxmlformats-officedocument.spreadsheetml.sheet"
-    "openxmlformats-officedocument.spreadsheetml.template"
-    "ms-excel"
-    "ms-excel.sheet.macroEnabled.12"
-    "ms-excel.template.macroEnabled.12"
-    "ms-excel.addin.macroEnabled.12"
-    "ms-excel.sheet.binary.macroEnabled.12"
-  ])) // (builtins.listToAttrs (map (type: { "application/vnd.${type}" = [ "impress.desktop" ]; }) [
-    "openxmlformats-officedocument.presentationml.presentation"
-    "openxmlformats-officedocument.presentationml.template"
-    "openxmlformats-officedocument.presentationml.slideshow"
-    "ms-powerpoint"
-    "ms-powerpoint.addin.macroEnabled.12"
-    "ms-powerpoint.presentation.macroEnabled.12"
-    "ms-powerpoint.template.macroEnabled.12"
-    "ms-powerpoint.slideshow.macroEnabled.12"
-  ]));
-
-  programs.zsh = {
-    enable = true;
-    autocd = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
-    historySubstringSearch.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-      plugins = [
-        "git"
-        "thefuck"
-      ];
-      theme = "agnoster";
-    };
-    sessionVariables = {
-      GTK_THEME = "palenight";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
-    shellAliases = {
-      docker-compose = "podman-compose";
-    };
-    initExtra = ''
-                  path+=('/var/guix/profiles/per-user/root/current-guix/bin')
-                  export PATH
-                  export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
-                  [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-                '';
-  };
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -302,85 +242,6 @@
     browsers = [
       "firefox"
     ];
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-    "org/gnome/desktop/wm/keybindings" = {
-      switch-windows = ["<Alt>Tab"];
-      switch-windows-backward = ["<Shift><Alt>Tab"];
-      switch-applications = ["<Super>Tab"];
-      switch-applications-backward = ["<Super><Alt>Tab"];
-    };
-    "org/gnome/nautilus/icon-view" = {
-      captions = ["size" "none" "none"];
-    };
-    "org/gnome/evince/default" = {
-      inverted-colors = true;
-      show-sidebar = false;
-    };
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "org.gnome.Nautilus.desktop"
-        "org.wezfurlong.wezterm.desktop"
-        "firefox.desktop"
-        "thunderbird.desktop"
-        "signal-desktop.desktop"
-        "codium.desktop"
-        "org.keepassxc.KeePassXC.desktop"
-        "element-desktop.desktop"
-      ];
-      # enabled-extensions = [
-      #   "paperwm@hedning:matrix.org"
-      # ];
-    };
-    "org/gnome/shell/extensions/paperwm" = {
-      use-default-background = true;
-    };
-    "org/gnome/shell/extensions/paperwm/keybindings" = {
-      close-window = ["<Super>BackSpace" "<Super>q"];
-      switch-left = ["<Super>a" "<Super>Left"];
-      switch-right = ["<Super>d" "<Super>Right"];
-      switch-up = ["<Super>w" "<Super>Up"];
-      switch-down = ["<Super>s" "<Super>Down"];
-      switch-monitor-left = ["<Shift><Super>Left" "<Shift><Super>a"];
-      switch-monitor-right = ["<Shift><Super>Right" "<Shift><Super>d"];
-      move-left = ["<Control><Super>comma" "<Shift><Super>comma" "<Control><Super>Left" "<Control><Super>a" "<Alt><Super>a"];
-      move-right = ["<Control><Super>period" "<Shift><Super>period" "<Control><Super>Right" "<Control><Super>d" "<Alt><Super>d"];
-      move-monitor-left = ["<Shift><Control><Super>Left" "<Shift><Control><Super>a" "<Shift><Alt><Super>a"];
-      move-monitor-right = ["<Shift><Control><Super>Right" "<Shift><Control><Super>d" "<Shift><Alt><Super>d"];
-      move-up-workspace = ["<Control><Super>Page_Up" "<Alt><Super>Page_Up"];
-      move-down-workspace = ["<Control><Super>Page_Down" "<Alt><Super>Page_Down"];
-    };
-    "org/gnome/desktop/interface" = {
-      show-battery-percentage = true;
-    };
-    "org/gnome/desktop/input-sources" = {
-      xkb-options = [
-        "terminate:ctrl_alt_bksp"
-        "caps:escape"
-      ];
-    };
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-    };
-    "org/gnome/desktop/session" = {
-      idle-delay = 900;
-    };
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-timeout = 3600;
-      sleep-inactive-battery-timeout = 1200;
-    };
-    # [microsoft keyboard](https://unix.stackexchange.com/a/714224)
-    "org/gnome/shell/extensions/emoji-copy" = {
-      emoji-keybinding = ["<Shift><Ctrl><Alt><Super>space"];
-    };
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
   };
 
   # This value determines the Home Manager release that your
@@ -396,74 +257,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName  = "Kiara Grouwstra";
-    userEmail = "kiara@bij1.org";
-    delta.enable = true;
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-    ignores = [
-      # Compiled source #
-      ###################
-      "*.com"
-      "*.class"
-      "*.dll"
-      "*.exe"
-      "*.o"
-      "*.so"
-
-      # Temporary files #
-      ###################
-      "*.swp"
-      "*.swo"
-      "*~"
-
-      # Packages #
-      ############
-      "*.7z"
-      "*.dmg"
-      "*.gz"
-      "*.iso"
-      "*.jar"
-      "*.rar"
-      "*.tar"
-      "*.zip"
-
-      # Logs #
-      ######################
-      "*.log"
-
-      # OS generated files #
-      ######################
-      ".DS_Store*"
-      "ehthumbs.db"
-      "Icon?"
-      "Thumbs.db"
-
-      # Editor files #
-      ################
-      ".vscode"
-    ];
-    extraConfig = {
-      push.autoSetupRemote = true;
-      branch.autoSetupMerge = "simple";
-    };
-  };
-
-  # must `git add .` or new files won't be found
-  home.file = {
-    "Templates/Untitled.md".text = "";
-    "Templates/Untitled.odt".source = ./dotfiles/Templates/Untitled.odt;
-    "Templates/Untitled.ods".source = ./dotfiles/Templates/Untitled.ods;
-    "Templates/Untitled.odp".source = ./dotfiles/Templates/Untitled.odp;
-    ".face".source = ./dotfiles/.face;
-    ".ssh/config".source = ./dotfiles/.ssh/config;
-    ".config/amp/config.yml".source = ./dotfiles/.config/amp/config.yml;
-    ".config/amp/syntaxes/nix.sublime-syntax".source = ./dotfiles/.config/amp/syntaxes/nix.sublime-syntax;
-    # ".config/sops/age/keys.txt".source = config.sops.secrets.age-keys.path; # $SOPS_AGE_KEY_FILE # error: attribute 'sops' missing
-  };
 
 }

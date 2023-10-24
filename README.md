@@ -15,7 +15,7 @@ follow instructions:
 - in `flake.nix` add device profiles for the system and user
 - [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild switch --flake .#$USER-hammer`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@hammer switch -b backup`
+- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@hammer switch -b backup --show-trace`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`

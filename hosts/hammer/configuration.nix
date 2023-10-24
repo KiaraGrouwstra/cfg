@@ -6,8 +6,17 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./databases.nix
+      ./fonts.nix
+      # ./gnome.nix
+      ./guix.nix
+      ./hyprland.nix
+      ./locale.nix
+      ./networking.nix
+      ./sound.nix
+      ./virtualisation.nix
       inputs.sops-nix.nixosModules.sops
     ];
 
@@ -21,44 +30,26 @@
   #   "/crypto_keyfile.bin" = null;
   # };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.networkmanager.unmanaged = [
-    "wifi 50"
-  ];
-
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS        = "nl_NL.UTF-8";
-    LC_IDENTIFICATION = "nl_NL.UTF-8";
-    LC_MEASUREMENT    = "nl_NL.UTF-8";
-    LC_MONETARY       = "nl_NL.UTF-8";
-    LC_NAME           = "nl_NL.UTF-8";
-    LC_NUMERIC        = "nl_NL.UTF-8";
-    LC_PAPER          = "nl_NL.UTF-8";
-    LC_TELEPHONE      = "nl_NL.UTF-8";
-    LC_TIME           = "nl_NL.UTF-8";
-  };
-
   # X11
   services.xserver.enable = true;
 
-  # GNOME
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.defaultSession = "gnome";
+  security.polkit.enable = true;
+
+  # nitrokey
+  # security.pam.p11.enable = true;
+
+  # swaylock
+  security.pam.services = {
+    swaylock = {
+      text = ''
+        auth include login
+      '';
+      showMotd = true;
+      # p11Auth = true;
+      # enableGnomeKeyring = true;
+      # enableKwallet = true;
+    };
+  };
 
   # keymap in X11
   services.xserver = {
@@ -69,18 +60,6 @@
   # printing
   services.printing.enable = true;
 
-  # sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-  };
-
   hardware.bluetooth.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
@@ -90,6 +69,7 @@
     hashedPasswordFile = config.sops.secrets.user-password-kiara.path;
     description = "輝愛来 (kiara)";
     extraGroups = [
+      "video"
       "networkmanager"
       "wheel"
       "adbusers"
@@ -104,57 +84,12 @@
   services.xserver.displayManager.autoLogin.user = "kiara";
 
   # See https://linrunner.de/en/tlp/docs/tlp-faq.html#battery
-  services.tlp.extraConfig = ''
-    START_CHARGE_THRESH_BAT0=75
-    STOP_CHARGE_THRESH_BAT0=80
-    CPU_SCALING_GOVERNOR_ON_BAT=powersave
-    ENERGY_PERF_POLICY_ON_BAT=powersave
-  '';
-
-  # guix
-  users.extraUsers = lib.fold (a: b: a // b) { } (builtins.map
-    (i: {
-      "guixbuilder${i}" = {
-        group = "guixbuild";
-        extraGroups = [ "guixbuild" ];
-        home = "/var/empty";
-        shell = pkgs.shadow;
-        description = "Guix build user ${i}";
-        isSystemUser = true;
-      };
-    }) [ "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" ]);
-  users.extraGroups.guixbuild = { name = "guixbuild"; };
-
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese
-    gnome-music
-    epiphany
-    geary
-    totem
-    # games:
-    aisleriot
-    atomix
-    five-or-more
-    four-in-a-row
-    pkgs.gnome-2048
-    gnome-chess
-    gnome-klotski
-    gnome-mahjongg
-    gnome-mines
-    gnome-nibbles
-    gnome-robots
-    gnome-sudoku
-    gnome-taquin
-    gnome-tetravex
-    hitori
-    iagno
-    lightsoff
-    quadrapassel
-    swell-foop
-    tali
-  ]);
+  services.tlp.settings = {
+    START_CHARGE_THRESH_BAT0 = 75;
+    STOP_CHARGE_THRESH_BAT0 = 80;
+    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    ENERGY_PERF_POLICY_ON_BAT = "powersave";
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -173,9 +108,11 @@
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
     gnome.nautilus-python
     zoom-us
+    libsForQt5.qtstyleplugin-kvantum
   ];
 
   programs = {
+    light.enable = true;
     mtr.enable = true;
     zsh.enable = true;
     browserpass.enable = true;
@@ -194,93 +131,25 @@
   services.dbus.packages = [ pkgs.gcr ];
   # if not working run: `pkill gpg-agent`
 
-  # Open ports in the firewall.
-  networking.firewall = { 
-    enable = true;
-    allowedTCPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
-    allowedUDPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
-  };
-
   services.locate = {
     enable = true;
     package = pkgs.mlocate;
     localuser = null;
   };
 
-  virtualisation = {
-    # to use podman with ports as low as 80 run:
-    # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
-    podman = {
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      # dockerCompat = true;
-      # NOTE: this doesn't replace Docker Swarm
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    docker = {
-      enable = true;
-      # storageDriver = "btrfs";
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
-    # libvirtd
-    libvirtd.enable = true;
-  };
   programs.dconf.enable = true;
 
-  fonts.packages = with pkgs; [
-    powerline-fonts
-    twemoji-color-font
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-emoji-blob-bin
-  ];
-
   programs.plotinus.enable = true;
-
-  # /root/.config/guix/current/lib/systemd/system/guix-daemon.service
-  systemd.services.guix-daemon = {
-    enable = true;
-    description = "Build daemon for GNU Guix";
-    serviceConfig = {
-      ExecStart = "/var/guix/profiles/per-user/root/current-guix/bin/guix-daemon --build-users-group=guixbuild";
-      Environment = [ "GUIX_LOCPATH=/var/guix/profiles/per-user/root/guix-profile/lib/locale" "LC_ALL=en_US.utf8" ];
-      RemainAfterExit = "yes";
-
-      # See <https://lists.gnu.org/archive/html/guix-devel/2016-04/msg00608.html>.
-      # Some package builds (for example, go@1.8.1) may require even more than
-      # 1024 tasks.
-      TasksMax = "8192";
-    };
-    wantedBy = [ "multi-user.target" ];
-  };
-
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = [ ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-    '';
-  };
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
+  environment.variables = {
+    # This will become a global environment variable
+    "QT_STYLE_OVERRIDE"="kvantum";
   };
 
   services.flatpak.enable = true;
@@ -296,6 +165,16 @@
   # https://github.com/NixOS/nixpkgs/pull/210453#issuecomment-1410035331
   nixpkgs.config.firefox.speechSynthesisSupport = true;
 
+  # TODO: move to fonts.nix once that works
+  fonts.packages = with pkgs; [
+    powerline-fonts
+    twemoji-color-font
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-emoji-blob-bin
+  ];
+
   sops = {
     age.keyFile = "/etc/nixos/keys.txt"; # must have no password!
     # It's also possible to use a ssh key, but only when it has no password:
@@ -305,13 +184,6 @@
       age-keys = {};
       user-password-kiara.neededForUsers = true;
       wifi-home-password = {};
-    };
-  };
-
-  networking.wireless.enable = true;
-  networking.wireless.networks = {
-    "wifi 50" = {
-      psk = config.sops.secrets.wifi-home-password.path;
     };
   };
 

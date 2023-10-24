@@ -33,6 +33,7 @@
       inputs.nixpkgs.follows = "master";
       inputs.nixpkgs-stable.follows = "master";
     };
+    nix-colors.url = "github:misterio77/nix-colors";
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     # stable.url = "github:nixos/nixpkgs/nixos-23.05";
