@@ -13,12 +13,16 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.unmanaged = [
     "wifi 50"
+    "H369A15D3AE"
   ];
 
   networking.wireless.enable = true;
   networking.wireless.networks = {
     "wifi 50" = {
-      psk = config.sops.secrets.wifi-home-password.path;
+      psk = config.sops.secrets.wifi-password-home.path;
+    };
+    "H369A15D3AE" = {
+      psk = config.sops.secrets.wifi-password-woerden.path;
     };
   };
 

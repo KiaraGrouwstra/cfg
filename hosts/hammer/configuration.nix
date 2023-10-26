@@ -183,7 +183,8 @@
     secrets = {
       age-keys = {};
       user-password-kiara.neededForUsers = true;
-      wifi-home-password = {};
+      wifi-password-home = {};
+      wifi-password-woerden = {};
     };
   };
 
