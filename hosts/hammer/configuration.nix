@@ -21,10 +21,14 @@
       inputs.sops-nix.nixosModules.sops
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    # Bootloader
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    # Windows disks
+    supportedFilesystems = [ "ntfs" ];
+  };
 
   # # Setup keyfile
   # boot.initrd.secrets = {
