@@ -87,6 +87,9 @@
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kiara";
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.settings = {};
+  services.xserver.displayManager.session = [];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
