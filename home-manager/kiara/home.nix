@@ -174,6 +174,7 @@
     scrot
     libsForQt5.kasts
     lynx
+    playerctl
 
     # LSP
     nil nixpkgs-fmt
@@ -219,6 +220,8 @@
   };
 
   programs.lesspipe.enable = true;
+
+  services.playerctld.enable = true;
 
   services.gpg-agent = {
     enable = true;
