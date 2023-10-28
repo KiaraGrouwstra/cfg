@@ -185,6 +185,7 @@
       user-password-kiara.neededForUsers = true;
       wifi-password-home = {};
       wifi-password-woerden = {};
+      wifi-password-publicroam = {};
     };
   };
 

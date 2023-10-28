@@ -14,6 +14,7 @@
   networking.networkmanager.unmanaged = [
     "wifi 50"
     "H369A15D3AE"
+    "publicroam"
   ];
 
   networking.wireless.enable = true;
@@ -23,6 +24,14 @@
     };
     "H369A15D3AE" = {
       psk = config.sops.secrets.wifi-password-woerden.path;
+    };
+    "publicroam" = {
+      auth = ''
+        key_mgmt=WPA-EAP
+        eap=PWD
+        identity="qyu543@NL"
+        password="${config.sops.secrets.wifi-password-publicroam.path}"
+      '';
     };
   };
 
