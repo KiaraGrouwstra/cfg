@@ -175,6 +175,9 @@
     libsForQt5.kasts
     lynx
 
+    # LSP
+    nil nixpkgs-fmt
+
     # configure-gtk
     wayland
     xdg-utils # for opening default programs when clicking links
