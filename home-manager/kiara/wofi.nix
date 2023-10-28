@@ -20,6 +20,8 @@
       print_command = true;
       insensitive = true;
       prompt = "Hmm, what do you want to run?";
+      gtk_dark = true;
+      key_expand = "Tab";
 
       image_size = 48;
       columns = 3;
