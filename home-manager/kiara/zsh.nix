@@ -21,6 +21,7 @@
       GTK_THEME = "palenight";
       EDITOR = "nvim";
       VISUAL = "nvim";
+      BROWSER = "firefox";
     };
     shellAliases = {
       docker-compose = "podman-compose";
