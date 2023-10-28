@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "master";
       inputs.utils.follows = "flake-utils";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "master";
@@ -39,6 +39,7 @@
     # stable.url = "github:nixos/nixpkgs/nixos-23.05";
     # nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # staging-next.url = "github:nixos/nixpkgs/staging-next";
 
     # Non Flakes
 
