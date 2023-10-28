@@ -26,14 +26,6 @@
     shellAliases = {
       docker-compose = "podman-compose";
     };
-    initExtra = ''
-      # guix
-      path+=('/var/guix/profiles/per-user/root/current-guix/bin')
-      export PATH
-      # flatpak
-      export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
-      # kubectl
-      [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-    '';
+    initExtra = (builtins.readFile ./zsh.zsh);
   };
 }
