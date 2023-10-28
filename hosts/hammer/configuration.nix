@@ -110,6 +110,7 @@
 
   programs = {
     light.enable = true;
+    adb.enable = true;
     mtr.enable = true;
     zsh.enable = true;
     browserpass.enable = true;
