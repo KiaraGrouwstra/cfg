@@ -172,6 +172,8 @@
     sway-unwrapped  # for swaymsg
     slurp
     scrot
+    swaylock-effects
+    swaylock-fancy wmctrl
     libsForQt5.kasts
     lynx
     playerctl
@@ -187,11 +189,17 @@
     grim # screenshot functionality
     bemenu # wayland clone of dmenu
     wdisplays # tool to configure displays
+
+    # notifications
     dunst
 
     # image viewers:
+    libsForQt5.koko
     swayimg
     vimiv-qt
+    oculante
+    gwenview
+    libsForQt5.pix
     gnome.eog
 
     # markdown:
@@ -200,11 +208,14 @@
     apostrophe
     okular
     mdcat
-    # text editors:
-    libsForQt5.kate # Modern text editor built on the KDE Frameworks and Qt
-    nota # Maui's simple text editor for desktop and mobile
 
-    qutebrowser
+    # text editors:
+    featherpad
+    libsForQt5.kate
+    nota
+    gnome-text-editor
+
+    # qutebrowser  # needs recent nixpkgs
     gitui
 
     # file browser
