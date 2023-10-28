@@ -14,6 +14,7 @@
       ./guix.nix
       ./hyprland.nix
       ./locale.nix
+      ./power.nix
       ./networking.nix
       ./sound.nix
       ./virtualisation.nix
@@ -82,14 +83,6 @@
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kiara";
-
-  # See https://linrunner.de/en/tlp/docs/tlp-faq.html#battery
-  services.tlp.settings = {
-    START_CHARGE_THRESH_BAT0 = 75;
-    STOP_CHARGE_THRESH_BAT0 = 80;
-    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-    ENERGY_PERF_POLICY_ON_BAT = "powersave";
-  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
