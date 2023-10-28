@@ -12,6 +12,7 @@
     # ./gtk.nix
     ./kitty.nix
     ./mime.nix
+    # ./paperwm.nix
     ./swaylock.nix
     ./systemd-fixes.nix
     ./tty-init.nix
