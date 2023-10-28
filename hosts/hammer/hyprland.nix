@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  services.xserver.displayManager.defaultSession = "hyprland";
 
   programs.hyprland = {
     enable = true;
@@ -18,7 +19,7 @@
     enable = true;
     wlr.enable = true;
     extraPortals = with pkgs; [
-      pkgs.xdg-desktop-portal-hyprland
+      xdg-desktop-portal-hyprland
     ];
   };
 
