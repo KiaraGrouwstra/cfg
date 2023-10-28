@@ -203,6 +203,7 @@
     libsForQt5.kate # Modern text editor built on the KDE Frameworks and Qt
     nota # Maui's simple text editor for desktop and mobile
 
+    qutebrowser
     gitui
 
     # file browser
