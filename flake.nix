@@ -1,4 +1,4 @@
-# nixos-rebuild switch will read its configuration from /etc/nixos/flake.nix if it is present. 
+# nixos-rebuild switch will read its configuration from /etc/nixos/flake.nix if it is present.
 
 {
   description = "kiara's nix config";
