@@ -179,6 +179,7 @@
     lynx
     playerctl
     monitor
+    piper-tts
 
     # LSP
     nil nixpkgs-fmt
