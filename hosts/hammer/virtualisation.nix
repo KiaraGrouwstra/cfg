@@ -21,6 +21,8 @@
         setSocketVariable = true;
       };
     };
+    # https://nixos.wiki/wiki/WayDroid
+    waydroid.enable = true;
     # libvirtd
     libvirtd.enable = true;
   };

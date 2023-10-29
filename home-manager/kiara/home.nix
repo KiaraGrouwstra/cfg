@@ -228,9 +228,6 @@
 
   ];
 
-  # https://nixos.wiki/wiki/WayDroid
-  virtualisation.waydroid.enable = true;
-
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
