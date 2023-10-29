@@ -194,6 +194,7 @@
 
     # notifications
     dunst
+    swaynotificationcenter
 
     # image viewers:
     libsForQt5.koko
