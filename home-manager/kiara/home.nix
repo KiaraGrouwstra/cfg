@@ -178,6 +178,7 @@
     libsForQt5.kasts
     lynx
     playerctl
+    monitor
 
     # LSP
     nil nixpkgs-fmt
