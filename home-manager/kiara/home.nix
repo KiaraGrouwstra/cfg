@@ -181,6 +181,7 @@
     monitor
     piper-tts
     cage
+    xxh
 
     # LSP
     nil nixpkgs-fmt
