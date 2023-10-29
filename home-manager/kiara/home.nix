@@ -180,6 +180,7 @@
     playerctl
     monitor
     piper-tts
+    cage
 
     # LSP
     nil nixpkgs-fmt
