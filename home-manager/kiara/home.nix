@@ -33,10 +33,6 @@
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
   manual.manpages.enable = false;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-22.3.27"
-  ];
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     nixFlakes
@@ -95,7 +91,6 @@
     ffmpeg
     gnome.gnome-music
     stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
-    webtorrent_desktop
     nodePackages.webtorrent-cli
     gimp
     borgbackup
