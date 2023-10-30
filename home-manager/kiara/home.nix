@@ -187,6 +187,7 @@
     desktop-file-utils
     handlr
     mimeo
+    remarshal
 
     # LSP
     nil nixpkgs-fmt
