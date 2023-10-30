@@ -5,6 +5,7 @@
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    ./desktop.nix
     ./dotfiles.nix
     ./emacs.nix
     ./gammastep.nix
@@ -182,6 +183,9 @@
     piper-tts
     cage
     xxh
+    desktop-file-utils
+    handlr
+    mimeo
 
     # LSP
     nil nixpkgs-fmt
