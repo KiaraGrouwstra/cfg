@@ -207,7 +207,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
     # systemd service needed for kanshi
     systemd.enable = true;
     settings = {};

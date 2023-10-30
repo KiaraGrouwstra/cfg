@@ -5,7 +5,6 @@
 
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
   };
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
