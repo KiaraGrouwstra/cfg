@@ -6,7 +6,7 @@
   inputs = {
     # Flake inputs
     nix = {
-      url = github:nixos/nix;
+      url = "github:nixos/nix";
       inputs.nixpkgs.follows = "master";
     };
     home-manager = {
