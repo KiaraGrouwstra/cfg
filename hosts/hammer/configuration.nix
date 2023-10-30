@@ -144,6 +144,11 @@
     localuser = null;
   };
 
+  services.geoclue2 = {
+    enable = true;
+    enableWifi = true;
+  };
+
   programs.dconf.enable = true;
 
   programs.plotinus.enable = true;
