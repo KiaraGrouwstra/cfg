@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, nix-colors, ... }:
+{ config, lib, pkgs, inputs, nix-colors, outputs, ... }:
 
 {
   home.enableNixpkgsReleaseCheck = false;
@@ -8,6 +8,7 @@
     ./desktop.nix
     ./dotfiles.nix
     ./emacs.nix
+    ./font.nix
     ./gammastep.nix
     ./git.nix
     # ./gtk.nix
@@ -20,7 +21,7 @@
     ./wofi.nix
     ./zathura.nix
     ./zsh.nix
-  ];
+  ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   colorScheme = inputs.nix-colors.colorSchemes.atelier-dune;
 

@@ -2,14 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, outputs, ... }:
 
 {
   imports =
     [
+      inputs.home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
       ./databases.nix
-      ./fonts.nix
       # ./gnome.nix
       ./guix.nix
       ./hyprland.nix
@@ -19,7 +19,9 @@
       ./sound.nix
       ./virtualisation.nix
       inputs.sops-nix.nixosModules.sops
-    ];
+    ] ++ (builtins.attrValues outputs.nixosModules);
+
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;

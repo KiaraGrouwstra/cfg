@@ -50,7 +50,7 @@
         "type": "github"
       }
     },
-    "home": {
+    "home-manager": {
       "inputs": {
         "nixpkgs": [
           "master"
@@ -270,7 +270,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "home": "home",
+        "home-manager": "home-manager",
         "master": "master",
         "nix": "nix",
         "nix-colors": "nix-colors",
