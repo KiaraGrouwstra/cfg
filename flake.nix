@@ -36,10 +36,6 @@
     nix-colors.url = "github:misterio77/nix-colors";
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
-    # stable.url = "github:nixos/nixpkgs/nixos-23.05";
-    # nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    # staging-next.url = "github:nixos/nixpkgs/staging-next";
 
     # Non Flakes
 

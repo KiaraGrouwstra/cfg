@@ -34,7 +34,7 @@ export PATH="/var/guix/profiles/per-user/root/current-guix/bin:$PATH"
 
 ## references
 
-- https://github.com/JavaCafe01/nixos
+- https://github.com/javacafe01/dotfiles
 - https://mynixos.com/
 - https://mipmip.github.io/home-manager-option-search/
 - https://nur.nix-community.org/
