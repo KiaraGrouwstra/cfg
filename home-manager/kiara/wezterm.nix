@@ -38,10 +38,9 @@ in
         selection_bg = "#${colors.base05}";
       };
     };
-    # font = wezterm.font("${config.fontProfiles.monospace.family}"),
     extraConfig = /* lua */ ''
       return {
-        font = wezterm.font("FiraCode Nerd Font"),
+        font = wezterm.font("${config.fontProfiles.monospace.family}"),
         font_size = 12.0,
         color_scheme = "${colorscheme.slug}",
         hide_tab_bar_if_only_one_tab = true,

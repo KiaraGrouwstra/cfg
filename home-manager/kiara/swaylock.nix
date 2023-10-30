@@ -9,11 +9,8 @@
     settings = {
       effect-blur = "20x3";
       fade-in = 0.1;
-
-      font = "Fira Sans";
-      # font = config.fontProfiles.regular.family;
+      font = config.fontProfiles.regular.family;
       font-size = 15;
-
       line-uses-inside = true;
       disable-caps-lock-text = true;
       indicator-caps-lock = true;
