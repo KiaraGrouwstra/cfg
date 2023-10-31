@@ -150,6 +150,7 @@
     idris2
     hvm
     marble
+    gnome.gnome-maps
     sshfs
     gettext
     arduino-cli
