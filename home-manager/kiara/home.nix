@@ -1,5 +1,9 @@
 { config, lib, pkgs, inputs, nix-colors, outputs, ... }:
 
+let
+  inherit (inputs.nix-colors) colorSchemes;
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) colorschemeFromPicture nixWallpaperFromScheme;
+in
 {
   home.enableNixpkgsReleaseCheck = false;
 
@@ -23,7 +27,7 @@
     ./zsh.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
-  colorScheme = inputs.nix-colors.colorSchemes.atelier-dune;
+  colorscheme = colorSchemes.atelier-dune;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
