@@ -169,6 +169,7 @@
     gnome.nautilus
     dolphin
     bruno
+    rofi-wayland
     wofi-emoji wtype
     hyprpicker
     wayshot
