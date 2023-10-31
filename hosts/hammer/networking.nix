@@ -15,6 +15,7 @@
     "wifi 50"
     "H369A15D3AE"
     "publicroam"
+    "eduroam"
   ];
 
   networking.wireless.enable = true;
@@ -31,6 +32,14 @@
         eap=PWD
         identity="qyu543@NL"
         password="${config.sops.secrets.wifi-password-publicroam.path}"
+      '';
+    };
+    "eduroam" = {
+      auth = ''
+        key_mgmt=WPA-EAP
+        eap=PWD
+        identity="bfdmg@edu.nl"
+        password="${config.sops.secrets.wifi-password-eduroam.path}"
       '';
     };
   };

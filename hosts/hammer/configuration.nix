@@ -195,6 +195,7 @@
       wifi-password-home = {};
       wifi-password-woerden = {};
       wifi-password-publicroam = {};
+      wifi-password-eduroam = {};
     };
   };
 
