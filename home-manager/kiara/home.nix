@@ -186,6 +186,7 @@ in
     watershot
     wl-screenrec
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    wl-clip-persist # make clipboard persist across app close
     swayidle
     sway-unwrapped  # for swaymsg
     slurp
