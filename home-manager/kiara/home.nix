@@ -51,6 +51,7 @@
     zsh
     jq
     amp
+    helix
     wezterm
     usbutils
     firefox
