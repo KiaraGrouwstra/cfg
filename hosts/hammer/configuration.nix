@@ -141,10 +141,14 @@
   services.dbus.packages = [ pkgs.gcr ];
   # if not working run: `pkill gpg-agent`
 
+  # location
   services.geoclue2 = {
     enable = true;
     enableWifi = true;
   };
+
+  # screensharing
+  services.pipewire.wireplumber.enable = true;
 
   programs.dconf.enable = true;
 
