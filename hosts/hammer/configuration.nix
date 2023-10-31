@@ -117,6 +117,7 @@
     gnome.nautilus-python
     zoom-us
     libsForQt5.qtstyleplugin-kvantum
+    ssh-to-age
   ];
 
   programs = {
