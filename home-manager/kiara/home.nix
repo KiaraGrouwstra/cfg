@@ -33,6 +33,13 @@
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
   manual.manpages.enable = false;
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Amber";
+    size = 48;
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     nixFlakes
