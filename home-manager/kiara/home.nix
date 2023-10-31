@@ -11,17 +11,23 @@ in
     inputs.nix-colors.homeManagerModules.default
     ./desktop.nix
     ./dotfiles.nix
+    ./dunst.nix
     ./emacs.nix
     ./font.nix
     ./gammastep.nix
     ./git.nix
-    # ./gtk.nix
+    ./gtk.nix
+    ./hyprland.nix
+    ./kanshi.nix
     ./kitty.nix
+    ./mako.nix
     ./mime.nix
     # ./paperwm.nix
     ./swaylock.nix
     ./systemd-fixes.nix
     ./tty-init.nix
+    ./waybar.nix
+    ./wezterm.nix
     ./wofi.nix
     ./zathura.nix
     ./zsh.nix
