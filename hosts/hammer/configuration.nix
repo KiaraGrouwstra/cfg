@@ -141,12 +141,6 @@
   services.dbus.packages = [ pkgs.gcr ];
   # if not working run: `pkill gpg-agent`
 
-  services.locate = {
-    enable = true;
-    package = pkgs.mlocate;
-    localuser = null;
-  };
-
   services.geoclue2 = {
     enable = true;
     enableWifi = true;
