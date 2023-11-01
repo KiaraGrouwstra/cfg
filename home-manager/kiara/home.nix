@@ -175,7 +175,6 @@ in
     arduino
     xclip
     waybar
-    hyprpaper
     gnome.nautilus
     dolphin
     bruno
@@ -205,6 +204,11 @@ in
     handlr
     mimeo
     remarshal
+
+    # wallpapers
+    mpvpaper # video
+    swww # animated transitions
+    waypaper # frontend
 
     # LSP
     nil nixpkgs-fmt
