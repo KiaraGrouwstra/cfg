@@ -204,6 +204,7 @@ in
     handlr
     mimeo
     remarshal
+    gnome.gnome-characters
 
     # wallpapers
     mpvpaper # video
