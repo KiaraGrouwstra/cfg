@@ -63,7 +63,7 @@ in
     git
     git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
     gnupg
-    pinentry-gtk2
+    pinentry-curses
     xorg.xev
     zsh
     jq
@@ -272,7 +272,7 @@ in
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "gtk2";
+    pinentryFlavor = "curses";
   };
 
   services.lorri = {
