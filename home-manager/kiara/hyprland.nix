@@ -9,6 +9,7 @@
     settings = let
       rofi-systemd = "${pkgs.rofi-systemd}/bin/.rofi-systemd-wrapped";
       rofimoji = "${pkgs.rofimoji}/bin/rofimoji";
+      wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # See https://wiki.hyprland.org/Configuring/Monitors/
       # monitor = ", preferred, auto, auto";
@@ -178,8 +179,9 @@
 
       bind = [
 
-        # super-r: switch wallpaper
-        "SUPER, G, exec, find ~/Pictures/wallpapers/ | sort -R | tail -n 1 | while read -r img ; do swww img --transition-type random $img; wal -i $img; done"
+        # switch wallpaper
+        "SUPER, G, exec, find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do swww img --transition-type random $img; wal -i $img; done"
+        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | rofi -dmenu -i -p 'Wallpapers' | while read -r img ; do swww img --transition-type random ${wallpaper_dir}$img; wal -i ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
         "SUPER, E, exec, wezterm"
