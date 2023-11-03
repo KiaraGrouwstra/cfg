@@ -335,6 +335,7 @@
         "SUPER, K, exec, hyprctl dispatch exit"
 
         "SUPER, F1, exec, ~/.config/hypr/scripts/gamemode.sh"
+        "SUPER, F3, exec, ${./fontpreview.sh}"
         "SUPER, I, exec, networkmanager_dmenu"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
