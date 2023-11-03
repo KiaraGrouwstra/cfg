@@ -187,6 +187,7 @@ in
     lynx
     playerctl
     monitor
+    espeak-classic
     piper-tts
     openai-whisper
     cage
