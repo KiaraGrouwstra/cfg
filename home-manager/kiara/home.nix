@@ -200,6 +200,7 @@ in
     remarshal
     gnome.gnome-characters
     networkmanager_dmenu
+    pywal
 
     # wallpapers
     mpvpaper # video
