@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/run/current-system/sw/bin/sh
 # https://wiki.hyprland.org/Configuring/Uncommon-tips--tricks/#toggle-animationsbluretc-hotkey
 HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
 if [ "$HYPRGAMEMODE" = 1 ] ; then
