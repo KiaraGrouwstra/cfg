@@ -186,8 +186,6 @@ in
     sway-unwrapped  # for swaymsg
     slurp
     scrot
-    swaylock-effects
-    swaylock-fancy wmctrl
     libsForQt5.kasts
     lynx
     playerctl
