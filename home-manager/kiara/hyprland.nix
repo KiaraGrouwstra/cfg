@@ -150,7 +150,7 @@
         "bordercolor rgb(000000) rgb(080808), fullscreen:1" # bordercolor when fullscreen
       ];
 
-      bindr = "SUPER, Super_L, exec, pkill rofi || rofi -show drun";
+      bindr = "SUPER, Super_L, exec, pkill rofi || rofi -show drun -show-icons";
 
       # Move/resize windows with SUPER + LMB/RMB and dragging
       bindm = [
