@@ -39,26 +39,6 @@
 
     # Non Flakes
 
-    nix-zsh-completions = {
-      url = "github:nix-community/nix-zsh-completions";
-      flake = false;
-    };
-
-    zsh-completions = {
-      url = "github:zsh-users/zsh-completions";
-      flake = false;
-    };
-
-    zsh-nix-shell = {
-      url = "github:chisui/zsh-nix-shell";
-      flake = false;
-    };
-
-    zsh-syntax-highlighting = {
-      url = "github:zsh-users/zsh-syntax-highlighting";
-      flake = false;
-    };
-
     # Default branch
     nixpkgs.follows = "master";
   };
