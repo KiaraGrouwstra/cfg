@@ -205,6 +205,7 @@ in
     mimeo
     remarshal
     gnome.gnome-characters
+    networkmanager_dmenu
 
     # wallpapers
     mpvpaper # video
