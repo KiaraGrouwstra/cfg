@@ -198,6 +198,7 @@ in
     gnome.gnome-characters
     networkmanager_dmenu
     pywal
+    fontpreview
 
     # wallpapers
     mpvpaper # video
