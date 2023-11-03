@@ -8,7 +8,7 @@
     font = config.fontProfiles.regular.family;
     cycle = true;
     terminal = "wezterm";
-    theme = "${pkgs.rofi-wayland}/share/rofi/themes/solarized.rasi";
+    theme = ./dotfiles/.config/rofi/theme.rasi;
     plugins = with pkgs; [
       rofi-vpn
       rofi-mpd
