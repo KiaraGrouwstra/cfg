@@ -2,6 +2,10 @@
 
 {
 
+  home.packages = with pkgs; [
+    gnomeExtensions.paperwm
+  ];
+
   dconf.settings = {
 
     "org/gnome/shell" = {

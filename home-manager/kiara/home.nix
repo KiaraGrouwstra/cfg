@@ -16,13 +16,13 @@ in
     ./font.nix
     ./gammastep.nix
     ./git.nix
+    # ./gnome/default.nix
     ./gtk.nix
     ./hyprland.nix
     ./kanshi.nix
     ./kitty.nix
     ./mako.nix
     ./mime.nix
-    # ./paperwm.nix
     ./rofi.nix
     ./swaylock.nix
     ./systemd-fixes.nix
@@ -101,11 +101,6 @@ in
     browserpass
     offlineimap
     kdeconnect
-    gnomeExtensions.random-wallpaper
-    gnomeExtensions.paperwm
-    gnomeExtensions.emoji-copy
-    gnomeExtensions.switch-x11-wayland-default-session
-    gnomeExtensions.zoom-wayland-extension
     vlc
     ffmpeg
     gnome.gnome-music
