@@ -23,6 +23,7 @@ in
     ./mako.nix
     ./mime.nix
     # ./paperwm.nix
+    ./rofi.nix
     ./swaylock.nix
     ./systemd-fixes.nix
     ./tty-init.nix
@@ -178,7 +179,6 @@ in
     gnome.nautilus
     dolphin
     bruno
-    rofi-wayland
     wofi-emoji wtype
     hyprpicker
     wayshot
