@@ -10,14 +10,19 @@ in
       effect-blur = "20x3";
       fade-in = 0.1;
       font = config.fontProfiles.regular.family;
-      font-size = 15;
+      font-size = 125;
       line-uses-inside = true;
       disable-caps-lock-text = true;
       indicator-caps-lock = true;
       indicator-radius = 40;
       indicator-idle-visible = true;
+      indicator-x-position = 1600;
       indicator-y-position = 1000;
-
+      # indicator
+      # clock
+      scaling = "fill";
+      timestr = "%I:%M %p";
+      datestr = "%A, %d %B";
       ring-color = "#${colors.base02}";
       inside-wrong-color = "#${colors.base08}";
       ring-wrong-color = "#${colors.base08}";
