@@ -1,0 +1,11 @@
+inputbar {
+  children: [entry];
+}
+
+listview {
+	lines: 6;
+}
+
+window {
+	width: 180;
+}

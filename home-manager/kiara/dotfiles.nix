@@ -14,6 +14,8 @@
     ".config/amp/syntaxes/nix.sublime-syntax".source = ./dotfiles/.config/amp/syntaxes/nix.sublime-syntax;
     ".config/hypr/scripts/screenshot".source = ./dotfiles/.config/hypr/scripts/screenshot;
     ".config/hypr/scripts/gamemode.sh".source = ./dotfiles/.config/hypr/scripts/gamemode.sh;
+    ".config/rofi/power.sh".source = ./dotfiles/.config/rofi/power.sh;
+    ".config/rofi/power.rasi".source = ./dotfiles/.config/rofi/power.rasi;
     # ".config/sops/age/keys.txt".source = config.sops.secrets.age-keys.path; # $SOPS_AGE_KEY_FILE # error: attribute 'sops' missing
   };
 
