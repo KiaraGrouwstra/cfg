@@ -41,7 +41,7 @@
       @define-color bg2 #51576d;
 
       * {
-          font-family: 'JetBrains Mono Nerd Font', monospace;
+          font-family: ${config.fontProfiles.regular.family};
           font-size: 14px;
       }
 
