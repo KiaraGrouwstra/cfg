@@ -191,6 +191,7 @@ in
     playerctl
     monitor
     piper-tts
+    openai-whisper
     cage
     xxh
     desktop-file-utils
