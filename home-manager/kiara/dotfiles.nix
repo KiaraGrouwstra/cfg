@@ -16,6 +16,7 @@
     ".config/hypr/scripts/gamemode.sh".source = ./dotfiles/.config/hypr/scripts/gamemode.sh;
     ".config/rofi/power.sh".source = ./dotfiles/.config/rofi/power.sh;
     ".config/rofi/power.rasi".source = ./dotfiles/.config/rofi/power.rasi;
+    ".config/rofi/keepassxc.sh".source = ./dotfiles/.config/rofi/keepassxc.sh;
     # ".config/sops/age/keys.txt".source = config.sops.secrets.age-keys.path; # $SOPS_AGE_KEY_FILE # error: attribute 'sops' missing
   };
 
