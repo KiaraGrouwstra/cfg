@@ -1,8 +1,7 @@
-{ config, lib, pkgs, inputs, nix-colors, outputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 
 let
   inherit (inputs.nix-colors) colorSchemes;
-  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) colorschemeFromPicture nixWallpaperFromScheme;
 in
 {
   home.enableNixpkgsReleaseCheck = false;
