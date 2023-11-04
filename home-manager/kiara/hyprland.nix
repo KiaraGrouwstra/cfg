@@ -29,10 +29,8 @@
         "dunst"
         # "swaync"
 
-        # Turn monitors off if locked (swaylock running) and idle for 10 seconds
-        "swayidle -w timeout 10 'if pgrep -x swaylock -i $(swww query | sed 's/^.*image: //g'); then hyprctl dispatch dpms off; fi' resume 'hyprctl dispatch dpms on'"
-        # Lock screen after idling and turn monitors off a bit after
-        "swayidle -w timeout 900 'swaylock -i $(swww query | sed 's/^.*image: //g') -f' timeout 930 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'"
+        # Lock screen after idling
+        "swayidle -w timeout 900 'swaylock -i $(swww query | sed \"s/^.*image: //g\") -f'"
 
         # wallpapers
         "swww init"
