@@ -339,6 +339,7 @@
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
         "SUPER, T, exec, ${rofi-systemd}"
         "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
+        "CTRL_ALT, Delete, exec, gnome-system-monitor"
 
         # set $menu bemenu-run
 

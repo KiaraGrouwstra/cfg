@@ -187,6 +187,7 @@ in
     lynx
     playerctl
     monitor
+    gnome.gnome-system-monitor
     espeak-classic
     piper-tts
     openai-whisper
