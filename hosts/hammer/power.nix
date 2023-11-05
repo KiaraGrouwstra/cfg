@@ -5,12 +5,6 @@
   powerManagement.powertop.enable = true;
   powerManagement.cpuFreqGovernor = "ondemand";
 
-  # Lid settings
-  services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "lock";
-  };
-
   # See https://linrunner.de/en/tlp/docs/tlp-faq.html#battery
   services.tlp.settings = {
     START_CHARGE_THRESH_BAT0 = 75;
