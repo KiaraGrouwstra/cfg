@@ -1,7 +1,7 @@
 { lib, ... }:
 
 let
-  reproduceFolder = (baseDir:
+  homeFolder = (baseDir:
     let
       makePath = (breadcrumbs: baseDir + "/${lib.strings.concatStringsSep "/" breadcrumbs}");
       fileImport = (breadcrumbs: type: { "${lib.strings.concatStringsSep "/" breadcrumbs}".source = makePath breadcrumbs; });
@@ -32,7 +32,7 @@ in
 {
 
   # must `git add .` or new files won't be found
-  home.file = reproduceFolder ./dotfiles;
+  home.file = homeFolder ./dotfiles;
   # ".config/sops/age/keys.txt".source = config.sops.secrets.age-keys.path; # $SOPS_AGE_KEY_FILE # error: attribute 'sops' missing
 
 }
