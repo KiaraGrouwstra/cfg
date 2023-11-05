@@ -94,6 +94,9 @@
     lightdm = {
       enable = true;
       greeters.slick.enable = true;
+      extraConfig = ''
+        logind-check-graphical=true
+      '';
     };
   };
 
