@@ -1,4 +1,18 @@
-{ config, pkgs, ... }:
+{ ... }:
+
+let
+  addDesktop = x: "${x}.desktop";
+  appsForTypes = pattern: types: (
+    builtins.foldl'
+    (x: y: x // y)
+    {}
+    (
+      map
+      (x: builtins.mapAttrs (_: map addDesktop) (pattern x))
+      types
+    )
+  );
+in
 
 {
 
@@ -12,7 +26,12 @@
     "text/plain" = [ "lapce.desktop" "codium.desktop" "less.desktop" ];
     "text/markdown" = [ "glow.desktop" "codium.desktop" "less.desktop" ];
     "application/epub+zip" = [ "calibre-ebook-viewer.desktop" "calibre-ebook-edit.desktop" ];
-  } // (builtins.foldl' (x: y: x // y) {} (map (type: { "image/${type}" = [ "swayimg.desktop" "org.gnome.eog.desktop" "gimp.desktop" "less.desktop" ]; }) [
+  } // (appsForTypes (type: { "application/vnd.${type}" = [
+    "swayimg"
+    "org.gnome.eog"
+    "gimp"
+    "less"
+  ]; }) [
     "jpeg"
     "bmp"
     "gif"
@@ -37,13 +56,19 @@
     "svg+xml-compressed"
     "vnd.wap.wbmp"
     "x-icns"
-  ])) // (builtins.foldl' (x: y: x // y) {} (map (type: { "application/${type}" = [ "writer.desktop" "less.desktop" ]; }) [
+  ]) // (appsForTypes (type: { "application/${type}" = [
+    "writer"
+    "less"
+  ]; }) [
     "vnd.openxmlformats-officedocument.wordprocessingml.document"
     "vnd.openxmlformats-officedocument.wordprocessingml.template"
     "msword"
     "vnd.ms-word.document.macroEnabled.12"
     "vnd.ms-word.template.macroEnabled.12"
-  ])) // (builtins.foldl' (x: y: x // y) {} (map (type: { "application/vnd.${type}" = [ "calc.desktop" "less.desktop" ]; }) [
+  ]) // (appsForTypes (type: { "application/vnd.${type}" = [
+    "calc"
+    "less"
+  ]; }) [
     "openxmlformats-officedocument.spreadsheetml.sheet"
     "openxmlformats-officedocument.spreadsheetml.template"
     "ms-excel"
@@ -52,7 +77,10 @@
     "ms-excel.addin.macroEnabled.12"
     "ms-excel.sheet.binary.macroEnabled.12"
     "text/csv"
-  ])) // (builtins.foldl' (x: y: x // y) {} (map (type: { "application/vnd.${type}" = [ "impress.desktop" "less.desktop" ]; }) [
+  ]) // (appsForTypes (type: { "application/vnd.${type}" = [
+    "impress"
+    "less"
+  ]; }) [
     "openxmlformats-officedocument.presentationml.presentation"
     "openxmlformats-officedocument.presentationml.template"
     "openxmlformats-officedocument.presentationml.slideshow"
@@ -61,6 +89,11 @@
     "ms-powerpoint.presentation.macroEnabled.12"
     "ms-powerpoint.template.macroEnabled.12"
     "ms-powerpoint.slideshow.macroEnabled.12"
-  ]));
+  ]) // (appsForTypes (type: { "x-scheme-handler/${type}" = [
+    "firefox"
+  ]; }) [
+    "https"
+    "http"
+  ]);
 
 }
