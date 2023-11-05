@@ -168,7 +168,7 @@ in
     xclip
     waybar
     gnome.nautilus
-    dolphin
+    # dolphin # hijacks folder mime-type `inode/directory`
     bruno
     wofi-emoji wtype
     hyprpicker
