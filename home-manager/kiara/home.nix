@@ -124,6 +124,7 @@ in
     yarn
     sqlite
     zlib
+    unzip
     pandoc
     element-desktop
     docker-compose
