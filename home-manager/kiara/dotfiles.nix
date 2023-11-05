@@ -1,23 +1,38 @@
-{ ... }:
+{ lib, ... }:
+
+let
+  reproduceFolder = (baseDir:
+    let
+      makePath = (breadcrumbs: baseDir + "/${lib.strings.concatStringsSep "/" breadcrumbs}");
+      fileImport = (breadcrumbs: type: { "${lib.strings.concatStringsSep "/" breadcrumbs}".source = makePath breadcrumbs; });
+      iterDir = (breadcrumbs: let
+          fileSet = builtins.readDir (makePath breadcrumbs);
+          processItem = (location: type: let
+              breadcrumbs' = breadcrumbs ++ [location];
+            in
+              if
+                type == "regular"
+              then
+                [ (fileImport breadcrumbs' type) ]
+              else if
+                type == "directory"
+              then
+                iterDir breadcrumbs'
+              else
+                []
+          );
+        in
+          lib.attrsets.mapAttrsToList processItem fileSet
+      );
+    in
+      lib.attrsets.mergeAttrsList (lib.lists.flatten (iterDir []))
+  );
+in
 
 {
 
   # must `git add .` or new files won't be found
-  home.file = {
-    "Templates/Untitled.md".text = "";
-    "Templates/Untitled.odt".source = ./dotfiles/Templates/Untitled.odt;
-    "Templates/Untitled.ods".source = ./dotfiles/Templates/Untitled.ods;
-    "Templates/Untitled.odp".source = ./dotfiles/Templates/Untitled.odp;
-    ".face".source = ./dotfiles/.face;
-    ".ssh/config".source = ./dotfiles/.ssh/config;
-    ".config/amp/config.yml".source = ./dotfiles/.config/amp/config.yml;
-    ".config/amp/syntaxes/nix.sublime-syntax".source = ./dotfiles/.config/amp/syntaxes/nix.sublime-syntax;
-    ".config/hypr/scripts/screenshot".source = ./dotfiles/.config/hypr/scripts/screenshot;
-    ".config/hypr/scripts/gamemode.sh".source = ./dotfiles/.config/hypr/scripts/gamemode.sh;
-    ".config/rofi/power.sh".source = ./dotfiles/.config/rofi/power.sh;
-    ".config/rofi/power.rasi".source = ./dotfiles/.config/rofi/power.rasi;
-    ".config/rofi/keepassxc.sh".source = ./dotfiles/.config/rofi/keepassxc.sh;
-    # ".config/sops/age/keys.txt".source = config.sops.secrets.age-keys.path; # $SOPS_AGE_KEY_FILE # error: attribute 'sops' missing
-  };
+  home.file = reproduceFolder ./dotfiles;
+  # ".config/sops/age/keys.txt".source = config.sops.secrets.age-keys.path; # $SOPS_AGE_KEY_FILE # error: attribute 'sops' missing
 
 }
