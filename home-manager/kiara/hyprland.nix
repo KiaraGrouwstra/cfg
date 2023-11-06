@@ -185,6 +185,7 @@
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
         "SUPER, E, exec, wezterm"
         "SUPER, Q, killactive,"
+        "ALT, F4, killactive,"
         "SUPER, M, exit,"
         "SUPER, X, exec, nautilus"
         "SUPER, H, togglefloating,"
