@@ -187,9 +187,6 @@ in
     playerctl
     monitor
     gnome.gnome-system-monitor
-    espeak-classic
-    piper-tts
-    openai-whisper
     cage
     xxh
     desktop-file-utils
@@ -249,6 +246,13 @@ in
 
     # file browser
     ranger
+
+    # speech
+    espeak-classic
+    piper-tts
+    yasr
+    orca
+    openai-whisper
 
   ];
 
