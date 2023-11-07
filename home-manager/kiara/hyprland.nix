@@ -362,7 +362,7 @@
         "ALT, Print, exec, ~/.config/hypr/scripts/screenshot p"
 
         # clipboard
-        "SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # SUPER L - Locks immediately, SUPERSHIFT L Turns monitors off (while locked)
         "SUPER, L, exec, swaylock -i $(swww query | sed 's/^.*image: //g')"
