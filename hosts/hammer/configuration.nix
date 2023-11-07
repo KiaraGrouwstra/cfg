@@ -11,9 +11,10 @@
       ./hardware-configuration.nix
       ./databases.nix
       # ./gnome.nix
+      ./greetd.nix
       ./guix.nix
       ./hyprland.nix
-      ./lightdm.nix
+      # ./lightdm.nix
       ./locale.nix
       ./power.nix
       ./networking.nix
