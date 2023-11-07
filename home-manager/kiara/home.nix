@@ -53,6 +53,7 @@ in
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     nixFlakes
+    cached-nix-shell
     gnumake
     glib
     zip
@@ -171,7 +172,6 @@ in
     gnome.nautilus
     # dolphin # hijacks folder mime-type `inode/directory`
     bruno
-    wofi-emoji wtype
     hyprpicker
     wayshot
     watershot
