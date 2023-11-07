@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+
+  home.packages = with pkgs; [
+    kanshi
+  ];
 
   # monitor hot swapping: list by `hyprctl monitors`
   services.kanshi = {
