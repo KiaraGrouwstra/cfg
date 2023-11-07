@@ -180,7 +180,6 @@ in
     wl-clip-persist # make clipboard persist across app close
     cliphist
     swayidle
-    sway-unwrapped  # for swaymsg
     slurp
     scrot
     libsForQt5.kasts

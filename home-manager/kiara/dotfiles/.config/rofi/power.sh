@@ -7,7 +7,7 @@ case "$chosen" in
 	"⭮  Restart") systemctl reboot ;;
 	"🌙  Suspend") systemctl suspend-then-hibernate ;;
 	"❄️  Hibernate") systemctl hibernate ;;
-	"🚪  Log Out") swaymsg exit ;;
+	"🚪  Log Out") hyprctl dispatch exit ;;
 	"🔒  Lock") swaylock ;;
 	*) exit 1 ;;
 esac
