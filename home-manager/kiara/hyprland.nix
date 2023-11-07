@@ -336,6 +336,7 @@
         "SUPER, F1, exec, ~/.config/hypr/scripts/gamemode"
         "SUPER, F3, exec, ${./fontpreview.sh}"
         "SUPER, F5, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
+        "SUPER, F6, exec, hyprctl reload"
         "SUPER, I, exec, networkmanager_dmenu"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
