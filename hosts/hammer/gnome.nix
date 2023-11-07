@@ -3,6 +3,7 @@
 {
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.defaultSession = "gnome";
+  services.xserver.enable = true; # i had been using this, but is it needed?
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour

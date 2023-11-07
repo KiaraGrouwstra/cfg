@@ -13,6 +13,7 @@
       # ./gnome.nix
       ./guix.nix
       ./hyprland.nix
+      ./lightdm.nix
       ./locale.nix
       ./power.nix
       ./networking.nix
@@ -36,9 +37,6 @@
   # boot.initrd.secrets = {
   #   "/crypto_keyfile.bin" = null;
   # };
-
-  # X11
-  services.xserver.enable = true;
 
   security.polkit.enable = true;
 
@@ -90,13 +88,6 @@
     autoLogin = {
       enable = true;
       user = "kiara";
-    };
-    lightdm = {
-      enable = true;
-      greeters.slick.enable = true;
-      extraConfig = ''
-        logind-check-graphical=true
-      '';
     };
   };
 
