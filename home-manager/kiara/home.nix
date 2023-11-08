@@ -240,6 +240,7 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      catppuccin-nvim
       nvchad
       nvchad-ui
     ];
