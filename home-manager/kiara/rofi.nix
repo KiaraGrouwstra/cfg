@@ -5,10 +5,14 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    font = config.fontProfiles.regular.family;
     cycle = true;
     terminal = "wezterm";
-    theme = ./dotfiles/.config/rofi/theme.rasi;
+    theme = toString (pkgs.substituteAll (
+      { src = ./dotfiles/.config/rofi/theme.rasi; } // config.colorScheme.colors // {
+        font = "${config.fontProfiles.regular.family} 15";
+      }
+    ));
+
     plugins = with pkgs; [
       rofi-vpn
       rofi-mpd
