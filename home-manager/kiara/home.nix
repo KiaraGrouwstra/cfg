@@ -195,6 +195,7 @@ in
     gnome.gnome-characters
     networkmanager_dmenu
     pywal
+    wpgtk
     fontpreview
 
     # wallpapers
