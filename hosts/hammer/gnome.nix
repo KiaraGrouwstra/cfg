@@ -36,4 +36,8 @@
     tali
   ]);
 
+  system.packages = with pkgs; [
+    gnome.gnome-tweaks
+  ];
+
 }

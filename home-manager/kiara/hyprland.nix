@@ -25,9 +25,7 @@
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
         # notifications
-        # "mako"
         "dunst"
-        # "swaync"
 
         # Lock screen after idling
         "swayidle -w timeout 900 'swaylock -i $(swww query | sed \"s/^.*image: //g\") -f'"
@@ -139,9 +137,9 @@
 
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       windowrule = [
-        "rounding 40,^(kitty)|(wezterm)$"
+        "rounding 40,^(wezterm)$"
         "opacity 0.9 override 0.7 override,.*" # transparent when inactive
-        "opacity 0.8 override 0.5 override,^(kitty)|(wezterm)$" # transparent when inactive
+        "opacity 0.8 override 0.5 override,^(wezterm)$" # transparent when inactive
         "opacity 0.9 override 0.5 override,^rofi"
       ];
       windowrulev2 = [

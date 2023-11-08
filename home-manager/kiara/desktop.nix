@@ -9,7 +9,7 @@
       desktopName = "Less";
       genericName = "Less";
       terminal = true;
-      exec = "${kitty}/bin/kitty ${less}/bin/less";
+      exec = "${wezterm}/bin/wezterm ${less}/bin/less";
       icon = "utilities-terminal";
       categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
       mimeTypes = [
@@ -26,7 +26,7 @@
       desktopName = "glow";
       genericName = "glow";
       terminal = true;
-      exec = "${kitty}/bin/kitty ${glow}/bin/glow";
+      exec = "${wezterm}/bin/wezterm ${glow}/bin/glow";
       icon = "utilities-terminal";
       categories = [ "Office" "Viewer" ];
       mimeTypes = [

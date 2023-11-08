@@ -16,8 +16,6 @@
     ./gtk.nix
     ./hyprland.nix
     ./kanshi.nix
-    ./kitty.nix
-    ./mako.nix
     ./mime.nix
     ./rofi.nix
     ./swaylock.nix
@@ -25,7 +23,6 @@
     ./tty-init.nix
     ./waybar.nix
     ./wezterm.nix
-    ./wofi.nix
     ./zathura.nix
     ./zsh.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
@@ -70,7 +67,6 @@
     thunderbird
     signal-desktop
     telegram-desktop
-    gnome.gnome-tweaks
     dconf2nix
     vscodium
     libreoffice-fresh
@@ -78,14 +74,10 @@
     pass
     any-nix-shell
     appimage-run
-    paper-icon-theme
-    adementary-theme
-    bibata-cursors
     emacsPackages.guix
     keepassxc
     podman-compose
     texlive.combined.scheme-full
-    font-awesome
     tealdeer
     evince
     calibre
@@ -155,7 +147,6 @@
     imagemagick
     idris2
     hvm
-    marble
     gnome.gnome-maps
     sshfs
     gettext
@@ -164,7 +155,6 @@
     xclip
     waybar
     gnome.nautilus
-    # dolphin # hijacks folder mime-type `inode/directory`
     bruno
     hyprpicker
     wayshot
@@ -194,7 +184,6 @@
     fontpreview
 
     # wallpapers
-    mpvpaper # video
     swww # animated transitions
     waypaper # frontend
 
@@ -205,14 +194,11 @@
     wayland
     xdg-utils # for opening default programs when clicking links
     glib # gsettings
-    dracula-theme # gtk theme
     grim # screenshot functionality
-    bemenu # wayland clone of dmenu
     wdisplays # tool to configure displays
 
     # notifications
     dunst
-    swaynotificationcenter
 
     # image viewers:
     libsForQt5.koko
