@@ -16,8 +16,13 @@
     };
 
     theme = {
-      package = pkgs.palenight-theme;
-      name = "palenight";
+      name = "Catppuccin-Frappe-Compact-Maroon-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        variant = "frappe";
+        size = "compact";
+        accents = [ "maroon" ];
+        tweaks = [ "rimless" "black" ];
+      };
     };
 
     gtk3.extraConfig = {
