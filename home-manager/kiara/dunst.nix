@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 let
   inherit (config.colorscheme) colors kind;
 in
@@ -17,7 +17,7 @@ in
       global = {
 
         frame_width = 1;
-        frame_color = "#788388";
+        frame_color = "#${colors.base01}";
 
         font = "${config.fontProfiles.regular.family} 10";
 
@@ -94,7 +94,7 @@ in
         # The transparency of the window.  Range: [0; 100].
         # This option will only work if a compositing windowmanager is
         # present (e.g. xcompmgr, compiz, etc.).
-        transparency = 15;
+        transparency = 25;
 
         # Don't remove messages, if the user is idle (no mouse or keyboard input)
         # for longer than idle_threshold seconds.
@@ -159,16 +159,16 @@ in
         startup_notification = false;
 
         # dmenu path.
-        dmenu = "/usr/bin/dmenu -p dunst:";
+        dmenu = "${pkgs.rofi}/bin/rofi -dmenu -p dunst";
 
         # Browser for opening urls in context menu.
-        browser = "palemoon";
+        browser = "firefox";
 
         # Align icons left/right/off
         icon_position = "left";
 
         # Paths to default icons.
-        icon_path = "/usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/";
+        # icon_path = "/usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/";
 
         # Limit icons size.
         max_icon_size = 128;
