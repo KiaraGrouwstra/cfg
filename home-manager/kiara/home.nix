@@ -182,6 +182,7 @@
     pywal
     wpgtk
     fontpreview
+    htop
 
     # wallpapers
     swww # animated transitions
