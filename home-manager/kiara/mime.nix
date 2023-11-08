@@ -23,6 +23,7 @@ in
     "text/calendar" = [ "org.gnome.Calendar.desktop" ];
     "application/pdf" = [ "org.gnome.Evince.desktop" "less.desktop" ];
     "application/x-code-workspace" = [ "lapce.desktop" "codium.desktop" ];
+    "inode/x-empty" = [ "lapce.desktop" "codium.desktop" "kate.desktop" ];
     "text/plain" = [ "lapce.desktop" "codium.desktop" "less.desktop" ];
     "text/markdown" = [ "glow.desktop" "codium.desktop" "less.desktop" ];
     "application/epub+zip" = [ "calibre-ebook-viewer.desktop" "calibre-ebook-edit.desktop" ];
