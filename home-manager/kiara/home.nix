@@ -1,13 +1,10 @@
-{ pkgs, inputs, outputs, ... }:
+{ pkgs, outputs, ... }:
 
-let
-  inherit (inputs.nix-colors) colorSchemes;
-in
 {
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    ./colors.nix
     ./desktop.nix
     ./dotfiles.nix
     ./dunst.nix
@@ -32,8 +29,6 @@ in
     ./zathura.nix
     ./zsh.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
-
-  colorscheme = colorSchemes.atelier-dune;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
