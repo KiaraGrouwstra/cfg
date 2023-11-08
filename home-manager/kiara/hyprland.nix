@@ -142,9 +142,10 @@
         "rounding 40,^(kitty)|(wezterm)$"
         "opacity 0.9 override 0.7 override,.*" # transparent when inactive
         "opacity 0.8 override 0.5 override,^(kitty)|(wezterm)$" # transparent when inactive
+        "opacity 0.9 override 0.5 override,^rofi"
       ];
       windowrulev2 = [
-        "opacity 0.8 0.5, floating:1"
+        "opacity 0.8 0.5, floating:0.9"
         "bordercolor rgb(000000) rgb(080808), fullscreen:1" # bordercolor when fullscreen
       ];
 
