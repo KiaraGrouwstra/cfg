@@ -37,8 +37,8 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Amber";
+    package = pkgs.catppuccin-cursors.frappeDark;
+    name = "Catppuccin-Frappe-Dark-Cursors";
     size = 48;
   };
 
