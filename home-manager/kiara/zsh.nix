@@ -18,7 +18,7 @@
       theme = "agnoster";
     };
     sessionVariables = {
-      GTK_THEME = "palenight";
+      GTK_THEME = "Catppuccin-Frappe-Compact-Maroon-Dark";
       EDITOR = "nvim";
       VISUAL = "nvim";
       BROWSER = "firefox";
