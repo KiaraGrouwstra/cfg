@@ -11,7 +11,10 @@
     };
 
     iconTheme = {
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "frappe";
+        accent = "maroon";
+      };
       name = "Papirus-Dark";
     };
 
