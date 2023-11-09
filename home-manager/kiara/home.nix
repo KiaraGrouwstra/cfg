@@ -183,6 +183,13 @@
     wpgtk
     fontpreview
     htop
+    unixtools.column
+    poppler_utils
+    xsv
+    csvkit
+    neomutt
+    newsboat
+    castget
 
     # wallpapers
     swww # animated transitions
