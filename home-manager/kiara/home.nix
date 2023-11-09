@@ -107,6 +107,7 @@
       pandas
       ipython
       ipython-sql
+      yowsup
     ]))
     yarn
     sqlite
@@ -191,6 +192,11 @@
     newsboat
     castget
     dex
+
+    # chat
+    signal-cli
+    scli
+    matrix-commander
 
     # wallpapers
     swww # animated transitions
