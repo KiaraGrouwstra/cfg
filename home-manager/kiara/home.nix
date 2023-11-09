@@ -190,6 +190,7 @@
     neomutt
     newsboat
     castget
+    dex
 
     # wallpapers
     swww # animated transitions
