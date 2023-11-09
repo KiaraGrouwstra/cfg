@@ -5,9 +5,13 @@
 
   inputs = {
     # Flake inputs
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+    };
     nix = {
       url = "github:nixos/nix";
       inputs.nixpkgs.follows = "master";
+      inputs.flake-compat.follows = "flake-compat";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,6 +20,10 @@
     nur.url = "github:nix-community/NUR";
     flake-utils = {
       url = "github:numtide/flake-utils";
+    };
+    flake-utils-plus = {
+      url = "github:gytis-ivaskevicius/flake-utils-plus";
+      inputs.flake-utils.follows = "flake-utils";
     };
     nix-software-center = {
       url = "github:vlinkz/nix-software-center";
@@ -26,6 +34,14 @@
       url = "github:vlinkz/nixos-conf-editor";
       inputs.nixpkgs.follows = "master";
       inputs.utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.snowfall-lib.follows = "snowfall-lib";
+    };
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "master";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-utils-plus.follows = "flake-utils-plus";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     sops-nix = {
