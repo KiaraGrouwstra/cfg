@@ -61,6 +61,7 @@
     jq
     amp
     helix
+    kitty
     wezterm
     usbutils
     firefox

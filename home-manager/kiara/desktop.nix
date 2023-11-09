@@ -7,9 +7,7 @@ let
       name = name;
       desktopName = name;
       genericName = name;
-      terminal = true;
-      exec = command;
-      # exec = "${pkgs.kitty}/bin/kitty ${command}";
+      exec = "${pkgs.kitty}/bin/kitty ${command}";
       icon = "utilities-terminal";
       categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
       mimeTypes = mimeTypes;
