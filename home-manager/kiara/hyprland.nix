@@ -186,7 +186,7 @@
         "SUPER, Q, killactive,"
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
-        "SUPER, X, exec, nautilus"
+        "SUPER, X, exec, ${pkgs.kitty}/bin/kitty ranger"
         "SUPER, H, togglefloating,"
 
         "SUPER, P, pseudo," # dwindle
