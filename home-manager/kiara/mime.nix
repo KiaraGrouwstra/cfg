@@ -18,7 +18,7 @@ in
 
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "org.gnome.Nautilus.desktop" "codium.desktop" "lapce.desktop" "less.desktop" ]; # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
+    "inode/directory" = [ "ranger.desktop" "org.gnome.Nautilus.desktop" "codium.desktop" "lapce.desktop" "less.desktop" ]; # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
     "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
     "text/calendar" = [ "org.gnome.Calendar.desktop" ];
     "application/pdf" = [ "less.desktop" "org.gnome.Evince.desktop" ];
