@@ -16,6 +16,7 @@
     ./gtk.nix
     ./hyprland.nix
     ./kanshi.nix
+    ./kitty.nix
     ./mime.nix
     ./rofi.nix
     ./swaylock.nix
