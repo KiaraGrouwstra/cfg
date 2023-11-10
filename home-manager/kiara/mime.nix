@@ -27,7 +27,7 @@ in
     "text/plain" = [ "less.desktop" "codium.desktop" "lapce.desktop" ];
     "text/markdown" = [ "less.desktop" "glow.desktop" "codium.desktop" ];
     "application/epub+zip" = [ "less.desktop" "calibre-ebook-viewer.desktop" "calibre-ebook-edit.desktop" ];
-  } // (appsForTypes (type: { "application/vnd.${type}" = [
+  } // (appsForTypes (type: { "image/${type}" = [
     "swayimg"
     "org.gnome.eog"
     "gimp"
