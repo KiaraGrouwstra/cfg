@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  uncompress = command: ''echo %f \| while read -r file \; do echo "\$\(dirname \$file\)/\$\(basename \$file .tar.gz\)" \| while read -r base \; do mkdir -p \$base \&\& ${command} \&\& xdg-open \$base \& \; done \; done'';
   commandDesktop = (name: command: mimeTypes:
     (pkgs.makeDesktopItem {
       name = name;
@@ -25,18 +24,30 @@ in
       "text/markdown" # mdcat / pandoc
       "application/json" # jq
       "application/vnd.smart.notebook" # pandoc
+      "application/pdf" # poppler_utils
     ])
 
     (commandDesktop "glow" "${glow}/bin/glow" [
       "text/markdown"
     ])
 
-    (commandDesktop "tar" (uncompress ''${gnutar}/bin/tar --directory=\$base -xvf \$file'') [
+    (commandDesktop "visidata" "${visidata}/bin/visidata" [
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.template"
+      "application/vnd.ms-excel"
+      "application/vnd.ms-excel.sheet.macroEnabled.12"
+      "application/vnd.ms-excel.template.macroEnabled.12"
+      "application/vnd.ms-excel.addin.macroEnabled.12"
+      "application/vnd.ms-excel.sheet.binary.macroEnabled.12"
+      "text/csv"
+    ])
+
+    (commandDesktop "tar.gz" ("" + ./dotfiles/.config/hypr/scripts/tar.gz.sh) [
       "application/x-gzip"
       "application/x-tar"
     ])
 
-    (commandDesktop "zip" (uncompress ''${unzip}/bin/unzip \$file -d \$base'') [
+    (commandDesktop "zip" ("" + ./dotfiles/.config/hypr/scripts/zip.sh) [
       "application/x-zip"
     ])
 
