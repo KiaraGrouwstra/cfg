@@ -20,7 +20,7 @@
       ./sound.nix
       ./virtualisation.nix
       inputs.sops-nix.nixosModules.sops
-    ] ++ (builtins.attrValues outputs.nixosModules);
+    ] ++ (lib.attrValues outputs.nixosModules);
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
@@ -161,7 +161,7 @@
 
   services.flatpak.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  nixpkgs.config.allowUnfreePredicate = pkg: lib.elem (lib.getName pkg) [
     "steam"
     "steam-original"
     "steam-run"

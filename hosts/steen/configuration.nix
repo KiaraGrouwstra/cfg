@@ -244,7 +244,7 @@
 
   services.flatpak.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  nixpkgs.config.allowUnfreePredicate = pkg: lib.elem (lib.getName pkg) [
     "steam"
     "steam-original"
     "steam-run"

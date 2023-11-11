@@ -1,14 +1,14 @@
-{ ... }:
+{ lib, ... }:
 
 let
   addDesktop = x: "${x}.desktop";
   appsForTypes = pattern: types: (
-    builtins.foldl'
+    lib.foldl'
     (x: y: x // y)
     {}
     (
       map
-      (x: builtins.mapAttrs (_: map addDesktop) (pattern x))
+      (x: lib.mapAttrs (_: map addDesktop) (pattern x))
       types
     )
   );

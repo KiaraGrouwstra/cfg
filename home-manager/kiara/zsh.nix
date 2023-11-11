@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   programs.zsh = {
@@ -26,6 +26,6 @@
     shellAliases = {
       docker-compose = "podman-compose";
     };
-    initExtra = (builtins.readFile ./zsh.zsh);
+    initExtra = (lib.readFile ./zsh.zsh);
   };
 }
