@@ -243,6 +243,7 @@
 
     # file browser
     ranger
+    mc
 
     # speech
     espeak-classic
