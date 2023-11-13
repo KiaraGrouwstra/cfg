@@ -1,4 +1,4 @@
-{ pkgs, outputs, ... }:
+{ pkgs, lib, outputs, ... }:
 
 {
   home.enableNixpkgsReleaseCheck = false;
@@ -26,7 +26,7 @@
     ./wofi.nix
     ./zathura.nix
     ./zsh.nix
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+  ] ++ (lib.attrValues outputs.homeManagerModules);
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
