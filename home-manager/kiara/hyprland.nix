@@ -7,9 +7,31 @@
     # systemd service needed for kanshi
     systemd.enable = true;
     settings = let
+      waybar = "${pkgs.waybar}/bin/waybar";
+      dunst = "${pkgs.dunst}/bin/dunst";
+      swayidle = "${pkgs.swayidle}/bin/swayidle";
+      wezterm = "${pkgs.wezterm}/bin/wezterm";
       wofi = "${pkgs.wofi}/bin/wofi";
+      rofi = "${pkgs.rofi-wayland}/bin/rofi";
       rofi-systemd = "${pkgs.rofi-systemd}/bin/.rofi-systemd-wrapped";
       rofimoji = "${pkgs.rofimoji}/bin/rofimoji";
+      ranger = "${pkgs.ranger}/bin/ranger";
+      nmtui = "${pkgs.networkmanager}/bin/nmtui";
+      swaylock = "${pkgs.swaylock-effects}/bin/swaylock";
+      swww = "${pkgs.swww}/bin/swww";
+      htop = "${pkgs.htop}/bin/htop";
+      wal = "${pkgs.pywal}/bin/wal";
+      nautilus = "${pkgs.gnome.nautilus}/bin/nautilus";
+      networkmanager_dmenu = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+      cliphist = "${pkgs.cliphist}/bin/cliphist";
+      wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+      wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
+      hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+      light = "${pkgs.light}/bin/light";
+      playerctl = "${pkgs.playerctl}/bin/playerctl";
+      wpctl = "${pkgs.wireplumber}/bin/wpctl";
+      kitty = "${pkgs.kitty}/bin/kitty";
+      terminal = "${kitty}";
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # See https://wiki.hyprland.org/Configuring/Monitors/
@@ -20,23 +42,23 @@
 
       # Execute your favorite apps at launch
       exec-once = [
-        "waybar" # & signal-desktop & thunderbird & firefox # & codium & keepassxc
+        "${waybar}" # & signal-desktop & thunderbird & firefox # & codium & keepassxc
 
         # screen sharing
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
         # notifications
-        "dunst"
+        "${dunst}"
 
         # Lock screen after idling
-        "swayidle -w timeout 900 'swaylock -i $(swww query | sed \"s/^.*image: //g\") -f'"
+        "${swayidle} -w timeout 900 '${swaylock} -i $(${swww} query | sed \"s/^.*image: //g\") -f'"
 
         # wallpapers
-        "swww init"
-        "wal -i `cat ~/.cache/wal/wal`"
+        "${swww} init"
+        "${wal} -i `cat ~/.cache/wal/wal`"
 
-        "wl-paste --type text --watch cliphist store" #Stores only text data
-        "wl-paste --type image --watch cliphist store" #Stores only image data
+        "${wl-paste} --type text --watch ${cliphist} store" #Stores only text data
+        "${wl-paste} --type image --watch ${cliphist} store" #Stores only image data
       ];
 
       # Some default env vars.
@@ -161,34 +183,34 @@
       bindel = [
 
         # Audio
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioStop, exec, playerctl stop"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioRaiseVolume, exec, ${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioPlay, exec, ${playerctl} play-pause"
+        ", XF86AudioStop, exec, ${playerctl} stop"
+        ", XF86AudioPrev, exec, ${playerctl} previous"
+        ", XF86AudioNext, exec, ${playerctl} next"
 
         # Brightness
-        ", XF86MonBrightnessDown, exec, light -U 1"
-        ", XF86MonBrightnessUp, exec, light -A 1"
+        ", XF86MonBrightnessDown, exec, ${light} -U 1"
+        ", XF86MonBrightnessUp, exec, ${light} -A 1"
 
       ];
 
-      bindl = "SUPER SHIFT, L, exec, sleep 1 && hyprctl dispatch dpms off";
+      bindl = "SUPER SHIFT, L, exec, sleep 1 && ${hyprctl} dispatch dpms off";
 
       bind = [
 
         # switch wallpaper
-        "SUPER, G, exec, find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do swww img --transition-type random $img; wal -i $img; done"
-        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | rofi -dmenu -i -p 'Wallpapers' | while read -r img ; do swww img --transition-type random ${wallpaper_dir}$img; wal -i ${wallpaper_dir}$img; done"
+        "SUPER, G, exec, find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wal -i $img; done"
+        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wal} -i ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
-        "SUPER, E, exec, wezterm"
+        "SUPER, E, exec, ${wezterm}"
         "SUPER, Q, killactive,"
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
-        "SUPER, X, exec, ${pkgs.kitty}/bin/kitty ranger"
+        "SUPER, X, exec, ${terminal} ${ranger} ~/Downloads/"
         "SUPER, H, togglefloating,"
 
         "SUPER, P, pseudo," # dwindle
@@ -331,19 +353,19 @@
         "SUPER, F, fullscreen, 1"
         "SUPER ALT, F, fullscreen, 0"
 
-        "SUPER, O, exec, hyprctl dispatch toggleopaque"
-        "SUPER, K, exec, hyprctl dispatch exit"
+        "SUPER, O, exec, ${hyprctl} dispatch toggleopaque"
+        "SUPER, K, exec, ${hyprctl} dispatch exit"
 
         "SUPER, F1, exec, ~/.config/hypr/scripts/gamemode"
         "SUPER, F3, exec, ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
-        "SUPER, F6, exec, hyprctl reload"
-        "SUPER, I, exec, networkmanager_dmenu"
+        "SUPER, F6, exec, ${hyprctl} reload"
+        "SUPER, I, exec, ${networkmanager_dmenu}"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
         "SUPER, T, exec, ${rofi-systemd}"
         "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
-        "CTRL_ALT, Delete, exec, ${pkgs.kitty}/bin/kitty htop"
+        "CTRL_ALT, Delete, exec, ${terminal} ${htop}"
 
         # set $menu bemenu-run
 
@@ -364,10 +386,10 @@
         "ALT, Print, exec, ~/.config/hypr/scripts/screenshot p"
 
         # clipboard
-        "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "SUPER, V, exec, ${cliphist} list | ${rofi} -dmenu | ${cliphist} decode | ${wl-copy}"
 
         # SUPER L - Locks immediately, SUPERSHIFT L Turns monitors off (while locked)
-        "SUPER, L, exec, swaylock -i $(swww query | sed 's/^.*image: //g')"
+        "SUPER, L, exec, ${swaylock} -i $(${swww} query | sed 's/^.*image: //g')"
 
       ];
 
