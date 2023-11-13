@@ -345,9 +345,9 @@
         # "SUPER_SHIFT_CTRL_ALT, Space, exec, rofi -show emoji"
         "SUPER_SHIFT_CTRL_ALT, Space, exec, ${rofimoji} -f emoji"
 
-        "SUPER, N, exec, systemctl suspend"
-        # ", PowerDown, exec, systemctl suspend"
-        # ", PowerOff, exec, systemctl suspend"
+        "SUPER, N, exec, systemctl hibernate"
+        # ", PowerDown, exec, systemctl hibernate"
+        # ", PowerOff, exec, systemctl hibernate"
 
         "SUPER, F, fullscreen, 1"
         "SUPER ALT, F, fullscreen, 0"
