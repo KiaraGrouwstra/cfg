@@ -193,6 +193,7 @@
     newsboat
     castget
     dex
+    eza
 
     # chat
     signal-cli
