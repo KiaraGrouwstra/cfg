@@ -34,12 +34,20 @@ export PATH="/var/guix/profiles/per-user/root/current-guix/bin:$PATH"
 
 ## references
 
-- https://github.com/javacafe01/dotfiles
-- https://mynixos.com/
-- https://mipmip.github.io/home-manager-option-search/
-- https://nur.nix-community.org/
-- https://packages.guix.gnu.org/
-- https://flathub.org/
+- inspiration on repo setup:
+  - https://github.com/javacafe01/dotfiles
+  - https://github.com/Misterio77/nix-config
+- search for options and packages:
+  - https://mynixos.com/
+  - https://mipmip.github.io/home-manager-option-search/
+  - https://flakestry.dev/
+  - https://nur.nix-community.org/
+- nix functions:
+  - https://mipmip.github.io/nix-builtins-search/
+  - https://noogle.dev/
+- packages: non-nix
+  - https://packages.guix.gnu.org/
+  - https://flathub.org/
 
 ## rollbacks
 
