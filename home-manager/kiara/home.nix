@@ -17,6 +17,7 @@
     ./hyprland.nix
     ./kanshi.nix
     ./mime.nix
+    ./neomutt.nix
     ./rofi.nix
     ./swaylock.nix
     ./systemd-fixes.nix
