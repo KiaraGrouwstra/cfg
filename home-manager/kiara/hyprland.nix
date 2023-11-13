@@ -210,6 +210,7 @@
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
         "SUPER, X, exec, ${terminal} ${ranger} ~/Downloads/"
+        "SUPER SHIFT, X, exec, ${nautilus}"
         "SUPER, H, togglefloating,"
 
         "SUPER, P, pseudo," # dwindle
@@ -359,7 +360,8 @@
         "SUPER, F3, exec, ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F6, exec, ${hyprctl} reload"
-        "SUPER, I, exec, ${networkmanager_dmenu}"
+        "SUPER, I, exec, ${terminal} ${nmtui}"
+        "SUPER SHIFT, I, exec, ${networkmanager_dmenu}"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
         "SUPER, T, exec, ${rofi-systemd}"
