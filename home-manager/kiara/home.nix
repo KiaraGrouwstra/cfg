@@ -86,6 +86,13 @@
     offlineimap
     kdeconnect
     vlc
+    cava
+    spotify-tui
+    spotify-player
+    deadbeef
+    cmus
+    musikcube
+    ncmpcpp
     ffmpeg
     gnome.gnome-music
     stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
