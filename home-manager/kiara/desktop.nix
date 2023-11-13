@@ -31,6 +31,12 @@ in
       "text/markdown"
     ])
 
+    (commandDesktop "lynx" "${lynx}/bin/lynx" [
+      "x-scheme-handler/https"
+      "x-scheme-handler/http"
+      "text/html"
+    ])
+
     (commandDesktop "visidata" "${visidata}/bin/visidata" [
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       "application/vnd.openxmlformats-officedocument.spreadsheetml.template"
