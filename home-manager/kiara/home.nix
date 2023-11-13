@@ -24,6 +24,7 @@
     ./tty-init.nix
     ./waybar.nix
     ./wezterm.nix
+    ./wofi.nix
     ./zathura.nix
     ./zsh.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);

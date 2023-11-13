@@ -7,6 +7,7 @@
     # systemd service needed for kanshi
     systemd.enable = true;
     settings = let
+      wofi = "${pkgs.wofi}/bin/wofi";
       rofi-systemd = "${pkgs.rofi-systemd}/bin/.rofi-systemd-wrapped";
       rofimoji = "${pkgs.rofimoji}/bin/rofimoji";
       wallpaper_dir = "~/Pictures/wallpapers/";
@@ -147,7 +148,8 @@
         "bordercolor rgb(000000) rgb(080808), fullscreen:1" # bordercolor when fullscreen
       ];
 
-      bindr = "SUPER, Super_L, exec, pkill rofi || rofi -show drun -show-icons";
+      bindr = "SUPER, Super_L, exec, pkill wofi || ${wofi}";
+      # bindr = "SUPER, Super_L, exec, pkill rofi || ${rofi} -show drun -show-icons";
 
       # Move/resize windows with SUPER + LMB/RMB and dragging
       bindm = [
