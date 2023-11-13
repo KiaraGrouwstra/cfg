@@ -30,8 +30,7 @@
       light = "${pkgs.light}/bin/light";
       playerctl = "${pkgs.playerctl}/bin/playerctl";
       wpctl = "${pkgs.wireplumber}/bin/wpctl";
-      kitty = "${pkgs.kitty}/bin/kitty";
-      terminal = "${kitty}";
+      terminal = "${wezterm} -e --always-new-process";
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # See https://wiki.hyprland.org/Configuring/Monitors/

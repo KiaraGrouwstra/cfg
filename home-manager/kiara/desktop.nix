@@ -6,7 +6,7 @@ let
       name = name;
       desktopName = name;
       genericName = name;
-      exec = "${pkgs.kitty}/bin/kitty ${command}";
+      exec = "${pkgs.wezterm}/bin/wezterm -e --always-new-process ${command}";
       icon = "utilities-terminal";
       categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
       mimeTypes = mimeTypes;
