@@ -142,12 +142,12 @@
       };
 
       gestures = {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+          # See https://wiki.hyprland.org/Configuring/Variables/#gestures for more
           workspace_swipe = true;
       };
 
       misc = {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+          # See https://wiki.hyprland.org/Configuring/Variables/#misc for more
           # force_default_wallpaper = -1; # Set to 0 to disable the anime mascot wallpapers
       };
 
