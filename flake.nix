@@ -52,6 +52,8 @@
     nix-colors.url = "github:misterio77/nix-colors";
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
+    nixpkgs-unfree.inputs.nixpkgs.follows = "master";
 
     # Non Flakes
 
@@ -128,9 +130,13 @@
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
 
-        "kiara@hammer" = lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+        "kiara@hammer" = let
+          system = "x86_64-linux";
+        in lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = { inherit inputs outputs;
+            unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+          };
           modules = [
             ./home-manager/kiara/home.nix
           ];

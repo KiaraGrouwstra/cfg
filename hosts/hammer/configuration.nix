@@ -109,7 +109,6 @@
     inputs.nix-software-center.packages.${system}.nix-software-center
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
     gnome.nautilus-python
-    zoom-us
     libsForQt5.qtstyleplugin-kvantum
     ssh-to-age
   ];
@@ -165,8 +164,6 @@
     "steam"
     "steam-original"
     "steam-run"
-    "zoom"
-    "zoom-us"
   ];
 
   # https://github.com/NixOS/nixpkgs/pull/210453#issuecomment-1410035331

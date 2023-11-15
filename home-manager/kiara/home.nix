@@ -1,4 +1,4 @@
-{ pkgs, lib, outputs, ... }:
+{ pkgs, lib, inputs, outputs, unfree, ... }:
 
 {
   home.enableNixpkgsReleaseCheck = false;
@@ -202,6 +202,7 @@
     castget
     dex
     eza
+    unfree.zoom-us
 
     # chat
     signal-cli

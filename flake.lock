@@ -260,6 +260,26 @@
         "type": "github"
       }
     },
+    "nixpkgs-unfree": {
+      "inputs": {
+        "nixpkgs": [
+          "master"
+        ]
+      },
+      "locked": {
+        "lastModified": 1692115928,
+        "narHash": "sha256-BHnVMZKM51CMi3dGW5BarH6RKSVG+5BJ/+wmazur3wU=",
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "rev": "9545d844027c1b91b14b19d225856efc931b22b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nixpkgs-unfree",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
         "lastModified": 1699435759,
@@ -290,6 +310,7 @@
         "nixpkgs": [
           "master"
         ],
+        "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix"
