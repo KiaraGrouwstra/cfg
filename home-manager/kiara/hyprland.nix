@@ -210,7 +210,7 @@
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
         "SUPER, X, exec, ${terminal} ${ranger} ~/Downloads/"
-        "SUPER SHIFT, X, exec, ${nautilus}"
+        "SUPER SHIFT, X, exec, ${nautilus} ~/Downloads/"
         "SUPER, H, togglefloating,"
 
         "SUPER, P, pseudo," # dwindle
