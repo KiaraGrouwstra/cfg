@@ -49,20 +49,7 @@
       inputs.nixpkgs.follows = "master";
       inputs.nixpkgs-stable.follows = "master";
     };
-    font-hachimarupop = {
-      url = "git+https://codeberg.org/kiara/font-hachimarupop.nix";
-      inputs.nixpkgs.follows = "master";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
-    };
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-      inputs.nixpkgs-lib.follows = "nixpkgs-lib";
-    };
-    nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
+    nix-colors.url = "github:misterio77/nix-colors";
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
 
