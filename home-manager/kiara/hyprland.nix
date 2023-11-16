@@ -364,7 +364,7 @@
         "SUPER, F3, exec, ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F6, exec, ${hyprctl} reload"
-        "SUPER, F7, exec, ${dunstify} ""$(${hyprctl} activewindow -j | ${jq} '.initialTitle')"" ""$(${hyprctl} activewindow -j | ${jq} '.title')"""
+        "SUPER, F7, exec, ${dunstify} \"$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')\" \"$(${hyprctl} activewindow -j | ${jq} -r '.title')\""
         "SUPER, Slash, exec, ~/.config/hypr/scripts/keybinds"
         "SUPER, F9, exec, ~/.config/hypr/scripts/main-menu"
         "SUPER, I, exec, ${terminal} ${nmtui}"
