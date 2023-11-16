@@ -25,7 +25,6 @@
       rofimoji
       rofi-top
       rofi-calc
-      rofi-emoji
       rofi-screenshot
       rofi-file-browser
     ];
@@ -33,7 +32,7 @@
     yoffset = 80;
     location = "center";
     extraConfig = {
-      modi = "window,run,drun,ssh,combi,keys,filebrowser,emoji,file-browser-extended,calc,top";
+      modi = "window,run,drun,ssh,combi,keys,filebrowser";
       kb-primary-paste = "Control+V,Shift+Insert";
       kb-secondary-paste = "Control+v,Insert";
     };
