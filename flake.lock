@@ -107,16 +107,16 @@
     },
     "master": {
       "locked": {
-        "lastModified": 1700092375,
-        "narHash": "sha256-GfYlUtJXFGR6aWSceykLuB6UmddtJxx1N7pXFKGxJ70=",
-        "owner": "KiaraGrouwstra",
+        "lastModified": 1699436246,
+        "narHash": "sha256-RvYt1hRWAbBIT/QApyztv/u0eoJuq59fSGtohZhktT0=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "baadd3e85217bd8f4756e1b656927c85b5521fd2",
+        "rev": "7a1f927eea31dcc5f224557641a70724d3908c06",
         "type": "github"
       },
       "original": {
-        "owner": "KiaraGrouwstra",
-        "ref": "hachimarupop",
+        "owner": "nixos",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }

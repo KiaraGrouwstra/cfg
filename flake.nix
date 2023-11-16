@@ -51,9 +51,7 @@
     };
     nix-colors.url = "github:misterio77/nix-colors";
     # Nixpkgs branches
-    # master.url = "github:nixos/nixpkgs/master";
-    master.url = "github:KiaraGrouwstra/nixpkgs/hachimarupop";
-    # master.url = "git+file:///home/kiara/Downloads/nixpkgs";
+    master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
     nixpkgs-unfree.inputs.nixpkgs.follows = "master";
 
