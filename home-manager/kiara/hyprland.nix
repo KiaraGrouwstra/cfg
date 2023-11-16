@@ -9,6 +9,8 @@
     settings = let
       waybar = "${pkgs.waybar}/bin/waybar";
       dunst = "${pkgs.dunst}/bin/dunst";
+      dunstify = "${pkgs.dunst}/bin/dunstify";
+      jq = "${pkgs.jq}/bin/jq";
       swayidle = "${pkgs.swayidle}/bin/swayidle";
       wezterm = "${pkgs.wezterm}/bin/wezterm";
       wofi = "${pkgs.wofi}/bin/wofi";
@@ -362,6 +364,9 @@
         "SUPER, F3, exec, ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F6, exec, ${hyprctl} reload"
+        "SUPER, F7, exec, ${dunstify} ""$(${hyprctl} activewindow -j | ${jq} '.initialTitle')"" ""$(${hyprctl} activewindow -j | ${jq} '.title')"""
+        "SUPER, F8, exec, ~/.config/hypr/scripts/keybinds"
+        "SUPER, F9, exec, ~/.config/hypr/scripts/main-menu"
         "SUPER, I, exec, ${terminal} ${nmtui}"
         "SUPER SHIFT, I, exec, ${networkmanager_dmenu}"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
