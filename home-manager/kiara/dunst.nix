@@ -31,7 +31,7 @@ in
         # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
         # If markup is not allowed, those tags will be stripped out of the
         # message.
-        markup = "yes";
+        markup = true;
 
         # The format of the message.  Possible variables are:
         #   %a  appname
@@ -44,10 +44,10 @@ in
         format = "%s %p\n%b";
 
         # Sort messages by urgency.
-        sort = "yes";
+        sort = true;
 
         # Show how many messages are currently hidden (because of geometry).
-        indicate_hidden = "yes";
+        indicate_hidden = true;
 
         # Alignment of message text.
         # Possible values are "left", "center" and "right".
@@ -67,10 +67,10 @@ in
 
         # Split notifications into multiple lines if they don't fit into
         # geometry.
-        word_wrap = "no";
+        word_wrap = false;
 
         # Ignore newlines '\n' in notifications.
-        ignore_newline = "no";
+        ignore_newline = false;
 
 
         # The geometry of the window:
@@ -89,7 +89,7 @@ in
 
         # Shrink window if it's smaller than the width.  Will be ignored if
         # width is 0.
-        shrink = "yes";
+        shrink = true;
 
         # The transparency of the window.  Range: [0; 100].
         # This option will only work if a compositing windowmanager is
@@ -120,13 +120,13 @@ in
 
         # Should a notification popped up from history be sticky or timeout
         # as if it would normally do.
-        sticky_history = "yes";
+        sticky_history = true;
 
         # Maximum amount of notifications kept in history
         history_length = 20;
 
         # Display indicators for URLs (U) and actions (A).
-        show_indicators = "yes";
+        show_indicators = true;
 
         # The height of a single line.  If the height is smaller than the
         # font height, it will get raised to the font height.
@@ -172,6 +172,9 @@ in
 
         # Limit icons size.
         max_icon_size = 128;
+
+        height = 2000;
+        width = [ "0" "1000" ];
       };
 
       shortcuts = {
