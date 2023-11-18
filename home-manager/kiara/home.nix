@@ -203,6 +203,7 @@
     dex
     eza
     unfree.zoom-us
+    hydroxide
 
     # chat
     signal-cli
