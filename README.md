@@ -13,9 +13,9 @@ follow instructions:
 - place the original `configuration.nix` and `hardware-configuration.nix` into one of the hardware profiles in `hosts/`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild switch --flake .#$USER-hammer --show-trace`
+- [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild switch --flake .#$USER-$(hostname) --show-trace`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@hammer switch -b backup --show-trace`
+- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
