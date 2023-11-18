@@ -356,6 +356,7 @@
 
         "SUPER, F, fullscreen, 1"
         "SUPER ALT, F, fullscreen, 0"
+        "SUPER SHIFT, F, fullscreen, 0"
 
         "SUPER, O, exec, ${hyprctl} dispatch toggleopaque"
         "SUPER, K, exec, ${hyprctl} dispatch exit"
