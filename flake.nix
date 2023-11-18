@@ -33,7 +33,6 @@
     nixos-conf-editor = {
       url = "github:vlinkz/nixos-conf-editor";
       inputs.nixpkgs.follows = "master";
-      inputs.utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
       inputs.snowfall-lib.follows = "snowfall-lib";
     };
