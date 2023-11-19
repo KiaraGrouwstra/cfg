@@ -177,28 +177,15 @@ in
         width = [ "0" "1000" ];
       };
 
-      shortcuts = {
-
-        # Shortcuts are specified as [modifier+][modifier+]...key
-        # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-        # "mod3" and "mod4" (windows-key).
-        # Xev might be helpful to find names for keys.
-
-        # Close notification.
-        close = "mod1+space";
-
-        # Close all notifications.
-        # close_all = ctrl+shift+space
-        close_all = "ctrl+mod1+space";
-
-        # Redisplay last message(s).
-        # On the US keyboard layout "grave" is normally above TAB and left
-        # of "1".
-        history = "ctrl+mod4+h";
-
-        # Context menu.
-        context = "ctrl+mod1+c";
-      };
+      # # couldn't get this to work so instead moved them to hyprland
+      # shortcuts = {
+      #   # modifiers: "ctrl", "mod1" (alt), "mod2", "mod3" and "mod4" (windows-key).
+      #   # Xev might be helpful to find names for keys.
+      #   close = "mod1+space";
+      #   close_all = "ctrl+mod1+space";
+      #   history = "ctrl+mod4+h";
+      #   context = "ctrl+mod1+c";
+      # };
 
       urgency_low = {
         # IMPORTANT: colors have to be defined in quotation marks.

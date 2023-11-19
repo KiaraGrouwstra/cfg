@@ -9,6 +9,7 @@
     settings = let
       waybar = "${pkgs.waybar}/bin/waybar";
       dunst = "${pkgs.dunst}/bin/dunst";
+      dunstctl = "${pkgs.dunst}/bin/dunstctl";
       dunstify = "${pkgs.dunst}/bin/dunstify";
       jq = "${pkgs.jq}/bin/jq";
       swayidle = "${pkgs.swayidle}/bin/swayidle";
@@ -400,6 +401,10 @@
         # SUPER L - Locks immediately, SUPERSHIFT L Turns monitors off (while locked)
         "SUPER, L, exec, ${swaylock} -i $(${swww} query | sed 's/^.*image: //g')"
 
+        "ALT, Space, exec, ${dunstctl} close"
+        "CTRL ALT, Space, exec, ${dunstctl} close-all"
+        "CTRL SUPER, H, exec, ${dunstctl} history"
+        "CTRL ALT, C, exec, ${dunstctl} context"
       ];
 
       # UNUSED:
