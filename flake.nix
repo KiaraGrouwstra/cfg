@@ -49,6 +49,11 @@
       inputs.nixpkgs-stable.follows = "master";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "master";
+      inputs.utils.follows = "flake-utils";
+    };
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
@@ -114,6 +119,7 @@
           modules = [
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+            inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           ];
         };
 
