@@ -34,6 +34,7 @@
       playerctl = "${pkgs.playerctl}/bin/playerctl";
       wpctl = "${pkgs.wireplumber}/bin/wpctl";
       terminal = "${wezterm} -e --always-new-process";
+      unfullscreen = "~/.config/hypr/scripts/unfullscreen";
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # See https://wiki.hyprland.org/Configuring/Monitors/
@@ -210,12 +211,12 @@
         "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wal} -i ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
-        "SUPER, E, exec, ${wezterm}"
+        "SUPER, E, exec, ${unfullscreen} && ${wezterm}"
         "SUPER, Q, killactive,"
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
-        "SUPER, X, exec, ${nautilus} ~/Downloads/"
-        "SUPER SHIFT, X, exec, ${terminal} ${ranger} ~/Downloads/"
+        "SUPER, X, exec, ${unfullscreen} && ${nautilus} ~/Downloads/"
+        "SUPER SHIFT, X, exec, ${unfullscreen} && ${terminal} ${ranger} ~/Downloads/"
         "SUPER, H, togglefloating,"
 
         "SUPER, P, pseudo," # dwindle
@@ -363,19 +364,19 @@
         "SUPER, K, exec, ${hyprctl} dispatch exit"
 
         "SUPER, F1, exec, ~/.config/hypr/scripts/gamemode"
-        "SUPER, F3, exec, ${./fontpreview.sh}"
+        "SUPER, F3, exec, ${unfullscreen} && ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F6, exec, ${hyprctl} reload"
         "SUPER, F7, exec, ${dunstify} \"$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')\" \"$(${hyprctl} activewindow -j | ${jq} -r '.title')\""
         "SUPER, Slash, exec, ~/.config/hypr/scripts/keybinds"
         "SUPER, F9, exec, ~/.config/hypr/scripts/main-menu"
-        "SUPER, I, exec, ${terminal} ${nmtui}"
+        "SUPER, I, exec, ${unfullscreen} && ${terminal} ${nmtui}"
         "SUPER SHIFT, I, exec, ${networkmanager_dmenu}"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
         "SUPER, T, exec, ${rofi-systemd}"
         "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
-        "CTRL_ALT, Delete, exec, ${terminal} ${htop}"
+        "CTRL_ALT, Delete, exec, ${unfullscreen} && ${terminal} ${htop}"
 
         # set $menu bemenu-run
 
@@ -403,8 +404,6 @@
 
         "ALT, Space, exec, ${dunstctl} close"
         "CTRL ALT, Space, exec, ${dunstctl} close-all"
-        "CTRL SUPER, H, exec, ${dunstctl} history"
-        "CTRL ALT, C, exec, ${dunstctl} context"
       ];
 
       # UNUSED:
