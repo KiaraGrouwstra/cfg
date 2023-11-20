@@ -7,7 +7,6 @@
     ./colors.nix
     ./desktop.nix
     ./dotfiles.nix
-    ./dunst.nix
     ./emacs.nix
     ./font.nix
     ./gammastep.nix
@@ -225,7 +224,8 @@
     wdisplays # tool to configure displays
 
     # notifications
-    dunst
+    libnotify
+    swaynotificationcenter
 
     # image viewers:
     libsForQt5.koko

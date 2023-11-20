@@ -8,9 +8,9 @@
     systemd.enable = true;
     settings = let
       waybar = "${pkgs.waybar}/bin/waybar";
-      dunst = "${pkgs.dunst}/bin/dunst";
-      dunstctl = "${pkgs.dunst}/bin/dunstctl";
-      dunstify = "${pkgs.dunst}/bin/dunstify";
+      notify-send = "${pkgs.libnotify}/bin/notify-send";
+      swaync = "${pkgs.swaynotificationcenter}/bin/swaync";
+      swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
       jq = "${pkgs.jq}/bin/jq";
       swayidle = "${pkgs.swayidle}/bin/swayidle";
       wezterm = "${pkgs.wezterm}/bin/wezterm";
@@ -51,7 +51,7 @@
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
         # notifications
-        "${dunst}"
+        "${swaync}"
 
         # Lock screen after idling
         "${swayidle} -w timeout 900 '${swaylock} -i $(${swww} query | sed \"s/^.*image: //g\") -f'"
@@ -367,7 +367,7 @@
         "SUPER, F3, exec, ${unfullscreen} && ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F6, exec, ${hyprctl} reload"
-        "SUPER, F7, exec, ${dunstify} \"$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')\" \"$(${hyprctl} activewindow -j | ${jq} -r '.title')\""
+        "SUPER, F7, exec, ${notify-send} \"$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')\" \"$(${hyprctl} activewindow -j | ${jq} -r '.title')\""
         "SUPER, Slash, exec, ~/.config/hypr/scripts/keybinds"
         "SUPER, F9, exec, ~/.config/hypr/scripts/main-menu"
         "SUPER, I, exec, ${unfullscreen} && ${terminal} ${nmtui}"
@@ -402,8 +402,9 @@
         # SUPER L - Locks immediately, SUPERSHIFT L Turns monitors off (while locked)
         "SUPER, L, exec, ${swaylock} -i $(${swww} query | sed 's/^.*image: //g')"
 
-        "ALT, Space, exec, ${dunstctl} close"
-        "CTRL ALT, Space, exec, ${dunstctl} close-all"
+        "ALT, Space, exec, ${swaync-client} --close-latest"
+        "CTRL ALT, Space, exec, ${swaync-client} --close-all"
+        "Super, Grave, exec, ${swaync-client} --toggle-panel"
       ];
 
       # UNUSED:
