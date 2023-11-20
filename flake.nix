@@ -52,6 +52,7 @@
     adblock-unbound = {
       url = "github:MayNiklas/nixos-adblock-unbound";
       inputs.nixpkgs.follows = "master";
+      inputs.flake-utils.follows = "flake-utils";
     };
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
