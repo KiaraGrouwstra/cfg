@@ -58,7 +58,7 @@
     git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
     gnupg
     pinentry-curses
-    xorg.xev
+    wev
     zsh
     jq
     amp
