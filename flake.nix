@@ -49,6 +49,10 @@
       inputs.nixpkgs-stable.follows = "master";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    adblock-unbound = {
+      url = "github:MayNiklas/nixos-adblock-unbound";
+      inputs.nixpkgs.follows = "master";
+    };
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";

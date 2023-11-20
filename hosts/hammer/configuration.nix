@@ -9,6 +9,7 @@
     [
       inputs.home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
+      ./adblock.nix
       ./databases.nix
       # ./gnome.nix
       ./greetd.nix
