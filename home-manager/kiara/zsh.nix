@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.zsh = {
@@ -8,6 +8,12 @@
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "babarot/enhancd"; tags = [ "use:init.sh" ]; }
+      ];
+    };
     oh-my-zsh = {
       enable = true;
       # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
