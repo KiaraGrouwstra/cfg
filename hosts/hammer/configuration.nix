@@ -158,7 +158,7 @@
   environment.variables = {
     # This will become a global environment variable
     GDK_BACKEND = "wayland"; # gtk
-    NIXOS_OZONE_WL = "1";    # electron
+    # NIXOS_OZONE_WL = "1";    # electron, breaks codium now
     QT_STYLE_OVERRIDE = "kvantum";
   };
 
