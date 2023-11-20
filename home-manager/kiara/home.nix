@@ -86,6 +86,8 @@
     offlineimap
     kdeconnect
     vlc
+    pamixer
+    pavucontrol
     cava
     spotify-tui
     spotify-player

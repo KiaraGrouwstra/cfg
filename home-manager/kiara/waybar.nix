@@ -1,5 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
+let
+    wpctl = "${pkgs.wireplumber}/bin/wpctl";
+    pamixer = "${pkgs.pamixer}/bin/pamixer";
+    pavucontrol = "${pkgs.pavucontrol}/bin/pavucontrol";
+in
 {
 
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
@@ -91,8 +96,11 @@
             ];
           };
           scroll-step = 5;
-          on-click = "pamixer -t";
-          on-click-right = "pavucontrol";
+          max-volume = 250;
+          on-click = "${pamixer} -t";
+          on-click-right = "${pavucontrol}";
+          on-scroll-down = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
+          on-scroll-up   = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
         };
         memory = {
           interval = 5;
