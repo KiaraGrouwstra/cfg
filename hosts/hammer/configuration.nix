@@ -157,7 +157,9 @@
 
   environment.variables = {
     # This will become a global environment variable
-    "QT_STYLE_OVERRIDE"="kvantum";
+    GDK_BACKEND = "wayland"; # gtk
+    NIXOS_OZONE_WL = "1";    # electron
+    QT_STYLE_OVERRIDE = "kvantum";
   };
 
   services.flatpak.enable = true;
