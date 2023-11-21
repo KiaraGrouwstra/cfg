@@ -49,8 +49,8 @@
       inputs.nixpkgs-stable.follows = "master";
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    adblock-unbound = {
-      url = "github:MayNiklas/nixos-adblock-unbound";
+    unbound-blocklist = {
+      url = "github:mirosval/unbound-blocklist";
       inputs.nixpkgs.follows = "master";
       inputs.flake-utils.follows = "flake-utils";
     };

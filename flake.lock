@@ -1,45 +1,5 @@
 {
   "nodes": {
-    "adblock-unbound": {
-      "inputs": {
-        "adblockStevenBlack": "adblockStevenBlack",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "master"
-        ]
-      },
-      "locked": {
-        "lastModified": 1688055723,
-        "narHash": "sha256-8WtkSAr4qYA3o6kiOCESK3rHJmIsa6TMBrT3/Cbfvro=",
-        "owner": "MayNiklas",
-        "repo": "nixos-adblock-unbound",
-        "rev": "9356ccd526fdcf91bfee7f0ebebae831349d43cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MayNiklas",
-        "repo": "nixos-adblock-unbound",
-        "type": "github"
-      }
-    },
-    "adblockStevenBlack": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1665337238,
-        "narHash": "sha256-LYYjWMy4xXXqnM3ROKseS7y0faNLYyyDPqUe1+Uf+RE=",
-        "owner": "StevenBlack",
-        "repo": "hosts",
-        "rev": "ff7d9bed83732bd3980ae452927541c6c4b15382",
-        "type": "github"
-      },
-      "original": {
-        "owner": "StevenBlack",
-        "repo": "hosts",
-        "type": "github"
-      }
-    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -337,7 +297,6 @@
     },
     "root": {
       "inputs": {
-        "adblock-unbound": "adblock-unbound",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "flake-utils-plus": "flake-utils-plus",
@@ -354,7 +313,8 @@
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "snowfall-lib": "snowfall-lib",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "unbound-blocklist": "unbound-blocklist"
       }
     },
     "snowfall-lib": {
@@ -418,6 +378,29 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "unbound-blocklist": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "master"
+        ]
+      },
+      "locked": {
+        "lastModified": 1700457929,
+        "narHash": "sha256-qWgC8rUuuHcFmr0rdqkwGMaxwpUxqmm/zWE7Tz7Rwoc=",
+        "owner": "mirosval",
+        "repo": "unbound-blocklist",
+        "rev": "19174fa0da0ea527523a851ae8415fa767faba74",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mirosval",
+        "repo": "unbound-blocklist",
         "type": "github"
       }
     }
