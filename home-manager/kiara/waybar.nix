@@ -33,17 +33,9 @@ in
         modules-right = [
           "custom/left-arrow-dark"
           "pulseaudio"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "memory"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "cpu"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "battery"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
           "disk"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
@@ -104,11 +96,11 @@ in
         };
         memory = {
           interval = 5;
-          format = "Mem {}%";
+          format = " {}%";
         };
         cpu = {
           interval = 5;
-          format = "CPU {usage:2}%";
+          format = "󱛟 {usage:2}%";
         };
         battery = {
           states = {
@@ -127,7 +119,7 @@ in
         };
         disk = {
           interval = 5;
-          format = "Disk {percentage_used:2}%";
+          format = "󱛟 {percentage_used:2}%";
           path = "/";
         };
         tray = {
@@ -135,6 +127,7 @@ in
         };
       };
     };
+
     style = ''
       * {
         font-size: 20px;
