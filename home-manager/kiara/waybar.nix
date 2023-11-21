@@ -1,16 +1,11 @@
 { pkgs, ... }:
 
-let
-    wpctl = "${pkgs.wireplumber}/bin/wpctl";
-    pamixer = "${pkgs.pamixer}/bin/pamixer";
-    pavucontrol = "${pkgs.pavucontrol}/bin/pavucontrol";
-in
 {
 
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
-    settings = {
+    settings = with (import ./commands.nix { pkgs = pkgs; }); {
 
       mainBar = {
         layer = "top";

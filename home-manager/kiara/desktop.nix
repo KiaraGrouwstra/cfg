@@ -1,24 +1,24 @@
 { pkgs, ... }:
 
-let
-  commandDesktop = (name: command: mimeTypes:
-    (pkgs.makeDesktopItem {
-      name = name;
-      desktopName = name;
-      genericName = name;
-      exec = "${pkgs.wezterm}/bin/wezterm -e --always-new-process ${command}";
-      icon = "utilities-terminal";
-      categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
-      mimeTypes = mimeTypes;
-    })
-  );
-in
-
+with (import ./commands.nix { pkgs = pkgs; });
 {
 
-  home.packages = with pkgs; [
+  home.packages = let
+    commandDesktop = (name: command: mimeTypes:
+      (pkgs.makeDesktopItem {
+        name = name;
+        desktopName = name;
+        genericName = name;
+        exec = "${wezterm} -e --always-new-process ${command}";
+        icon = "utilities-terminal";
+        categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
+        mimeTypes = mimeTypes;
+      })
+    );
+  in
+  [
 
-    (commandDesktop "less" "${less}/bin/less" [
+    (commandDesktop "less" "${less}" [
       "text/plain"
       "text/html"
       "text/markdown" # mdcat / pandoc
@@ -27,17 +27,17 @@ in
       "application/pdf" # poppler_utils
     ])
 
-    (commandDesktop "glow" "${glow}/bin/glow" [
+    (commandDesktop "glow" "${glow}" [
       "text/markdown"
     ])
 
-    (commandDesktop "lynx" "${lynx}/bin/lynx" [
+    (commandDesktop "lynx" "${lynx}" [
       "x-scheme-handler/https"
       "x-scheme-handler/http"
       "text/html"
     ])
 
-    (commandDesktop "visidata" "${visidata}/bin/visidata" [
+    (commandDesktop "visidata" "${visidata}" [
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       "application/vnd.openxmlformats-officedocument.spreadsheetml.template"
       "application/vnd.ms-excel"

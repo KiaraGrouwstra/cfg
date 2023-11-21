@@ -6,34 +6,7 @@
     enable = true;
     # systemd service needed for kanshi
     systemd.enable = true;
-    settings = let
-      waybar = "${pkgs.waybar}/bin/waybar";
-      notify-send = "${pkgs.libnotify}/bin/notify-send";
-      swaync = "${pkgs.swaynotificationcenter}/bin/swaync";
-      swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
-      jq = "${pkgs.jq}/bin/jq";
-      swayidle = "${pkgs.swayidle}/bin/swayidle";
-      wezterm = "${pkgs.wezterm}/bin/wezterm";
-      wofi = "${pkgs.wofi}/bin/wofi";
-      rofi = "${pkgs.rofi-wayland}/bin/rofi";
-      rofi-systemd = "${pkgs.rofi-systemd}/bin/.rofi-systemd-wrapped";
-      rofimoji = "${pkgs.rofimoji}/bin/rofimoji";
-      ranger = "${pkgs.ranger}/bin/ranger";
-      nmtui = "${pkgs.networkmanager}/bin/nmtui";
-      swaylock = "${pkgs.swaylock-effects}/bin/swaylock";
-      swww = "${pkgs.swww}/bin/swww";
-      htop = "${pkgs.htop}/bin/htop";
-      wal = "${pkgs.pywal}/bin/wal";
-      nautilus = "${pkgs.gnome.nautilus}/bin/nautilus";
-      networkmanager_dmenu = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
-      cliphist = "${pkgs.cliphist}/bin/cliphist";
-      wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-      wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
-      hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-      light = "${pkgs.light}/bin/light";
-      playerctl = "${pkgs.playerctl}/bin/playerctl";
-      wpctl = "${pkgs.wireplumber}/bin/wpctl";
-      terminal = "${wezterm} -e --always-new-process";
+    settings = with (import ./commands.nix { pkgs = pkgs; }); let
       unfullscreen = "~/.config/hypr/scripts/unfullscreen";
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
