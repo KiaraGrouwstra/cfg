@@ -97,6 +97,7 @@
     ncmpcpp
     ffmpeg
     gnome.gnome-music
+    mpv
     stremio  # adds providers for content, e.g. https://torrentio.strem.fun/
     nodePackages.webtorrent-cli
     gimp
