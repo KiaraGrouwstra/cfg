@@ -76,6 +76,7 @@
     hashedPasswordFile = config.sops.secrets.user-password-kiara.path;
     description = "輝愛来 (kiara)";
     extraGroups = [
+      "input"
       "video"
       "networkmanager"
       "wheel"
@@ -156,6 +157,7 @@
   };
 
   environment.variables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
     # This will become a global environment variable
     GDK_BACKEND = "wayland"; # gtk
     # NIXOS_OZONE_WL = "1";    # electron, breaks codium now
