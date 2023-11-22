@@ -24,6 +24,7 @@
           "cpu"
           "battery"
           "disk"
+          "network"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
           "tray"
@@ -76,6 +77,21 @@
           on-click = "activate";
           on-scroll-up = "${hyprctl} dispatch workspace -1";
           on-scroll-down = "${hyprctl} dispatch workspace +1";
+        };
+        network = {
+          interface = "wlo1";
+          format = "{ifname}";
+          format-wifi = " ";
+          format-ethernet = "󰈀 ";
+          format-linked = "󱘖 ";
+          format-disconnected = "󰣽 ";
+          tooltip-format = "{ifname} via {gwaddr}";
+          tooltip-format-wifi = "{essid} ({signalStrength}%)";
+          tooltip-format-ethernet = "{ifname} {ipaddr}/{cidr}";
+          tooltip-format-disconnected = "Disconnected";
+          max-length = 50;
+          on-click = "${unfullscreen} && ${terminal} ${nmtui}";
+          on-click-right = "${networkmanager_dmenu}";
         };
         clock = {
           format = "{:%H:%M}";
