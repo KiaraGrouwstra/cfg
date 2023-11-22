@@ -7,7 +7,6 @@
     # systemd service needed for kanshi
     systemd.enable = true;
     settings = with (import ./commands.nix { pkgs = pkgs; }); let
-      unfullscreen = "~/.config/hypr/scripts/unfullscreen";
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # See https://wiki.hyprland.org/Configuring/Monitors/
