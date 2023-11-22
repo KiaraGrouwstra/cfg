@@ -48,10 +48,30 @@
         "hyprland/workspaces" = {
           active-only = true;
           disable-scroll = true;
-          format = "{name}";
+          format = "{name} {windows}";
+          format-window-separator = " ";
+          window-rewrite-default = "";
+          window-rewrite = {
+            firefox = "";
+            wezterm = "";
+            codium = "󰨞";
+            thunderbird = "󰇮";
+            keepassxc = "";
+            nautilus = "󰉋";
+            signal = "󰭹";
+          };
+          format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            active = "";
+            default = "";
+          };
           on-click = "activate";
-          on-scroll-up = "${hyprctl} dispatch workspace e-1";
-          on-scroll-down = "${hyprctl} dispatch workspace e+1";
+          on-scroll-up = "${hyprctl} dispatch workspace -1";
+          on-scroll-down = "${hyprctl} dispatch workspace +1";
         };
         clock = {
           format = "{:%H:%M}";
