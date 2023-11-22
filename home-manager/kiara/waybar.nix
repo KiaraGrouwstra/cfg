@@ -15,15 +15,7 @@
           "custom/right-arrow-dark"
         ];
         modules-center = [
-          "custom/left-arrow-dark"
-          "clock#1"
-          "custom/left-arrow-light"
-          "custom/left-arrow-dark"
-          "clock#2"
-          "custom/right-arrow-dark"
-          "custom/right-arrow-light"
-          "clock#3"
-          "custom/right-arrow-dark"
+          "clock"
         ];
         modules-right = [
           "custom/left-arrow-dark"
@@ -54,22 +46,30 @@
           tooltip = false;
         };
 
-        "sway/workspaces" = {
-          disable-scroll = true;
-          format = "{name}";
-        };
-
-        "clock#1" = {
-          format = "{:%a}";
-          tooltip = false;
-        };
-        "clock#2" = {
+        clock = {
           format = "{:%H:%M}";
-          tooltip = false;
-        };
-        "clock#3" = {
-          format = "{:%m-%d}";
-          tooltip = false;
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            };
+          };
+          actions = {
+            on-click-right = "mode";
+            on-click-forward = "tz_up";
+            on-click-backward = "tz_down";
+            on-scroll-up = "shift_down";
+            on-scroll-down = "shift_up";
+          };
         };
         pulseaudio = {
           format = "{icon} {volume:2}%";
@@ -145,9 +145,7 @@
       }
 
       #workspaces,
-      #clock.1,
-      #clock.2,
-      #clock.3,
+      #clock,
       #pulseaudio,
       #memory,
       #cpu,
