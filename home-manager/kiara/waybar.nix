@@ -11,8 +11,7 @@
         layer = "top";
         position = "bottom";
         modules-left = [
-          "sway/workspaces"
-          "custom/right-arrow-dark"
+          "hyprland/workspaces"
         ];
         modules-center = [
           "clock"
@@ -46,6 +45,14 @@
           tooltip = false;
         };
 
+        "hyprland/workspaces" = {
+          active-only = true;
+          disable-scroll = true;
+          format = "{name}";
+          on-click = "activate";
+          on-scroll-up = "${hyprctl} dispatch workspace e-1";
+          on-scroll-down = "${hyprctl} dispatch workspace e+1";
+        };
         clock = {
           format = "{:%H:%M}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
@@ -195,6 +202,17 @@
       #battery,
       #disk {
         padding: 0 10px;
+      }
+
+      #workspaces button {
+        padding: 0 0.5em;
+        margin: 0.25em;
+      }
+
+      #window {
+          border-radius: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
       }
     '';
   };
