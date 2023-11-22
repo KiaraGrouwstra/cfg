@@ -13,9 +13,13 @@
         modules-left = [
           "hyprland/language"
           "hyprland/workspaces"
+          "custom/right-arrow-dark"
+          "mpris"
         ];
         modules-center = [
+          "custom/left-arrow-dark"
           "clock"
+          "custom/right-arrow-dark"
         ];
         modules-right = [
           "custom/left-arrow-dark"
@@ -24,8 +28,8 @@
           "cpu"
           "battery"
           "disk"
-          "network"
           "custom/left-arrow-light"
+          "network"
           "custom/left-arrow-dark"
           "tray"
         ];
@@ -77,6 +81,24 @@
           on-click = "activate";
           on-scroll-up = "${hyprctl} dispatch workspace -1";
           on-scroll-down = "${hyprctl} dispatch workspace +1";
+        };
+        mpris = {
+          format = "{player_icon} {status_icon} {dynamic}";
+          format-playing = "{player_icon} {status_icon} {dynamic}";
+          format-paused = "{player_icon} {status_icon} <i>{dynamic}</i>";
+          format-stopped = "{player_icon} {status_icon} <i>{dynamic}</i>";
+          format-len = 150;
+          dynamic-len = 100;
+          player-icons = {
+            default = "";
+            mpv = "󰝚";
+            firefox = "";
+          };
+          status-icons = {
+            playing = "󰐊";
+            paused = "󰏤";
+            stopped = "󰓛";
+          };
         };
         network = {
           interface = "wlo1";
