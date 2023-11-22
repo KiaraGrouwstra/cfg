@@ -11,6 +11,7 @@
         layer = "top";
         position = "bottom";
         modules-left = [
+          "hyprland/language"
           "hyprland/workspaces"
         ];
         modules-center = [
@@ -45,6 +46,9 @@
           tooltip = false;
         };
 
+        "hyprland/language" = {
+          format = "{short}";
+        };
         "hyprland/workspaces" = {
           active-only = true;
           disable-scroll = true;
@@ -230,6 +234,12 @@
       }
 
       #window {
+          border-radius: 20px;
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+
+      #language {
           border-radius: 20px;
           padding-left: 10px;
           padding-right: 10px;
