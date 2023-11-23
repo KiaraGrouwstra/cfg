@@ -112,8 +112,8 @@
           tooltip-format-ethernet = "{ifname} {ipaddr}/{cidr}";
           tooltip-format-disconnected = "Disconnected";
           max-length = 50;
-          on-click = "${unfullscreen} && ${terminal} ${nmtui}";
-          on-click-right = "${networkmanager_dmenu}";
+          on-click = "${networkmanager_dmenu}";
+          on-click-right = "${unfullscreen} && ${terminal} ${nmtui}";
         };
         clock = {
           format = "{:%H:%M}";
