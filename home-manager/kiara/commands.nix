@@ -9,7 +9,7 @@ with pkgs; {
   swayidle = "${swayidle}/bin/swayidle";
   wezterm = "${wezterm}/bin/wezterm";
   wofi = "${wofi}/bin/wofi";
-  rofi = "${rofi-wayland}/bin/rofi";
+  rofi = "${rofi-wayland}/bin/rofi -i";
   rofi-systemd = "${rofi-systemd}/bin/.rofi-systemd-wrapped";
   rofimoji = "${rofimoji}/bin/rofimoji";
   ranger = "${ranger}/bin/ranger";
