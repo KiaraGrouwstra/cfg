@@ -87,8 +87,7 @@
           format-playing = "{player_icon} {status_icon} {dynamic}";
           format-paused = "{player_icon} {status_icon} <i>{dynamic}</i>";
           format-stopped = "{player_icon} {status_icon} <i>{dynamic}</i>";
-          format-len = 150;
-          dynamic-len = 100;
+          dynamic-len = 50;
           player-icons = {
             default = "";
             mpv = "󰝚";
