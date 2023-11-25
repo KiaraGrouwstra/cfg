@@ -198,6 +198,7 @@
     htop
     unixtools.column
     poppler_utils
+    pdf2odt
     xsv
     csvkit
     neomutt
