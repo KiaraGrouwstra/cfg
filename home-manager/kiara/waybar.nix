@@ -55,9 +55,9 @@
           format = "{short}";
         };
         "hyprland/workspaces" = {
-          active-only = true;
+          active-only = false;
           disable-scroll = true;
-          format = "{name} {windows}";
+          format = "{icon}";
           format-window-separator = " ";
           window-rewrite-default = "";
           window-rewrite = {
@@ -70,12 +70,16 @@
             signal = "󰭹";
           };
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-            active = "";
+            "1" = "壱";
+            "2" = "弐";
+            "3" = "参";
+            "4" = "肆";
+            "5" = "伍";
+            "6" = "陸";
+            "7" = "柒";
+            "8" = "捌";
+            "9" = "玖";
+            "10" = "拾";
             default = "";
           };
           on-click = "activate";
@@ -227,8 +231,11 @@
         padding: 0 2px;
         color: #fdf6e3;
       }
-      #workspaces button.focused {
-        color: #268bd2;
+      #workspaces button.active {
+        color: #ea999c;
+      }
+      #workspaces button.urgent {
+        background-color: red;
       }
       #workspaces button:hover {
         box-shadow: inherit;
@@ -237,7 +244,6 @@
       #workspaces button:hover {
         background: #1a1a1a;
         border: #1a1a1a;
-        padding: 0 3px;
       }
 
       #pulseaudio {
@@ -263,11 +269,6 @@
       #battery,
       #disk {
         padding: 0 10px;
-      }
-
-      #workspaces button {
-        padding: 0 0.5em;
-        margin: 0.25em;
       }
 
       #window {
