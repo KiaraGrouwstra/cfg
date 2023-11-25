@@ -229,7 +229,7 @@
 
       #workspaces button {
         padding: 0 2px;
-        color: #fdf6e3;
+        color: #9d9683;
       }
       #workspaces button.active {
         color: #ea999c;
