@@ -144,7 +144,7 @@
           };
         };
         pulseaudio = {
-          format = "{icon} {volume:2}%";
+          format = "{icon}  {volume:2}%";
           format-bluetooth = "{icon}  {volume}%";
           format-muted = "󰝟";
           format-icons = {
@@ -163,11 +163,11 @@
         };
         memory = {
           interval = 5;
-          format = " {}%";
+          format = "  {}%";
         };
         cpu = {
           interval = 5;
-          format = "󱛟 {usage:2}%";
+          format = "󱛟  {usage:2}%";
         };
         battery = {
           states = {
@@ -175,7 +175,7 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
+          format = "{icon}  {capacity}%";
           format-icons = [
             ""
             ""
