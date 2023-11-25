@@ -194,7 +194,7 @@
     style = ''
       * {
         font-size: 20px;
-        font-family: monospace;
+        font-family: regular;
       }
 
       window#waybar {
