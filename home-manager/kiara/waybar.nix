@@ -144,8 +144,8 @@
           };
         };
         pulseaudio = {
-          format = "{icon}  {volume:2}%";
-          format-bluetooth = "{icon}  {volume}%";
+          format = "{icon}   {volume:2}%";
+          format-bluetooth = "{icon}   {volume}%";
           format-muted = "󰝟";
           format-icons = {
             headphones = "";
@@ -186,7 +186,7 @@
         };
         disk = {
           interval = 5;
-          format = "󱛟 {percentage_used:2}%";
+          format = "󱛟  {percentage_used:2}%";
           path = "/";
         };
         tray = {
