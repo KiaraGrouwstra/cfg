@@ -194,7 +194,7 @@
     style = ''
       * {
         font-size: 20px;
-        font-family: regular;
+        font-family: mono-space;
       }
 
       window#waybar {
@@ -280,6 +280,10 @@
           border-radius: 20px;
           padding-left: 10px;
           padding-right: 10px;
+      }
+
+      #mpris{
+          font-family: regular;
       }
     '';
   };
