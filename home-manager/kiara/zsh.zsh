@@ -1,3 +1,6 @@
+# nix-shell
+any-nix-shell zsh --info-right | source /dev/stdin
+
 # guix
 path+=('/var/guix/profiles/per-user/root/current-guix/bin')
 export PATH
