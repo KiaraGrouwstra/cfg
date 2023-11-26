@@ -119,7 +119,6 @@
           modules = [
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-            inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           ];
         };
 
@@ -144,6 +143,7 @@
           };
           modules = [
             ./home-manager/kiara/home.nix
+            inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           ];
         };
 
