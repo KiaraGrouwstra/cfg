@@ -54,6 +54,11 @@
       inputs.nixpkgs.follows = "master";
       inputs.flake-utils.follows = "flake-utils";
     };
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "master";
+      inputs.utils.follows = "flake-utils";
+    };
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
@@ -143,6 +148,7 @@
           };
           modules = [
             ./home-manager/kiara/home.nix
+            inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           ];
         };
 

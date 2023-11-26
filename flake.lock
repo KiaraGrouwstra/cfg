@@ -31,6 +31,29 @@
         "type": "github"
       }
     },
+    "flake-programs-sqlite": {
+      "inputs": {
+        "nixpkgs": [
+          "master"
+        ],
+        "utils": [
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1700959049,
+        "narHash": "sha256-DgsxAGHx7mHFZMXwy4QJDH4p2LENurBUGUpc8rPebtg=",
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "rev": "945365a78cc9daa27717f180c8009c6573488bf4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -298,6 +321,7 @@
     "root": {
       "inputs": {
         "flake-compat": "flake-compat",
+        "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils",
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
