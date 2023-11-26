@@ -74,3 +74,16 @@ home-manager generations
 export n=1
 $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --only-matching '/nix/store/.*'`/activate)
 ```
+
+## Used software
+
+| Component     | Software     |
+|---------------|--------------|
+| Compositor    | [Hyprland](https://github.com/hyprwm/Hyprland) |
+| Bar           | [Waybar](https://github.com/Alexays/Waybar/) |
+| Notifications | [swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
+| Menu          | [rofi-wayland](https://github.com/lbonn/rofi/) |
+| Web browser   | [Firefox](https://hg.mozilla.org/mozilla-central/) |
+| File browser  | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus/) |
+| Terminal      | [Wezterm](https://github.com/wez/wezterm/) |
+| Text editor   | [Codium](https://github.com/VSCodium/vscodium) |
