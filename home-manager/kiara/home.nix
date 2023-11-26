@@ -128,7 +128,6 @@
     pandoc
     element-desktop
     docker-compose
-    brave
     # terraform
     terraform-providers.kubernetes
     terraform-providers.helm
@@ -208,6 +207,7 @@
     eza
     unfree.zoom-us
     hydroxide
+    tor-browser
 
     # chat
     signal-cli
