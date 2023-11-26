@@ -208,6 +208,7 @@
     unfree.zoom-us
     hydroxide
     tor-browser
+    onionshare-gui
 
     # chat
     signal-cli
