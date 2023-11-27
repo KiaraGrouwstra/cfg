@@ -210,6 +210,7 @@
     tor-browser
     onionshare-gui
     gnome.gnome-software
+    xxh
 
     # chat
     signal-cli
