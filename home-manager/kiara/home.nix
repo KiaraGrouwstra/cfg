@@ -209,6 +209,7 @@
     hydroxide
     tor-browser
     onionshare-gui
+    gnome.gnome-software
 
     # chat
     signal-cli
