@@ -34,5 +34,6 @@ with pkgs; {
   glow = "${glow}/bin/glow";
   lynx = "${lynx}/bin/lynx";
   visidata = "${visidata}/bin/visidata";
+  kanshictl = "${kanshi}/bin/kanshictl";
   unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }

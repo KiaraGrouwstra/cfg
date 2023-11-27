@@ -9,12 +9,6 @@
     settings = with (import ./commands.nix { pkgs = pkgs; }); let
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
-      # See https://wiki.hyprland.org/Configuring/Monitors/
-      # monitor = ", preferred, auto, auto";
-      monitor = ", preferred, auto, auto, mirror, HDMI-A-1";
-
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-
       # Execute your favorite apps at launch
       exec-once = [
         "${waybar}" # & signal-desktop & thunderbird & firefox # & codium & keepassxc
@@ -338,6 +332,7 @@
         "SUPER, F1, exec, ~/.config/hypr/scripts/gamemode"
         "SUPER, F3, exec, ${unfullscreen} && ${./fontpreview.sh}"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
+        "SUPER, F5, exec, ${kanshictl} reload"
         "SUPER, F6, exec, ${hyprctl} reload"
         "SUPER, F7, exec, ${notify-send} \"$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')\" \"$(${hyprctl} activewindow -j | ${jq} -r '.title')\""
         "SUPER, Slash, exec, ~/.config/rofi/keybinds.sh"

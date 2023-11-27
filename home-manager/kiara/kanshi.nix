@@ -12,11 +12,20 @@
     systemdTarget = "hyprland-session.target";
 
     profiles = {
+
+      lid_closed = {
+        outputs = [
+          {
+            criteria = "HDMI-A-1";
+            status = "enable";
+          }
+        ];
+      };
+
       undocked = {
         outputs = [
           {
             criteria = "eDP-1";
-            # scale = 1.1;
             status = "enable";
           }
         ];
@@ -25,10 +34,8 @@
       home_office = {
         outputs = [
           {
-            criteria = "Samsung Electric Company SAMSUNG";
+            criteria = "HDMI-A-1";
             status = "enable";
-            position = "0,0";
-            mode = "1366x768@60Hz";
           }
           {
             criteria = "eDP-1";
