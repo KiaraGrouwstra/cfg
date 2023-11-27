@@ -205,6 +205,13 @@
   # used by enhancd
   programs.fzf.fuzzyCompletion = true;
 
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    persistent = true;
+    options = "--delete-older-than 21d";
+  };
+
   # use flake's nixpkgs over channels
   system.extraSystemBuilderCmds = ''
     ln -sv ${pkgs.path} $out/nixpkgs
