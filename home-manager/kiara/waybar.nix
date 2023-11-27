@@ -82,6 +82,9 @@
             "10" = "拾";
             default = "";
           };
+          persistent-workspaces = {
+            "*" = [ 1 2 3 4 5 6 7 8 9 10 ];
+          };
           on-click = "activate";
           on-scroll-up = "${hyprctl} dispatch workspace -1";
           on-scroll-down = "${hyprctl} dispatch workspace +1";
