@@ -10,6 +10,7 @@
 
     extraConfig = {
       init.defaultBranch = "main";
+      advice.objectNameWarning = false;
     };
 
     ignores = [
