@@ -276,7 +276,7 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      catppuccin-nvim
+      pywal-nvim
       nvchad
       nvchad-ui
     ];
