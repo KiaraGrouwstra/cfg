@@ -5,7 +5,7 @@
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: with epkgs; [
-      catppuccin-theme
+      wal-mode
       nix-mode
       magit
       tramp
