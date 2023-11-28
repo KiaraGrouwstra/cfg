@@ -400,6 +400,10 @@ let
           "glow"
           "codium"
         ];
+        "text/org" = map addDesktop [
+          "less"
+          "codium"
+        ];
         "application/epub+zip" = map addDesktop [
           "less"
           "calibre-ebook-viewer"
