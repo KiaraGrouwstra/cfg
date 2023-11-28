@@ -1,6 +1,22 @@
 { lib, ... }:
 let
     addDesktop = x: "${x}.desktop";
+    prioritize = lower: higher:
+      lib.foldl'
+        (o: k:
+          o // {
+            "${k}" =
+              let
+                v = lib.getAttr k lower;
+              in
+                if lib.hasAttr k o
+                then (lib.getAttr k o) ++ v
+                else v;
+          }
+        )
+        higher
+        (lib.attrNames lower);
+    prioritizeList = lib.foldl' prioritize {};
     # take from the respective mimetype files
     images = map (_: "image/${_}") [
       "jpeg"
@@ -322,44 +338,44 @@ let
       "lapce"
       "kate"
     ];
-    associations =
-      (lib.genAttrs code (_: editors)) //
+    associations = prioritizeList [
+      (lib.genAttrs code (_: editors))
       (lib.genAttrs images (_: [
         "imv.desktop"
-      ])) //
-      (lib.genAttrs urls (_: browsers)) //
+      ]))
+      (lib.genAttrs urls (_: browsers))
       (lib.genAttrs readable (_: [
         "org.gnome.Evince.desktop"
-      ])) //
+      ]))
       (lib.genAttrs audio (_: [
         "mpv.desktop"
-      ])) //
+      ]))
       (lib.genAttrs video (_: [
         "mpv.desktop"
-      ])) //
+      ]))
       (lib.genAttrs archives (_: map addDesktop [
         "org.gnome.FileRoller"
         "org.gnome.Nautilus"
-      ])) //
+      ]))
       (lib.genAttrs documents (_: map addDesktop [
         "less"
         "writer"
-      ])) //
+      ]))
       (lib.genAttrs spreadsheets (_: map addDesktop [
         "visidata"
         "less"
         "calc"
-      ])) //
+      ]))
       (lib.genAttrs slides (_: map addDesktop [
         "less"
         "impress"
-      ])) //
+      ]))
       (lib.genAttrs [
         "application/x-gzip"
         "application/x-tar"
       ] (_: map addDesktop [
         "tar.gz"
-      ])) //
+      ]))
       {
         "inode/directory" = map addDesktop [
           "ranger"
@@ -371,9 +387,8 @@ let
         "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
         "text/calendar" = [ "org.gnome.Calendar.desktop" ];
         "application/pdf" = map addDesktop [
-          "less"
           "org.pwmt.zathura"
-          "org.gnome.Evince"
+          "less"
         ];
         "text/plain" = map addDesktop [
           "less"
@@ -406,7 +421,8 @@ let
         "x-scheme-handler/magnet" = map addDesktop [
           "stremio"
         ];
-      };
+      }
+    ];
 in
 {
   xdg.mimeApps = {
