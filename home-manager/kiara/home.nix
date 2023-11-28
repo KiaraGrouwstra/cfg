@@ -211,6 +211,7 @@
     onionshare-gui
     gnome.gnome-software
     xxh
+    wvkbd
 
     # chat
     signal-cli
