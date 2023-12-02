@@ -184,8 +184,7 @@
         "SUPER, X, exec, ${unfullscreen} && ${nautilus} ~/Downloads/"
         "SUPER SHIFT, X, exec, ${unfullscreen} && ${terminal} ${ranger} ~/Downloads/"
         "SUPER, H, togglefloating,"
-
-        "SUPER, P, pseudo," # dwindle
+        "SUPER SHIFT, H, pseudo," # dwindle
         "SUPER, J, togglesplit," # dwindle
 
         # Move focus with SUPER + wasd
@@ -340,6 +339,7 @@
         "SUPER, I, exec, ${unfullscreen} && ${terminal} ${nmtui}"
         "SUPER SHIFT, I, exec, ${networkmanager_dmenu}"
         "SUPER, U, exec, ~/.config/rofi/power.sh"
+        "SUPER, P, exec, ~/.config/rofi/displays.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
         "SUPER, T, exec, ${rofi-systemd}"
         "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
