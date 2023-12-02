@@ -246,6 +246,10 @@ let
       "video/dv"
       "video/*"
     ];
+    models = [
+      "model/stl"
+      "model/3mf"
+    ];
     archives = map (_: "application/${_}") [
       "bzip2"
       "gzip"
@@ -369,6 +373,14 @@ let
       (lib.genAttrs slides (_: map addDesktop [
         "less"
         "impress"
+      ]))
+      (lib.genAttrs models (_: map addDesktop [
+        "PrusaSlicer"
+      ]))
+      (lib.genAttrs [
+        "text/x-gcode"
+      ] (_: map addDesktop [
+        "PrusaGcodeviewer"
       ]))
       (lib.genAttrs [
         "application/x-gzip"
