@@ -235,8 +235,14 @@
         padding: 0 2px;
         color: #9d9683;
       }
-      #workspaces button.active {
+      #workspaces button.visible.active {
         color: #ea999c;
+      }
+      #workspaces button.visible {
+        color: #ffffff;
+      }
+      #workspaces button.empty {
+        color: #4d4633;
       }
       #workspaces button.urgent {
         background-color: red;
