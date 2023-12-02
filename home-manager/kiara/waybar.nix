@@ -198,6 +198,7 @@
       };
     };
 
+    # GTK_DEBUG=interactive waybar
     style = ''
       * {
         font-size: 20px;
