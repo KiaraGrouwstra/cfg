@@ -31,15 +31,41 @@
         ];
       };
 
-      home_office = {
+      internal = {
         outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+          }
+          {
+            criteria = "HDMI-A-1";
+            status = "disable";
+          }
+        ];
+      };
+
+      external = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
           {
             criteria = "HDMI-A-1";
             status = "enable";
           }
+        ];
+      };
+
+      extend = {
+        outputs = [
           {
             criteria = "eDP-1";
-            status = "disable";
+            status = "enable";
+          }
+          {
+            criteria = "*";
+            status = "enable";
           }
         ];
       };
