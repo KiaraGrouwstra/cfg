@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  hyprland-contrib = inputs.hyprland-contrib.packages.${pkgs.system};
+in
 with pkgs; {
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
@@ -35,5 +38,8 @@ with pkgs; {
   lynx = "${lynx}/bin/lynx";
   visidata = "${visidata}/bin/visidata";
   kanshictl = "${kanshi}/bin/kanshictl";
+  hyprpicker = "${hyprpicker}/bin/hyprpicker";
+  hyprland-contrib = hyprland-contrib;
+  grimblast = "XDG_SCREENSHOTS_DIR=\"$HOME/Pictures/Screenshots\" ${hyprland-contrib.grimblast}/bin/grimblast";
   unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }

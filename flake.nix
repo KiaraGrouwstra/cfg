@@ -59,6 +59,10 @@
       inputs.nixpkgs.follows = "master";
       inputs.utils.follows = "flake-utils";
     };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "master";
+    };
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
