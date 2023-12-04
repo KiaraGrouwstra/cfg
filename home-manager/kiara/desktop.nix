@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
-with (import ./commands.nix { pkgs = pkgs; });
+with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 {
 
   home.packages = let

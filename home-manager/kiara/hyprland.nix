@@ -1,12 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 {
+  home.packages = with hyprland-contrib; [
+    grimblast
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     # systemd service needed for kanshi
     systemd.enable = true;
-    settings = with (import ./commands.nix { pkgs = pkgs; }); let
+    settings = let
       wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # Execute your favorite apps at launch
@@ -348,20 +352,12 @@
         # set $menu bemenu-run
 
         # screenshots
-        # region: to clipboard
-        ", Print, exec, ~/.config/hypr/scripts/screenshot rc"
-        # region: to file
-        "SUPER, Print, exec, ~/.config/hypr/scripts/screenshot rf"
-        # region: interactive
-        "CTRL, Print, exec, ~/.config/hypr/scripts/screenshot ri"
-        # screen: to clipboard
-        "SHIFT, Print, exec, ~/.config/hypr/scripts/screenshot sc"
-        # screen: to file
-        "SUPER SHIFT, Print, exec, ~/.config/hypr/scripts/screenshot sf"
-        # screen: interactive
-        "CTRL SHIFT, Print, exec, ~/.config/hypr/scripts/screenshot si"
+        ", Print, exec, ${grimblast} copy area"
+        "SUPER, Print, exec, ${grimblast} save area"
+        "SHIFT, Print, exec, ${grimblast} copy output"
+        "SUPER SHIFT, Print, exec, ${grimblast} save output"
         # pixel
-        "ALT, Print, exec, ~/.config/hypr/scripts/screenshot p"
+        "ALT, Print, exec, ${wl-copy} $(${hyprpicker} -a)"
 
         # clipboard
         "SUPER, V, exec, ${cliphist} list | ${rofi} -dmenu | ${cliphist} decode | ${wl-copy}"

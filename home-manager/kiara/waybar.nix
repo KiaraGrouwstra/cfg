@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
 
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
-    settings = with (import ./commands.nix { pkgs = pkgs; }); {
+    settings = with (import ./commands.nix { pkgs = pkgs; inputs = inputs; }); {
 
       mainBar = {
         layer = "top";
