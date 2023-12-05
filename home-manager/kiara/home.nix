@@ -212,6 +212,7 @@
     gnome.gnome-software
     xxh
     wvkbd
+    bat
 
     # chat
     signal-cli
