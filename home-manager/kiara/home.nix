@@ -224,6 +224,7 @@
 
     # LSP
     nil nixpkgs-fmt
+    haskellPackages.haskell-language-server
 
     # configure-gtk
     wayland
