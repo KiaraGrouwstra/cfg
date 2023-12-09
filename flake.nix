@@ -109,7 +109,7 @@
         in import ./pkgs { inherit pkgs inputs; }
       );
       # Devshell for bootstrapping
-      # Acessible through 'nix develop' or 'nix-shell' (legacy)
+      # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./shell.nix { inherit pkgs; }
