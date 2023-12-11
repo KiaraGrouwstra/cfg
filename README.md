@@ -6,6 +6,7 @@ and with secrets managed using [Sops](https://github.com/getsops/sops/).
 ## usage
 
 follow instructions:
+
 - [download](https://nixos.org/download) / [install](https://nixos.org/manual/nixos/stable/#sec-installation) / boot [nixos](https://nixos.org/)
 - take access to nixos directory: `sudo chown -R $USER /etc/nixos/`
 - add [`age`](https://github.com/FiloSottile/age) keys file `keys.txt` in this directory to decode the secrets
@@ -26,6 +27,10 @@ follow instructions:
 - encoding: `sops -e secrets.yml > secrets.enc.yml`
 - decoding: `sops -d secrets.enc.yml > secrets.yml`
 
+### offline
+
+Add `--option substitute false` to either `nixos-rebuild` or `home-manager` commands.
+
 ### [guix](https://github.com/NixOS/nixpkgs/pull/150130#issuecomment-993954344)
 
 ```sh
@@ -35,19 +40,19 @@ export PATH="/var/guix/profiles/per-user/root/current-guix/bin:$PATH"
 ## references
 
 - inspiration on repo setup:
-  - https://github.com/javacafe01/dotfiles
-  - https://github.com/Misterio77/nix-config
+  - [javacafe01](https://github.com/javacafe01/dotfiles)
+  - [Misterio77](https://github.com/Misterio77/nix-config)
 - search for options and packages:
-  - https://mynixos.com/
-  - https://mipmip.github.io/home-manager-option-search/
-  - https://flakestry.dev/
-  - https://nur.nix-community.org/
+  - [mynixos.com](https://mynixos.com/)
+  - [mipmip.github.io/home-manager-option-search](https://mipmip.github.io/home-manager-option-search/)
+  - [flakestry.dev](https://flakestry.dev/)
+  - [nur.nix-community.org](https://nur.nix-community.org/)
 - nix functions:
-  - https://mipmip.github.io/nix-builtins-search/
-  - https://noogle.dev/
+  - [mipmip.github.io/nix-builtins-search](https://mipmip.github.io/nix-builtins-search/)
+  - [noogle.dev](https://noogle.dev/)
 - packages: non-nix
-  - https://packages.guix.gnu.org/
-  - https://flathub.org/
+  - [packages.guix.gnu.org](https://packages.guix.gnu.org/)
+  - [flathub.org](https://flathub.org/)
 
 ## rollbacks
 
