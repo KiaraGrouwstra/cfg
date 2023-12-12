@@ -92,3 +92,10 @@ $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --on
 | File browser  | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus/) |
 | Terminal      | [Kitty](https://github.com/kovidgoyal/kitty/) |
 | Text editor   | [Codium](https://github.com/VSCodium/vscodium) |
+
+## Debugging builds
+
+- local repo: `git bisect`
+- nixpkgs:
+  - `git bisect --work-tree=$NIXPKGS_FORK run "bisect-nixpkgs.sh $NIXPKGS_FORK && sudo nixos-rebuild dry-build --flake .#$USER-$(hostname) --show-trace && <COMMAND>"`
+  - `git bisect --work-tree=$NIXPKGS_FORK run "bisect-nixpkgs.sh $NIXPKGS_FORK && home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace && <COMMAND>"`
