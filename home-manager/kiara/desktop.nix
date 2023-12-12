@@ -9,7 +9,7 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
         name = name;
         desktopName = name;
         genericName = name;
-        exec = "${wezterm} -e --always-new-process ${command}";
+        exec = "${terminal} ${command}";
         icon = "utilities-terminal";
         categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
         mimeTypes = mimeTypes;
