@@ -34,6 +34,8 @@
       cat = "bat";
       ssh = "xxh";
       ls = "eza";
+      vi = "nvim";
+      vim = "nvim";
     };
     initExtra = (lib.readFile ./zsh.zsh);
   };
