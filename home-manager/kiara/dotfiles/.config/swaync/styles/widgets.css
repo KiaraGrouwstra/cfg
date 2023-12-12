@@ -3,11 +3,15 @@
 .widget-mpris {
   /* The parent to all players */
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 .widget-mpris-player {
   padding: 8px;
   margin: 8px;
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -15,12 +19,16 @@
   font-weight: bold;
   font-size: 1.25rem;
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   letter-spacing: 2px;
   font: bold 1em Megrim;
 }
 .widget-mpris-subtitle {
   font-size: 1em;
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 
 
@@ -32,6 +40,8 @@
 .widget-inhibitors > button {
   font-size: initial;
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   text-shadow: none;
   background: @background;
   border: 1px solid @color6;

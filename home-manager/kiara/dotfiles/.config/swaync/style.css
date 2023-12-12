@@ -1,10 +1,10 @@
 
-@import url("$HOME/.cache/wal/gtk-colors.css");
+/* @import url("/home/kiara/.cache/wal/gtk-colors.css"); */
 @import url("./styles/notifications.css");
 @import url("./styles/widgets.css");
 
 .control-center {
-  background: alpha(@background, 0.9);
+  background: alpha(@background, 0.5);
 }
 
 .control-center-list {
@@ -12,7 +12,7 @@
 }
 
 .control-center-list-placeholder {
-  opacity: 0.1;
+  opacity: 0.5;
 }
 
 /* Window behind control center and on all other monitors */
