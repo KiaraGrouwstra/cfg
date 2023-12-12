@@ -150,6 +150,7 @@
     cura
     curaengine
     octoprint
+    printrun
     rpi-imager
     arduinoOTA
     gnome.dconf-editor
