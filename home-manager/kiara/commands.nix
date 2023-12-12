@@ -10,6 +10,7 @@ with pkgs; {
   swaync-client = "${swaynotificationcenter}/bin/swaync-client";
   jq = "${jq}/bin/jq";
   swayidle = "${swayidle}/bin/swayidle";
+  kitty = "${pkgs.kitty}/bin/kitty";
   wezterm = "${wezterm}/bin/wezterm";
   wofi = "${wofi}/bin/wofi";
   rofi = "${rofi-wayland}/bin/rofi -i";
@@ -32,7 +33,8 @@ with pkgs; {
   wpctl = "${wireplumber}/bin/wpctl";
   pamixer = "${pamixer}/bin/pamixer";
   pavucontrol = "${pavucontrol}/bin/pavucontrol";
-  terminal = "${wezterm}/bin/wezterm -e --always-new-process";
+  # terminal = "${wezterm}/bin/wezterm -e --always-new-process";
+  terminal = "${kitty}";
   less = "${less}/bin/less";
   glow = "${glow}/bin/glow";
   lynx = "${lynx}/bin/lynx";

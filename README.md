@@ -90,5 +90,5 @@ $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --on
 | Menu          | [rofi-wayland](https://github.com/lbonn/rofi/) |
 | Web browser   | [Firefox](https://hg.mozilla.org/mozilla-central/) |
 | File browser  | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus/) |
-| Terminal      | [Wezterm](https://github.com/wez/wezterm/) |
+| Terminal      | [Kitty](https://github.com/kovidgoyal/kitty/) |
 | Text editor   | [Codium](https://github.com/VSCodium/vscodium) |

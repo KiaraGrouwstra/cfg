@@ -15,6 +15,7 @@
     ./gtk.nix
     ./hyprland.nix
     ./kanshi.nix
+    ./kitty.nix
     ./mime.nix
     ./neomutt.nix
     ./rofi.nix
@@ -62,6 +63,7 @@
     jq
     amp
     helix
+    kitty
     wezterm
     usbutils
     firefox
