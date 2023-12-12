@@ -34,20 +34,25 @@
   background: alpha(black, .89);
   border: 1px solid white;
   color: #eeeeee;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 
 .notification-content {
   padding: 5px 0;
   margin-left: 10px;
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   background: transparent;
 }
 
-/* no mouse, ty */
 .close-button,
 .close-button:hover {
   background: transparent;
-  color: transparent;
+  color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 
 /* yet another useless wrapper */
@@ -77,13 +82,16 @@
   font-weight: bold;
   background: transparent;
   color: @color3;
-  text-shadow: none;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 
 .time {
   font-size: 1.2em;
   font-weight: normal;
   color: @color8;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   margin-bottom: 5px;
   font-style: italic;
 }
@@ -93,4 +101,6 @@
   font-weight: normal;
   background: transparent;
   color: @foreground;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
