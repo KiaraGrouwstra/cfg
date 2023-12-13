@@ -137,7 +137,8 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
         "opacity 0.9 override 0.7 override,.*" # transparent when inactive
         "opacity 0.8 override 0.5 override,^(wezterm)$" # transparent when inactive
         "opacity 0.9 override 0.5 override,^rofi"
-        "size 90% 90%,title:^Open File$"
+        "size 40% 80%,title:^Open File$"
+        "center,title:^Open File$" # 1
       ];
       windowrulev2 = [
         "opacity 0.8 0.5, floating:0.9"
