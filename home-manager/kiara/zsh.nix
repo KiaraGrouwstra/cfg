@@ -32,7 +32,6 @@
     shellAliases = {
       docker-compose = "podman-compose";
       cat = "bat";
-      ssh = "xxh";
       ls = "eza";
       vi = "nvim";
       vim = "nvim";
