@@ -43,5 +43,6 @@ with pkgs; {
   hyprpicker = "${hyprpicker}/bin/hyprpicker";
   hyprland-contrib = hyprland-contrib;
   grimblast = "XDG_SCREENSHOTS_DIR=\"$HOME/Pictures/Screenshots\" ${hyprland-contrib.grimblast}/bin/grimblast";
+  webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
   unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }

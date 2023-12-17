@@ -57,6 +57,10 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
       "application/x-zip"
     ])
 
+    (commandDesktop "webtorrent" "${webtorrent} download" [
+      "x-scheme-handler/magnet"
+    ])
+
   ];
 
 }

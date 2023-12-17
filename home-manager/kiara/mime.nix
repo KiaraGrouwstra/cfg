@@ -435,6 +435,7 @@ let
           "zip"
         ];
         "x-scheme-handler/magnet" = map addDesktop [
+          "webtorrent"
           "stremio"
         ];
       }
