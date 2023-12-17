@@ -15,10 +15,10 @@ follow instructions:
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
 - [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild switch --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --show-trace`
-  - `sudo nice -n -20 su -c 'sudo nixos-rebuild switch --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --show-trace' $(whoami)`
+  - `sudo nice -n 19 su -c 'sudo nixos-rebuild switch --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --show-trace' $(whoami)`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace`
-  - `sudo nice -n -20 su -c 'home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace' $(whoami)`
+  - `sudo nice -n 19 su -c 'home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace' $(whoami)`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
