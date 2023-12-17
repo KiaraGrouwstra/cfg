@@ -35,6 +35,7 @@
       ls = "eza";
       vi = "nvim";
       vim = "nvim";
+      grep = "rg";
     };
     initExtra = (lib.readFile ./zsh.zsh);
   };

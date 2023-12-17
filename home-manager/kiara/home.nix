@@ -215,6 +215,7 @@
     xxh
     wvkbd
     bat
+    ripgrep
     kirc
 
     # chat
