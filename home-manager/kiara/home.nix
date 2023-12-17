@@ -66,7 +66,6 @@
     kitty
     wezterm
     usbutils
-    firefox
     thunderbird
     signal-desktop
     telegram-desktop
@@ -334,6 +333,14 @@
   services.syncthing.enable = true;
 
   programs.command-not-found.enable = true;
+
+  programs.firefox = {
+    enable = true;
+    policies = {
+      DontCheckDefaultBrowser = true;
+      DisablePocket = true;
+    };
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
