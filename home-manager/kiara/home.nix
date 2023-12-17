@@ -217,6 +217,7 @@
     bat
     ripgrep
     kirc
+    halloy
 
     # chat
     signal-cli
