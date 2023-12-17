@@ -215,6 +215,7 @@
     xxh
     wvkbd
     bat
+    kirc
 
     # chat
     signal-cli
