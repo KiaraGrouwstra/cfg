@@ -42,6 +42,9 @@
         password="${config.sops.secrets.wifi-password-eduroam.path}"
       '';
     };
+    "Floppy Disk" = {
+      psk = config.sops.secrets.wifi-password-floppy.path;
+    };
   };
 
   # Open ports in the firewall.

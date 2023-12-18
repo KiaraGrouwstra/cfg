@@ -151,7 +151,7 @@
           };
           modules = [
             ./home-manager/kiara/home.nix
-            inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+            inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
           ];
         };
 

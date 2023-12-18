@@ -197,6 +197,7 @@
       wifi-password-woerden = {};
       wifi-password-publicroam = {};
       wifi-password-eduroam = {};
+      wifi-password-floppy = {};
     };
   };
 
