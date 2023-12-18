@@ -183,7 +183,7 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
         "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wal} -i ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
-        "SUPER, E, exec, ${unfullscreen} && ${wezterm}"
+        "SUPER, E, exec, ${unfullscreen} && ${terminal}"
         "SUPER, Q, killactive,"
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
