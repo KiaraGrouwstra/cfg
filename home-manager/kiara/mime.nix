@@ -438,6 +438,9 @@ let
           "webtorrent"
           "stremio"
         ];
+        "x-scheme-handler/irc" = map addDesktop [
+          "halloy"
+        ];
       }
     ];
 in
