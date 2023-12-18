@@ -63,7 +63,7 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
-        "org.wezfurlong.wezterm.desktop"
+        "kitty.desktop"
         "firefox.desktop"
         "thunderbird.desktop"
         "signal-desktop.desktop"

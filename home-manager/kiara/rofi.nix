@@ -6,7 +6,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     cycle = true;
-    terminal = "wezterm";
+    terminal = "kitty";
     theme = toString (pkgs.substituteAll (
       { src = ./dotfiles/.config/rofi/theme.rasi; } // config.colorScheme.colors // {
         font = "${config.fontProfiles.regular.family} 15";

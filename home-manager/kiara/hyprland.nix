@@ -133,9 +133,9 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       windowrule = [
-        "rounding 40,^(wezterm)$"
+        "rounding 40,^(wezterm)|(kitty)$"
         "opacity 0.9 override 0.7 override,.*" # transparent when inactive
-        "opacity 0.8 override 0.5 override,^(wezterm)$" # transparent when inactive
+        "opacity 0.8 override 0.5 override,^(wezterm)|(kitty)$" # transparent when inactive
         "opacity 0.9 override 0.5 override,^rofi"
         "size 40% 80%,title:^Open File$"
         "center,title:^Open File$" # 1

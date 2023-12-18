@@ -62,6 +62,7 @@
           window-rewrite-default = "";
           window-rewrite = {
             firefox = "";
+            kitty = "";
             wezterm = "";
             codium = "󰨞";
             thunderbird = "󰇮";
