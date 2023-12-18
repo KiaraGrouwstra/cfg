@@ -24,7 +24,7 @@ in
     settings = {
       close_on_child_death = true; # yes
       confirm_os_window_close = 0;
-      shell_integration = "no-rc"; # I prefer to do it manually
+      shell_integration = "enabled";
       scrollback_lines = 4000;
       scrollback_pager_history_size = 2048;
       window_padding_width = 15;
