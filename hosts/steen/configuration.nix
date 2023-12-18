@@ -202,7 +202,6 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    noto-fonts-emoji-blob-bin
   ];
 
   # /root/.config/guix/current/lib/systemd/system/guix-daemon.service

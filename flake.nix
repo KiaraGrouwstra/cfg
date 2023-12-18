@@ -10,12 +10,12 @@
     };
     nix = {
       url = "github:nixos/nix";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
     flake-utils = {
@@ -27,51 +27,50 @@
     };
     nix-software-center = {
       url = "github:vlinkz/nix-software-center";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
     nixos-conf-editor = {
       url = "github:vlinkz/nixos-conf-editor";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.snowfall-lib.follows = "snowfall-lib";
     };
     snowfall-lib = {
       url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-utils-plus.follows = "flake-utils-plus";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     sops-nix = {
       url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "master";
-      inputs.nixpkgs-stable.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
     unbound-blocklist = {
       url = "github:mirosval/unbound-blocklist";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Nixpkgs branches
-    master.url = "github:nixos/nixpkgs/master";
     nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
-    nixpkgs-unfree.inputs.nixpkgs.follows = "master";
+    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
 
     # Non Flakes
 
     # Default branch
-    nixpkgs.follows = "master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
