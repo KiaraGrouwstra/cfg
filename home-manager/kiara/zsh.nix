@@ -35,6 +35,7 @@
       ls = "eza";
       vi = "nvim";
       vim = "nvim";
+      ssh = "kitten ssh";
       grep = "rg";
     };
     initExtra = (lib.readFile ./zsh.zsh);
