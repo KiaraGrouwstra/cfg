@@ -182,6 +182,7 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    noto-fonts-emoji-blob-bin
   ];
 
   sops = {
