@@ -208,7 +208,15 @@
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
+    # If true, the time when the service unit was last triggered is stored on disk.
+    # When the timer is activated, the service unit is triggered immediately if it would
+    # have been triggered at least once during the time when the timer was inactive.
+    # Such triggering is nonetheless subject to the delay imposed by RandomizedDelaySec=.
+    # This is useful to catch up on missed runs of the service when the system was powered down.
     persistent = true;
+    # not too frequent to prevent wiping progress from failed builds.
+    dates = "weekly";
+    # delete old builds
     options = "--delete-older-than 21d";
   };
 
