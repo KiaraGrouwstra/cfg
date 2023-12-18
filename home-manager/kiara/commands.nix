@@ -4,6 +4,12 @@ let
   hyprland-contrib = inputs.hyprland-contrib.packages.${pkgs.system};
 in
 with pkgs; {
+  git = "${git}/bin/git";
+  thefuck = "${thefuck}/bin/thefuck";
+  eza = "${eza}/bin/eza";
+  bat = "${bat}/bin/bat";
+  ssh = "${openssh}/bin/ssh";
+  rg = "${ripgrep}/bin/rg";
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";

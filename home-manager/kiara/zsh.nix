@@ -1,5 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, inputs, lib, ... }:
 
+with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 {
   programs.zsh = {
     enable = true;
@@ -18,25 +19,25 @@
       enable = true;
       # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
       plugins = [
-        "git"
-        "thefuck"
+        "${git}"
+        "${thefuck}"
       ];
       theme = "agnoster";
     };
     sessionVariables = {
       GTK_THEME = "Catppuccin-Frappe-Compact-Maroon-Dark";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      BROWSER = "firefox";
+      EDITOR = "nvim"; # programs.firefox.package
+      VISUAL = "${less}";
+      BROWSER = "firefox"; # programs.firefox.package
     };
     shellAliases = {
       docker-compose = "podman-compose";
-      cat = "bat";
-      ls = "eza";
+      cat = "${bat}";
+      ls = "${eza}";
       vi = "nvim";
       vim = "nvim";
-      ssh = "kitten ssh";
-      grep = "rg";
+      ssh = "${kitten} ${ssh}";
+      grep = "${rg}";
     };
     initExtra = (lib.readFile ./zsh.zsh);
   };
