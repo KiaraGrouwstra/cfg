@@ -6,8 +6,8 @@
       package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
     };
     regular = {
-      family = "Fira Sans";
-      package = pkgs.fira;
+      family = "knsw_HachiMaruPop";
+      package = pkgs.hachimarupop;
     };
   };
 }
