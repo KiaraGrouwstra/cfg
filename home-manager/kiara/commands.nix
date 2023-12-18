@@ -11,6 +11,7 @@ with pkgs; {
   jq = "${jq}/bin/jq";
   swayidle = "${swayidle}/bin/swayidle";
   kitty = "${pkgs.kitty}/bin/kitty";
+  kitten = "${pkgs.kitty}/bin/kitten";
   wezterm = "${wezterm}/bin/wezterm";
   wofi = "${wofi}/bin/wofi";
   rofi = "${rofi-wayland}/bin/rofi -i";
@@ -34,7 +35,7 @@ with pkgs; {
   pamixer = "${pamixer}/bin/pamixer";
   pavucontrol = "${pavucontrol}/bin/pavucontrol";
   # terminal = "${wezterm}/bin/wezterm -e --always-new-process";
-  terminal = "${kitty}";
+  terminal = "${pkgs.kitty}/bin/kitty";
   less = "${less}/bin/less";
   glow = "${glow}/bin/glow";
   lynx = "${lynx}/bin/lynx";
