@@ -2,8 +2,8 @@
 any-nix-shell zsh --info-right | source /dev/stdin
 
 # guix
-path+=('/var/guix/profiles/per-user/root/current-guix/bin')
-export PATH
+GUIX_PROFILE="$HOME/.guix-profile"
+. "$GUIX_PROFILE/etc/profile"
 
 # flatpak
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share

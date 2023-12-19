@@ -33,12 +33,6 @@ follow instructions:
 nix flake update --override-input nixpkgs github:NixOS/nixpkgs/<rev>
 ```
 
-### [guix](https://github.com/NixOS/nixpkgs/pull/150130#issuecomment-993954344)
-
-```sh
-export PATH="/var/guix/profiles/per-user/root/current-guix/bin:$PATH"
-```
-
 ## references
 
 - inspiration on repo setup:
