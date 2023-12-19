@@ -192,6 +192,8 @@
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
+          on-click = "${unfullscreen} && ${terminal} nix-collect-garbage -d";
+          on-click-right = "${unfullscreen} && ${baobab}";
         };
         tray = {
           icon-size = 20;

@@ -218,6 +218,7 @@
     ripgrep
     kirc
     halloy
+    baobab
 
     # chat
     signal-cli

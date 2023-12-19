@@ -45,5 +45,6 @@ with pkgs; {
   hyprland-contrib = hyprland-contrib;
   grimblast = "XDG_SCREENSHOTS_DIR=\"$HOME/Pictures/Screenshots\" ${hyprland-contrib.grimblast}/bin/grimblast";
   webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
+  baobab = "${baobab}/bin/baobab";
   unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }
