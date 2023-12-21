@@ -17,7 +17,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -63,13 +62,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Nixpkgs branches
-    nixpkgs-unfree.url = "github:numtide/nixpkgs-unfree";
-    nixpkgs-unfree.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Non Flakes
-
-    # Default branch
+    nixpkgs-unfree = {
+      url = "github:numtide/nixpkgs-unfree";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
   };
 
