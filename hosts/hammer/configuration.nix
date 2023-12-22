@@ -7,20 +7,8 @@
 {
   imports =
     [
+      ./imports.nix
       inputs.home-manager.nixosModules.home-manager
-      ./hardware-configuration.nix
-      ./adblock.nix
-      ./databases.nix
-      # ./gnome.nix
-      ./greetd.nix
-      ./guix.nix
-      ./hyprland.nix
-      # ./lightdm.nix
-      ./locale.nix
-      ./power.nix
-      ./networking.nix
-      ./sound.nix
-      ./virtualisation.nix
       inputs.sops-nix.nixosModules.sops
     ] ++ (lib.attrValues outputs.nixosModules);
 
@@ -109,9 +97,6 @@
     cachix
     sops
     rage
-    inputs.nix-software-center.packages.${system}.nix-software-center
-    inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
-    gnome.nautilus-python
     libsForQt5.qtstyleplugin-kvantum
     ssh-to-age
   ];
@@ -150,12 +135,6 @@
 
   programs.plotinus.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
   environment.variables = {
     XDG_CONFIG_HOME = "$HOME/.config";
     # This will become a global environment variable
@@ -165,12 +144,6 @@
   };
 
   services.flatpak.enable = true;
-
-  nixpkgs.config.allowUnfreePredicate = pkg: lib.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-run"
-  ];
 
   # https://github.com/NixOS/nixpkgs/pull/210453#issuecomment-1410035331
   nixpkgs.config.firefox.speechSynthesisSupport = true;
@@ -193,11 +166,6 @@
     secrets = {
       age-keys = {};
       user-password-kiara.neededForUsers = true;
-      wifi-password-home = {};
-      wifi-password-woerden = {};
-      wifi-password-publicroam = {};
-      wifi-password-eduroam = {};
-      wifi-password-floppy = {};
     };
   };
 

@@ -121,6 +121,7 @@
           specialArgs = { inherit inputs outputs; };
           system = "x86_64-linux";
           modules = [
+            ./toggles/hosts/toggles.nix
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           ];
@@ -146,6 +147,7 @@
             unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
           };
           modules = [
+            ./toggles/home-manager/toggles.nix
             ./home-manager/kiara/home.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
           ];
