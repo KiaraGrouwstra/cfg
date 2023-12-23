@@ -59,6 +59,7 @@ in {
       prusa-slicer
       cura
       curaengine
+      freecad
       octoprint
       printrun
       rpi-imager

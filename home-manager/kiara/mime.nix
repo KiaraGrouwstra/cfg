@@ -250,6 +250,36 @@ let
       "model/stl"
       "model/3mf"
     ];
+    cad = [
+      "application/acad"
+      "application/x-acad"
+      "application/x-autocad"
+      "application/autocad_dwg"
+      "application/sld"
+      "application/sldworks"
+      "application/x-sld"
+      "image/x-sld"
+      "image/vnd.dxf"
+      "application/dwg"
+      "drawing/dwg"
+      "application/x-dwg"
+      "image/x-dwg"
+      "application/dwf"
+      "application/x-dwf"
+      "drawing/x-dwf"
+      "image/x-dwf"
+      "image/vnd.dwf"
+      "model/vnd.dwf"
+      "image/vnd.dwg"
+      "application/vnd.vectorworks"
+      "model/iges"
+      "application/iges"
+      "application/step"
+      "model/x.stl-binary"
+      "model/vnd.gs-gdl"
+      "model/vnd.gs.gdl"
+      "model/vnd.dwfx+xps"
+    ];
     archives = map (_: "application/${_}") [
       "bzip2"
       "gzip"
@@ -381,6 +411,9 @@ let
         "text/x-gcode"
       ] (_: map addDesktop [
         "PrusaGcodeviewer"
+      ]))
+      (lib.genAttrs cad (_: map addDesktop [
+        "org.freecadweb.FreeCAD"
       ]))
       (lib.genAttrs [
         "application/x-gzip"
