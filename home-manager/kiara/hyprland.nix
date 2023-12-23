@@ -32,6 +32,9 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 
         "${wl-paste} --type text --watch ${cliphist} store" #Stores only text data
         "${wl-paste} --type image --watch ${cliphist} store" #Stores only image data
+
+        "${hyprctl} dispatch workspace 10"
+        "${keepassxc}"
       ];
 
       # Some default env vars.
