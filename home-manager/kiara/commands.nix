@@ -47,5 +47,7 @@ with pkgs; {
   webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
   baobab = "${baobab}/bin/baobab";
   keepassxc = "${keepassxc}/bin/keepassxc";
+  firefox = "${firefox}/bin/firefox";
+  codium = "${vscodium}/bin/codium";
   unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }
