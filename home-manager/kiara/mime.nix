@@ -450,7 +450,6 @@ let
           "codium"
         ];
         "application/epub+zip" = map addDesktop [
-          "less"
           "calibre-ebook-viewer"
           "calibre-ebook-edit"
         ];
