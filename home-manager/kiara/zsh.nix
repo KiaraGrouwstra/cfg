@@ -33,8 +33,6 @@
       docker-compose = "podman-compose";
       cat = "bat";
       ls = "eza";
-      vi = "nvim";
-      vim = "nvim";
       ssh = "kitten ssh";
       grep = "rg";
     };
