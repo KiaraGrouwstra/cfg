@@ -31,6 +31,7 @@ in {
       eza
 
       ## networking
+      gnirehtet
       mtr
       networkmanager_dmenu
 
