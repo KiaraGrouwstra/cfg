@@ -34,7 +34,6 @@
       cat = "bat";
       ls = "eza";
       ssh = "kitten ssh";
-      grep = "rg";
     };
     initExtra = (lib.readFile ./zsh.zsh);
   };
