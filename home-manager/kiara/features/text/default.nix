@@ -54,6 +54,7 @@ in {
         nvchad
         nvchad-ui
         chadtree
+        nvim-treesitter.withAllGrammars
       ];
     };
 
