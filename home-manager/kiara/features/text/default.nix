@@ -53,6 +53,7 @@ in {
         pywal-nvim
         nvchad
         nvchad-ui
+        chadtree
       ];
     };
 
