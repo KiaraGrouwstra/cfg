@@ -32,7 +32,7 @@ in {
       yarn
       idris2
       hvm
-      nil
+      nixd
       nixpkgs-fmt
       haskellPackages.haskell-language-server
       sqlite
