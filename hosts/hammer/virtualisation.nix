@@ -11,6 +11,8 @@ in {
 
   config = mkIf cfg.enable {
 
+    programs.extra-container.enable = true;
+
     virtualisation = {
       # to use podman with ports as low as 80 run:
       # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
