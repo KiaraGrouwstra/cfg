@@ -13,6 +13,6 @@
     ./networking.nix
     ./sound.nix
     # ./gaming.nix
-    # ./virtualisation.nix
+    ./virtualisation.nix
   ];
 }
