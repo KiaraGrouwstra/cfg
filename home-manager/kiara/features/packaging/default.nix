@@ -16,6 +16,7 @@ in {
       dconf2nix
       any-nix-shell
       nix-direnv
+      niv
 
       ## packaging
       inputs.nix-software-center.packages.${pkgs.system}.nix-software-center
