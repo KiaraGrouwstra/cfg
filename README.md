@@ -14,11 +14,9 @@ follow instructions:
 - place the original `configuration.nix` and `hardware-configuration.nix` into one of the hardware profiles in `hosts/`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild switch --fast --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --show-trace`
-  - `sudo nice -n 19 su -c 'sudo nixos-rebuild switch --fast --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --show-trace' $(whoami)`
+- [nixos](https://nixos.org/manual/nixos/stable): `sudo nice -n 19 su -c 'sudo nixos-rebuild switch --fast --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace' $(whoami)`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace`
-  - `sudo nice -n 19 su -c 'home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace' $(whoami)`
+- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `sudo nice -n 19 su -c 'home-manager --flake .#$USER@$(hostname) switch -b backup --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace' $(whoami)`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
@@ -34,10 +32,6 @@ follow instructions:
 ```sh
 nix flake update --override-input nixpkgs github:NixOS/nixpkgs/<rev>
 ```
-
-### offline
-
-Add `--option substitute false` to either `nixos-rebuild` or `home-manager` commands.
 
 ### [guix](https://github.com/NixOS/nixpkgs/pull/150130#issuecomment-993954344)
 
