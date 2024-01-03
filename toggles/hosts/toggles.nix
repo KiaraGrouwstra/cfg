@@ -10,6 +10,6 @@
     networking.enable = true;
     sound.enable = true;
     # gaming.enable = true;
-    # virtualisation.enable = true;
+    virtualisation.enable = true;
   };
 }
