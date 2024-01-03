@@ -19,11 +19,12 @@ in {
       mc
       baobab
 
-      ## file handling
+      ## file handling / metadata
       xdg-utils
       handlr
       mimeo
       desktop-file-utils
+      file
 
       ## compression
       zip
