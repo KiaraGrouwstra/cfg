@@ -28,6 +28,7 @@ in {
       halloy
       unfree.zoom-us
       python3Packages.yowsup
+      ricochet
 
       ## web browsers
       chromium
