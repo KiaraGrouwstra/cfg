@@ -2,6 +2,8 @@
 
 with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 {
+  wayland.windowManager.sway.systemd.xdgAutostart = true;
+
   home.packages = with hyprland-contrib; [
     grimblast
   ];
@@ -15,7 +17,7 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
     in {
       # Execute your favorite apps at launch
       exec-once = [
-        "${waybar}" # & signal-desktop & thunderbird & firefox # & codium & keepassxc
+        "${waybar}"
 
         # screen sharing
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -32,10 +34,6 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
 
         "${wl-paste} --type text --watch ${cliphist} store" #Stores only text data
         "${wl-paste} --type image --watch ${cliphist} store" #Stores only image data
-
-        "${keepassxc}"
-        "${codium}"
-        "${firefox}"
       ];
 
       # Some default env vars.
