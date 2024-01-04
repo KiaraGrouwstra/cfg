@@ -49,6 +49,8 @@ in {
         ipython-sql
       ]))
       gettext
+      nodejs-slim
+      nodePackages.npm
 
       ## arduino
       arduino-cli
