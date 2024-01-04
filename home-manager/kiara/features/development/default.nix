@@ -32,9 +32,16 @@ in {
       yarn
       idris2
       hvm
-      nixd
       nixpkgs-fmt
+      nixd
       haskellPackages.haskell-language-server
+      ansible-language-server
+      nodePackages.vim-language-server
+      nodePackages.yaml-language-server
+      nodePackages.bash-language-server
+      nodePackages.dockerfile-language-server-nodejs
+      nodePackages.typescript-language-server
+      nodePackages.vscode-json-languageserver
       sqlite
       (python3.withPackages(ps : with ps; [
         pandas
