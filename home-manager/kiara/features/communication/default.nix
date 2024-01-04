@@ -19,6 +19,7 @@ in {
 
       ## chat / communications
       signal-desktop
+      signal-desktop-beta
       telegram-desktop
       element-desktop
       signal-cli
