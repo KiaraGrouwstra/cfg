@@ -18,6 +18,7 @@ in {
         ExecStart = "/var/guix/proguix/per-user/root/current-guix/bin/guix-daemon --build-users-group=guixbuild";
         Environment = [ "GUIX_LOCPATH=/var/guix/proguix/per-user/root/guix-profile/lib/locale" "LC_ALL=en_US.utf8" ];
         RemainAfterExit = "yes";
+        Nice = 19;
 
         # See <https://lists.gnu.org/archive/html/guix-devel/2016-04/msg00608.html>.
         # Some package builds (for example, go@1.8.1) may require even more than

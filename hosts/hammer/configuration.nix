@@ -188,6 +188,8 @@
     # delete old builds
     options = "--delete-older-than 21d";
   };
+  # keep the system responsive, good for devices in use
+  nix.daemonCPUSchedPolicy = "idle";
 
   # use flake's nixpkgs over channels
   system.extraSystemBuilderCmds = ''
