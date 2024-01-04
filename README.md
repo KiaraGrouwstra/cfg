@@ -91,3 +91,22 @@ $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --on
 | Terminal      | [Wezterm](https://github.com/wez/wezterm) |
 | Text editor   | [VSCodium](https://github.com/vscodium/vscodium) |
 | Shell         | [Zsh](https://zsh.org/) |
+
+## Debugging builds
+
+- local repo: `git bisect`
+- nixpkgs:
+  - `git bisect run "bisect-nixpkgs.sh $NIXPKGS_FORK && sudo nixos-rebuild dry-build --flake .#$USER-$(hostname) --show-trace && <COMMAND>"`
+  - `git bisect run "bisect-nixpkgs.sh $NIXPKGS_FORK && home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace && <COMMAND>"`
+  - [in `nixpkgs` repo](https://stackoverflow.com/questions/4713088/how-do-i-use-git-bisect/22592593#22592593), e.g. for signal:
+
+```sh
+cat >> .test<< EOF
+#! /usr/bin/env bash
+$(nix-build -A signal-desktop)/bin/signal-desktop --use-tray-icon --no-sandbox
+EOF
+chmod +x ./test
+git bisect start -- pkgs/applications/networking/instant-messengers/signal-desktop/
+git bisect bad
+git bisect run sh -c './test; [ $? -eq 0 ]'
+```
