@@ -33,6 +33,7 @@ in {
       wl-screenrec
       obs-studio
       imagemagick
+      puppeteer-cli
 
       ## audio
       libsForQt5.kasts
