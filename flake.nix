@@ -66,7 +66,7 @@
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
