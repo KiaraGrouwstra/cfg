@@ -44,6 +44,7 @@ in {
       swww # animated transitions
       waypaper # frontend
       pywal
+      pywalfox-native
       wpgtk
       fontpreview
 
