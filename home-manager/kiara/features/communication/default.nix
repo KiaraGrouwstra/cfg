@@ -30,6 +30,7 @@ in {
       unfree.zoom-us
       python3Packages.yowsup
       ricochet
+      weechat
 
       ## web browsers
       chromium
