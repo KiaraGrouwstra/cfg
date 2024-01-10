@@ -51,16 +51,18 @@ in {
       gettext
       nodejs-slim
       nodePackages.npm
+      unfree.neo4j-desktop
 
       ## arduino
       arduino-cli
       arduino
       arduinoOTA
 
-      ## terraform
-      unfree.terraform
-      terraform-providers.kubernetes
-      terraform-providers.helm
+      ## hashicorp
+      opentofu
+      nomad
+      nomad-pack
+      packer
 
       ## kubernetes
       kubectl
