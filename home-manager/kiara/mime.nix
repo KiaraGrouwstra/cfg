@@ -392,8 +392,8 @@ let
         "org.gnome.Nautilus"
       ]))
       (lib.genAttrs documents (_: map addDesktop [
-        "less"
         "writer"
+        "less"
       ]))
       (lib.genAttrs spreadsheets (_: map addDesktop [
         "visidata"
@@ -401,8 +401,8 @@ let
         "calc"
       ]))
       (lib.genAttrs slides (_: map addDesktop [
-        "less"
         "impress"
+        "less"
       ]))
       (lib.genAttrs models (_: map addDesktop [
         "PrusaSlicer"
@@ -436,6 +436,7 @@ let
           "less"
         ];
         "text/plain" = map addDesktop [
+          "org.gnome.TextEditor"
           "less"
           "codium"
           "lapce"
