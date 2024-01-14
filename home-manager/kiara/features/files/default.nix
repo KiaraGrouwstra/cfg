@@ -41,6 +41,9 @@ in {
       sshfs
       nodePackages.webtorrent-cli
       onionshare-gui
+
+      # security
+      gnome.seahorse
     ];
 
     services.syncthing.enable = true;
