@@ -1,4 +1,4 @@
-#! /run/current-system/sw/bin/sh
+#!/usr/bin/env sh
 
 systemctl --user restart kanshi
 chosen=$(printf "󰍺  Extend\n󰍹  External\n󰪫  Internal" | rofi -dmenu -i -theme-str '@import "displays.rasi"')
