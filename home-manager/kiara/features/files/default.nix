@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 with lib;
 
@@ -48,6 +48,12 @@ in {
 
     services.syncthing.enable = true;
 
+    # configure nautilus-open-any-terminal
+    dconf.settings = {
+      "com/github/stunkymonkey/nautilus-open-any-terminal" = {
+        terminal = "kitty";
+      };
+    };
+
   };
 }
-
