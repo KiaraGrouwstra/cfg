@@ -74,6 +74,7 @@ in {
       argocd
     ];
 
+    systemd.services.direnv.serviceConfig.Nice = 19;
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
