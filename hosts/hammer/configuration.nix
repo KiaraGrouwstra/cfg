@@ -175,6 +175,20 @@
   # used by enhancd
   programs.fzf.fuzzyCompletion = true;
 
+  services.nomad = {
+    enable = true;
+  };
+
+  services.consul = {
+    enable = true;
+  };
+
+  services.vault = {
+    enable = true;
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
