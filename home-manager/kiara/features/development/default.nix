@@ -57,21 +57,6 @@ in {
       arduino-cli
       arduino
       arduinoOTA
-
-      ## hashicorp
-      opentofu
-      nomad
-      nomad-pack
-      unfree.packer
-
-      ## kubernetes
-      kubectl
-      minikube
-      kubernetes-helm
-      helm-dashboard
-      openlens
-      # k8sgpt
-      argocd
     ];
 
     programs.direnv = {
