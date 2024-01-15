@@ -9,9 +9,8 @@ follow instructions:
 
 - [download](https://nixos.org/download) / [install](https://nixos.org/manual/nixos/stable/#sec-installation) / boot [nixos](https://nixos.org/)
 - take access to nixos directory: `sudo chown -R $USER /etc/nixos/`
-- add [`age`](https://github.com/FiloSottile/age) keys file `keys.txt` in this directory to decode the secrets
-- copy the contents of this repo to `/etc/nixos/`
-- place the original `configuration.nix` and `hardware-configuration.nix` into one of the hardware profiles in `hosts/`
+- add [`age`](https://github.com/FiloSottile/age) keys file to `/etc/nixos/keys.txt` to decode the secrets
+- ensure `/etc/nixos/hardware-configuration.nix` is reflected in `./hosts/$(hostname)/hardware-configuration.nix`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
 - [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild switch --fast --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace`
