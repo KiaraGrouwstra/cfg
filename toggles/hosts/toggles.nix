@@ -3,7 +3,7 @@
     # adblock.enable = true;
     # databases.enable = true;
     greetd.enable = true;
-    # guix.enable = true;
+    guix.enable = true;
     hyprland.enable = true;
     locale.enable = true;
     power.enable = true;

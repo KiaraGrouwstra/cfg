@@ -6,7 +6,7 @@
     # ./adblock.nix  # messes with wifi pages
     # ./databases.nix
     ./greetd.nix
-    # ./guix.nix
+    ./guix.nix
     ./hyprland.nix
     ./locale.nix
     ./power.nix
