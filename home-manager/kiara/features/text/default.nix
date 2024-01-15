@@ -27,7 +27,7 @@ in {
       poppler_utils
       pdf2odt
       xsv
-      csvkit
+      # csvkit  # https://github.com/NixOS/nixpkgs/issues/281150
       dex
 
       ## markdown

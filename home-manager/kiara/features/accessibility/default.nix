@@ -20,7 +20,7 @@ in {
       ## speech / TTS
       speechd
       espeak-classic
-      piper-tts
+      # piper-tts  # https://github.com/NixOS/nixpkgs/issues/281065
       yasr
       orca
       openai-whisper
