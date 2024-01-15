@@ -36,6 +36,7 @@ in {
       apostrophe
       okular
       mdcat
+      typst
 
       ## document viewers / editors
       evince
