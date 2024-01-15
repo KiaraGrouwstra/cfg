@@ -62,7 +62,7 @@ in {
       opentofu
       nomad
       nomad-pack
-      packer
+      unfree.packer
 
       ## kubernetes
       kubectl
