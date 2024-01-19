@@ -95,6 +95,7 @@ let
       "application/illustrator"
     ];
     documents = map (_: "application/${_}") [
+      "vnd.oasis.opendocument.text"
       "vnd.openxmlformats-officedocument.wordprocessingml.document"
       "vnd.openxmlformats-officedocument.wordprocessingml.template"
       "msword"
