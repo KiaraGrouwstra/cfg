@@ -397,9 +397,9 @@ let
         "less"
       ]))
       (lib.genAttrs spreadsheets (_: map addDesktop [
+        "calc"
         "visidata"
         "less"
-        "calc"
       ]))
       (lib.genAttrs slides (_: map addDesktop [
         "impress"
@@ -458,8 +458,8 @@ let
         "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
         "application/json" = browsers;
         "text/csv" = map addDesktop [
-          "visidata"
           "calc"
+          "visidata"
           "less"
         ];
         "application/vnd.smart.notebook" = map addDesktop [
