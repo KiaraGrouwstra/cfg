@@ -26,7 +26,7 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
         "${swaync}"
 
         # Lock screen after idling
-        "${swayidle} -w timeout 900 '${swaylock} -i $(${swww} query | sed \"s/^.*image: //g\") -f'"
+        # "${swayidle} -w timeout 900 '${swaylock} -i $(${swww} query | sed \"s/^.*image: //g\") -f'"
 
         # wallpapers
         "${swww} init"
