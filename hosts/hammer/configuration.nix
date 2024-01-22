@@ -175,8 +175,43 @@
   # used by enhancd
   programs.fzf.fuzzyCompletion = true;
 
+  # https://mynixos.com/nixpkgs/options/services.nomad
   services.nomad = {
     enable = true;
+    dropPrivileges = true;
+    enableDocker = true;
+    credentials = {};
+    extraPackages = with pkgs; [
+      cni-plugins
+      nomad-driver-podman
+    ];
+    # https://developer.hashicorp.com/nomad/docs/configuration
+    settings = {
+      bind_addr = "0.0.0.0"; # the default
+      # advertise = {
+      #   # Defaults to the first private IP address.
+      #   http = "1.2.3.4";
+      #   rpc  = "1.2.3.4";
+      #   serf = "1.2.3.4:5648"; # non-default ports may be specified
+      # };
+      server = {
+        enabled = true;
+        bootstrap_expect = 1; # for demo; no fault tolerance
+      };
+      # client = {
+      #   enabled = true;
+      # };
+      plugin = {
+        raw_exec = {
+          config = {
+            enabled = true;
+          };
+        };
+      };
+      # consul = {
+      #   address = "1.2.3.4:8500";
+      # };
+    };
   };
 
   services.consul = {
