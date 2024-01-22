@@ -198,9 +198,9 @@
         enabled = true;
         bootstrap_expect = 1; # for demo; no fault tolerance
       };
-      # client = {
-      #   enabled = true;
-      # };
+      client = {
+        enabled = true;
+      };
       plugin = {
         raw_exec = {
           config = {
