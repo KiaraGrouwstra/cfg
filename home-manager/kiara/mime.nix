@@ -424,6 +424,7 @@ let
       ]))
       {
         "inode/directory" = map addDesktop [
+          "lf"
           "ranger"
           "org.gnome.Nautilus"
           "codium"

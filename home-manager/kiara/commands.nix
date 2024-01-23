@@ -17,7 +17,7 @@ with pkgs; {
   rofi = "${rofi-wayland}/bin/rofi -i";
   rofi-systemd = "${rofi-systemd}/bin/.rofi-systemd-wrapped";
   rofimoji = "${rofimoji}/bin/rofimoji";
-  ranger = "${ranger}/bin/ranger";
+  lf = "${lf}/bin/lf";
   nmtui = "${networkmanager}/bin/nmtui";
   swaylock = "${swaylock-effects}/bin/swaylock";
   swww = "${swww}/bin/swww";

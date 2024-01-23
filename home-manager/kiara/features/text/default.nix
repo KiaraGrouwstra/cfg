@@ -17,6 +17,7 @@ in {
       vim
       amp
       helix
+      hexyl
       featherpad
       libsForQt5.kate
       nota

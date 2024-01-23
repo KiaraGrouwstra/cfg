@@ -190,7 +190,7 @@ with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
         "ALT, F4, killactive,"
         "SUPER, M, exit,"
         "SUPER, X, exec, ${unfullscreen} && ${nautilus} ~/Downloads/"
-        "SUPER SHIFT, X, exec, ${unfullscreen} && ${terminal} ${ranger} ~/Downloads/"
+        "SUPER SHIFT, X, exec, ${unfullscreen} && ${terminal} ${lf} ~/Downloads/"
         "SUPER, H, togglefloating,"
         "SUPER SHIFT, H, pseudo," # dwindle
         "SUPER, J, togglesplit," # dwindle
