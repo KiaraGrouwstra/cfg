@@ -31,6 +31,7 @@ in {
       python3Packages.yowsup
       ricochet
       weechat
+      # kdeltachat
 
       ## web browsers
       chromium
