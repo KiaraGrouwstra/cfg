@@ -65,6 +65,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nomad-driver-singularity = {
+      url = "github:hpcng/nomad-driver-singularity";
+      flake = false;
+    };
     # export HCLOUD_TOKEN="..."
     # nomad var put secrets/hcloud hcloud_token=$HCLOUD_TOKEN
     hcloud-csi-driver = {
