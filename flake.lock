@@ -459,8 +459,6 @@
     },
     "nomad-driver-nix": {
       "inputs": {
-        "devshell": "devshell",
-        "inclusive": "inclusive",
         "nix": [
           "nix"
         ],
