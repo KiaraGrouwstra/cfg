@@ -182,7 +182,7 @@
   # https://mynixos.com/nixpkgs/options/services.nomad
   services.nomad = {
     enable = true;
-    dropPrivileges = true;  # Nomad as Root to access Docker/Podman sockets
+    dropPrivileges = false;  # Nomad as Root to access Docker/Podman sockets (>nomad_1_4) and exec driver
     enableDocker = true;
     credentials = {};
     extraPackages = with pkgs; [
