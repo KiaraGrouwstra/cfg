@@ -65,6 +65,30 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # export HCLOUD_TOKEN="..."
+    # nomad var put secrets/hcloud hcloud_token=$HCLOUD_TOKEN
+    hcloud-csi-driver = {
+      url = "github:hetznercloud/csi-driver";
+      flake = false;
+    };
+    # there's a few drivers actually...
+    # After booting, register the contents of the Nix store in the container in the Nix database in the tmpfs
+    nomad-driver-nix = {
+      url = "github:KiaraGrouwstra/nomad-driver-nix";
+      inputs.nix.follows = "nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
+    };
+    # A Nomad driver to run Nix jobs. Uses the same isolation mechanism as the exec driver. Partially based on nomad-driver-nix
+    nomad-driver-nix2 = {
+      url = "git+https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2";
+      flake = false;
+    };
+    # https://github.com/MagicRB/nomad-driver-containerd-nix
+    nomad-driver-containerd-nix = {
+      url = "github:MagicRB/nomad-driver-containerd-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";

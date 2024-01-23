@@ -36,6 +36,21 @@
         "type": "github"
       }
     },
+    "devshell": {
+      "locked": {
+        "lastModified": 1632436039,
+        "narHash": "sha256-OtITeVWcKXn1SpVEnImpTGH91FycCskGBPqmlxiykv4=",
+        "owner": "numtide",
+        "repo": "devshell",
+        "rev": "7a7a7aa0adebe5488e5abaec688fd9ae0f8ea9c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "devshell",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -112,6 +127,22 @@
         "type": "github"
       }
     },
+    "hcloud-csi-driver": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705494821,
+        "narHash": "sha256-ybTijQwf1HzvOLp4yWJrWr5PAbcODS//GmmlqqN86HY=",
+        "owner": "hetznercloud",
+        "repo": "csi-driver",
+        "rev": "1778f371f980177bf9a1c4cdd35b97ddc5437b04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hetznercloud",
+        "repo": "csi-driver",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -149,6 +180,24 @@
       "original": {
         "owner": "hyprwm",
         "repo": "contrib",
+        "type": "github"
+      }
+    },
+    "inclusive": {
+      "inputs": {
+        "stdlib": "stdlib"
+      },
+      "locked": {
+        "lastModified": 1628098927,
+        "narHash": "sha256-Ft4sdf7VPL8MQtu18AAPiN2s5pUsbv+3RxqzJSa/yzg=",
+        "owner": "input-output-hk",
+        "repo": "nix-inclusive",
+        "rev": "13123eb7a8c3359738a4756b8d645729e8655b27",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "repo": "nix-inclusive",
         "type": "github"
       }
     },
@@ -388,6 +437,70 @@
         "type": "github"
       }
     },
+    "nomad-driver-containerd-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1659899649,
+        "narHash": "sha256-jE+lDHwZCaZBxV98yzRNxgwJUPNkfoZAjoMvkTwl4Bc=",
+        "owner": "MagicRB",
+        "repo": "nomad-driver-containerd-nix",
+        "rev": "3d9c1be4444db47cb86679387cf06a7cbfb2bce3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MagicRB",
+        "repo": "nomad-driver-containerd-nix",
+        "type": "github"
+      }
+    },
+    "nomad-driver-nix": {
+      "inputs": {
+        "devshell": "devshell",
+        "inclusive": "inclusive",
+        "nix": [
+          "nix"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": [
+          "flake-utils"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705937305,
+        "narHash": "sha256-VYQxtqt9KuVL87RJiN2TI7xj8ZsgJPTQEN13fL8m8Ck=",
+        "owner": "KiaraGrouwstra",
+        "repo": "nomad-driver-nix",
+        "rev": "b2e8a77c4ffaf80e25b220c5ac50945c910cd648",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KiaraGrouwstra",
+        "repo": "nomad-driver-nix",
+        "type": "github"
+      }
+    },
+    "nomad-driver-nix2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705520601,
+        "narHash": "sha256-yx30wSTLQUWtDGhSVURz6VX0Btw9PebG8jABL8CfJhs=",
+        "ref": "refs/heads/main",
+        "rev": "98871a2d786f2627f1699d0ae49e7d6d3792f469",
+        "revCount": 25,
+        "type": "git",
+        "url": "https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin-vsc": "catppuccin-vsc",
@@ -395,6 +508,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils",
         "flake-utils-plus": "flake-utils-plus",
+        "hcloud-csi-driver": "hcloud-csi-driver",
         "home-manager": "home-manager",
         "hyprland-contrib": "hyprland-contrib",
         "nix": "nix",
@@ -406,6 +520,9 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
+        "nomad-driver-containerd-nix": "nomad-driver-containerd-nix",
+        "nomad-driver-nix": "nomad-driver-nix",
+        "nomad-driver-nix2": "nomad-driver-nix2",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
         "unbound-blocklist": "unbound-blocklist"
@@ -457,6 +574,21 @@
       "original": {
         "owner": "mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "stdlib": {
+      "locked": {
+        "lastModified": 1590026685,
+        "narHash": "sha256-E5INrVvYX/P/UpcoUFDAsuHem+lsqT+/teBs9O7oc9Q=",
+        "owner": "manveru",
+        "repo": "nix-lib",
+        "rev": "99088cf7febcdb21afd375a335dcafa959bef3ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "manveru",
+        "repo": "nix-lib",
         "type": "github"
       }
     },

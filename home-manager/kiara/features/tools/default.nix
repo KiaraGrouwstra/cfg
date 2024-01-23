@@ -36,8 +36,11 @@ in {
       networkmanager_dmenu
 
       ## virtualization
+      podman
       podman-compose
+      podman-tui
       docker-compose
+      lazydocker  # TUI
       gnome.gnome-boxes  # broken: https://github.com/NixOS/nixpkgs/issues/226355
       virt-manager
       qemu

@@ -5,6 +5,10 @@
 { config, pkgs, lib, inputs, outputs, ... }:
 
 {
+#   # options.nix-driver-nomad.enable = true;  # nomad-driver-nix
+#   # # config.nix-driver-nomad.enable = true;  # nomad-driver-nix
+#   # # nix-driver-nomad.enable = true;  # nomad-driver-nix
+# } // { config = {
   imports =
     [
       ./imports.nix
@@ -178,12 +182,18 @@
   # https://mynixos.com/nixpkgs/options/services.nomad
   services.nomad = {
     enable = true;
-    dropPrivileges = true;
+    dropPrivileges = true;  # Nomad as Root to access Docker/Podman sockets
     enableDocker = true;
     credentials = {};
     extraPackages = with pkgs; [
-      cni-plugins
+      cni-plugins # Networking plugins, needed for bridge. Might not be needed?
       nomad-driver-podman
+
+      # inputs.nomad-driver-nix.packages.${pkgs.system}.nomad-driver-nix
+      # # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
+      # (import ./nomad-driver-nix2.nix { inherit inputs; })
+
+      # (import ./hcloud-csi-driver.nix {}) #  inherit inputs lib;
     ];
     # https://developer.hashicorp.com/nomad/docs/configuration
     settings = {
@@ -207,12 +217,37 @@
             enabled = true;
           };
         };
+        # exec = {
+        #   config = {};
+        # };
+        # qemu = {
+        #   config = {};
+        # };
+        # https://developer.hashicorp.com/nomad/plugins/drivers/podman#plugin-options
+        nomad-driver-podman = {
+          config = {
+            disable_log_collection = true;
+            # gc.container = true;
+            # volumes.enabled = true;
+          };
+        };
+        # https://developer.hashicorp.com/nomad/plugins/drivers/community/containerd#plugin-options
+        containerd-driver = {
+          config = {
+            enabled = true;
+            containerd_runtime = "io.containerd.runc.v2";
+            allow_privileged = true;
+          };
+        };
       };
       # consul = {
       #   address = "1.2.3.4:8500";
       # };
     };
   };
+
+  # I don't need Nomad starting when the system boots.
+  systemd.services.nomad.wantedBy = lib.mkForce [ ];
 
   services.consul = {
     enable = true;
@@ -254,4 +289,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+# };
 }

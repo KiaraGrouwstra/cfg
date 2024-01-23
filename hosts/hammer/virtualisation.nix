@@ -20,11 +20,14 @@ in {
     virtualisation = {
       # to use podman with ports as low as 80 run:
       # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
-      podman = {
+      podman = let
+        dockerEnabled = config.virtualisation.docker.enable;
+      in {
         enable = true;
         # Create a `docker` alias for podman, to use it as a drop-in replacement
-        dockerCompat = false;
         # NOTE: this doesn't replace Docker Swarm
+        dockerCompat = !dockerEnabled;
+        dockerSocket.enable = !dockerEnabled;
         # Required for containers under podman-compose to be able to talk to each other.
         defaultNetwork.settings.dns_enabled = true;
       };
