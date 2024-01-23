@@ -149,7 +149,7 @@
           modules = [
             "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
             ./home-manager/kiara/home.nix
-            inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
+            # inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
           ];
         };
 
