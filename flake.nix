@@ -55,7 +55,7 @@
     };
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos";
       inputs.utils.follows = "flake-utils";
     };
     hyprland-contrib = {
@@ -66,6 +66,7 @@
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
@@ -149,7 +150,7 @@
           modules = [
             "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
             ./home-manager/kiara/home.nix
-            # inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
+            inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
           ];
         };
 

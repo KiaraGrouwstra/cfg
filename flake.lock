@@ -34,7 +34,7 @@
     "flake-programs-sqlite": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixos"
         ],
         "utils": [
           "flake-utils"
@@ -215,6 +215,22 @@
         "type": "github"
       }
     },
+    "nixos": {
+      "locked": {
+        "lastModified": 1705856552,
+        "narHash": "sha256-JXfnuEf5Yd6bhMs/uvM67/joxYKoysyE3M2k6T3eWbg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "612f97239e2cc474c13c9dafa0df378058c5ad8d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixos-conf-editor": {
       "inputs": {
         "flake-compat": [
@@ -334,6 +350,7 @@
         "nix": "nix",
         "nix-colors": "nix-colors",
         "nix-software-center": "nix-software-center",
+        "nixos": "nixos",
         "nixos-conf-editor": "nixos-conf-editor",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
