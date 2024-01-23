@@ -188,6 +188,8 @@
     credentials = {};
     extraPackages = with pkgs; [
       cni-plugins # Networking plugins, needed for bridge. Might not be needed?
+    ];
+    extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
 
       # inputs.nomad-driver-nix.packages.${pkgs.system}.nomad-driver-nix
