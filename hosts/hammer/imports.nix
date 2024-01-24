@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     # ./adblock.nix  # messes with wifi pages
-    # ./databases.nix
+    ./databases.nix
     ./greetd.nix
     ./guix.nix
     ./hyprland.nix
@@ -12,7 +12,7 @@
     ./power.nix
     ./networking.nix
     ./sound.nix
-    # ./gaming.nix
+    ./gaming.nix
     ./virtualisation.nix
   ];
 }
