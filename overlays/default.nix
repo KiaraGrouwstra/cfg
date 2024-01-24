@@ -12,7 +12,6 @@ let
     weechat = prev.weechat.override {
       configure = { availablePlugins, ... }: {
         scripts = with prev.weechatScripts; [
-          weechat-otr
           wee-slack
           edit
           highmon

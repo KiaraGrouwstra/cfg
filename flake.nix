@@ -86,6 +86,7 @@
         inherit system;
       });
       overlaysAttrs = import ./overlays { inherit inputs; };
+      overlays = builtins.attrValues overlaysAttrs;
     in
     {
       inherit lib;
@@ -144,7 +145,7 @@
       homeConfigurations = {
 
         "kiara@hammer" = with hammer; lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs { inherit system overlays; };
           extraSpecialArgs = { inherit inputs outputs;
             unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
           };
