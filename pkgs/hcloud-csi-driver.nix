@@ -6,7 +6,7 @@ buildGoModule rec {
 
   src = inputs.hcloud-csi-driver;
 
-  vendorHash = "";
+  vendorHash = "sha256-Wxyg+ygQiBCCwX1jOR0Kb+iAHdpFf4ZNTTBYMEaaKoc=";
 
   subPackages = [ "." ];
 

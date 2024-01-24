@@ -6,7 +6,7 @@ buildGoModule rec {
 
   src = inputs.nomad-driver-nix2;
 
-  vendorHash = "";
+  vendorHash = "sha256-EQdTxVOBRYQjg7kAB+pFJYcNwk0zlsjjJxM+EO/cK84=";
 
   subPackages = [ "." ];
 
@@ -17,7 +17,7 @@ buildGoModule rec {
     homepage = "https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2";
     description = "A driver to run Nix jobs on Nomad";
     platforms = platforms.linux;
-    license = licenses.mpl2;
+    license = licenses.mpl20;
     maintainers = with maintainers; [ KiaraGrouwstra ];
   };
 }

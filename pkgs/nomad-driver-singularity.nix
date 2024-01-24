@@ -6,7 +6,7 @@ buildGoModule rec {
 
   src = inputs.nomad-driver-singularity;
 
-  vendorHash = "";
+  vendorHash = "sha256-24yGKhd2GBHv2QDXd5hv90MBWM8MWHALyxHJVoayOZE=";
 
   subPackages = [ "." ];
 
@@ -16,7 +16,7 @@ buildGoModule rec {
     homepage = "https://github.com/hpcng/nomad-driver-singularity";
     description = "HashiCorp Nomad driver plugin - Singularity";
     platforms = platforms.linux;
-    license = licenses.mpl2;
+    license = licenses.mpl20;
     maintainers = with maintainers; [ KiaraGrouwstra ];
   };
 }
