@@ -32,6 +32,7 @@ in {
       ricochet
       weechat
       # kdeltachat
+      config.nur.repos.xyenon.kazv
 
       ## web browsers
       chromium
