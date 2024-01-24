@@ -66,11 +66,12 @@
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, nur, ... }@inputs:
     let
       inherit (self) outputs;
       systems = [
@@ -86,7 +87,7 @@
         inherit system;
       });
       overlaysAttrs = import ./overlays { inherit inputs; };
-      overlays = builtins.attrValues overlaysAttrs;
+      overlays = builtins.attrValues overlaysAttrs ++ [ nur.overlay ];
     in
     {
       inherit lib;
@@ -127,6 +128,7 @@
           inherit system;
           modules = [
             "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
+            nur.nixosModules.nur
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           ];
@@ -151,6 +153,7 @@
           };
           modules = [
             "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
+            nur.nixosModules.nur
             ./home-manager/kiara/home.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
           ];

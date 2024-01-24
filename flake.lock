@@ -339,6 +339,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1706114827,
+        "narHash": "sha256-LKzPCPH3hdc6bs0GxY4H3tbfSFwFFPh5kfLIEajaFyU=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "2a7a1576c3e8eebb759d3421891f55c0ebafe429",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -355,6 +370,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unfree": "nixpkgs-unfree",
+        "nur": "nur",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
         "unbound-blocklist": "unbound-blocklist"
