@@ -16,8 +16,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    systems = {
+      url = "github:nix-systems/default";
+    };
     flake-utils = {
       url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+    kreisys = {
+      url = "github:kreisys/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils-plus = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
@@ -75,13 +83,19 @@
       url = "github:hetznercloud/csi-driver";
       flake = false;
     };
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     # there's a few drivers actually...
     # After booting, register the contents of the Nix store in the container in the Nix database in the tmpfs
     nomad-driver-nix = {
       url = "github:KiaraGrouwstra/nomad-driver-nix";
       inputs.nix.follows = "nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
+      inputs.devshell.follows = "devshell";
+      inputs.utils.follows = "kreisys";
     };
     # A Nomad driver to run Nix jobs. Uses the same isolation mechanism as the exec driver. Partially based on nomad-driver-nix
     nomad-driver-nix2 = {
