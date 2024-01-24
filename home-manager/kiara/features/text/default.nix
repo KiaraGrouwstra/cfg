@@ -114,6 +114,11 @@ in {
         nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
         nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
         nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
+
+        """ Codium
+        if exists('g:vscode')
+          set clipboard=unnamedplus
+        endif
       '';
     };
 
