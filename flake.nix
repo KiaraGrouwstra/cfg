@@ -85,6 +85,7 @@
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
       });
+      overlaysAttrs = import ./overlays { inherit inputs; };
     in
     {
       inherit lib;
@@ -114,7 +115,7 @@
       );
 
       # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
+      overlays = overlaysAttrs;
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
