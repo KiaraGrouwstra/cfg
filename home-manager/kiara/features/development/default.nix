@@ -42,6 +42,7 @@ in {
       nodePackages.dockerfile-language-server-nodejs
       nodePackages.typescript-language-server
       nodePackages.vscode-json-languageserver
+      kotlin-language-server
       sqlite
       (python3.withPackages(ps : with ps; [
         pandas
