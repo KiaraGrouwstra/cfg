@@ -1,8 +1,8 @@
 # This file defines overlays
-{ inputs }:
+{ inputs, lib, ... }:
 let
   # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs { pkgs = final; inherit inputs; };
+  additions = (import ../pkgs { inherit inputs lib; });
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
@@ -33,5 +33,5 @@ let
 
 in
 {
-  inherit additions modifications;
+  default = lib.composeManyExtensions [ additions modifications ];
 }

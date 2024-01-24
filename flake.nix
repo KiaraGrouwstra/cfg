@@ -86,7 +86,7 @@
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
       });
-      overlaysAttrs = import ./overlays { inherit inputs; };
+      overlaysAttrs = import ./overlays { inherit inputs lib; };
       overlays = builtins.attrValues overlaysAttrs ++ [ nur.overlay ];
     in
     {
@@ -105,10 +105,7 @@
 
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs inputs; }
-      );
+      packages = forAllSystems (system: import ./overlays { inherit inputs lib; });
       # Devshell for bootstrapping
       # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
@@ -129,6 +126,7 @@
           modules = [
             "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
             nur.nixosModules.nur
+            { nixpkgs = { inherit overlays; }; }
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
           ];

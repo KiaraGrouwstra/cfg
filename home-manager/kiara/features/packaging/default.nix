@@ -18,14 +18,14 @@ in {
       nix-direnv
 
       ## packaging
-      inputs.nix-software-center.packages.${pkgs.system}.nix-software-center
+      nix-software-center
       gnome.gnome-software
       appimage-run
       emacsPackages.guix
 
       ## config
       gnome.dconf-editor
-      inputs.nixos-conf-editor.packages.${pkgs.system}.nixos-conf-editor
+      nixos-conf-editor
       glib # gsettings
 
     ];
