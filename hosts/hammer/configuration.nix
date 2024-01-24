@@ -191,7 +191,8 @@
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
-      # (import ./nomad-driver-singularity.nix {})
+      # nomad-driver-singularity
+      # (import ./nomad-driver-singularity.nix { inherit inputs lib; })
       # inputs.nomad-driver-nix.packages.${pkgs.system}.nomad-driver-nix
       # # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
       # (import ./nomad-driver-nix2.nix { inherit inputs; })
