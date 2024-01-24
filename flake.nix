@@ -78,6 +78,8 @@
         "i686-linux"
         "x86_64-linux"
       ];
+      x86 = { system = "x86_64-linux"; };
+      hammer = x86;
       lib = nixpkgs.lib // home-manager.lib;
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
@@ -118,9 +120,9 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
 
-        kiara-hammer = nixpkgs.lib.nixosSystem {
+        kiara-hammer = with hammer; nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          system = "x86_64-linux";
+          inherit system;
           modules = [
             "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
             ./hosts/hammer/configuration.nix
@@ -140,9 +142,7 @@
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
 
-        "kiara@hammer" = let
-          system = "x86_64-linux";
-        in lib.homeManagerConfiguration {
+        "kiara@hammer" = with hammer; lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           extraSpecialArgs = { inherit inputs outputs;
             unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
