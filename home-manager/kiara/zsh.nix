@@ -20,6 +20,7 @@
       plugins = [
         "git"
         "thefuck"
+        "bgnotify"
       ];
       theme = "agnoster";
     };
