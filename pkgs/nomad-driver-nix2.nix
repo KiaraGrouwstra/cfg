@@ -10,9 +10,6 @@ buildGoModule rec {
 
   subPackages = [ "." ];
 
-  # # some tests require a running podman service
-  # doCheck = false;
-
   meta = with lib; {
     homepage = "https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2";
     description = "A driver to run Nix jobs on Nomad";

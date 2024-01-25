@@ -8,9 +8,7 @@ buildGoModule rec {
 
   vendorHash = "sha256-24yGKhd2GBHv2QDXd5hv90MBWM8MWHALyxHJVoayOZE=";
 
-  subPackages = [ "." ];
-
-  # doCheck = false;
+  subPackages = [ "./cmd/driver" ];
 
   meta = with lib; {
     homepage = "https://github.com/hpcng/nomad-driver-singularity";

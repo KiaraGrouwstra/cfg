@@ -185,17 +185,16 @@
     extraPackages = with pkgs; [
       cni-plugins # Networking plugins, needed for bridge. Might not be needed?
 
-      nomad-driver-singularity
-      hcloud-csi-driver
+      # hcloud-csi-driver
       # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
       nomad-driver-nix
       nomad-driver-nix2
-
       nomad-driver-singularity
-      hcloud-csi-driver
+
+      # hcloud-csi-driver
       # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
     ];
     # https://developer.hashicorp.com/nomad/docs/configuration
