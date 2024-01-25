@@ -183,10 +183,7 @@
     enableDocker = true;
     credentials = {};
     extraPackages = with pkgs; [
-      cni-plugins # Networking plugins, needed for bridge. Might not be needed?
-
-      # hcloud-csi-driver
-      # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
+      cni-plugins   # client.fingerprint_mgr.cni_plugins: failed to read CNI plugins directory: cni_path=/opt/cni/bin error="open /opt/cni/bin: no such file or directory"
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
