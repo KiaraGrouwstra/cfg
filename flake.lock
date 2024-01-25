@@ -474,15 +474,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1659899649,
-        "narHash": "sha256-jE+lDHwZCaZBxV98yzRNxgwJUPNkfoZAjoMvkTwl4Bc=",
-        "owner": "MagicRB",
+        "lastModified": 1706198388,
+        "narHash": "sha256-zv3xyFZ696Er0P7Sb+NbOJG/ORfa4OT82ALqwyz3sYM=",
+        "owner": "KiaraGrouwstra",
         "repo": "nomad-driver-containerd-nix",
-        "rev": "3d9c1be4444db47cb86679387cf06a7cbfb2bce3",
+        "rev": "d08161f98ebe5341ce0fc80954ec408f8d1fe340",
         "type": "github"
       },
       "original": {
-        "owner": "MagicRB",
+        "owner": "KiaraGrouwstra",
+        "ref": "kiara",
         "repo": "nomad-driver-containerd-nix",
         "type": "github"
       }
@@ -504,11 +505,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705937305,
-        "narHash": "sha256-VYQxtqt9KuVL87RJiN2TI7xj8ZsgJPTQEN13fL8m8Ck=",
+        "lastModified": 1706209982,
+        "narHash": "sha256-tMc8y0pZ9gCasG8eQOpqPz10BKg/ds52rORQPMz8g/4=",
         "owner": "KiaraGrouwstra",
         "repo": "nomad-driver-nix",
-        "rev": "b2e8a77c4ffaf80e25b220c5ac50945c910cd648",
+        "rev": "e210ebbb89a4abbd9716a7f95efa1fd956224878",
         "type": "github"
       },
       "original": {

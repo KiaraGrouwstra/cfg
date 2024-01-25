@@ -102,9 +102,8 @@
       url = "git+https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2";
       flake = false;
     };
-    # https://github.com/MagicRB/nomad-driver-containerd-nix
     nomad-driver-containerd-nix = {
-      url = "github:MagicRB/nomad-driver-containerd-nix";
+      url = "github:KiaraGrouwstra/nomad-driver-containerd-nix/kiara";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-unfree = {
