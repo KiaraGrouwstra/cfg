@@ -230,7 +230,9 @@
         # };
         # https://developer.hashicorp.com/nomad/docs/drivers/docker#plugin-options
         docker = {
-          config = {};
+          config = {
+            allow_privileged = true; # for hcloud-csi-driver cluster nodes need this
+          };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/podman#plugin-options
         nomad-driver-podman = {
@@ -241,7 +243,7 @@
           };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/community/singularity#plugin-options
-        nomad-driver-Singularity = {
+        nomad-driver-singularity = {
           config = {
             enabled = true;
             # singularity_path = "/var/lib/singularity";
@@ -253,6 +255,25 @@
             enabled = true;
             containerd_runtime = "io.containerd.runc.v2";
             allow_privileged = true;
+          };
+        };
+        # https://github.com/input-output-hk/nomad-driver-nix/blob/main/example/agent.hcl
+        nix-driver = {
+          config = {
+          };
+        };
+        # https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2/src/branch/main/example/agent.hcl
+        nix2-driver = {
+          config = {
+            # default_nixpkgs = "github:nixos/nixpkgs/nixos-22.05";
+          };
+        };
+        # https://github.com/MagicRB/nomad-driver-containerd-nix/blob/master/extra_config.hcl
+        nomad-driver-containerd = {  # also `containerd-driver`?
+          config = {
+            enabled = true;
+            # containerd_runtime = "io.containerd.runc.v2";
+            # stats_interval = "5s";
           };
         };
       };
