@@ -183,17 +183,19 @@
     enableDocker = true;
     credentials = {};
     extraPackages = with pkgs; [
-      cni-plugins   # client.fingerprint_mgr.cni_plugins: failed to read CNI plugins directory: cni_path=/opt/cni/bin error="open /opt/cni/bin: no such file or directory"
+      cni-plugins   # client.fingerprint_mgr.cni_plugins: failed to read CNI plugins directory: CNI_PATH=/opt/cni/bin error="open /opt/cni/bin: no such file or directory"
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
       nomad-driver-nix
       nomad-driver-nix2
       nomad-driver-singularity
-      # nomad-driver-containerd       # Unsupported plugin type
-      # nomad-driver-containerd-nix   # Unsupported plugin type
+      # # [Unsupported plugin type](https://github.com/hashicorp/nomad/blob/a283a416139dca46b1d2e459aa033cd2d3902243/plugins/serve.go#L52)
+      # nomad-driver-containerd
+      # nomad-driver-containerd-nix
+      # # node: unable to connect to metadata service, are you sure this is running on a Hetzner Cloud server?
+      # # controller/aio: hcloud token invalid (must be exactly 64 characters long)
       # hcloud-csi-driver
-      # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
     ];
     # https://developer.hashicorp.com/nomad/docs/configuration
     settings = {
@@ -284,6 +286,14 @@
 
   # I don't need Nomad starting when the system boots.
   systemd.services.nomad.wantedBy = lib.mkForce [ ];
+
+  sops.secrets.hcloud-token = {};
+
+  # env vars needed by hetznercloud/csi-driver
+  systemd.services.nomad.environment = {
+    ENABLE_METRICS = "true";
+    HCLOUD_TOKEN = config.sops.secrets.hcloud-token.path;
+  };
 
   services.consul = {
     enable = true;

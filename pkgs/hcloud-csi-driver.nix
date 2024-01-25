@@ -8,7 +8,11 @@ buildGoModule rec {
 
   vendorHash = "sha256-Wxyg+ygQiBCCwX1jOR0Kb+iAHdpFf4ZNTTBYMEaaKoc=";
 
-  subPackages = [ "." ];
+  subPackages = [
+    "./cmd/aio"  # all-in-one
+    "./cmd/controller"
+    "./cmd/node"
+  ];
 
   # some tests require a running docker service
   doCheck = false;
