@@ -10,6 +10,10 @@ buildGoModule rec {
 
   subPackages = [ "./cmd/driver" ];
 
+  postBuild = ''
+    mv $GOPATH/bin/driver $GOPATH/bin/nomad-driver-singularity
+  '';
+
   meta = with lib; {
     homepage = "https://github.com/hpcng/nomad-driver-singularity";
     description = "HashiCorp Nomad driver plugin - Singularity";
