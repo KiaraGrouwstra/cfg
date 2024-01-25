@@ -215,23 +215,37 @@
         enabled = true;
       };
       plugin = {
+        # https://developer.hashicorp.com/nomad/docs/drivers/raw_exec#plugin-options
         raw_exec = {
           config = {
             enabled = true;
           };
         };
+        # # https://developer.hashicorp.com/nomad/docs/drivers/exec#plugin-options
         # exec = {
         #   config = {};
         # };
+        # # https://developer.hashicorp.com/nomad/docs/drivers/qemu#plugin-options
         # qemu = {
         #   config = {};
         # };
+        # https://developer.hashicorp.com/nomad/docs/drivers/docker#plugin-options
+        docker = {
+          config = {};
+        };
         # https://developer.hashicorp.com/nomad/plugins/drivers/podman#plugin-options
         nomad-driver-podman = {
           config = {
             disable_log_collection = true;
             # gc.container = true;
             # volumes.enabled = true;
+          };
+        };
+        # https://developer.hashicorp.com/nomad/plugins/drivers/community/singularity#plugin-options
+        nomad-driver-Singularity = {
+          config = {
+            enabled = true;
+            # singularity_path = "/var/lib/singularity";
           };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/community/containerd#plugin-options
