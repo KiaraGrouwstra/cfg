@@ -45,5 +45,11 @@ in {
       libvirtd.enable = true;
     };
     programs.dconf.enable = true;
+
+    programs.singularity = {
+      enable = true;
+      package = pkgs.apptainer;
+    };
+
   };
 }
