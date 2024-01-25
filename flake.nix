@@ -81,7 +81,7 @@
       ];
       x86 = { system = "x86_64-linux"; };
       hammer = x86;
-      lib = nixpkgs.lib // home-manager.lib;
+      lib = nixpkgs.lib // home-manager.lib // (import ./lib);
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
