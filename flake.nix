@@ -82,15 +82,22 @@
       x86 = { system = "x86_64-linux"; };
       hammer = x86;
       lib = nixpkgs.lib // home-manager.lib // (import ./lib);
-      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      # for each system: nixpkgs
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
-        inherit system;
+        inherit system overlays;
       });
-      overlaysAttrs = import ./overlays { inherit inputs lib; };
+      # for each system: apply pkgs to a function
+      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      # { default: overlay }
+      overlaysAttrs = import ./overlays.nix { inherit inputs lib; };
+      # [ overlay ]
       overlays = builtins.attrValues overlaysAttrs ++ [ nur.overlay ];
+      # Your custom packages, acessible through 'nix build', 'nix shell', etc
+      # for each system: packages including overlays
+      packages = forAllSystems (pkgs: import ./packages.nix { inherit inputs lib pkgs; });
     in
     {
-      inherit lib;
+      inherit lib packages;
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
@@ -103,9 +110,6 @@
         ./cachix.nix
       ];
 
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (system: import ./overlays { inherit inputs lib; });
       # Devshell for bootstrapping
       # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
@@ -139,7 +143,7 @@
       homeConfigurations = {
 
         "kiara@hammer" = with hammer; lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system overlays; };
+          pkgs = pkgsFor.${system};
           extraSpecialArgs = { inherit inputs outputs;
             unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
           };

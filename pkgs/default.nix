@@ -1,11 +1,10 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using `nix build .#example` or (legacy) `nix-build -A example`
 
-{ inputs, lib, ... }:
+{ inputs, lib, pkgs, ... }:
 
-_final: prev:
+with pkgs; (
 
-with prev; (
 
   # non-flakes
   {
