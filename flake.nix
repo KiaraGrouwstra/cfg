@@ -132,12 +132,6 @@
           ];
         };
 
-        kiara-steen = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          system = "x86_64-linux";
-          modules = [ ./hosts/steen/configuration.nix ];
-        };
-
       };
 
       # Standalone home-manager configuration entrypoint
@@ -154,14 +148,6 @@
             nur.nixosModules.nur
             ./home-manager/kiara/home.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
-          ];
-        };
-
-        "kiara@steen" = lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/kiara/home.nix
           ];
         };
 
