@@ -1,8 +1,8 @@
-{ lib, inputs, buildGoModule }:
+{ lib, inputs, buildGoModule, ... }:
 
 buildGoModule rec {
   pname = "nomad-driver-singularity";
-  version = "1.0.0-alpha2"; # v
+  version = "1.0.0-alpha2";
 
   src = inputs.nomad-driver-singularity;
 

@@ -1,4 +1,4 @@
-{ lib, inputs, buildGoModule }:
+{ lib, inputs, buildGoModule, ... }:
 
 buildGoModule rec {
   pname = "nomad-driver-nix2";
