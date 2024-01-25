@@ -40,6 +40,7 @@ in {
       docker-compose
       gnome.gnome-boxes  # broken: https://github.com/NixOS/nixpkgs/issues/226355
       virt-manager
+      qemu
 
       ## credentials / security
       pass
