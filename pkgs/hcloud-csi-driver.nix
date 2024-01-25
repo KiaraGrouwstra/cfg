@@ -10,8 +10,8 @@ buildGoModule rec {
 
   subPackages = [ "." ];
 
-  # # some tests require a running podman service
-  # doCheck = false;
+  # some tests require a running docker service
+  doCheck = false;
 
   meta = with lib; {
     homepage = "https://github.com/hetznercloud/csi-driver";
