@@ -190,7 +190,8 @@
       nomad-driver-nix
       nomad-driver-nix2
       nomad-driver-singularity
-
+      # nomad-driver-containerd       # Unsupported plugin type
+      # nomad-driver-containerd-nix   # Unsupported plugin type
       # hcloud-csi-driver
       # hcloud-csi-driver: The cluster nodes need to have the docker driver installed & configured with `allow_privileged = true`.
     ];
@@ -265,6 +266,7 @@
             # default_nixpkgs = "github:nixos/nixpkgs/nixos-22.05";
           };
         };
+        # nomad-driver-containerd = { config = {}; };
         # https://github.com/MagicRB/nomad-driver-containerd-nix/blob/master/extra_config.hcl
         nomad-driver-containerd = {  # also `containerd-driver`?
           config = {

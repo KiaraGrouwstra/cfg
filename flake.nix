@@ -102,6 +102,10 @@
       url = "git+https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2";
       flake = false;
     };
+    nomad-driver-containerd = {
+      url = "github:roblox/nomad-driver-containerd";
+      flake = false;
+    };
     nomad-driver-containerd-nix = {
       url = "github:KiaraGrouwstra/nomad-driver-containerd-nix/kiara";
       inputs.nixpkgs.follows = "nixpkgs";
