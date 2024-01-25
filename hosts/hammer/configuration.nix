@@ -5,10 +5,6 @@
 { config, pkgs, lib, inputs, outputs, ... }:
 
 {
-#   # options.nix-driver-nomad.enable = true;  # nomad-driver-nix
-#   # # config.nix-driver-nomad.enable = true;  # nomad-driver-nix
-#   # # nix-driver-nomad.enable = true;  # nomad-driver-nix
-# } // { config = {
   imports =
     [
       ./imports.nix
@@ -296,5 +292,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-# };
 }
