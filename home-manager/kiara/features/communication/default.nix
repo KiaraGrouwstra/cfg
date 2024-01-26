@@ -31,7 +31,7 @@ in {
       python3Packages.yowsup
       ricochet
       weechat
-      # kdeltachat
+      kdeltachat
       config.nur.repos.xyenon.kazv
 
       ## web browsers
