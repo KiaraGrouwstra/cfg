@@ -184,12 +184,13 @@
     credentials = {};
     extraPackages = with pkgs; [
       cni-plugins   # client.fingerprint_mgr.cni_plugins: failed to read CNI plugins directory: CNI_PATH=/opt/cni/bin error="open /opt/cni/bin: no such file or directory"
+      inputs.nix.packages.${system}.nix
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
       nomad-driver-nix
       nomad-driver-nix2
-      nomad-driver-singularity
+      nomad-driver-singularity  # No argument or block type is named "singularity_path".
       # # [Unsupported plugin type](https://github.com/hashicorp/nomad/blob/a283a416139dca46b1d2e459aa033cd2d3902243/plugins/serve.go#L52)
       # nomad-driver-containerd
       # nomad-driver-containerd-nix
@@ -246,7 +247,7 @@
         nomad-driver-singularity = {
           config = {
             enabled = true;
-            # singularity_path = "/var/lib/singularity";
+            # singularity_path = "${pkgs.apptainer}/bin/apptainer";   # No argument or block type is named "singularity_path".
           };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/community/containerd#plugin-options
