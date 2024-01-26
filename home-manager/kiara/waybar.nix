@@ -5,7 +5,7 @@
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
-    settings = with (import ./commands.nix { pkgs = pkgs; inputs = inputs; }); {
+    settings = with (import ./commands.nix { inherit pkgs inputs; }); {
 
       mainBar = {
         layer = "top";

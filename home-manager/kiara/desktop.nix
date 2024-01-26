@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 
-with (import ./commands.nix { pkgs = pkgs; inputs = inputs; });
+with (import ./commands.nix { inherit pkgs inputs; });
 {
 
   home.packages = let
