@@ -58,8 +58,8 @@ in {
 
       ## 3d printing
       prusa-slicer
-      # cura
-      # curaengine  # https://github.com/NixOS/nixpkgs/issues/281145
+      cura
+      curaengine  # https://github.com/NixOS/nixpkgs/issues/281145
       freecad
       octoprint
       printrun
