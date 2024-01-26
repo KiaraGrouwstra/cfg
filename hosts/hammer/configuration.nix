@@ -4,6 +4,9 @@
 
 { config, pkgs, lib, inputs, outputs, ... }:
 
+let
+  commands = import ./commands.nix { inherit pkgs inputs; };
+in
 {
   imports =
     [
