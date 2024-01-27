@@ -33,6 +33,7 @@ in {
       weechat
       kdeltachat
       nur.repos.xyenon.kazv
+      flare-signal
 
       ## web browsers
       chromium
