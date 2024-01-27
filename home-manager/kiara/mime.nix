@@ -462,6 +462,7 @@ let
           "calc"
           "visidata"
           "less"
+          "org.gnome.TextEditor"
         ];
         "application/vnd.smart.notebook" = map addDesktop [
           "less"
