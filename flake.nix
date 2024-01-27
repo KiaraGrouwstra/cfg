@@ -80,7 +80,7 @@
       ];
       x86 = { system = "x86_64-linux"; };
       hammer = x86;
-      lib = nixpkgs.lib // home-manager.lib // (import ./lib);
+      lib = nixpkgs.lib // home-manager.lib // (import ./lib { inherit (nixpkgs) lib; });
       # for each system: nixpkgs
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system overlays;
@@ -124,7 +124,7 @@
       nixosConfigurations = {
 
         kiara-hammer = with hammer; nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit lib inputs outputs; };
           inherit system;
           modules = [
             "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
