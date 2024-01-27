@@ -9,7 +9,7 @@ in
 
 {
 
-  home.file = (homeFolder ./dotfiles)
+  home.file = (lib.homeFolder ./dotfiles)
   // autoStartLinks (with pkgs; {
     "org.keepassxc.KeePassXC" = keepassxc;
     "codium" = vscodium;

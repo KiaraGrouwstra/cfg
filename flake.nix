@@ -143,7 +143,7 @@
 
         "kiara@hammer" = with hammer; lib.homeManagerConfiguration {
           pkgs = pkgsFor.${system};
-          extraSpecialArgs = { inherit inputs outputs;
+          extraSpecialArgs = { inherit lib inputs outputs;
             unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
           };
           modules = [
