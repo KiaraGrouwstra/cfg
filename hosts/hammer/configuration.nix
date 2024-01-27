@@ -171,6 +171,8 @@
 
   services.gnome.at-spi2-core.enable = true; # orca
 
+  services.gnome.gnome-keyring.enable = true; # flare-signal
+
   # used by enhancd
   programs.fzf.fuzzyCompletion = true;
 
