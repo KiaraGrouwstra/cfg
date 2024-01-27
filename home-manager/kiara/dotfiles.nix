@@ -1,33 +1,6 @@
 { lib, pkgs, ... }:
 
 let
-  homeFolder = (baseDir:
-    let
-      makePath = (breadcrumbs: baseDir + "/${lib.strings.concatStringsSep "/" breadcrumbs}");
-      fileImport = (breadcrumbs: type: { "${lib.strings.concatStringsSep "/" breadcrumbs}".source = makePath breadcrumbs; });
-      iterDir = (breadcrumbs: let
-          fileSet = builtins.readDir (makePath breadcrumbs);
-          processItem = (location: type: let
-              breadcrumbs' = breadcrumbs ++ [location];
-            in
-              if
-                type == "regular"
-              then
-                [ (fileImport breadcrumbs' type) ]
-              else if
-                type == "directory"
-              then
-                iterDir breadcrumbs'
-              else
-                []
-          );
-        in
-          lib.attrsets.mapAttrsToList processItem fileSet
-      );
-    in
-      lib.attrsets.mergeAttrsList (lib.lists.flatten (iterDir []))
-  );
-
   autoStartLinks = lib.mapAttrs' (desktopName: package: lib.nameValuePair
     ".config/autostart/${desktopName}.desktop"
     { source = "${package}/share/applications/${desktopName}.desktop"; }
