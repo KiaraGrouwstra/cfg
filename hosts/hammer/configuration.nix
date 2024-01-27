@@ -249,8 +249,10 @@
             enabled = true;
             # singularity_path = "${pkgs.apptainer}/bin/apptainer";   # No argument or block type is named "singularity_path".
             # sudo mkdir -p /usr/local/bin/
-            # ln -s "${pkgs.apptainer}/bin/apptainer" /usr/local/bin/singularity
-            # ln -s $(readlink -f $(which apptainer)) /usr/local/bin/singularity
+            # sudo ln -s "${pkgs.apptainer}/bin/apptainer" /usr/local/bin/singularity
+            # sudo ln -s $(readlink -f $(which apptainer)) /usr/local/bin/singularity
+            # sudo mkdir -p /opt/cni/
+            # sudo ln -s "${pkgs.cni-plugins}/bin" /opt/cni/bin
           };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/community/containerd#plugin-options
