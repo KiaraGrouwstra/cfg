@@ -10,7 +10,6 @@
     };
     nix = {
       url = "github:nixos/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
     };
     home-manager = {
