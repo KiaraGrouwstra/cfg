@@ -1,22 +1,6 @@
 { lib, ... }:
 let
     addDesktop = x: "${x}.desktop";
-    prioritize = lower: higher:
-      lib.foldl'
-        (o: k:
-          o // {
-            "${k}" =
-              let
-                v = lib.getAttr k lower;
-              in
-                if lib.hasAttr k o
-                then (lib.getAttr k o) ++ v
-                else v;
-          }
-        )
-        higher
-        (lib.attrNames lower);
-    prioritizeList = lib.foldl' prioritize {};
     # take from the respective mimetype files
     images = map (_: "image/${_}") [
       "jpeg"
@@ -373,7 +357,7 @@ let
       "lapce"
       "kate"
     ];
-    associations = prioritizeList [
+    associations = lib.prioritizeList [
       (lib.genAttrs code (_: editors))
       (lib.genAttrs images (_: [
         "imv.desktop"

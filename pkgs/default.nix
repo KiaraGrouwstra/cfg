@@ -3,18 +3,12 @@
 
 { inputs, lib, pkgs, ... }:
 
-with pkgs; (
-
-  # non-flakes
-  {
-  } // (
-
-    # flakes
-    with inputs;
-    {
-      inherit (nix-software-center.packages.${system}) nix-software-center;
-      inherit (nixos-conf-editor  .packages.${system}) nixos-conf-editor;
-    }
-
-  )
+(
+  lib.dryFlakes pkgs inputs [
+    "nix-software-center"
+    "nixos-conf-editor"
+  ]
+  //
+  # non-flakes: import from remaining `pkgs/*.nix` files
+  (lib.importRest pkgs lib inputs ../pkgs) # i couldn't just do ./ ...
 )
