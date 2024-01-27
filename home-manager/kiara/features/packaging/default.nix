@@ -16,6 +16,7 @@ in {
       dconf2nix
       any-nix-shell
       nix-direnv
+      nixpkgs-review
 
       ## packaging
       nix-software-center
