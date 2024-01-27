@@ -248,6 +248,9 @@
           config = {
             enabled = true;
             # singularity_path = "${pkgs.apptainer}/bin/apptainer";   # No argument or block type is named "singularity_path".
+            # sudo mkdir -p /usr/local/bin/
+            # ln -s "${pkgs.apptainer}/bin/apptainer" /usr/local/bin/singularity
+            # ln -s $(readlink -f $(which apptainer)) /usr/local/bin/singularity
           };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/community/containerd#plugin-options
@@ -269,6 +272,7 @@
             # default_nixpkgs = "github:nixos/nixpkgs/nixos-22.05";
           };
         };
+        # i should patch the nomad-driver-containerd-nix flake build to rename it to nomad-driver-containerd-nix to deduplicate
         # nomad-driver-containerd = { config = {}; };
         # https://github.com/MagicRB/nomad-driver-containerd-nix/blob/master/extra_config.hcl
         nomad-driver-containerd = {  # also `containerd-driver`?
