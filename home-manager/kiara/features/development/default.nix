@@ -66,5 +66,20 @@ in {
       enableZshIntegration = true;
     };
 
+    programs.gh = {
+      enable = true;
+      gitCredentialHelper.enable = true;
+      # https://github.com/topics/gh-extension
+      extensions = with pkgs; [
+        gh-dash
+        gh-markdown-preview
+      ];
+      settings = {
+        version = 1;
+        git_protocol = "ssh";
+        prompt = "enabled";
+      };
+    };
+
   };
 }
