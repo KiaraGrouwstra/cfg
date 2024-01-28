@@ -46,8 +46,8 @@ in
   dirContents = suffix: path: mapAttrs (_: readFile) (dirAttrs suffix path);
 
   # non-flakes: import from remaining `pkgs/*.nix` files
-  importRest = pkgs: lib: inputs: path: (mapAttrs
-    (_: file: pkgs.callPackage file { inherit inputs lib; })  # import with the same args, add `...` arg if needed
+  importRest = { pkgs, ... }@args: path: (mapAttrs
+    (_: file: pkgs.callPackage file args)  # import with the same args, add `...` arg if needed
       (filterAttrs
       (name: _: name != "default")
       (dirAttrs ".nix" path)

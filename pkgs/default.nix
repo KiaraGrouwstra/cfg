@@ -10,5 +10,5 @@
   ]
   //
   # non-flakes: import from remaining `pkgs/*.nix` files
-  (lib.importRest pkgs lib inputs ../pkgs) # i couldn't just do ./ ...
+  (lib.importRest { inherit pkgs lib inputs; } ../pkgs) # i couldn't just do ./ ...
 )
