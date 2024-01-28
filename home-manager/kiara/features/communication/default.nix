@@ -43,6 +43,7 @@ in {
       curl
       lynx
       thorium-browser
+      mercury-browser
 
     ];
 
