@@ -57,6 +57,10 @@
       inputs.nixpkgs.follows = "nixos";
       inputs.utils.follows = "flake-utils";
     };
+    catppuccin-vsc = {
+      url = "github:catppuccin/vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,16 +85,20 @@
       x86 = { system = "x86_64-linux"; };
       hammer = x86;
       lib = nixpkgs.lib // home-manager.lib // (import ./lib { inherit (nixpkgs) lib; });
+      # { default: overlay }
+      overlaysAttrs = import ./overlays.nix { inherit inputs lib; };
+      # [ overlay ]
+      overlays = builtins.attrValues overlaysAttrs ++ [
+        nur.overlay
+        # inputs.nix-vscode-extensions.overlays.default
+        inputs.catppuccin-vsc.overlays.default
+      ];
       # for each system: nixpkgs
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system overlays;
       });
       # for each system: apply pkgs to a function
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
-      # { default: overlay }
-      overlaysAttrs = import ./overlays.nix { inherit inputs lib; };
-      # [ overlay ]
-      overlays = builtins.attrValues overlaysAttrs ++ [ nur.overlay ];
       # Your custom packages, acessible through 'nix build', 'nix shell', etc
       # for each system: packages including overlays
       packages = forAllSystems (pkgs: import ./packages.nix { inherit inputs lib pkgs; });

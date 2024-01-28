@@ -1,0 +1,97 @@
+# run from https://github.com/nix-community/nix4vscode
+# cargo run -- <PATH>/vscode-extensions.toml > <PATH>/default.nix
+
+# codium --version
+vscode_version = "1.85.2"
+
+# convenience
+
+[[extensions]]
+publisher_name = "mkhl"
+extension_name = "direnv"
+
+[[extensions]]
+publisher_name = "mikestead"
+extension_name = "dotenv"
+
+[[extensions]]
+publisher_name = "arrterian"
+extension_name = "nix-env-selector"
+
+[[extensions]]
+publisher_name = "asvetliakov"
+extension_name = "vscode-neovim"
+
+[[extensions]]
+publisher_name = "kahole"
+extension_name = "magit"
+
+[[extensions]]
+publisher_name = "foam"
+extension_name = "foam-vscode"
+
+# styling
+
+[[extensions]]
+publisher_name = "pkief"
+extension_name = "material-icon-theme"
+
+# highlighting
+
+[[extensions]]
+publisher_name = "jnoortheen"
+extension_name = "nix-ide"
+
+[[extensions]]
+publisher_name = "tamasfe"
+extension_name = "even-better-toml"
+
+[[extensions]]
+publisher_name = "hashicorp"
+extension_name = "hcl"
+
+[[extensions]]
+publisher_name = "hashicorp"
+extension_name = "terraform"
+
+[[extensions]]
+publisher_name = "justusadam"
+extension_name = "language-haskell"
+
+[[extensions]]
+publisher_name = "kokakiwi"
+extension_name = "vscode-just"
+
+[[extensions]]
+publisher_name = "haskell"
+extension_name = "haskell"
+
+[[extensions]]
+publisher_name = "meraymond"
+extension_name = "idris-vscode"
+
+[[extensions]]
+publisher_name = "marp-team"
+extension_name = "marp-vscode"
+
+[[extensions]]
+publisher_name = "rust-lang"
+extension_name = "rust"
+
+[[extensions]]
+publisher_name = "vscode-org-mode"
+extension_name = "org-mode"
+
+[[extensions]]
+publisher_name = "redhat"
+extension_name = "vscode-yaml"
+
+# linting
+
+[[extensions]]
+publisher_name = "editorconfig"
+extension_name = "editorconfig"
+
+[[extensions]]
+publisher_name = "davidanson"
+extension_name = "vscode-markdownlint"

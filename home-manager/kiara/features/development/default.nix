@@ -34,6 +34,7 @@ in {
       hvm
       nixpkgs-fmt
       nixd
+      cargo
       haskellPackages.haskell-language-server
       ansible-language-server
       nodePackages.vim-language-server

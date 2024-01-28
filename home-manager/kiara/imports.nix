@@ -26,6 +26,7 @@
     ./swaylock.nix
     ./systemd-fixes.nix
     ./tty-init.nix
+    ./vscode.nix
     ./waybar.nix
     ./wezterm.nix
     ./wofi.nix
