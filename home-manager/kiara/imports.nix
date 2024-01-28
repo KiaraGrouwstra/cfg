@@ -21,6 +21,7 @@
     ./kitty.nix
     ./mime.nix
     ./neomutt.nix
+    ./neovim.nix
     ./rofi.nix
     ./swaylock.nix
     ./systemd-fixes.nix
