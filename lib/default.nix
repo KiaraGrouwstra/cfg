@@ -44,7 +44,15 @@ let
   dryFlakes = pkgs: inputs: deps: lib.listToAttrs (lib.lists.map (dep:
     if lib.strings.typeOf dep == "string" then {
       name = dep;
-      value = inputs."${dep}".packages.${pkgs.system}.default;
+      value = let
+          packages = inputs."${dep}".packages.${pkgs.system};
+        in
+          if
+            lib.hasAttr dep packages
+          then
+            packages."${dep}"
+          else
+            packages.default;
     } else
       let
         k = lib.elemAt (lib.attrNames dep) 0;
