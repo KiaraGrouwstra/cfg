@@ -1,9 +1,11 @@
 { lib, ... }:
 
+with lib;
+
 let
 
   # (v: 2 * v) -> { a = 1; } -> { a = 2; }
-  mapVals = f: lib.mapAttrs (_: f);
+  mapVals = f: mapAttrs (_: f);
 
   # get an object of files in a directory with a given suffix
   # ".ext" -> "a/b" -> { "foo" = "a/b/foo.ext"; "bar" = "a/b/bar.ext"; }
@@ -11,8 +13,8 @@ let
 
     # ".ext" -> "a/b.ext" -> "b"
     fileAttrName = suffix: path: let
-      ext = lib.last (lib.splitString "." path);
-    in lib.removeSuffix suffix (builtins.baseNameOf path);
+      ext = last (splitString "." path);
+    in removeSuffix suffix (builtins.baseNameOf path);
 
     # maps a file to a path
     # ".ext" -> "a/b" -> "c/d.ext" -> { name = "d"; value = "a/b/c/d.ext"; }
@@ -21,10 +23,10 @@ let
       value = path + "/${name}";
     };
 
-  in suffix: path: lib.mapAttrs'
+  in suffix: path: mapAttrs'
     (name: _: fileAttrInPath suffix path name)
-    (lib.filterAttrs
-      (name: type: lib.hasSuffix suffix name && type == "regular")
+    (filterAttrs
+      (name: type: hasSuffix suffix name && type == "regular")
       (builtins.readDir path));
 
 in
@@ -41,33 +43,33 @@ in
 
 
   # ".ext" -> ./subdir -> { "foo" = "<CONTENTS OF a/b/foo.ext>"; "bar" = "<CONTENTS OF a/b/bar.ext>"; }
-  dirContents = suffix: path: lib.mapAttrs (_: lib.readFile) (dirAttrs suffix path);
+  dirContents = suffix: path: mapAttrs (_: readFile) (dirAttrs suffix path);
 
   # non-flakes: import from remaining `pkgs/*.nix` files
-  importRest = pkgs: lib: inputs: path: (lib.mapAttrs
+  importRest = pkgs: lib: inputs: path: (mapAttrs
     (_: file: pkgs.callPackage file { inherit inputs lib; })  # import with the same args, add `...` arg if needed
-      (lib.filterAttrs
+      (filterAttrs
       (name: _: name != "default")
-      (lib.dirAttrs ".nix" path)
+      (dirAttrs ".nix" path)
     )
   );
 
   # pkgs -> inputs -> ["a" {b="c";}] -> { "a" = inputs.a.packages.${pkgs.system}.default; "c" = inputs.b.packages.${pkgs.system}.c; }
-  dryFlakes = pkgs: inputs: deps: lib.listToAttrs (lib.lists.map (dep:
-    if lib.strings.typeOf dep == "string" then {
+  dryFlakes = pkgs: inputs: deps: listToAttrs (lists.map (dep:
+    if strings.typeOf dep == "string" then {
       name = dep;
       value = let
           packages = inputs."${dep}".packages.${pkgs.system};
         in
           if
-            lib.hasAttr dep packages
+            hasAttr dep packages
           then
             packages."${dep}"
           else
             packages.default;
     } else
       let
-        k = lib.elemAt (lib.attrNames dep) 0;
+        k = elemAt (attrNames dep) 0;
         v = dep."${k}";
       in {
         name = v;
@@ -78,28 +80,28 @@ in
   # dry mime list
   prioritizeList = let
     prioritize = lower: higher:
-      lib.foldl'
+      foldl'
         (o: k:
           o // {
             "${k}" =
               let
-                v = lib.getAttr k lower;
+                v = getAttr k lower;
               in
-                if lib.hasAttr k o
-                then (lib.getAttr k o) ++ v
+                if hasAttr k o
+                then (getAttr k o) ++ v
                 else v;
           }
         )
         higher
-        (lib.attrNames lower);
+        (attrNames lower);
   in
-    lib.foldl' prioritize {};
+    foldl' prioritize {};
 
   # recursively symlink any files in a directory from $HOME
   homeFolder = (baseDir:
     let
-      makePath = (breadcrumbs: baseDir + "/${lib.strings.concatStringsSep "/" breadcrumbs}");
-      fileImport = (breadcrumbs: type: { "${lib.strings.concatStringsSep "/" breadcrumbs}".source = makePath breadcrumbs; });
+      makePath = (breadcrumbs: baseDir + "/${strings.concatStringsSep "/" breadcrumbs}");
+      fileImport = (breadcrumbs: type: { "${strings.concatStringsSep "/" breadcrumbs}".source = makePath breadcrumbs; });
       iterDir = (breadcrumbs: let
           fileSet = builtins.readDir (makePath breadcrumbs);
           processItem = (location: type: let
@@ -117,10 +119,10 @@ in
                 []
           );
         in
-          lib.attrsets.mapAttrsToList processItem fileSet
+          attrsets.mapAttrsToList processItem fileSet
       );
     in
-      lib.attrsets.mergeAttrsList (lib.lists.flatten (iterDir []))
+      attrsets.mergeAttrsList (lists.flatten (iterDir []))
   );
 
 }
