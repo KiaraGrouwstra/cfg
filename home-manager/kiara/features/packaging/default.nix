@@ -16,7 +16,6 @@ in {
       dconf2nix
       any-nix-shell
       nix-direnv
-      nixos-gui
       nixpkgs-review
 
       ## packaging
