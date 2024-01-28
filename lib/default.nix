@@ -5,28 +5,40 @@ let
   # (v: 2 * v) -> { a = 1; } -> { a = 2; }
   mapVals = f: lib.mapAttrs (_: f);
 
-  # { b = 0; } -> { c = { a = 1; } } -> { c = { b = 0; a = 1; } }
-  default = defaults: mapVals (v: defaults // v);
-
-  # ".ext" -> "a/b.ext" -> "b"
-  fileAttrName = suffix: path: let
-    ext = lib.last (lib.splitString "." path);
-  in lib.removeSuffix suffix (builtins.baseNameOf path);
-
-  # maps a file to a path
-  # ".ext" -> "a/b" -> "c/d.ext" -> { name = "d"; value = "a/b/c/d.ext"; }
-  fileAttrInPath = suffix: path: name: {
-    name = fileAttrName suffix name;
-    value = path + "/${name}";
-  };
-
   # get an object of files in a directory with a given suffix
   # ".ext" -> "a/b" -> { "foo" = "a/b/foo.ext"; "bar" = "a/b/bar.ext"; }
-  dirAttrs = suffix: path: lib.mapAttrs'
+  dirAttrs = let
+
+    # ".ext" -> "a/b.ext" -> "b"
+    fileAttrName = suffix: path: let
+      ext = lib.last (lib.splitString "." path);
+    in lib.removeSuffix suffix (builtins.baseNameOf path);
+
+    # maps a file to a path
+    # ".ext" -> "a/b" -> "c/d.ext" -> { name = "d"; value = "a/b/c/d.ext"; }
+    fileAttrInPath = suffix: path: name: {
+      name = fileAttrName suffix name;
+      value = path + "/${name}";
+    };
+
+  in suffix: path: lib.mapAttrs'
     (name: _: fileAttrInPath suffix path name)
     (lib.filterAttrs
       (name: type: lib.hasSuffix suffix name && type == "regular")
       (builtins.readDir path));
+
+in
+
+{
+
+  inherit
+    mapVals
+    dirAttrs
+    ;
+
+  # { b = 0; } -> { c = { a = 1; } } -> { c = { b = 0; a = 1; } }
+  default = defaults: mapVals (v: defaults // v);
+
 
   # ".ext" -> ./subdir -> { "foo" = "<CONTENTS OF a/b/foo.ext>"; "bar" = "<CONTENTS OF a/b/bar.ext>"; }
   dirContents = suffix: path: lib.mapAttrs (_: lib.readFile) (dirAttrs suffix path);
@@ -110,20 +122,5 @@ let
     in
       lib.attrsets.mergeAttrsList (lib.lists.flatten (iterDir []))
   );
-
-in
-
-{
-
-  inherit
-    mapVals
-    default
-    dirAttrs
-    dirContents
-    importRest
-    dryFlakes
-    prioritizeList
-    homeFolder
-    ;
 
 }
