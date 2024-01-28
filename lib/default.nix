@@ -55,7 +55,7 @@ in
   );
 
   # pkgs -> inputs -> ["a" {b="c";}] -> { "a" = inputs.a.packages.${pkgs.system}.default; "c" = inputs.b.packages.${pkgs.system}.c; }
-  dryFlakes = pkgs: inputs: deps: listToAttrs (lists.map (dep:
+  dryFlakes = pkgs: inputs: deps: listToAttrs (flatten (lists.map (dep:
     if strings.typeOf dep == "string" then {
       name = dep;
       value = let
@@ -68,14 +68,11 @@ in
           else
             packages.default;
     } else
-      let
-        k = elemAt (attrNames dep) 0;
-        v = dep."${k}";
-      in {
+      mapAttrs (k: v: {
         name = v;
         value = inputs."${k}".packages.${pkgs.system}."${v}";
-      }
-  ) deps);
+      })
+  ) deps));
 
   # dry mime list
   prioritizeList = let
