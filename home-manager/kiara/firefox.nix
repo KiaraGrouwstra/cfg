@@ -120,6 +120,9 @@
           keepassxc-browser
           darkreader
           browserpass
+          firefox-color
+          stylus
+          pywalfox
         ];
         # Extra preferences to add to user.js
         extraConfig = "";
