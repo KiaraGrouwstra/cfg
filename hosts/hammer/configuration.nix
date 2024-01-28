@@ -183,14 +183,14 @@
     enableDocker = true;
     credentials = {};
     extraPackages = with pkgs; [
-      cni-plugins   # client.fingerprint_mgr.cni_plugins: failed to read CNI plugins directory: CNI_PATH=/opt/cni/bin error="open /opt/cni/bin: no such file or directory"
+      cni-plugins   # sudo mkdir -p /opt/cni/ && sudo ln -s "${pkgs.cni-plugins}/bin" /opt/cni/bin
       inputs.nix.packages.${system}.nix
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
       nomad-driver-nix
       nomad-driver-nix2
-      nomad-driver-singularity  # No argument or block type is named "singularity_path".
+      nomad-driver-singularity
       # # [Unsupported plugin type](https://github.com/hashicorp/nomad/blob/a283a416139dca46b1d2e459aa033cd2d3902243/plugins/serve.go#L52)
       # nomad-driver-containerd
       # nomad-driver-containerd-nix
@@ -248,11 +248,9 @@
           config = {
             enabled = true;
             # singularity_path = "${pkgs.apptainer}/bin/apptainer";   # No argument or block type is named "singularity_path".
-            # sudo mkdir -p /usr/local/bin/
+            # sudo mkdir -p /usr/local/bin/ &&
             # sudo ln -s "${pkgs.apptainer}/bin/apptainer" /usr/local/bin/singularity
             # sudo ln -s $(readlink -f $(which apptainer)) /usr/local/bin/singularity
-            # sudo mkdir -p /opt/cni/
-            # sudo ln -s "${pkgs.cni-plugins}/bin" /opt/cni/bin
           };
         };
         # https://developer.hashicorp.com/nomad/plugins/drivers/community/containerd#plugin-options
