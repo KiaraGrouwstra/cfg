@@ -42,6 +42,7 @@ in {
       wget
       curl
       lynx
+      thorium-browser
 
     ];
 
