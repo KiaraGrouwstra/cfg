@@ -5,7 +5,7 @@
   programs.firefox = {
     enable = true;
     # https://search.nixos.org/packages?query=firefox
-    package = pkgs.firefox-bin;
+    package = pkgs.firefox-beta-bin;
     # package = pkgs.mercury-browser;
     wrapperConfig = {};
     preferencesStatus = "clear";
