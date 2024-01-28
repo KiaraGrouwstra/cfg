@@ -56,8 +56,11 @@
     #   enable = true;
     #   hie.enable = true;
     # };
-    userSettings = {
-      nix = {
+    userSettings = let
+      # "b" -> { a = 1; } -> { b_a = 1; }
+      inNamespace = prefix: lib.mapKeys (k: "${prefix}.${k}");
+    in (
+      inNamespace "nix" {
         enableLanguageServer = true;
         serverPath = "nixd";
         serverSettings = {
@@ -69,55 +72,62 @@
             };
           };
         };
-      };
-      git = {
+      }
+    ) // (
+      inNamespace "git" {
         confirmSync = false;
         autofetch = true;
         suggestSmartCommit = false;
         ignoreRebaseWarning = true;
-      };
-      editor = {
-        minimap.enabled = false;
+      }
+    ) // (
+      inNamespace "editor" {
+        "minimap.enabled" = false;
         smoothScrolling = true;
         # we try to make semantic highlighting look good
-        semanticHighlighting.enabled = true;
-      };
-      security.workspace.trust.untrustedFiles = "open";
-      workbench = {
+        "semanticHighlighting.enabled" = true;
+      }
+    ) // (
+      inNamespace "workbench" {
         iconTheme = "material-icon-theme";
-        list.smoothScrolling = true;
+        "list.smoothScrolling" = true;
         # Catppuccin
         colorTheme = "Catppuccin Frappé";
-      };
-      explorer = {
-        openEditors.visible = 1;
+      }
+    ) // (
+      inNamespace "explorer" {
+        "openEditors.visible" = 1;
         confirmDelete = false;
         confirmDragAndDrop = false;
-      };
-      redhat.telemetry.enabled = false;
-      diffignoreTrimWhitespace = false;
-      terminal = {
-        integrated.smoothScrolling = true;
-        integrated.enableMultiLinePasteWarning = false;
+      }
+    ) // (
+      inNamespace "terminal" {
+        "integrated.smoothScrolling" = true;
+        "integrated.enableMultiLinePasteWarning" = false;
         # prevent VSCode from modifying the terminal colors
-        integrated.minimumContrastRatio = 1;
-      };
+        "integrated.minimumContrastRatio" = 1;
+      }
+    ) // {
+      security.workspace.trust.untrustedFiles = "open";
+      "redhat.telemetry.enabled" = false;
+      diffignoreTrimWhitespace = false;
       # make the window's titlebar use the workbench colors
-      window.titleBarStyle = "custom";
+      "window.titleBarStyle" = "custom";
       # applicable if you use Go; this is an opt-in flag!
       gopls = {
         ui.semanticTokens = true;
       };
-      haskell.formattingProvider = "fourmolu";
+      "haskell.formattingProvider" = "fourmolu";
       # When opening a file; `tabSize` and `insertSpaces` will be detected based on the file contents.
       detectIndentation = false;
-      extensions.experimental.affinity = {
-        asvetliakov.vscode-neovim = 1;
+      "extensions.experimental.affinity" = {
+        "asvetliakov.vscode-neovim" = 1;
       };
-      emeraldwalk.runonsave = {
+      "telemetry.telemetryLevel" = "off";
+      "emeraldwalk.runonsave" = {
         commands = [
           {
-            match = "\\.nomad\\.hcl";
+            match = ".nomad.hcl";
             cmd = "nomad fmt \${file}";
           }
         ];

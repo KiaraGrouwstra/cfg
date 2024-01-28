@@ -38,6 +38,9 @@ in
     dirAttrs
     ;
 
+  # (k: k + k) -> { a = 1; } -> { aa = 1; }
+  mapKeys = f: mapAttrs' (k: v: nameValuePair (f k) v);
+
   # { b = 0; } -> { c = { a = 1; } } -> { c = { b = 0; a = 1; } }
   default = defaults: mapVals (v: defaults // v);
 
