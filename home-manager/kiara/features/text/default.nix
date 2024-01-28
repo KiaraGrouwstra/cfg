@@ -12,6 +12,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       ## text editors
+      vscode  # https://github.com/NixOS/nixpkgs/issues/237978
       lapce
       vim
       amp
