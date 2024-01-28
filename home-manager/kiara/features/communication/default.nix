@@ -36,7 +36,7 @@ in {
       flare-signal
 
       ## web browsers
-      chromium
+      # chromium
       tor-browser
       qutebrowser
       wget
@@ -44,14 +44,6 @@ in {
       lynx
 
     ];
-
-    programs.firefox = {
-      enable = true;
-      policies = {
-        DontCheckDefaultBrowser = true;
-        DisablePocket = true;
-      };
-    };
 
   };
 }

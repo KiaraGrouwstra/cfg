@@ -6,9 +6,11 @@
     ./features/default.nix
 
     ./colors.nix
+    ./chromium.nix
     ./desktop.nix
     ./dotfiles.nix
     ./emacs.nix
+    ./firefox.nix
     ./font.nix
     ./gammastep.nix
     ./git.nix

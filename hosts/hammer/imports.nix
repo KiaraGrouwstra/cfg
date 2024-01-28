@@ -4,7 +4,9 @@
   imports = [
     ./hardware-configuration.nix
     # ./adblock.nix  # messes with wifi pages
+    ./chromium.nix
     ./databases.nix
+    ./firefox.nix
     ./greetd.nix
     ./guix.nix
     ./hyprland.nix

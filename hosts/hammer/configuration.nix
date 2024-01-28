@@ -107,7 +107,6 @@
     mtr.enable = true;
     zsh.enable = true;
     browserpass.enable = true;
-    firefox.nativeMessagingHosts.browserpass = true;
   };
 
   environment.shells = with pkgs; [ zsh ];
