@@ -23,6 +23,8 @@ in {
       git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
       gitui
       git-interactive-rebase-tool
+      git-cola
+      gitg
 
       ## language-specific
       nodePackages.markdownlint-cli
