@@ -115,17 +115,33 @@
         # https://nur.nix-community.org/repos/rycee/
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
-          vimium
+          vimium-c
           violentmonkey
           keepassxc-browser
-          darkreader
+          # darkreader
           browserpass
           firefox-color
           stylus
           pywalfox
           no-pdf-download
           clearurls
+          tabliss
           istilldontcareaboutcookies
+          (buildFirefoxXpiAddon {
+            pname = "dark-background-light-text-extension";
+            version = "0.7.6";
+            addonId = "jid1-QoFqdK4qzUfGWQ@jetpack";
+            url = "https://addons.mozilla.org/firefox/downloads/file/3722915/dark-background-light-text-0.7.6.xpi";
+            sha256 = "sha256-GCHbjrf7eRDKPi732ig6IwDgWjmMDoxYdj4CJtp9zVs=";
+            meta = with lib;
+            {
+              homepage = "https://github.com/m-khvoinitsky/dark-background-light-text-extension";
+              description = "Firefox addon that turns every page colors into \"light text on dark background\"";
+              license = licenses.mpl20;
+              mozPermissions = [ "activeTab" "menus" "storage" "tabs" ];
+              platforms = platforms.all;
+            };
+          })
         ];
         # Extra preferences to add to user.js
         extraConfig = "";
