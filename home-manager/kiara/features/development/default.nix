@@ -58,6 +58,7 @@ in {
       nodejs-slim
       nodePackages.npm
       unfree.neo4j-desktop
+      go
 
       ## arduino
       arduino-cli
