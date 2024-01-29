@@ -182,6 +182,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
 
         # switch wallpaper
         "SUPER, G, exec, ${swww} init && find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wal -i $img; done"
+        "SUPER, G, exec, ${swww} kill && ${swww} init && find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wal -i $img; done"
         "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wal} -i ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
