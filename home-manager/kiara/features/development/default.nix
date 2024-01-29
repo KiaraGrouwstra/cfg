@@ -29,6 +29,7 @@ in {
       texlive.combined.scheme-full
       gcc
       poetry
+      jdk
       yarn
       idris2
       hvm
