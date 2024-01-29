@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, unfree, ... }:
 
 with lib;
 
@@ -21,6 +21,7 @@ in {
       libsForQt5.kate
       nota
       gnome-text-editor
+      unfree.sublime3
 
       ## command-line document viewers / editors
       unixtools.column
