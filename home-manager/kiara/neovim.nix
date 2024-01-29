@@ -12,7 +12,7 @@
       pywal-nvim
       nvchad
       nvchad-ui
-      chadtree
+      # chadtree
       nvim-treesitter.withAllGrammars
       coc-fzf
       coc-prettier
