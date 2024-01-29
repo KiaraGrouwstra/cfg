@@ -18,7 +18,7 @@ follow instructions:
 - set up toggles:
   - `cp ./toggles/hosts/toggles.example.nix ./toggles/hosts/toggles.nix`
   - `cp ./toggles/home-manager/toggles.example.nix ./toggles/home-manager/toggles.nix`
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `NIXPKGS_ALLOW_UNFREE=1 home-manager --flake .#$USER@$(hostname) --impure switch -b backup --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace`
+- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@$(hostname) --impure switch -b backup --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
