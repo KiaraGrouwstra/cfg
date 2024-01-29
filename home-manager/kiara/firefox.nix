@@ -116,13 +116,16 @@
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           vimium
-          greasemonkey
+          violentmonkey
           keepassxc-browser
           darkreader
           browserpass
           firefox-color
           stylus
           pywalfox
+          no-pdf-download
+          clearurls
+          istilldontcareaboutcookies
         ];
         # Extra preferences to add to user.js
         extraConfig = "";
