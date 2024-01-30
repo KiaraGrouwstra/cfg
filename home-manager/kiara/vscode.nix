@@ -3,7 +3,7 @@
 {
 
   programs.vscode = {
-    enable = false; # collision between icudtl.dat for vscodium vs vscode
+    enable = true; # collision between icudtl.dat for vscodium vs vscode
     package = pkgs.vscodium;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
