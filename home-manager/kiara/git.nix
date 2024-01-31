@@ -16,7 +16,6 @@
     ignores = [
       # Compiled source #
       ###################
-      "*.com"
       "*.class"
       "*.dll"
       "*.exe"
