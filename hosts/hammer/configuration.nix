@@ -322,7 +322,7 @@
     # not too frequent to prevent wiping progress from failed builds.
     dates = "weekly";
     # delete old builds
-    options = "--delete-older-than 21d";
+    options = "--delete-older-than 7d";
   };
   # keep the system responsive, good for devices in use
   nix.daemonCPUSchedPolicy = "idle";
