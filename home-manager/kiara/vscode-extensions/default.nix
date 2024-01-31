@@ -26,8 +26,6 @@ in
 
 
 
-
-
   "pkief"."material-icon-theme" = vscode-utils.extensionFromVscodeMarketplace {
     name = "material-icon-theme";
     publisher = "pkief";
@@ -68,13 +66,6 @@ in
     publisher = "hashicorp";
     version = "2.29.2024012316";
     sha256 = "1i29i5s0kjcanlzsh4xxrlrimi2dsxrmh84aazs429vmivs3xi43";
-  };
-
-  "bungcip"."better-toml" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "better-toml";
-    publisher = "bungcip";
-    version = "0.3.2";
-    sha256 = "08lhzhrn6p0xwi0hcyp6lj9bvpfj87vr99klzsiy8ji7621dzql3";
   };
 
   "rust-lang"."rust" = vscode-utils.extensionFromVscodeMarketplace {
@@ -131,13 +122,6 @@ in
     publisher = "foam";
     version = "0.25.7";
     sha256 = "11za3jb47vrxwxy6mqmvf23amkz27sfhjxfzrchl57ygzw5d0q84";
-  };
-
-  "catppuccin"."catppuccin-vsc-icons" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "catppuccin-vsc-icons";
-    publisher = "catppuccin";
-    version = "1.5.0";
-    sha256 = "1nfp6nll6r4fk0gy7fgy4apkzrk6ky8axm8l45yszibszyjzy02m";
   };
 
   "kahole"."magit" = vscode-utils.extensionFromVscodeMarketplace {
