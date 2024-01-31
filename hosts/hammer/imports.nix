@@ -9,6 +9,7 @@
     ./firefox.nix
     ./greetd.nix
     ./guix.nix
+    ./hashicorp.nix
     ./hyprland.nix
     ./locale.nix
     ./power.nix
