@@ -32,7 +32,6 @@
     };
     shellAliases = {
       docker-compose = "podman-compose";
-      cat = "bat";
       ls = "eza";
       ssh = "kitten ssh";
     };
