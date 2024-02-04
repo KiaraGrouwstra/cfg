@@ -32,7 +32,7 @@ in {
       ricochet
       weechat
       kdeltachat
-      nur.repos.xyenon.kazv
+      # nur.repos.xyenon.kazv
       flare-signal
 
       ## web browsers
