@@ -8,7 +8,7 @@
     cycle = true;
     terminal = "kitty";
     theme = toString (pkgs.substituteAll (
-      { src = ./dotfiles/.config/rofi/theme.rasi; } // config.colorScheme.colors // {
+      { src = ./dotfiles/.config/rofi/theme.rasi; } // config.colorScheme.palette // {
         font = "${config.fontProfiles.regular.family} 15";
       }
     ));
