@@ -99,6 +99,7 @@
     rage
     libsForQt5.qtstyleplugin-kvantum
     ssh-to-age
+    qt6.qtwayland  # can this be moved to home-manager?
   ];
 
   programs = {
@@ -174,6 +175,12 @@
 
   # used by enhancd
   programs.fzf.fuzzyCompletion = true;
+
+  # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
+  environment.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
 
   # let nautilus access trash and remotes
   services.gvfs.enable = true;
