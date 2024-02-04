@@ -351,7 +351,12 @@ let
       "text/*"
     ];
 
-    browsers = [ "firefox.desktop" ];
+    browsers = map addDesktop [
+      "mercury-browser"
+      "firefox"
+      "chromium"
+      "thorium-browser"
+    ];
     editors = map addDesktop [
       "codium"
       "lapce"
