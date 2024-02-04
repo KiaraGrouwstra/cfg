@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # If I can't dance to it, it's not my revolution. - Emma Goldman
@@ -61,15 +61,18 @@
     };
 
     "org/gnome/shell" = {
-      favorite-apps = [
-        "org.gnome.Nautilus.desktop"
-        "kitty.desktop"
-        "firefox.desktop"
-        "thunderbird.desktop"
-        "signal-desktop.desktop"
-        "codium.desktop"
-        "org.keepassxc.KeePassXC.desktop"
-        "element-desktop.desktop"
+      # ls ~/.local/share/applications/
+      favorite-apps = lib.lists.map (_: _ + ".desktop") [
+        "org.gnome.Nautilus"
+        "wezterm"
+        "mercury-browser"
+        "firefox"
+        "thunderbird"
+        "signal-desktop"
+        "sublime"
+        "codium"
+        "org.keepassxc.KeePassXC"
+        "element-desktop"
       ];
     };
 
