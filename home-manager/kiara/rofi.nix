@@ -48,4 +48,9 @@
     };
   };
 
+  home.packages = with pkgs; [
+    rofi-systemd
+    rofimoji
+  ];
+
 }
