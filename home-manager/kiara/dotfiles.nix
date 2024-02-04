@@ -10,6 +10,8 @@ in
 {
 
   home.file = (lib.homeFolder ./dotfiles)
+  # keys: ls ~/.local/share/applications/
+  # vals: ls ~/.nix-profile/bin/
   // autoStartLinks (with pkgs; {
     "org.keepassxc.KeePassXC" = keepassxc;
     "codium" = vscodium;
