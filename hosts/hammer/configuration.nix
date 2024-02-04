@@ -175,6 +175,9 @@
   # used by enhancd
   programs.fzf.fuzzyCompletion = true;
 
+  # let nautilus access trash and remotes
+  services.gvfs.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.auto-optimise-store = true;
