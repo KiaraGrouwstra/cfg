@@ -15,7 +15,6 @@ in {
       direnv
       gnumake
       woodpecker-cli
-      asdf-vm
       bruno
 
       ## version control
@@ -66,25 +65,43 @@ in {
       arduinoOTA
     ];
 
-    programs.direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
-    };
+    programs = {
 
-    programs.gh = {
-      enable = true;
-      gitCredentialHelper.enable = true;
-      # https://github.com/topics/gh-extension
-      extensions = with pkgs; [
-        gh-dash
-        gh-markdown-preview
-      ];
-      settings = {
-        version = 1;
-        git_protocol = "ssh";
-        prompt = "enabled";
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+        enableZshIntegration = true;
       };
+
+      mise = {
+        enable = true;
+        globalConfig = {
+          tools = {
+            # node = "lts";
+            # python = [ "3.10" "3.11" ];
+          };
+        };
+        settings = {
+          verbose = false;
+          experimental = true;
+        };
+      };
+
+      gh = {
+        enable = true;
+        gitCredentialHelper.enable = true;
+        # https://github.com/topics/gh-extension
+        extensions = with pkgs; [
+          gh-dash
+          gh-markdown-preview
+        ];
+        settings = {
+          version = 1;
+          git_protocol = "ssh";
+          prompt = "enabled";
+        };
+      };
+
     };
 
   };
