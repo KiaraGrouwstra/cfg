@@ -47,9 +47,9 @@
   };
 
   # keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us,nl";
-    xkbVariant = "";
+    variant = "";
   };
 
   # printing
