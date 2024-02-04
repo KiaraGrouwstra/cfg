@@ -1,4 +1,4 @@
-{ pkgs, lib, outputs, ... }:
+{ pkgs, lib, config, outputs, ... }:
 
 {
   home.enableNixpkgsReleaseCheck = false;
@@ -9,6 +9,18 @@
   # paths it should manage.
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
+
+  home.sessionVariables = {
+    # `nixos-option`
+    NIX_PATH = (lib.concatStringsSep ":" (lib.mapAttrsToList (name: path: "${name}=${path.to.path}") config.nix.registry));
+    # qt wayland: https://github.com/keepassxreboot/keepassxc/issues/2973
+    QT_QPA_PLATFORM = "wayland";
+    ECORE_EVAS_ENGINE = "wayland_egl";
+    ELM_ENGINE = "wayland_egl";
+    SDL_VIDEODRIVER = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+  };
 
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
   manual.manpages.enable = false;
