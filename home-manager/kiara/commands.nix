@@ -34,8 +34,8 @@ with pkgs; {
   wpctl = "${wireplumber}/bin/wpctl";
   pamixer = "${pamixer}/bin/pamixer";
   pavucontrol = "${pavucontrol}/bin/pavucontrol";
-  # terminal = "${wezterm}/bin/wezterm -e --always-new-process";
-  terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${wezterm}/bin/wezterm -e --always-new-process";
+  # terminal = "${pkgs.kitty}/bin/kitty";
   less = "${less}/bin/less";
   glow = "${glow}/bin/glow";
   lynx = "${lynx}/bin/lynx";
