@@ -32,6 +32,12 @@ in {
       extraPortals = with pkgs; [
         xdg-desktop-portal-hyprland
       ];
+      configPackages = with pkgs; [
+        xdg-desktop-portal-hyprland
+      ];
+      config = {
+        common.default = [ "hyprland" ];
+      };
     };
   };
 }
