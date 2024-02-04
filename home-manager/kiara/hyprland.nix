@@ -337,7 +337,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "SUPER, K, exec, ${hyprctl} dispatch exit"
 
         "SUPER, F7, exec, ~/.config/hypr/scripts/gamemode"
-        "SUPER, F3, exec, ${unfullscreen} && ${./fontpreview.sh}"
+        "SUPER, F3, exec, ${unfullscreen} && ~/.config/hypr/scripts/fontpreview.sh"
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F5, exec, ${kanshictl} reload"
         "SUPER, F6, exec, ${hyprctl} reload"
