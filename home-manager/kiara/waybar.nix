@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 {
 
@@ -54,7 +54,7 @@
         "hyprland/language" = {
           format = "{short}";
         };
-        "hyprland/workspaces" = {
+        "hyprland/workspaces" = if !config.wayland.windowManager.hyprland.enable then {} else {
           active-only = false;
           disable-scroll = true;
           format = "{icon}";

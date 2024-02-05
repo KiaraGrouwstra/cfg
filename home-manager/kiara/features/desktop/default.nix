@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 with lib;
 
@@ -15,6 +15,7 @@ in {
     home.packages = with pkgs; [
       ## UI
       wayland
+      niri-src
       waybar
       swayidle
       playerctl

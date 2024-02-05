@@ -11,6 +11,7 @@
     ./guix.nix
     ./hashicorp.nix
     ./hyprland.nix
+    ./niri.nix
     ./locale.nix
     ./power.nix
     ./networking.nix

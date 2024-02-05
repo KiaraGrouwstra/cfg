@@ -23,6 +23,7 @@
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
     kreisys = {
       url = "github:kreisys/flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -110,6 +111,53 @@
       url = "github:KiaraGrouwstra/nomad-driver-containerd-nix/kiara";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.niri-src.follows = "niri-src";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.crate2nix.follows = "crate2nix";
+    };
+    niri-src = {
+      url = "github:YaLTeR/niri";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.crane.follows = "crane";
+      inputs.fenix.follows = "fenix";
+    };
+    crate2nix = {
+      url = "github:nix-community/crate2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.devshell.follows = "devshell";
+      inputs.crate2nix_stable.follows = "crate2nix";
+      inputs.cachix.follows = "cachix";
+    };
+    cachix = {
+      url = "github:cachix/cachix";
+      inputs.nixpkgs.follows = "nixpkgs"; # nixos-unstable
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.devenv.follows = "devenv";
+    };
+    devenv = {
+      url = "github:cachix/devenv/python-rewrite";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix.follows = "nix";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+    poetry2nix = {
+      url = "github:nix-community/poetry2nix";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+    crane = {
+      url = "github:ipetkov/crane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -185,6 +233,7 @@
             { nixpkgs = { inherit overlays; }; }
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+            inputs.niri.nixosModules.niri
           ];
         };
 

@@ -22,6 +22,7 @@
     ./mime.nix
     ./neomutt.nix
     ./neovim.nix
+    ./niri.nix
     ./rofi.nix
     ./swaylock.nix
     ./systemd-fixes.nix

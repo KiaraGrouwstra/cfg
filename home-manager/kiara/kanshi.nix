@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
 
@@ -9,7 +9,7 @@
   # monitor hot swapping: list by `hyprctl monitors`
   services.kanshi = {
     enable = true;
-    systemdTarget = "hyprland-session.target";
+    systemdTarget = "${if config.wayland.windowManager.hyprland.enable then "hyprland" else "niri"}-session.target";
 
     profiles = {
 
