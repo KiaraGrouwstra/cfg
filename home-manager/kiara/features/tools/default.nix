@@ -44,6 +44,7 @@ in {
       gnome.gnome-boxes  # broken: https://github.com/NixOS/nixpkgs/issues/226355
       virt-manager
       qemu
+      arion
 
       ## credentials / security
       pass
