@@ -143,6 +143,7 @@
       # advertise = null;
     };
     extraConfigFiles = [];
+    # https://developer.hashicorp.com/consul/docs/agent/config/config-files
     extraConfig = {};
   };
 
