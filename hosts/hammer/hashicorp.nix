@@ -41,6 +41,11 @@
       client = {
         enabled = true;
       };
+      # https://github.com/hashicorp/nomad/issues/15471
+      limits = {
+        http_max_conns_per_client = 0;
+        rpc_max_conns_per_client = 0;
+      };
       plugin = {
         # https://developer.hashicorp.com/nomad/docs/drivers/raw_exec#plugin-options
         raw_exec = {
