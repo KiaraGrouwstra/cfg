@@ -115,9 +115,9 @@
           };
         };
       };
-      # consul = {
-      #   address = "1.2.3.4:8500";
-      # };
+      consul = {
+        address = "localhost:8500";
+      };
     };
   };
 
