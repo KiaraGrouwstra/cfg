@@ -139,7 +139,7 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     # This will become a global environment variable
     GDK_BACKEND = "wayland"; # gtk
-    # NIXOS_OZONE_WL = "1";    # electron, breaks codium now
+    NIXOS_OZONE_WL = "1";    # electron
     QT_STYLE_OVERRIDE = "kvantum";
   };
 
