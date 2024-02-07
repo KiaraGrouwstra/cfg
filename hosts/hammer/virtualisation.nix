@@ -21,6 +21,10 @@ in {
       "kiara"
     ];
 
+    nixpkgs.config.allowUnfreePredicate = pkg: lib.elem (lib.getName pkg) [
+      "vmware"
+    ];
+
     virtualisation = {
 
       virtualbox = {
@@ -33,6 +37,20 @@ in {
           # x11 = false;
         };
       };
+
+      vmware = {
+        host = {
+          enable = true;
+          # package = pkgs.vmware-workstation;
+          # extraConfig = "";
+          # extraPackages = [];
+        };
+        guest = {
+          enable = true;
+          # headless = true;
+        };
+      };
+
       # to use podman with ports as low as 80 run:
       # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
       podman = let
@@ -46,6 +64,7 @@ in {
         # Required for containers under podman-compose to be able to talk to each other.
         defaultNetwork.settings.dns_enabled = true;
       };
+
       docker = {
         enable = true;
         # storageDriver = "btrfs";
@@ -54,8 +73,10 @@ in {
           setSocketVariable = true;
         };
       };
+
       # https://nixos.wiki/wiki/WayDroid
       waydroid.enable = true;
+
       # libvirtd
       libvirtd.enable = true;
     };
