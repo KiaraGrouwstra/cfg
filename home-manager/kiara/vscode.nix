@@ -1,10 +1,11 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, unfree, ... }:
 
 {
 
   programs.vscode = {
     enable = true; # collision between icudtl.dat for vscodium vs vscode
-    package = pkgs.vscodium;
+    # package = pkgs.vscodium;
+    package = unfree.vscode;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
