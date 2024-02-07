@@ -4,7 +4,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.mercury-browser;
+    # package = pkgs.firefox;
     profiles = {
       kiara = {
         containers = {};
