@@ -93,7 +93,6 @@
     # After booting, register the contents of the Nix store in the container in the Nix database in the tmpfs
     nomad-driver-nix = {
       url = "github:KiaraGrouwstra/nomad-driver-nix";
-      inputs.nix.follows = "nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.devshell.follows = "devshell";
       inputs.utils.follows = "kreisys";
@@ -143,7 +142,6 @@
     devenv = {
       url = "github:cachix/devenv/python-rewrite";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix.follows = "nix";
       inputs.flake-compat.follows = "flake-compat";
     };
     poetry2nix = {
