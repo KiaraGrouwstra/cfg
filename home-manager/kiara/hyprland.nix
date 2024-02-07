@@ -9,7 +9,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
   ];
 
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     # systemd service needed for kanshi
     systemd.enable = true;
     settings = let
