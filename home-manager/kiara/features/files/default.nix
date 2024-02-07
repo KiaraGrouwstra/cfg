@@ -30,7 +30,7 @@ in {
       zip
       unzip
       zlib
-      unrar
+      unrar-free
 
       ## backups
       borgbackup
