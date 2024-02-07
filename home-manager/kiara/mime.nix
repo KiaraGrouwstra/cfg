@@ -352,8 +352,8 @@ let
     ];
 
     browsers = map addDesktop [
-      "mercury-browser"
       "firefox"
+      "mercury-browser"
       "chromium"
       "thorium-browser"
     ];
