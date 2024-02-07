@@ -12,7 +12,8 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       ## nix
-      nixFlakes
+      nix
+      # nixFlakes
       dconf2nix
       any-nix-shell
       nix-direnv
