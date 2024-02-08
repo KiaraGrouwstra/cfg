@@ -27,26 +27,28 @@ in {
 
     virtualisation = {
 
+      # missing wayland support: https://www.virtualbox.org/ticket/13471
       virtualbox = {
         host = {
-          enable = true;
+          enable = false;
           enableExtensionPack = true;
         };
         guest = {
-          enable = true;
+          enable = false;
           # x11 = false;
         };
       };
 
+      # missing wayland support: https://github.com/vmware/open-vm-tools/issues/660
       vmware = {
         host = {
-          enable = true;
+          enable = false;
           # package = pkgs.vmware-workstation;
           # extraConfig = "";
           # extraPackages = [];
         };
         guest = {
-          enable = true;
+          enable = false;
           # headless = true;
         };
       };
