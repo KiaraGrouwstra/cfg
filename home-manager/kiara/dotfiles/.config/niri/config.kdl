@@ -161,6 +161,7 @@ layout {
 // which may be more convenient to use.
 
 spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/kiara/Pictures/wallpaper"
+spawn-at-startup "wallust" "run" "`cat ~/.cache/wal/wal`"
 
 spawn-at-startup "polkit-kde-agent"  // plasma-polkit-agent
 

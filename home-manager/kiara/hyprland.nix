@@ -30,7 +30,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
 
         # wallpapers
         "${swww} init"
-        "${wal} -i `cat ~/.cache/wal/wal`"
+        "${wallust} run `cat ~/.cache/wal/wal`"
 
         "${wl-paste} --type text --watch ${cliphist} store" #Stores only text data
         "${wl-paste} --type image --watch ${cliphist} store" #Stores only image data
@@ -181,8 +181,8 @@ with (import ./commands.nix { inherit pkgs inputs; });
       bind = [
 
         # switch wallpaper
-        "SUPER, G, exec, ${swww} kill && ${swww} init && find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wal -i $img; done"
-        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wal} -i ${wallpaper_dir}$img; done"
+        "SUPER, G, exec, ${swww} kill && ${swww} init && find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wallust run $img; done"
+        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wallust} run ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
         "SUPER, E, exec, ${unfullscreen} && ${terminal}"

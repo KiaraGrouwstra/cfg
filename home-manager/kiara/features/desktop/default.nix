@@ -48,6 +48,8 @@ in {
       pywalfox-native
       wpgtk
       fontpreview
+      # themix-gui
+      wallust
 
     ];
 
@@ -64,10 +66,10 @@ in {
 
     services.playerctld.enable = true;
 
-    programs.eww = {
-      enable = true;
-      configDir = ../../dotfiles/eww;
-    };
+    # programs.eww = {
+    #   enable = true;
+    #   configDir = ../../dotfiles/eww;
+    # };
 
   };
 }

@@ -5,5 +5,5 @@ find ~/Pictures/wallpapers/ \
   | tail -n 1 \
   | while read -r img ; do \
   	  swaybg -m fill -o '*' -i $img;
-  	  wal -i $img;
+  	  wallust run $img;
   	done
