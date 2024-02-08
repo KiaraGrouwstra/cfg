@@ -8,10 +8,6 @@
     flake-compat = {
       url = "github:edolstra/flake-compat";
     };
-    nix = {
-      url = "github:nixos/nix";
-      inputs.flake-compat.follows = "flake-compat";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
