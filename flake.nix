@@ -74,6 +74,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nomad-driver-singularity = {
       url = "github:hpcng/nomad-driver-singularity";
       flake = false;
@@ -147,6 +151,7 @@
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     crane = {
       url = "github:ipetkov/crane";
@@ -193,9 +198,20 @@
       # Your custom packages, acessible through 'nix build', 'nix shell', etc
       # for each system: packages including overlays
       packages = forAllSystems (pkgs: import ./packages.nix { inherit inputs lib pkgs; });
+
+      # Eval the treefmt modules from ./treefmt.nix
+      treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
       inherit lib packages;
+
+      # for `nix fmt`
+      formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+
+      # for `nix flake check`
+      checks = forAllSystems (pkgs: {
+        formatting = treefmtEval.${pkgs.system}.config.build.check self;
+      });
 
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs

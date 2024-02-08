@@ -15,6 +15,7 @@ in {
       direnv
       gnumake
       just
+      treefmt
       woodpecker-cli
       bruno
 
