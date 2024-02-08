@@ -11,7 +11,7 @@
     credentials = {};
     extraPackages = with pkgs; [
       cni-plugins   # sudo mkdir -p /opt/cni/ && sudo ln -s "${pkgs.cni-plugins}/bin" /opt/cni/bin
-      inputs.nix.packages.${system}.nix
+      nix
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
