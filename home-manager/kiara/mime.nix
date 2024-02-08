@@ -411,6 +411,13 @@ let
       ] (_: map addDesktop [
         "tar.gz"
       ]))
+      (lib.genAttrs [
+        "application/vnd.rar"
+        "application/x-rar"
+        "application/x-rar-compressed"
+      ] (_: map addDesktop [
+        "rar"
+      ]))
       {
         "inode/directory" = map addDesktop [
           "lf"

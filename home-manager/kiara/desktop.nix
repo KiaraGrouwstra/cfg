@@ -53,6 +53,12 @@ with (import ./commands.nix { inherit pkgs inputs; });
       "application/x-tar"
     ])
 
+    (commandDesktop "rar" ("" + ./dotfiles/.config/hypr/scripts/rar.sh) [
+      "application/vnd.rar"
+      "application/x-rar"
+      "application/x-rar-compressed"
+    ])
+
     (commandDesktop "zip" ("" + ./dotfiles/.config/hypr/scripts/zip.sh) [
       "application/x-zip"
     ])
