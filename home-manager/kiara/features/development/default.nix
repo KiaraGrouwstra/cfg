@@ -14,6 +14,7 @@ in {
       ## development
       direnv
       gnumake
+      just
       woodpecker-cli
       bruno
 
