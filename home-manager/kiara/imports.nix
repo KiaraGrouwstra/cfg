@@ -5,6 +5,7 @@
   imports = [
     ./features/default.nix
 
+    ./anyrun
     ./colors.nix
     ./chromium.nix
     ./desktop.nix

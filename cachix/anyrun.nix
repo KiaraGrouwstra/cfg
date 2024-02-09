@@ -2,10 +2,10 @@
   nix = {
     settings = {
       substituters = [
-        "https://numtide.cachix.org"
+        "https://anyrun.cachix.org"
       ];
       trusted-public-keys = [
-        "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+        "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
       ];
     };
   };

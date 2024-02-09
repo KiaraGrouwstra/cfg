@@ -394,10 +394,12 @@ binds {
     Mod+Escape { spawn "swaync-client" "--close-all"; }
     Mod+Grave { spawn "swaync-client" "--toggle-panel"; }
 
-    Mod+Space { spawn "/home/kiara/.config/hypr/scripts/rofi"; }
+    Mod+Space { spawn "/home/kiara/.config/hypr/scripts/anyrun"; }
     Shift+Mod+Space { spawn "/home/kiara/.config/hypr/scripts/wofi"; }
-    Mod+J { spawn "/home/kiara/.config/hypr/scripts/rofi"; }
+    Alt+Mod+Space { spawn "/home/kiara/.config/hypr/scripts/rofi"; }
+    Mod+J { spawn "/home/kiara/.config/hypr/scripts/anyrun"; }
     Shift+Mod+J { spawn "/home/kiara/.config/hypr/scripts/wofi"; }
+    Alt+Mod+J { spawn "/home/kiara/.config/hypr/scripts/rofi"; }
 }
 
 // Settings for debugging. Not meant for normal use.

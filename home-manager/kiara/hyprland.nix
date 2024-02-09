@@ -138,7 +138,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "rounding 40,^(wezterm)|(kitty)$"
         "opacity 0.9 override 0.7 override,.*" # transparent when inactive
         "opacity 0.8 override 0.5 override,^(wezterm)|(kitty)$" # transparent when inactive
-        "opacity 0.9 override 0.5 override,^rofi"
+        "opacity 0.9 override 0.5 override,^(anyrun)|(rofi)|(wofi)|(fuzzel)"
         "size 40% 80%,title:^Open File$"
         "center,title:^Open File$" # 1
       ];
@@ -148,8 +148,9 @@ with (import ./commands.nix { inherit pkgs inputs; });
       ];
 
       bindr = [
-        "SUPER, Super_L, exec, pkill rofi || ${rofi} -show drun -show-icons"
+        "SUPER, Super_L, exec, pkill anyrun || ${anyrun}"
         "SHIFT SUPER, Super_L, exec, pkill wofi || ${wofi}"
+        "ALT SUPER, Super_L, exec, pkill rofi || ${rofi}"
       ];
 
       # Move/resize windows with SUPER + LMB/RMB and dragging
@@ -182,7 +183,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
 
         # switch wallpaper
         "SUPER, G, exec, ${swww} kill && ${swww} init && find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wallust run $img; done"
-        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${rofi} -dmenu -i -p 'Wallpapers' | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wallust} run ${wallpaper_dir}$img; done"
+        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${anyrun} --plugins ${stdin} | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wallust} run ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
         "SUPER, E, exec, ${unfullscreen} && ${terminal}"
@@ -323,7 +324,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
 
         # bind type emoji using MS keyboard's emoji key
         # "SUPER_SHIFT_CTRL_ALT, Space, exec, rofi -show emoji"
-        "SUPER_SHIFT_CTRL_ALT, Space, exec, ${rofimoji} -f emoji"
+        "SUPER_SHIFT_CTRL_ALT, Space, exec, ${anyrun} --plugins ${symbols}"
 
         "SUPER, N, exec, systemctl hibernate"
         # ", PowerDown, exec, systemctl hibernate"
@@ -349,8 +350,8 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "SUPER, U, exec, ~/.config/rofi/power.sh"
         "SUPER, P, exec, ~/.config/rofi/displays.sh"
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
-        "SUPER, T, exec, ${rofi-systemd}"
-        "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
+        # "SUPER, T, exec, ${rofi-systemd}"
+        # "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
         "CTRL_ALT, Delete, exec, ${unfullscreen} && ${terminal} ${htop}"
 
         # set $menu bemenu-run
@@ -364,7 +365,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "ALT, Print, exec, ${wl-copy} $(${hyprpicker} -a)"
 
         # clipboard
-        "SUPER, V, exec, ${cliphist} list | ${rofi} -dmenu | ${cliphist} decode | ${wl-copy}"
+        "SUPER, V, exec, ${cliphist} list | ${anyrun} --plugins ${stdin} | ${cliphist} decode | ${wl-copy}"
 
         # SUPER L - Locks immediately, SUPERSHIFT L Turns monitors off (while locked)
         "SUPER, L, exec, ${swaylock} -i $(${swww} query | sed 's/^.*image: //g')"
