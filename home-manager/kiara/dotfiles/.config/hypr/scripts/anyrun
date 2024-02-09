@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-pkill anyrun || anyrun
+pkill anyrun || anyrun --plugins libapplications.so

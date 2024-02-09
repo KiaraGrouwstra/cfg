@@ -178,7 +178,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
 
         # switch wallpaper
         "SUPER, G, exec, ${swww} kill && ${swww} init && find ${wallpaper_dir} | sort -R | tail -n 1 | while read -r img ; do ${swww} img --transition-type random $img; wallust run $img; done"
-        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${anyrun} --plugins ${stdin} | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wallust} run ${wallpaper_dir}$img; done"
+        "SHIFT SUPER, G, exec, ls ${wallpaper_dir} | ${anyrun} --plugins libstdin.so | while read -r img ; do ${swww} img --transition-type random ${wallpaper_dir}$img; ${wallust} run ${wallpaper_dir}$img; done"
 
         # See https://wiki.hyprland.org/Configuring/Binds/ for more
         "SUPER, E, exec, ${unfullscreen} && ${terminal}"
@@ -319,7 +319,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
 
         # bind type emoji using MS keyboard's emoji key
         # "SUPER_SHIFT_CTRL_ALT, Space, exec, rofi -show emoji"
-        "SUPER_SHIFT_CTRL_ALT, Space, exec, ${anyrun} --plugins ${symbols}"
+        "SUPER_SHIFT_CTRL_ALT, Space, exec, ${anyrun} --plugins libsymbols.so"
 
         "SUPER, N, exec, systemctl hibernate"
         # ", PowerDown, exec, systemctl hibernate"

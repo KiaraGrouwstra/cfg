@@ -12,8 +12,6 @@ in with pkgs; {
   kitten = "${pkgs.kitty}/bin/kitten";
   wezterm = "${wezterm}/bin/wezterm";
   anyrun = "${anyrun}/bin/anyrun";
-  stdin = "${inputs.anyrun.packages.${system}.stdin}/lib/libstdin.so";
-  symbols = "${inputs.anyrun.packages.${system}.symbols}/lib/libsymbols.so";
   wofi = "${wofi}/bin/wofi";
   rofi = "${rofi-wayland}/bin/rofi -i";
   rofi-systemd = "${rofi-systemd}/bin/.rofi-systemd-wrapped";
