@@ -1,5 +1,3 @@
 { pkgs, ... }:
 
-pkgs.vscodium.override {
-  commandLineArgs = "--ozone-platform=wayland";
-}
+pkgs.vscodium.override { commandLineArgs = "--ozone-platform=wayland"; }

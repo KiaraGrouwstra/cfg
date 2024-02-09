@@ -1,15 +1,8 @@
-{
-  pkgs,
-  inputs,
-  config,
-  ...
-}:
+{ pkgs, inputs, config, ... }:
 
 {
 
-  imports = [
-    inputs.anyrun.homeManagerModules.default
-  ];
+  imports = [ inputs.anyrun.homeManagerModules.default ];
 
   programs.anyrun = {
     enable = true;
@@ -22,12 +15,12 @@
         symbols
         rink
         shell
-        translate  # uses google
+        translate # uses google
         kidex
         randr
         stdin
         dictionary
-        websearch  # https://github.com/Kirottu/anyrun/blob/master/plugins/websearch/README.md
+        websearch # https://github.com/Kirottu/anyrun/blob/master/plugins/websearch/README.md
       ];
 
       # Position/size fields use an enum for the value, it can be either:

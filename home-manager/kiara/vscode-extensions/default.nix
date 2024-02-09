@@ -1,30 +1,7 @@
 { pkgs, lib }:
 
-let
-  vscode-utils = pkgs.vscode-utils;
-in
-{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let vscode-utils = pkgs.vscode-utils;
+in {
 
   "pkief"."material-icon-theme" = vscode-utils.extensionFromVscodeMarketplace {
     name = "material-icon-theme";
@@ -47,12 +24,13 @@ in
     sha256 = "0fa4h9hk1xq6j3zfxvf483sbb4bd17fjl5cdm3rll7z9kaigdqwg";
   };
 
-  "davidanson"."vscode-markdownlint" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "vscode-markdownlint";
-    publisher = "davidanson";
-    version = "0.54.0";
-    sha256 = "171qw6mymc9hmm8xin3gwr8r2ac8yfr3s8agagsqq9193cawbcq6";
-  };
+  "davidanson"."vscode-markdownlint" =
+    vscode-utils.extensionFromVscodeMarketplace {
+      name = "vscode-markdownlint";
+      publisher = "davidanson";
+      version = "0.54.0";
+      sha256 = "171qw6mymc9hmm8xin3gwr8r2ac8yfr3s8agagsqq9193cawbcq6";
+    };
 
   "mikestead"."dotenv" = vscode-utils.extensionFromVscodeMarketplace {
     name = "dotenv";
@@ -82,12 +60,13 @@ in
     sha256 = "0q9z98i446cc8bw1h1mvrddn3dnpnm2gwmzwv2s3fxdni2ggma14";
   };
 
-  "justusadam"."language-haskell" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "language-haskell";
-    publisher = "justusadam";
-    version = "3.6.0";
-    sha256 = "115y86w6n2bi33g1xh6ipz92jz5797d3d00mr4k8dv5fz76d35dd";
-  };
+  "justusadam"."language-haskell" =
+    vscode-utils.extensionFromVscodeMarketplace {
+      name = "language-haskell";
+      publisher = "justusadam";
+      version = "3.6.0";
+      sha256 = "115y86w6n2bi33g1xh6ipz92jz5797d3d00mr4k8dv5fz76d35dd";
+    };
 
   "haskell"."haskell" = vscode-utils.extensionFromVscodeMarketplace {
     name = "haskell";

@@ -3,15 +3,14 @@
 
 { inputs, lib, pkgs, ... }:
 
-(
-  lib.dryFlakes pkgs inputs [
-    "niri-src"
-    "nix-software-center"
-    "nixos-conf-editor"
-    "nomad-driver-nix"
-    "nomad-driver-containerd-nix"
-  ]
-  //
+(lib.dryFlakes pkgs inputs [
+  "niri-src"
+  "nix-software-center"
+  "nixos-conf-editor"
+  "nomad-driver-nix"
+  "nomad-driver-containerd-nix"
+] //
   # non-flakes: import from remaining `pkgs/*.nix` files
-  (lib.importRest { inherit pkgs lib inputs; } ../pkgs) # i couldn't just do ./ ...
+  (lib.importRest { inherit pkgs lib inputs; }
+    ../pkgs) # i couldn't just do ./ ...
 )

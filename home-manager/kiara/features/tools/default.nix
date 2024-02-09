@@ -40,8 +40,8 @@ in {
       podman-compose
       podman-tui
       docker-compose
-      lazydocker  # TUI
-      gnome.gnome-boxes  # broken: https://github.com/NixOS/nixpkgs/issues/226355
+      lazydocker # TUI
+      gnome.gnome-boxes # broken: https://github.com/NixOS/nixpkgs/issues/226355
       virt-manager
       qemu
       arion
@@ -68,9 +68,7 @@ in {
 
     programs.browserpass = {
       # enable = true;  # Error installing file '.mozilla/native-messaging-hosts/com.github.browserpass.native.json' outside $HOME
-      browsers = [
-        "firefox"
-      ];
+      browsers = [ "firefox" ];
     };
 
   };

@@ -59,9 +59,19 @@ in {
     programs.pistol = {
       enable = true;
       associations = [
-        { mime = "application/json"; command = "bat %pistol-filename%"; }
-        { mime = "application/*"; command = "hexyl %pistol-filename%"; }
-        { fpath = ".*.md$"; command = "sh: bat --paging=never --color=always %pistol-filename% | head -8"; }
+        {
+          mime = "application/json";
+          command = "bat %pistol-filename%";
+        }
+        {
+          mime = "application/*";
+          command = "hexyl %pistol-filename%";
+        }
+        {
+          fpath = ".*.md$";
+          command =
+            "sh: bat --paging=never --color=always %pistol-filename% | head -8";
+        }
       ];
     };
 
@@ -69,11 +79,7 @@ in {
       enable = true;
       settings = {
         number = true;
-        ratios = [
-          1
-          1
-          2
-        ];
+        ratios = [ 1 1 2 ];
         tabstop = 4;
       };
       extraConfig = ''
@@ -81,7 +87,7 @@ in {
         set cleaner ~/.config/lf/lf_kitty_clean
       '';
       commands = {
-        get-mime-type = "%xdg-mime query filetype \"$f\"";
+        get-mime-type = ''%xdg-mime query filetype "$f"'';
         open = "$$OPENER $f";
       };
       keybindings = {
@@ -90,9 +96,7 @@ in {
         gh = "cd ~";
         i = "$less $f";
       };
-      cmdKeybindings = {
-        "<c-g>" = "cmd-escape";
-      };
+      cmdKeybindings = { "<c-g>" = "cmd-escape"; };
       previewer = {
         # Key to bind to the script at `previewer.source` and pipe through less. Setting to null will not bind any key.
         keybinding = "i";

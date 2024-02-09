@@ -7,7 +7,7 @@
     # https://search.nixos.org/packages?query=firefox
     package = pkgs.firefox-beta-bin;
     # package = pkgs.mercury-browser;
-    wrapperConfig = {};
+    wrapperConfig = { };
     preferencesStatus = "clear";
     # about:config
     preferences = {
@@ -88,17 +88,13 @@
       };
       SearchSuggestEnabled = false;
     };
-    languagePacks = [
-      "en-US"
-      "nl"
-      "ja"
-      "zh-CN"
-    ];
+    languagePacks = [ "en-US" "nl" "ja" "zh-CN" ];
     # https://support.mozilla.org/en-US/kb/customizing-firefox-using-autoconfig
     autoConfig = "";
-    nativeMessagingHosts.packages = with pkgs; [
-      # browserpass
-    ];
+    nativeMessagingHosts.packages = with pkgs;
+      [
+        # browserpass
+      ];
   };
 
 }

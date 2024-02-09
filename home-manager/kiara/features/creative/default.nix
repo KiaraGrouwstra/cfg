@@ -54,12 +54,12 @@ in {
       ## video
       mpv
       vlc
-      stremio  # add providers for content, e.g. https://torrentio.strem.fun/
+      stremio # add providers for content, e.g. https://torrentio.strem.fun/
 
       ## 3d printing
       prusa-slicer
       cura
-      curaengine  # https://github.com/NixOS/nixpkgs/issues/281145
+      curaengine # https://github.com/NixOS/nixpkgs/issues/281145
       freecad
       octoprint
       printrun

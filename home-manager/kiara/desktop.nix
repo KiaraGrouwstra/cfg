@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 
-with (import ./commands.nix { inherit pkgs inputs; });
-{
+with (import ./commands.nix { inherit pkgs inputs; }); {
 
   home.packages = let
     commandDesktop = (name: command: mimeTypes:
@@ -11,12 +10,11 @@ with (import ./commands.nix { inherit pkgs inputs; });
         genericName = name;
         exec = "${terminal} ${command}";
         icon = "utilities-terminal";
-        categories = [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
+        categories =
+          [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
         mimeTypes = mimeTypes;
-      })
-    );
-  in
-  [
+      }));
+  in [
 
     (commandDesktop "less" "${less}" [
       "text/plain"
@@ -27,9 +25,7 @@ with (import ./commands.nix { inherit pkgs inputs; });
       "application/pdf" # poppler_utils
     ])
 
-    (commandDesktop "glow" "${glow}" [
-      "text/markdown"
-    ])
+    (commandDesktop "glow" "${glow}" [ "text/markdown" ])
 
     (commandDesktop "lynx" "${lynx}" [
       "x-scheme-handler/https"
@@ -59,13 +55,11 @@ with (import ./commands.nix { inherit pkgs inputs; });
       "application/x-rar-compressed"
     ])
 
-    (commandDesktop "zip" ("" + ./dotfiles/.config/hypr/scripts/zip.sh) [
-      "application/x-zip"
-    ])
+    (commandDesktop "zip" ("" + ./dotfiles/.config/hypr/scripts/zip.sh)
+      [ "application/x-zip" ])
 
-    (commandDesktop "webtorrent" "${webtorrent} download" [
-      "x-scheme-handler/magnet"
-    ])
+    (commandDesktop "webtorrent" "${webtorrent} download"
+      [ "x-scheme-handler/magnet" ])
 
   ];
 

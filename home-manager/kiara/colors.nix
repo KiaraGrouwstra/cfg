@@ -1,13 +1,9 @@
 { inputs, ... }:
 
-let
-  inherit (inputs.nix-colors) colorSchemes;
-in
-{
+let inherit (inputs.nix-colors) colorSchemes;
+in {
 
-  imports = [
-    inputs.nix-colors.homeManagerModules.default
-  ];
+  imports = [ inputs.nix-colors.homeManagerModules.default ];
 
   # colorscheme = colorSchemes.atelier-dune;
   colorscheme = {

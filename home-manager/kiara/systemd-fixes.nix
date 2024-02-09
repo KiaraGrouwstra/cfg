@@ -1,8 +1,6 @@
 { lib, config, ... }:
-let
-  cfg = config.wayland.windowManager.hyprland;
-in
-{
+let cfg = config.wayland.windowManager.hyprland;
+in {
   config = lib.mkIf (cfg.enable && cfg.systemd.enable) {
     # Stolen from https://github.com/alebastr/sway-systemd/commit/0fdb2c4b10beb6079acd6073c5b3014bd58d3b74
     systemd.user.targets.hyprland-session-shutdown = {

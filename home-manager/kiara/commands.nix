@@ -1,9 +1,7 @@
 { pkgs, inputs, ... }:
 
-let
-  hyprland-contrib = inputs.hyprland-contrib.packages.${pkgs.system};
-in
-with pkgs; {
+let hyprland-contrib = inputs.hyprland-contrib.packages.${pkgs.system};
+in with pkgs; {
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";
@@ -14,7 +12,7 @@ with pkgs; {
   kitten = "${pkgs.kitty}/bin/kitten";
   wezterm = "${wezterm}/bin/wezterm";
   anyrun = "${anyrun}/bin/anyrun";
-  stdin   = "${inputs.anyrun.packages.${system}.stdin  }/lib/libstdin.so";
+  stdin = "${inputs.anyrun.packages.${system}.stdin}/lib/libstdin.so";
   symbols = "${inputs.anyrun.packages.${system}.symbols}/lib/libsymbols.so";
   wofi = "${wofi}/bin/wofi";
   rofi = "${rofi-wayland}/bin/rofi -i";
@@ -46,7 +44,8 @@ with pkgs; {
   kanshictl = "${kanshi}/bin/kanshictl";
   hyprpicker = "${hyprpicker}/bin/hyprpicker";
   inherit hyprland-contrib;
-  grimblast = "XDG_SCREENSHOTS_DIR=\"$HOME/Pictures/Screenshots\" ${hyprland-contrib.grimblast}/bin/grimblast";
+  grimblast = ''
+    XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots" ${hyprland-contrib.grimblast}/bin/grimblast'';
   webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
   baobab = "${baobab}/bin/baobab";
   keepassxc = "${keepassxc}/bin/keepassxc";

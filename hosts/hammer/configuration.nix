@@ -5,12 +5,11 @@
 { config, pkgs, lib, inputs, outputs, ... }:
 
 {
-  imports =
-    [
-      ./imports.nix
-      inputs.home-manager.nixosModules.home-manager
-      inputs.sops-nix.nixosModules.sops
-    ] ++ (lib.attrValues outputs.nixosModules);
+  imports = [
+    ./imports.nix
+    inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
+  ] ++ (lib.attrValues outputs.nixosModules);
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
@@ -82,7 +81,7 @@
     };
   };
 
-  services.xserver.displayManager.session = [];
+  services.xserver.displayManager.session = [ ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -99,7 +98,7 @@
     rage
     libsForQt5.qtstyleplugin-kvantum
     ssh-to-age
-    qt6.qtwayland  # can this be moved to home-manager?
+    qt6.qtwayland # can this be moved to home-manager?
   ];
 
   programs = {
@@ -139,7 +138,7 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     # This will become a global environment variable
     GDK_BACKEND = "wayland"; # gtk
-    NIXOS_OZONE_WL = "1";    # electron
+    NIXOS_OZONE_WL = "1"; # electron
     QT_STYLE_OVERRIDE = "kvantum";
   };
 
@@ -164,7 +163,7 @@
     #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
     defaultSopsFile = ../../secrets.enc.yml;
     secrets = {
-      age-keys = {};
+      age-keys = { };
       user-password-kiara.neededForUsers = true;
     };
   };
@@ -181,12 +180,13 @@
     QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
     # Nautilus Audio/Video Properties: Your GStreamer installation is missing a plug-in. #195936
-    GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
-      gst-plugins-good
-      gst-plugins-bad
-      gst-plugins-ugly
-      gst-libav
-    ]);
+    GST_PLUGIN_SYSTEM_PATH_1_0 =
+      lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
+        gst-plugins-good
+        gst-plugins-bad
+        gst-plugins-ugly
+        gst-libav
+      ]);
   };
 
   # let nautilus access trash and remotes

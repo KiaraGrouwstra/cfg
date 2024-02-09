@@ -12,9 +12,7 @@ in {
   config = mkIf cfg.enable {
     services.xserver.displayManager.defaultSession = "hyprland";
 
-    programs.hyprland = {
-      enable = true;
-    };
+    programs.hyprland = { enable = true; };
 
     # try and improve system responsiveness
     systemd.services.hyprland-session.serviceConfig.Nice = -1;
@@ -29,15 +27,9 @@ in {
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-      ];
-      configPackages = with pkgs; [
-        xdg-desktop-portal-hyprland
-      ];
-      config = {
-        common.default = [ "hyprland" ];
-      };
+      extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+      configPackages = with pkgs; [ xdg-desktop-portal-hyprland ];
+      config = { common.default = [ "hyprland" ]; };
     };
   };
 }

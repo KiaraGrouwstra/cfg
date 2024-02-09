@@ -5,16 +5,12 @@
 
   inputs = {
     # Flake inputs
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-    };
+    flake-compat.url = "github:edolstra/flake-compat";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    systems = {
-      url = "github:nix-systems/default";
-    };
+    systems.url = "github:nix-systems/default";
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
@@ -173,14 +169,11 @@
   outputs = { self, nixpkgs, home-manager, nixos-hardware, nur, ... }@inputs:
     let
       inherit (self) outputs;
-      systems = [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-      ];
+      systems = [ "aarch64-linux" "i686-linux" "x86_64-linux" ];
       x86 = { system = "x86_64-linux"; };
       hammer = x86;
-      lib = nixpkgs.lib // home-manager.lib // (import ./lib { inherit (nixpkgs) lib; });
+      lib = nixpkgs.lib // home-manager.lib
+        // (import ./lib { inherit (nixpkgs) lib; });
       # { default: overlay }
       overlaysAttrs = import ./overlays.nix { inherit inputs lib; };
       # [ overlay ]
@@ -190,23 +183,24 @@
         inputs.catppuccin-vsc.overlays.default
       ];
       # for each system: nixpkgs
-      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
-        inherit system overlays;
-      });
+      pkgsFor = lib.genAttrs systems
+        (system: import nixpkgs { inherit system overlays; });
       # for each system: apply pkgs to a function
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
       # Your custom packages, acessible through 'nix build', 'nix shell', etc
       # for each system: packages including overlays
-      packages = forAllSystems (pkgs: import ./packages.nix { inherit inputs lib pkgs; });
+      packages = forAllSystems
+        (pkgs: import ./packages.nix { inherit inputs lib pkgs; });
 
       # Eval the treefmt modules from ./treefmt.nix
-      treefmtEval = forAllSystems (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in
-    {
+      treefmtEval = forAllSystems
+        (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+    in {
       inherit lib packages;
 
       # for `nix fmt`
-      formatter = forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter =
+        forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
 
       # for `nix flake check`
       checks = forAllSystems (pkgs: {
@@ -220,15 +214,11 @@
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
 
-      imports = [
-        ./cachix.nix
-      ];
+      imports = [ ./cachix.nix ];
 
       # Devshell for bootstrapping
       # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
-      devShells = forAllSystems (pkgs:
-        import ./shell.nix { inherit pkgs; }
-      );
+      devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs; });
 
       # Your custom packages and modifications, exported as overlays
       overlays = overlaysAttrs;
@@ -237,18 +227,19 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
 
-        kiara-hammer = with hammer; nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit lib inputs outputs; };
-          inherit system;
-          modules = [
-            "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
-            nur.nixosModules.nur
-            { nixpkgs = { inherit overlays; }; }
-            ./hosts/hammer/configuration.nix
-            nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-            inputs.niri.nixosModules.niri
-          ];
-        };
+        kiara-hammer = with hammer;
+          nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit lib inputs outputs; };
+            inherit system;
+            modules = [
+              "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
+              nur.nixosModules.nur
+              { nixpkgs = { inherit overlays; }; }
+              ./hosts/hammer/configuration.nix
+              nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+              inputs.niri.nixosModules.niri
+            ];
+          };
 
       };
 
@@ -256,18 +247,20 @@
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
 
-        "kiara@hammer" = with hammer; lib.homeManagerConfiguration {
-          pkgs = pkgsFor.${system};
-          extraSpecialArgs = { inherit lib inputs outputs;
-            unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+        "kiara@hammer" = with hammer;
+          lib.homeManagerConfiguration {
+            pkgs = pkgsFor.${system};
+            extraSpecialArgs = {
+              inherit lib inputs outputs;
+              unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+            };
+            modules = [
+              "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
+              nur.nixosModules.nur
+              ./home-manager/kiara/home.nix
+              inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+            ];
           };
-          modules = [
-            "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
-            nur.nixosModules.nur
-            ./home-manager/kiara/home.nix
-            inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
-          ];
-        };
 
       };
     };

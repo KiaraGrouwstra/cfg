@@ -2,9 +2,7 @@
 
 {
 
-  imports = [
-    ./paperwm.nix
-  ];
+  imports = [ ./paperwm.nix ];
 
   home.packages = with pkgs; [
     gnomeExtensions.random-wallpaper

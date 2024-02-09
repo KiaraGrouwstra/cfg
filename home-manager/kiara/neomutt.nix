@@ -26,7 +26,8 @@
       address = "kiara@bij1.org";
       userName = "kiara@bij1.org";
       realName = "Kiara Grouwstra";
-      passwordCommand = "keepassxc-cli show -sa password ~/Nextcloud/keepass.kdbx 'BIJ1/transip.email'";
+      passwordCommand =
+        "keepassxc-cli show -sa password ~/Nextcloud/keepass.kdbx 'BIJ1/transip.email'";
       primary = true;
     };
 

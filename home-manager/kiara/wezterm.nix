@@ -3,8 +3,7 @@
 let
   inherit (config) colorscheme;
   inherit (colorscheme) colors;
-in
-{
+in {
   programs.wezterm = {
     enable = true;
     # colorSchemes = {
@@ -39,18 +38,19 @@ in
     #   };
     # };
     # color_scheme = "${colorscheme.slug}",
-    extraConfig = /* lua */ ''
-      return {
-        font = wezterm.font("${config.fontProfiles.monospace.family}"),
-        font_size = 12.0,
-        color_scheme = "Catppuccin Frappe",
-        hide_tab_bar_if_only_one_tab = true,
-        window_close_confirmation = "NeverPrompt",
-        enable_kitty_keyboard = true,
-        set_environment_variables = {
-          TERM = 'wezterm',
-        },
-      }
-    '';
+    extraConfig = # lua
+      ''
+        return {
+          font = wezterm.font("${config.fontProfiles.monospace.family}"),
+          font_size = 12.0,
+          color_scheme = "Catppuccin Frappe",
+          hide_tab_bar_if_only_one_tab = true,
+          window_close_confirmation = "NeverPrompt",
+          enable_kitty_keyboard = true,
+          set_environment_variables = {
+            TERM = 'wezterm',
+          },
+        }
+      '';
   };
 }

@@ -1,53 +1,10 @@
-{ lib
-, stdenv
-, fetchurl
-, autoPatchelfHook
-, dpkg
-, wrapGAppsHook
-, alsa-lib
-, browserpass
-, bukubrow
-, cairo
-, cups
-, dbus
-, dbus-glib
-, ffmpeg
-, fontconfig
-, freetype
-, fx-cast-bridge
-, glib
-, glibc
-, gnome-browser-connector
-, gtk3
-, harfbuzz
-, libcanberra
-, libdbusmenu
-, libdbusmenu-gtk3
-, libglvnd
-, libjack2
-, libkrb5
-, libnotify
-, libpulseaudio
-, libva
-, lyx
-, mesa
-, nspr
-, nss
-, opensc
-, pango
-, pciutils
-, pipewire
-, plasma5Packages
-, sndio
-, speechd
-, tridactyl-native
-, udev
-, uget-integrator
-, vulkan-loader
-, xdg-utils
-, xorg
-, ...
-}:
+{ lib, stdenv, fetchurl, autoPatchelfHook, dpkg, wrapGAppsHook, alsa-lib
+, browserpass, bukubrow, cairo, cups, dbus, dbus-glib, ffmpeg, fontconfig
+, freetype, fx-cast-bridge, glib, glibc, gnome-browser-connector, gtk3, harfbuzz
+, libcanberra, libdbusmenu, libdbusmenu-gtk3, libglvnd, libjack2, libkrb5
+, libnotify, libpulseaudio, libva, lyx, mesa, nspr, nss, opensc, pango, pciutils
+, pipewire, plasma5Packages, sndio, speechd, tridactyl-native, udev
+, uget-integrator, vulkan-loader, xdg-utils, xorg, ... }:
 
 stdenv.mkDerivation rec {
   pname = "mercury-browser";

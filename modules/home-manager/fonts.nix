@@ -16,8 +16,7 @@ let
     };
   };
   cfg = config.fontProfiles;
-in
-{
+in {
   options.fontProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
     monospace = mkFontOption "monospace";

@@ -16,11 +16,8 @@
           "custom/right-arrow-dark"
           "mpris"
         ];
-        modules-center = [
-          "custom/left-arrow-dark"
-          "clock"
-          "custom/right-arrow-dark"
-        ];
+        modules-center =
+          [ "custom/left-arrow-dark" "clock" "custom/right-arrow-dark" ];
         modules-right = [
           "custom/left-arrow-dark"
           "pulseaudio"
@@ -51,45 +48,44 @@
           tooltip = false;
         };
 
-        "hyprland/language" = {
-          format = "{short}";
-        };
-        "hyprland/workspaces" = if !config.wayland.windowManager.hyprland.enable then {} else {
-          active-only = false;
-          disable-scroll = true;
-          format = "{icon}";
-          format-window-separator = " ";
-          window-rewrite-default = "";
-          window-rewrite = {
-            firefox = "";
-            kitty = "";
-            wezterm = "";
-            codium = "󰨞";
-            thunderbird = "󰇮";
-            keepassxc = "";
-            nautilus = "󰉋";
-            signal = "󰭹";
+        "hyprland/language" = { format = "{short}"; };
+        "hyprland/workspaces" =
+          if !config.wayland.windowManager.hyprland.enable then
+            { }
+          else {
+            active-only = false;
+            disable-scroll = true;
+            format = "{icon}";
+            format-window-separator = " ";
+            window-rewrite-default = "";
+            window-rewrite = {
+              firefox = "";
+              kitty = "";
+              wezterm = "";
+              codium = "󰨞";
+              thunderbird = "󰇮";
+              keepassxc = "";
+              nautilus = "󰉋";
+              signal = "󰭹";
+            };
+            format-icons = {
+              "1" = "壱";
+              "2" = "弐";
+              "3" = "参";
+              "4" = "肆";
+              "5" = "伍";
+              "6" = "陸";
+              "7" = "柒";
+              "8" = "捌";
+              "9" = "玖";
+              "10" = "拾";
+              default = "";
+            };
+            persistent-workspaces = { "*" = [ 1 2 3 4 5 6 7 8 9 10 ]; };
+            on-click = "activate";
+            on-scroll-up = "${hyprctl} dispatch workspace -1";
+            on-scroll-down = "${hyprctl} dispatch workspace +1";
           };
-          format-icons = {
-            "1" = "壱";
-            "2" = "弐";
-            "3" = "参";
-            "4" = "肆";
-            "5" = "伍";
-            "6" = "陸";
-            "7" = "柒";
-            "8" = "捌";
-            "9" = "玖";
-            "10" = "拾";
-            default = "";
-          };
-          persistent-workspaces = {
-            "*" = [ 1 2 3 4 5 6 7 8 9 10 ];
-          };
-          on-click = "activate";
-          on-scroll-up = "${hyprctl} dispatch workspace -1";
-          on-scroll-down = "${hyprctl} dispatch workspace +1";
-        };
         mpris = {
           format = "{player_icon} {status_icon} {dynamic}";
           format-playing = "{player_icon} {status_icon} {dynamic}";
@@ -153,17 +149,15 @@
           format-muted = "󰝟";
           format-icons = {
             headphones = "";
-            default = [
-              ""
-              ""
-            ];
+            default = [ "" "" ];
           };
           scroll-step = 5;
           max-volume = 250;
           on-click = "${pamixer} -t";
           on-click-right = "${pavucontrol}";
-          on-scroll-down = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
-          on-scroll-up   = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
+          on-scroll-down =
+            "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
+          on-scroll-up = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
         };
         memory = {
           interval = 5;
@@ -180,13 +174,7 @@
             critical = 15;
           };
           format = "{icon}  {capacity}%";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
+          format-icons = [ "" "" "" "" "" ];
         };
         disk = {
           interval = 5;
@@ -195,9 +183,7 @@
           on-click = "${unfullscreen} && ${terminal} nix-collect-garbage -d";
           on-click-right = "${unfullscreen} && ${baobab}";
         };
-        tray = {
-          icon-size = 20;
-        };
+        tray = { icon-size = 20; };
       };
     };
 

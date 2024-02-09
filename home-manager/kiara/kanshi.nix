@@ -2,33 +2,32 @@
 
 {
 
-  home.packages = with pkgs; [
-    kanshi
-  ];
+  home.packages = with pkgs; [ kanshi ];
 
   # monitor hot swapping: list by `hyprctl monitors`
   services.kanshi = {
     enable = true;
-    systemdTarget = "${if config.wayland.windowManager.hyprland.enable then "hyprland" else "niri"}-session.target";
+    systemdTarget = "${
+        if config.wayland.windowManager.hyprland.enable then
+          "hyprland"
+        else
+          "niri"
+      }-session.target";
 
     profiles = {
 
       lid_closed = {
-        outputs = [
-          {
-            criteria = "HDMI-A-1";
-            status = "enable";
-          }
-        ];
+        outputs = [{
+          criteria = "HDMI-A-1";
+          status = "enable";
+        }];
       };
 
       undocked = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "enable";
-          }
-        ];
+        outputs = [{
+          criteria = "eDP-1";
+          status = "enable";
+        }];
       };
 
       internal = {

@@ -50,11 +50,7 @@ in {
       nodePackages.vscode-json-languageserver
       kotlin-language-server
       sqlite
-      (python3.withPackages(ps : with ps; [
-        pandas
-        ipython
-        ipython-sql
-      ]))
+      (python3.withPackages (ps: with ps; [ pandas ipython ipython-sql ]))
       gettext
       nodejs-slim
       nodePackages.npm
@@ -93,10 +89,7 @@ in {
         enable = true;
         gitCredentialHelper.enable = true;
         # https://github.com/topics/gh-extension
-        extensions = with pkgs; [
-          gh-dash
-          gh-markdown-preview
-        ];
+        extensions = with pkgs; [ gh-dash gh-markdown-preview ];
         settings = {
           version = 1;
           git_protocol = "ssh";

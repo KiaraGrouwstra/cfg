@@ -60,9 +60,7 @@ in {
       size = 48;
     };
 
-    services.lorri = {
-      enable = true;
-    };
+    services.lorri = { enable = true; };
 
     services.playerctld.enable = true;
 

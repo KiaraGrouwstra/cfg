@@ -1,19 +1,15 @@
 { pkgs, inputs, ... }:
 
-with (import ./commands.nix { inherit pkgs inputs; });
-{
+with (import ./commands.nix { inherit pkgs inputs; }); {
   wayland.windowManager.sway.systemd.xdgAutostart = true;
 
-  home.packages = with hyprland-contrib; [
-    grimblast
-  ];
+  home.packages = with hyprland-contrib; [ grimblast ];
 
   wayland.windowManager.hyprland = {
     enable = false;
     # systemd service needed for kanshi
     systemd.enable = true;
-    settings = let
-      wallpaper_dir = "~/Pictures/wallpapers/";
+    settings = let wallpaper_dir = "~/Pictures/wallpapers/";
     in {
       # Execute your favorite apps at launch
       exec-once = [
@@ -32,8 +28,8 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "${swww} init"
         "${wallust} run `cat ~/.cache/wal/wal`"
 
-        "${wl-paste} --type text --watch ${cliphist} store" #Stores only text data
-        "${wl-paste} --type image --watch ${cliphist} store" #Stores only image data
+        "${wl-paste} --type text --watch ${cliphist} store" # Stores only text data
+        "${wl-paste} --type image --watch ${cliphist} store" # Stores only image data
       ];
 
       # Some default env vars.
@@ -41,90 +37,89 @@ with (import ./commands.nix { inherit pkgs inputs; });
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/#input
       input = {
-          kb_layout = "us";
-          # kb_variant = "";
-          # kb_model = "";
-          kb_options = "caps:escape";
-          # kb_rules = "";
+        kb_layout = "us";
+        # kb_variant = "";
+        # kb_model = "";
+        kb_options = "caps:escape";
+        # kb_rules = "";
 
-          follow_mouse = 1;
+        follow_mouse = 1;
 
-          touchpad = {
-              natural_scroll = true;
-          };
+        touchpad = { natural_scroll = true; };
 
-          sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
       };
 
       general = {
-          # See https://wiki.hyprland.org/Configuring/Variables/#general for more
+        # See https://wiki.hyprland.org/Configuring/Variables/#general for more
 
-          gaps_in = 5;
-          gaps_out = 20;
-          border_size = 2;
-          "col.active_border" = "rgba(ef9f76ee) rgba(eebebeee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+        gaps_in = 5;
+        gaps_out = 20;
+        border_size = 2;
+        "col.active_border" = "rgba(ef9f76ee) rgba(eebebeee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
 
-          layout = "dwindle";
+        layout = "dwindle";
 
-          # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-          # allow_tearing = false;
+        # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+        # allow_tearing = false;
       };
 
       decoration = {
-          # See https://wiki.hyprland.org/Configuring/Variables/#decoration for more
+        # See https://wiki.hyprland.org/Configuring/Variables/#decoration for more
 
-          rounding = 40;
+        rounding = 40;
 
-          blur = {
-              enabled = true;
-              size = 3;
-              passes = 1;
-          };
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 1;
+        };
 
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1a1a1aee)";
+        drop_shadow = true;
+        shadow_range = 4;
+        shadow_render_power = 3;
+        "col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = {
-          enabled = true;
+        enabled = true;
 
-          # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+        # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
-          animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
-          ];
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default, popin 80%"
+          "border, 1, 10, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
 
       };
 
       dwindle = {
-          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-          pseudotile = true; # master switch for pseudotiling. Enabling is bound to SUPER + P in the keybinds section below
-          preserve_split = true; # you probably want this
+        # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+        pseudotile =
+          true; # master switch for pseudotiling. Enabling is bound to SUPER + P in the keybinds section below
+        preserve_split = true; # you probably want this
       };
 
       master = {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = true;
+        # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+        new_is_master = true;
       };
 
       gestures = {
-          # See https://wiki.hyprland.org/Configuring/Variables/#gestures for more
-          workspace_swipe = true;
+        # See https://wiki.hyprland.org/Configuring/Variables/#gestures for more
+        workspace_swipe = true;
       };
 
       misc = {
-          # See https://wiki.hyprland.org/Configuring/Variables/#misc for more
-          # force_default_wallpaper = -1; # Set to 0 to disable the anime mascot wallpapers
+        # See https://wiki.hyprland.org/Configuring/Variables/#misc for more
+        # force_default_wallpaper = -1; # Set to 0 to disable the anime mascot wallpapers
       };
 
       # Example per-device config
@@ -310,10 +305,10 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "SUPER, mouse_up, workspace, e-1"
 
         # to switch between windows in a floating workspace
-        "ALT, Tab, cyclenext,"          # change focus to another window
-        "ALT, Tab, bringactivetotop,"   # bring it to the top
-        "SUPER, Tab, cyclenext,"          # change focus to another window
-        "SUPER, Tab, bringactivetotop,"   # bring it to the top
+        "ALT, Tab, cyclenext," # change focus to another window
+        "ALT, Tab, bringactivetotop," # bring it to the top
+        "SUPER, Tab, cyclenext," # change focus to another window
+        "SUPER, Tab, bringactivetotop," # bring it to the top
         # reverse switching
         "ALT_SHIFT, Tab, cyclenext, prev"
         "ALT_SHIFT, Tab, bringactivetotop,"
@@ -342,7 +337,8 @@ with (import ./commands.nix { inherit pkgs inputs; });
         "CTRL, Escape, exec, sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/001/002 && sudo python ~/.config/hypr/scripts/usbreset.py path /dev/bus/usb/003/002"
         "SUPER, F5, exec, ${kanshictl} reload"
         "SUPER, F6, exec, ${hyprctl} reload"
-        "SUPER, F1, exec, ${notify-send} \"$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')\" \"$(${hyprctl} activewindow -j | ${jq} -r '.title')\""
+        ''
+          SUPER, F1, exec, ${notify-send} "$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')" "$(${hyprctl} activewindow -j | ${jq} -r '.title')"''
         "SUPER, Slash, exec, ~/.config/rofi/keybinds.sh"
         "SUPER, F9, exec, ~/.config/rofi/main-menu.sh"
         "SUPER, I, exec, ${unfullscreen} && ${terminal} ${nmtui}"

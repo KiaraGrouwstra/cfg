@@ -11,9 +11,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    services.guix = {
-      enable = true;
-    };
+    services.guix = { enable = true; };
     systemd.services.guix-daemon.serviceConfig.Nice = 19;
   };
 }

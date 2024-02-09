@@ -9,7 +9,7 @@ buildGoModule rec {
   vendorHash = "sha256-Wxyg+ygQiBCCwX1jOR0Kb+iAHdpFf4ZNTTBYMEaaKoc=";
 
   subPackages = [
-    "./cmd/aio"  # all-in-one
+    "./cmd/aio" # all-in-one
     "./cmd/controller"
     "./cmd/node"
   ];
@@ -19,7 +19,8 @@ buildGoModule rec {
 
   meta = with lib; {
     homepage = "https://github.com/hetznercloud/csi-driver";
-    description = "Kubernetes Container Storage Interface driver for Hetzner Cloud Volumes";
+    description =
+      "Kubernetes Container Storage Interface driver for Hetzner Cloud Volumes";
     platforms = platforms.linux;
     license = licenses.mit;
     maintainers = with maintainers; [ KiaraGrouwstra ];

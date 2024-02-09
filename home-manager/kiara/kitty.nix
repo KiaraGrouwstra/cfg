@@ -5,15 +5,11 @@ let
   kitty-xterm = pkgs.writeShellScriptBin "xterm" ''
     ${config.programs.kitty.package}/bin/kitty -1 "$@"
   '';
-in
-{
+in {
   home = {
     packages = [ kitty-xterm ];
-    sessionVariables = {
-      TERMINAL = "kitty -1";
-    };
+    sessionVariables = { TERMINAL = "kitty -1"; };
   };
-
 
   programs.kitty = {
     enable = true;

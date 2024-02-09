@@ -10,18 +10,15 @@
     historySubstringSearch.enable = true;
     zplug = {
       enable = true;
-      plugins = [
-        { name = "babarot/enhancd"; tags = [ "use:init.sh" ]; }
-      ];
+      plugins = [{
+        name = "babarot/enhancd";
+        tags = [ "use:init.sh" ];
+      }];
     };
     oh-my-zsh = {
       enable = true;
       # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-      plugins = [
-        "git"
-        "thefuck"
-        "bgnotify"
-      ];
+      plugins = [ "git" "thefuck" "bgnotify" ];
       theme = "agnoster";
     };
     sessionVariables = {

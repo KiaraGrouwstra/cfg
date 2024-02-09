@@ -12,7 +12,8 @@ buildGoModule rec {
 
   meta = with lib; {
     homepage = "https://github.com/roblox/nomad-driver-containerd";
-    description = "Nomad task driver for launching containers using containerd.";
+    description =
+      "Nomad task driver for launching containers using containerd.";
     platforms = platforms.linux;
     license = licenses.mpl20;
     maintainers = with maintainers; [ KiaraGrouwstra ];

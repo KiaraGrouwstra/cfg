@@ -1,70 +1,21 @@
-{
-  lib,
-  stdenv,
-  fetchurl,
-  autoPatchelfHook,
-  dpkg,
-  wrapGAppsHook,
-  alsa-lib,
-  at-spi2-atk,
-  at-spi2-core,
-  cairo,
-  cups,
-  curl,
-  dbus,
-  expat,
-  ffmpeg,
-  fontconfig,
-  freetype,
-  glib,
-  glibc,
-  gtk3,
-  gtk4,
-  libcanberra,
-  liberation_ttf,
-  libexif,
-  libglvnd,
-  libkrb5,
-  libnotify,
-  libpulseaudio,
-  libu2f-host,
-  libva,
-  libxkbcommon,
-  mesa,
-  nspr,
-  nss,
-  pango,
-  pciutils,
-  pipewire,
-  qt6,
-  speechd,
-  systemd,
-  udev,
-  _7zz,
-  vaapiVdpau,
-  vulkan-loader,
-  wayland,
-  wget,
-  xdg-utils,
-  xfce,
-  xorg,
-  ...
-}:
+{ lib, stdenv, fetchurl, autoPatchelfHook, dpkg, wrapGAppsHook, alsa-lib
+, at-spi2-atk, at-spi2-core, cairo, cups, curl, dbus, expat, ffmpeg, fontconfig
+, freetype, glib, glibc, gtk3, gtk4, libcanberra, liberation_ttf, libexif
+, libglvnd, libkrb5, libnotify, libpulseaudio, libu2f-host, libva, libxkbcommon
+, mesa, nspr, nss, pango, pciutils, pipewire, qt6, speechd, systemd, udev, _7zz
+, vaapiVdpau, vulkan-loader, wayland, wget, xdg-utils, xfce, xorg, ... }:
 stdenv.mkDerivation rec {
   pname = "thorium-browser";
   version = "120.0.6099.235";
 
   src = fetchurl {
-    url = "https://github.com/Alex313031/thorium/releases/download/M${version}/thorium-browser_${version}_amd64.deb";
+    url =
+      "https://github.com/Alex313031/thorium/releases/download/M${version}/thorium-browser_${version}_amd64.deb";
     hash = "sha256-UQqYXlkjXuZ3Vkcie0SNp4AMnBjemavW2G7dKGTxVAc=";
   };
 
-  nativeBuildInputs = [
-    autoPatchelfHook
-    dpkg
-    wrapGAppsHook
-    qt6.wrapQtAppsHook
-  ];
+  nativeBuildInputs =
+    [ autoPatchelfHook dpkg wrapGAppsHook qt6.wrapQtAppsHook ];
 
   buildInputs = [
     stdenv.cc.cc.lib
@@ -124,15 +75,10 @@ stdenv.mkDerivation rec {
   ];
 
   # Needed to make the process get past zygote_linux fork()'ing
-  runtimeDependencies = [
-    systemd
-  ];
+  runtimeDependencies = [ systemd ];
 
-  autoPatchelfIgnoreMissingDeps = [
-    "libQt5Widgets.so.5"
-    "libQt5Gui.so.5"
-    "libQt5Core.so.5"
-  ];
+  autoPatchelfIgnoreMissingDeps =
+    [ "libQt5Widgets.so.5" "libQt5Gui.so.5" "libQt5Core.so.5" ];
 
   installPhase = ''
     runHook preInstall
@@ -151,7 +97,9 @@ stdenv.mkDerivation rec {
     addAutoPatchelfSearchPath $out/chromium.org/thorium
     addAutoPatchelfSearchPath $out/chromium.org/thorium/lib
     substituteInPlace $out/opt/chromium.org/thorium/thorium-browser \
-      --replace 'export LD_LIBRARY_PATH' "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:${lib.makeLibraryPath buildInputs}:$out/chromium.org/thorium:$out/chromium.org/thorium/lib"
+      --replace 'export LD_LIBRARY_PATH' "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:${
+        lib.makeLibraryPath buildInputs
+      }:$out/chromium.org/thorium:$out/chromium.org/thorium/lib"
     makeWrapper "$out/opt/chromium.org/thorium/thorium-browser" "$out/bin/thorium-browser" \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
     runHook postInstall

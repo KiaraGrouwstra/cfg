@@ -11,19 +11,14 @@ in {
 
   config = mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs; [
-      qemu
-    ];
+    environment.systemPackages = with pkgs; [ qemu ];
 
     programs.extra-container.enable = true;
 
-    users.extraGroups.vboxusers.members = [
-      "kiara"
-    ];
+    users.extraGroups.vboxusers.members = [ "kiara" ];
 
-    nixpkgs.config.allowUnfreePredicate = pkg: lib.elem (lib.getName pkg) [
-      "vmware"
-    ];
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      lib.elem (lib.getName pkg) [ "vmware" ];
 
     virtualisation = {
 
@@ -55,8 +50,7 @@ in {
 
       # to use podman with ports as low as 80 run:
       # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
-      podman = let
-        dockerEnabled = config.virtualisation.docker.enable;
+      podman = let dockerEnabled = config.virtualisation.docker.enable;
       in {
         enable = true;
         # Create a `docker` alias for podman, to use it as a drop-in replacement

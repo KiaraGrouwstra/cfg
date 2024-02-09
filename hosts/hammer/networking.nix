@@ -19,29 +19,21 @@ in {
 
     # Enable networking
     networking.networkmanager.enable = true;
-    networking.networkmanager.unmanaged = [
-      "wifi 50"
-      "H369A15D3AE"
-      "publicroam"
-      "eduroam"
-    ];
+    networking.networkmanager.unmanaged =
+      [ "wifi 50" "H369A15D3AE" "publicroam" "eduroam" ];
 
     sops.secrets = {
-      wifi-password-home = {};
-      wifi-password-woerden = {};
-      wifi-password-publicroam = {};
-      wifi-password-eduroam = {};
-      wifi-password-floppy = {};
+      wifi-password-home = { };
+      wifi-password-woerden = { };
+      wifi-password-publicroam = { };
+      wifi-password-eduroam = { };
+      wifi-password-floppy = { };
     };
 
     networking.wireless.enable = true;
     networking.wireless.networks = {
-      "wifi 50" = {
-        psk = config.sops.secrets.wifi-password-home.path;
-      };
-      "H369A15D3AE" = {
-        psk = config.sops.secrets.wifi-password-woerden.path;
-      };
+      "wifi 50" = { psk = config.sops.secrets.wifi-password-home.path; };
+      "H369A15D3AE" = { psk = config.sops.secrets.wifi-password-woerden.path; };
       "publicroam" = {
         auth = ''
           key_mgmt=WPA-EAP
@@ -58,20 +50,22 @@ in {
           password="${config.sops.secrets.wifi-password-eduroam.path}"
         '';
       };
-      "Floppy Disk" = {
-        psk = config.sops.secrets.wifi-password-floppy.path;
-      };
+      "Floppy Disk" = { psk = config.sops.secrets.wifi-password-floppy.path; };
     };
 
     # Open ports in the firewall.
     networking.firewall = {
       enable = true;
-      allowedTCPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
-      allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
+      allowedTCPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
+        ];
+      allowedUDPPortRanges = [{
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
+        ];
     };
   };
 }

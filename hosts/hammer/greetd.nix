@@ -16,7 +16,8 @@ in {
       restart = false;
       settings = rec {
         initial_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-user-session --cmd niri --greeting 'welcome back'";
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-user-session --cmd niri --greeting 'welcome back'";
           user = "kiara";
         };
         default_session = initial_session;
