@@ -89,7 +89,7 @@
         Config(
           max_entries: 100,
           // Also show the Desktop Actions defined in the desktop files, e.g. "New Window" from LibreWolf
-          desktop_actions: true,
+          desktop_actions: false,
           terminal: Some("wezterm"),
         )
       '';
