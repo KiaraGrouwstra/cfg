@@ -98,7 +98,6 @@
     rage
     libsForQt5.qtstyleplugin-kvantum
     ssh-to-age
-    qt6.qtwayland # can this be moved to home-manager?
   ];
 
   programs = {
