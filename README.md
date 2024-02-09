@@ -82,10 +82,10 @@ $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --on
 
 | Component     | Software     |
 |---------------|--------------|
-| Compositor    | [Hyprland](https://github.com/hyprwm/Hyprland) |
+| Compositor    | [Niri](https://github.com/YaLTeR/niri/) |
 | Bar           | [Waybar](https://github.com/Alexays/Waybar/) |
 | Notifications | [swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
-| Menu          | [rofi-wayland](https://github.com/lbonn/rofi/) |
+| Menu          | [Anyrun](https://github.com/Kirottu/anyrun) |
 | Web browser   | [Firefox](https://hg.mozilla.org/mozilla-central/) |
 | File browser  | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus/) |
 | Terminal      | [Wezterm](https://github.com/wez/wezterm) |
