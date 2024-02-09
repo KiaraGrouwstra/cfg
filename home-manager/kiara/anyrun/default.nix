@@ -1,8 +1,24 @@
-{ pkgs, inputs, config, ... }:
+{ pkgs, inputs, config, lib, ... }:
 
 {
 
   imports = [ inputs.anyrun.homeManagerModules.default ];
+
+  home.file = lib.listToAttrs (lib.lists.map (k: {
+      name = ".config/anyrun/plugins/lib${k}.so";
+      value = { source = "${inputs.anyrun.packages.${pkgs.system}.${k}}/lib/lib${k}.so"; };
+    }) [
+      "applications"
+      "symbols"
+      "rink"
+      "shell"
+      "translate"
+      "kidex"
+      "randr"
+      "stdin"
+      "dictionary"
+      "websearch"
+    ]);
 
   programs.anyrun = {
     enable = true;
