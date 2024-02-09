@@ -30,6 +30,7 @@
     shellAliases = {
       docker-compose = "podman-compose";
       ls = "eza";
+      jq = "jaq";
       # ssh = "kitten ssh";  # for kitty
     };
     initExtra = (lib.readFile ./zsh.zsh);

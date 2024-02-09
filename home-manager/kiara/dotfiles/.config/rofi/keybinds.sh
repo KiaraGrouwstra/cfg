@@ -3,7 +3,7 @@
 
 # unfortunately messy as bash won't retain strings as multi-line when stored in variables
 
-hyprctl binds -j | jq -r '
+hyprctl binds -j | jaq -r '
 .[] |
 (.modmask|
     (if (.

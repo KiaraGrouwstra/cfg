@@ -6,7 +6,7 @@ in with pkgs; {
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";
   swaync-client = "${swaynotificationcenter}/bin/swaync-client";
-  jq = "${jq}/bin/jq";
+  jaq = "${jaq}/bin/jaq";
   swayidle = "${swayidle}/bin/swayidle";
   kitty = "${pkgs.kitty}/bin/kitty";
   kitten = "${pkgs.kitty}/bin/kitten";

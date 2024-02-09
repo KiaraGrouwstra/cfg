@@ -338,7 +338,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
         "SUPER, F5, exec, ${kanshictl} reload"
         "SUPER, F6, exec, ${hyprctl} reload"
         ''
-          SUPER, F1, exec, ${notify-send} "$(${hyprctl} activewindow -j | ${jq} -r '.initialTitle')" "$(${hyprctl} activewindow -j | ${jq} -r '.title')"''
+          SUPER, F1, exec, ${notify-send} "$(${hyprctl} activewindow -j | ${jaq} -r '.initialTitle')" "$(${hyprctl} activewindow -j | ${jaq} -r '.title')"''
         "SUPER, Slash, exec, ~/.config/rofi/keybinds.sh"
         "SUPER, F9, exec, ~/.config/rofi/main-menu.sh"
         "SUPER, I, exec, ${unfullscreen} && ${terminal} ${nmtui}"

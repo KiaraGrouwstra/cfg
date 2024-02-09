@@ -20,7 +20,7 @@ in {
       tealdeer
       thefuck
       dos2unix
-      jq
+      jaq
       remarshal
       pandoc
 
