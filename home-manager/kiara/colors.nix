@@ -10,7 +10,7 @@ in {
     slug = "catppuccin-frappe";
     name = "Catppuccin Frappe";
     author = "https://github.com/catppuccin/catppuccin";
-    colors = {
+    palette = {
       base00 = "#303446"; # base
       base01 = "#292c3c"; # mantle
       base02 = "#414559"; # surface0
