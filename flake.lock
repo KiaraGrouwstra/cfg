@@ -308,11 +308,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707558730,
-        "narHash": "sha256-RyRX8X5gdjaAR8UzQqBebcL5KKk7zBKz/uqKk2ux3DU=",
+        "lastModified": 1707583968,
+        "narHash": "sha256-q1StEtZKjY9UvaSokVmA2OAE4JzsR87QrGWlzWwKjkA=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "058f4a4ce122f19d3b11e0caf85adea6338b54ee",
+        "rev": "b9158143a8067ccd0fd89883c3bd0955473e5a36",
         "type": "github"
       },
       "original": {
@@ -617,17 +617,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1707198034,
-        "narHash": "sha256-WrvJ7qzS6+KecX8txFZ3H2R7xD3Mj6nPg24IwoVJteI=",
-        "owner": "YaLTeR",
+        "lastModified": 1707585035,
+        "narHash": "sha256-y5r4bNto83FWzgDo6i8Esr1HxjdvSDxvX+wpDF+zchs=",
+        "owner": "KiaraGrouwstra",
         "repo": "niri",
-        "rev": "d2a4e6a0cbc839813c6d4ef68b75820d87cfc5b0",
+        "rev": "d3e8aec620aaab00bdbc1939b14865cc9f27d864",
         "type": "github"
       },
       "original": {
-        "owner": "YaLTeR",
+        "owner": "KiaraGrouwstra",
+        "ref": "exclude-visual-tests-from-nix",
         "repo": "niri",
-        "rev": "d2a4e6a0cbc839813c6d4ef68b75820d87cfc5b0",
         "type": "github"
       }
     },
@@ -1033,11 +1033,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1707565398,
-        "narHash": "sha256-cuNdIPwqo2LaOWxvmCeUb1I0UAGFavT8bvUf2O7eJVo=",
+        "lastModified": 1707583450,
+        "narHash": "sha256-HEaczyxNnsjFPtoWZr/odx4jFRR/HQVpsYtIKokPQt4=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "d52b9e3d55a8ec67a0fd08dce7a511a670d5d99a",
+        "rev": "2f014699cc4a8b9f42b48c9d79f3a69654ae3501",
         "type": "github"
       },
       "original": {
