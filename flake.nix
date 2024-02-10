@@ -184,7 +184,10 @@
       ];
       # for each system: nixpkgs
       pkgsFor = lib.genAttrs systems
-        (system: import nixpkgs { inherit system overlays; });
+        (system: import nixpkgs {
+          inherit system overlays;
+          config.allowUnfree = true;
+        });
       # for each system: apply pkgs to a function
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
       # Your custom packages, acessible through 'nix build', 'nix shell', etc

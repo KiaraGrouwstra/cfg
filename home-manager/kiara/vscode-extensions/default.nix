@@ -24,8 +24,7 @@ in {
     sha256 = "0fa4h9hk1xq6j3zfxvf483sbb4bd17fjl5cdm3rll7z9kaigdqwg";
   };
 
-  "davidanson"."vscode-markdownlint" =
-    vscode-utils.extensionFromVscodeMarketplace {
+  "davidanson"."vscode-markdownlint" = vscode-utils.extensionFromVscodeMarketplace {
       name = "vscode-markdownlint";
       publisher = "davidanson";
       version = "0.54.0";
@@ -46,11 +45,11 @@ in {
     sha256 = "1i29i5s0kjcanlzsh4xxrlrimi2dsxrmh84aazs429vmivs3xi43";
   };
 
-  "rust-lang"."rust" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "rust";
+  "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.7.9";
-    sha256 = "0asmr7c9jmik1047n359s9zmv2m7d0i8sixki4p02z7qzyrpxrfs";
+    version = "0.4.1835";
+    sha256 = "1yf2fgrwbgp9cmwhw72kf4684rnjivdm8im7bw4hdzgy4si6hz0w";
   };
 
   "tamasfe"."even-better-toml" = vscode-utils.extensionFromVscodeMarketplace {
@@ -60,8 +59,7 @@ in {
     sha256 = "0q9z98i446cc8bw1h1mvrddn3dnpnm2gwmzwv2s3fxdni2ggma14";
   };
 
-  "justusadam"."language-haskell" =
-    vscode-utils.extensionFromVscodeMarketplace {
+  "justusadam"."language-haskell" = vscode-utils.extensionFromVscodeMarketplace {
       name = "language-haskell";
       publisher = "justusadam";
       version = "3.6.0";
@@ -85,8 +83,8 @@ in {
   "asvetliakov"."vscode-neovim" = vscode-utils.extensionFromVscodeMarketplace {
     name = "vscode-neovim";
     publisher = "asvetliakov";
-    version = "1.5.0";
-    sha256 = "1glad9xmzq58jc7js8afjmqrxgd3rqm80fk528wv5kqcmn90bgk3";
+    version = "1.6.0";
+    sha256 = "1i5c92kygkcjw61i3lxhalv5ajsc32b4a7002c80pik41gsc0f7b";
   };
 
   "hashicorp"."hcl" = vscode-utils.extensionFromVscodeMarketplace {
@@ -127,8 +125,8 @@ in {
   "arrterian"."nix-env-selector" = vscode-utils.extensionFromVscodeMarketplace {
     name = "nix-env-selector";
     publisher = "arrterian";
-    version = "1.0.10";
-    sha256 = "0gx2w0z4ibr46g4yqllqmyff779r272pd73ajxh55n8lpk8snx3g";
+    version = "1.0.11";
+    sha256 = "113zx78c3219knw4qa04242404n32vnk9rb6a3ynz41dgwh1mbbl";
   };
 
   "mkhl"."direnv" = vscode-utils.extensionFromVscodeMarketplace {
@@ -136,6 +134,13 @@ in {
     publisher = "mkhl";
     version = "0.16.0";
     sha256 = "1jmwqbbh5x5z7dscgcn4pb0g41k7zlhgf5i8syl3ipv6z270aq5v";
+  };
+
+  "eww-yuck"."yuck" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "yuck";
+    publisher = "eww-yuck";
+    version = "0.0.3";
+    sha256 = "1hxdxa13s1vlilw7fidr8vnl19c9wjazjvnvmqgl4fsswwny110c";
   };
 
   "kokakiwi"."vscode-just" = vscode-utils.extensionFromVscodeMarketplace {

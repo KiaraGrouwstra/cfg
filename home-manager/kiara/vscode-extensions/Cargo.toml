@@ -1,5 +1,5 @@
 # run from https://github.com/nix-community/nix4vscode
-# cargo run -- <PATH>/vscode-extensions.toml > <PATH>/default.nix
+# cargo run -- <PATH>/Cargo.toml > <PATH>/default.nix
 
 # codium --version
 vscode_version = "1.85.2"
@@ -76,7 +76,7 @@ extension_name = "marp-vscode"
 
 [[extensions]]
 publisher_name = "rust-lang"
-extension_name = "rust"
+extension_name = "rust-analyzer"
 
 [[extensions]]
 publisher_name = "vscode-org-mode"
@@ -85,6 +85,10 @@ extension_name = "org-mode"
 [[extensions]]
 publisher_name = "redhat"
 extension_name = "vscode-yaml"
+
+[[extensions]]
+publisher_name = "eww-yuck"
+extension_name = "yuck"
 
 # linting
 

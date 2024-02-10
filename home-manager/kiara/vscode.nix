@@ -3,8 +3,9 @@
 {
 
   programs.vscode = {
-    enable = true; # collision between icudtl.dat for vscodium vs vscode
-    package = pkgs.vscodium;
+    enable = true;
+    # package = pkgs.vscodium;  # limits selection in extension marketplace
+    package = pkgs.vscode;  # unfree + does telemetry
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
@@ -44,7 +45,6 @@
       haskell.haskell
       meraymond.idris-vscode
       marp-team.marp-vscode
-      rust-lang.rust
       vscode-org-mode.org-mode
       redhat.vscode-yaml
 

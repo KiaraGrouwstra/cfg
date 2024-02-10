@@ -13,7 +13,7 @@ in {
   # vals: ls ~/.nix-profile/bin/
     // autoStartLinks (with pkgs; {
       "org.keepassxc.KeePassXC" = keepassxc;
-      "codium" = vscodium;
+      "code" = vscode;
       "firefox" = firefox;
       "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
     }) // {
