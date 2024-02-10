@@ -16,10 +16,6 @@
       inputs.systems.follows = "systems";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
-    # kreisys = {
-    #   url = "github:kreisys/flake-utils";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     flake-utils-plus = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";
