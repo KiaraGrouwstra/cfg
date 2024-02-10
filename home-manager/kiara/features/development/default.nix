@@ -101,7 +101,4 @@ in {
 
   };
 
-  # nomad-driver-nix
-  options.nix-driver-nomad.enable = mkIf cfg.enable true;
-
 }

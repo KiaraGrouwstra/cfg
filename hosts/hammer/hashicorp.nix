@@ -16,7 +16,7 @@
     ];
     extraSettingsPlugins = with pkgs; [
       nomad-driver-podman
-      nomad-driver-nix
+      # nomad-driver-nix
       nomad-driver-nix2
       nomad-driver-singularity
       # # [Unsupported plugin type](https://github.com/hashicorp/nomad/blob/a283a416139dca46b1d2e459aa033cd2d3902243/plugins/serve.go#L52)

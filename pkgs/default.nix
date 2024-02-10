@@ -7,7 +7,6 @@
   "niri-src"
   "nix-software-center"
   "nixos-conf-editor"
-  "nomad-driver-nix"
   "nomad-driver-containerd-nix"
 ] //
   # non-flakes: import from remaining `pkgs/*.nix` files
