@@ -109,7 +109,166 @@
         }];
       };
     };
-    # keybindings = [];
+    keybindings = [
+      {
+        key = "ctrl+k ctrl+alt+s";
+        command = "git.stageSelectedRanges";
+        when = "!operationInProgress";
+      }
+      {
+        key = "ctrl+k ctrl+n";
+        command = "git.unstageSelectedRanges";
+        when = "!operationInProgress";
+      }
+      {
+        key = "ctrl+tab";
+        command = "workbench.action.nextEditor";
+        when = "!activeEditorGroupEmpty";
+      }
+      {
+        key = "ctrl+shift+tab";
+        command = "workbench.action.previousEditor";
+        when = "!activeEditorGroupEmpty";
+      }
+      {
+        key = "alt+a";
+        command = "workbench.action.toggleMaximizedPanel";
+      }
+      {
+        key = "Alt+Shift+B";
+        command = "workbench.action.tasks.test";
+      }
+      {
+        key = "ctrl+f";
+        command = "-editor.action.pageDownHover";
+        when = "editorHoverFocused";
+      }
+      {
+        key = "ctrl+b";
+        command = "-editor.action.pageUpHover";
+        when = "editorHoverFocused";
+      }
+      {
+        key = "capslock";
+        command = "vscode-neovim.escape";
+        when = "editorTextFocus && neovim.init && neovim.mode != 'normal' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+/";
+        command = "-vscode-neovim.send";
+        when = "editorTextFocus && neovim.ctrlKeysNormal./ && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "tab";
+        command = "-vscode-neovim.send";
+        when = "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "shift+tab";
+        command = "-vscode-neovim.send";
+        when = "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+w";
+        command = "-vscode-neovim.send";
+        when = "editorTextFocus && neovim.ctrlKeysNormal.w && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+w";
+        command = "-vscode-neovim.send";
+        when = "editorTextFocus && neovim.ctrlKeysInsert.w && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+f";
+        command = "-vscode-neovim.ctrl-f";
+        when = "editorTextFocus && neovim.ctrlKeysNormal.f && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+f";
+        command = "-vscode-neovim.send";
+        when = "editorTextFocus && neovim.ctrlKeysInsert.f && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+w";
+        command = "-vscode-neovim.send-cmdline";
+        when = "neovim.init && neovim.mode == 'cmdline'";
+      }
+      {
+        key = "ctrl+w q";
+        command = "-workbench.action.closeActiveEditor";
+        when = "!editorTextFocus && !filesExplorerFocus && !searchViewletFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w ctrl+w";
+        command = "-workbench.action.focusNextGroup";
+        when = "!editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w up";
+        command = "-workbench.action.navigateUp";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w k";
+        command = "-workbench.action.navigateUp";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w down";
+        command = "-workbench.action.navigateDown";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w j";
+        command = "-workbench.action.navigateDown";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w left";
+        command = "-workbench.action.navigateLeft";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w h";
+        command = "-workbench.action.navigateLeft";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w right";
+        command = "-workbench.action.navigateRight";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w l";
+        command = "-workbench.action.navigateRight";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w =";
+        command = "-workbench.action.evenEditorWidths";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w s";
+        command = "-workbench.action.splitEditorDown";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+w v";
+        command = "-workbench.action.splitEditorRight";
+        when = "!editorTextFocus && !terminalFocus";
+      }
+      {
+        key = "ctrl+b";
+        command = "-vscode-neovim.ctrl-b";
+        when = "editorTextFocus && neovim.ctrlKeysNormal.b && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+      {
+        key = "ctrl+b";
+        command = "-vscode-neovim.send";
+        when = "editorTextFocus && neovim.ctrlKeysInsert.b && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'";
+      }
+    ];
   };
 
 }
