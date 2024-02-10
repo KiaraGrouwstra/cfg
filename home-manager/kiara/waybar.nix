@@ -83,8 +83,8 @@
             };
             persistent-workspaces = { "*" = [ 1 2 3 4 5 6 7 8 9 10 ]; };
             on-click = "activate";
-            on-scroll-up = "${hyprctl} dispatch workspace -1";
-            on-scroll-down = "${hyprctl} dispatch workspace +1";
+            on-scroll-up = "${niri} msg action focus-workspace-up";
+            on-scroll-down = "${niri} msg action focus-workspace-down";
           };
         mpris = {
           format = "{player_icon} {status_icon} {dynamic}";
