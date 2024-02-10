@@ -4,6 +4,9 @@
 
 { config, pkgs, lib, inputs, outputs, ... }:
 
+let
+    nixPath = "/run/current-system/nixpkgs";
+in
 {
   imports = [
     ./imports.nix
@@ -199,7 +202,10 @@
   system.extraSystemBuilderCmds = ''
     ln -sv ${pkgs.path} $out/nixpkgs
   '';
-  nix.nixPath = [ "nixpkgs=flake:nixpkgs" ];
+  nix.nixPath = [ "nixpkgs=${nixPath}" ];
+  systemd.tmpfiles.rules = [
+    "L+ ${nixPath} - - - - ${pkgs.path}"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

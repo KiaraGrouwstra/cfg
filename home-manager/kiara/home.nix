@@ -12,9 +12,6 @@
 
   home.sessionVariables = {
     # `nixos-option`
-    NIX_PATH = (lib.concatStringsSep ":"
-      (lib.mapAttrsToList (name: path: "${name}=${path.to.path}")
-        config.nix.registry));
     # qt wayland: https://github.com/keepassxreboot/keepassxc/issues/2973
     QT_QPA_PLATFORM = "wayland";
     ECORE_EVAS_ENGINE = "wayland_egl";
