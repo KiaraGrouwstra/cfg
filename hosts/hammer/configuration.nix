@@ -45,12 +45,6 @@
     };
   };
 
-  # keymap in X11
-  services.xserver.xkb = {
-    layout = "us,nl";
-    variant = "";
-  };
-
   # printing
   services.printing.enable = true;
 
@@ -73,15 +67,6 @@
     ];
     shell = pkgs.zsh;
   };
-
-  services.xserver.displayManager = {
-    autoLogin = {
-      enable = true;
-      user = "kiara";
-    };
-  };
-
-  services.xserver.displayManager.session = [ ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

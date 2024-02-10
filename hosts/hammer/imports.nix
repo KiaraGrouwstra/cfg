@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./xserver.nix
     # ./adblock.nix  # messes with wifi pages
     ./chromium.nix
     ./databases.nix
