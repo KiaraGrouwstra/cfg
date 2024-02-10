@@ -58,6 +58,15 @@ in {
 
     programs.command-not-found.enable = true;
 
+    # shell-agnostic style
+    programs.starship = {
+      enable = false;  # too slow
+      enableZshIntegration = true;
+      # https://starship.rs/config/
+      # .config/starship.toml
+      # settings = {};
+    };
+
     # argument completer
     programs.carapace = {
       enable = true;
