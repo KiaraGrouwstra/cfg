@@ -48,8 +48,8 @@ in {
   "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1835";
-    sha256 = "1yf2fgrwbgp9cmwhw72kf4684rnjivdm8im7bw4hdzgy4si6hz0w";
+    version = "0.4.1838";
+    sha256 = "1dgamjs4jp6z6r03jqi4ifdcdv8bw75vhjwd0jm05yvnnall70vw";
   };
 
   "tamasfe"."even-better-toml" = vscode-utils.extensionFromVscodeMarketplace {
@@ -148,6 +148,13 @@ in {
     publisher = "kokakiwi";
     version = "2.1.0";
     sha256 = "1mjj7h7d01afi3qcyflcwpi05a6n6m6ym07rz34m3mxma461cxyn";
+  };
+
+  "kdl-org"."kdl" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "kdl";
+    publisher = "kdl-org";
+    version = "1.3.1";
+    sha256 = "1a302y4xkqng5pbiyzxlr3mpl1r9g4813m14gzzjh6wsmj3z4rni";
   };
 
   "meraymond"."idris-vscode" = vscode-utils.extensionFromVscodeMarketplace {

@@ -12,8 +12,7 @@
   outline: none;
   margin: 0;
   padding: 10px;
-  /* BellotaText 13, Comfortaa 13, Jura 14, montserrat alternates 13 */
-  font: 1em shantell sans;
+  font: 1m regular;
 }
 
 .notification-row:focus,

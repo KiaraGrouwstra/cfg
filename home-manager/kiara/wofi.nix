@@ -34,14 +34,14 @@
 
     # https://github.com/prtce/wofi/blob/main/src/frappe/maroon/style.css
     style = ''
-      /* Frappe Maroon */
-      @define-color accent #ea999c;
+      /* Catppuccin Mocha Maroon */
+      @define-color accent #eba0ac;
       @define-color txt #cad3f5;
-      @define-color bg #303446;
-      @define-color bg2 #51576d;
+      @define-color bg #1e1e2e;
+      @define-color bg2 #313244;
 
       * {
-          font-family: ${config.fontProfiles.regular.family};
+          font-family: ${config.fontProfiles.regular.name};
           font-size: 14px;
       }
 

@@ -90,6 +90,10 @@ extension_name = "vscode-yaml"
 publisher_name = "eww-yuck"
 extension_name = "yuck"
 
+[[extensions]]
+publisher_name = "kdl-org"
+extension_name = "kdl"
+
 # linting
 
 [[extensions]]

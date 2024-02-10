@@ -43,6 +43,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-compat.follows = "flake-compat";
+    };
     nix-colors.url = "github:misterio77/nix-colors";
     unbound-blocklist = {
       url = "github:mirosval/unbound-blocklist";
@@ -128,6 +134,7 @@
       url = "github:cachix/devenv/python-rewrite";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "flake-compat";
+      inputs.poetry2nix.follows = "poetry2nix";
     };
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
@@ -254,8 +261,10 @@
             modules = [
               "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
               nur.nixosModules.nur
+              ./modules/home-manager
+              inputs.stylix.homeManagerModules.stylix
               ./home-manager/kiara/home.nix
-              inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+              inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
             ];
           };
 

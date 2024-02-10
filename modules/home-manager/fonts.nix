@@ -2,7 +2,7 @@
 
 let
   mkFontOption = kind: {
-    family = lib.mkOption {
+    name = lib.mkOption {
       type = lib.types.str;
       default = null;
       description = "Family name for ${kind} font profile";
@@ -20,11 +20,16 @@ in {
   options.fontProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
     monospace = mkFontOption "monospace";
-    regular = mkFontOption "regular";
+    regular   = mkFontOption "regular";
+    emoji     = mkFontOption "emoji";
   };
 
   config = lib.mkIf cfg.enable {
     fonts.fontconfig.enable = true;
-    home.packages = [ cfg.monospace.package cfg.regular.package ];
+    home.packages = with cfg; [
+      monospace.package
+      regular.package
+      emoji.package
+    ];
   };
 }

@@ -1,42 +1,9 @@
 { pkgs, lib, ... }:
 
 {
-  # If I can't dance to it, it's not my revolution. - Emma Goldman
-  gtk = {
-    enable = true;
-
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Amber";
-    };
-
-    iconTheme = {
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "frappe";
-        accent = "maroon";
-      };
-      name = "Papirus-Dark";
-    };
-
-    theme = {
-      name = "Catppuccin-Frappe-Compact-Maroon-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        variant = "frappe";
-        size = "compact";
-        accents = [ "maroon" ];
-        tweaks = [ "rimless" "black" ];
-      };
-    };
-
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-
-    gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-
-  };
+  gtk.enable = true;
 
   dconf.settings = {
-
-    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
 
     "org/gnome/desktop/wm/keybindings" = {
       switch-windows = [ "<Alt>Tab" ];

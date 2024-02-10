@@ -22,7 +22,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
         "${swaync}"
 
         # Lock screen after idling
-        # "${swayidle} -w timeout 900 '${swaylock} -i $(${swww} query | sed \"s/^.*image: //g\") -f'"
+        # "${swayidle} -w timeout 900 '${swaylock} -f'"
 
         # wallpapers
         "${swww} init"
@@ -56,9 +56,6 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgba(ef9f76ee) rgba(eebebeee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
-
         layout = "dwindle";
 
         # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
@@ -79,7 +76,6 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = {
@@ -364,7 +360,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
         "SUPER, V, exec, ${cliphist} list | ${anyrun} --plugins ${stdin} | ${cliphist} decode | ${wl-copy}"
 
         # SUPER L - Locks immediately, SUPERSHIFT L Turns monitors off (while locked)
-        "SUPER, L, exec, ${swaylock} -i $(${swww} query | sed 's/^.*image: //g')"
+        "SUPER, L, exec, ${swaylock}"
 
         "ALT, Space, exec, ${swaync-client} --close-latest"
         "CTRL ALT, Space, exec, ${swaync-client} --close-all"

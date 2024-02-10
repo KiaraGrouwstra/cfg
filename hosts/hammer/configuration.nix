@@ -6,6 +6,7 @@
 
 let
     nixPath = "/run/current-system/nixpkgs";
+    nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
 in
 {
   imports = [
@@ -84,7 +85,6 @@ in
     cachix
     sops
     rage
-    libsForQt5.qtstyleplugin-kvantum
     ssh-to-age
   ];
 
@@ -133,16 +133,6 @@ in
 
   # https://github.com/NixOS/nixpkgs/pull/210453#issuecomment-1410035331
   nixpkgs.config.firefox.speechSynthesisSupport = true;
-
-  # TODO: move to fonts.nix once that works
-  fonts.packages = with pkgs; [
-    powerline-fonts
-    twemoji-color-font
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-emoji-blob-bin
-  ];
 
   sops = {
     age.keyFile = "/etc/nixos/keys.txt"; # must have no password!

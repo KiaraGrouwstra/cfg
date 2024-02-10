@@ -191,7 +191,7 @@
     style = ''
       * {
         font-size: 20px;
-        font-family: mono-space;
+        font-family: "FiraCode Nerd Font";
       }
 
       window#waybar {

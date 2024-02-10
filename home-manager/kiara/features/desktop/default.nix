@@ -48,26 +48,13 @@ in {
       pywalfox-native
       wpgtk
       fontpreview
-      # themix-gui
       wallust
 
     ];
 
-    home.pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.catppuccin-cursors.frappeDark;
-      name = "Catppuccin-Frappe-Dark-Cursors";
-      size = 48;
-    };
-
     services.lorri = { enable = true; };
 
     services.playerctld.enable = true;
-
-    # programs.eww = {
-    #   enable = true;
-    #   configDir = ../../dotfiles/eww;
-    # };
 
   };
 }

@@ -27,6 +27,7 @@
     ./rofi.nix
     ./swaylock.nix
     ./systemd-fixes.nix
+    ./stylix.nix
     ./tty-init.nix
     ./vscode.nix
     ./waybar.nix

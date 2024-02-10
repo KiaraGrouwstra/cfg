@@ -8,6 +8,7 @@
     ./chromium.nix
     ./databases.nix
     ./firefox.nix
+    ./fonts.nix
     ./greetd.nix
     ./guix.nix
     ./hashicorp.nix
