@@ -73,6 +73,14 @@ in {
       enableZshIntegration = true;
     };
 
+    programs.nushell = {
+      enable = true;
+      # configFile.source = ./config.nu;
+      # envFile.source = ./env.nu;
+      environmentVariables = {};
+      shellAliases = {};
+    };
+
     ## credentials / security
 
     services.gpg-agent = {
