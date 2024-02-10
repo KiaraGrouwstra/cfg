@@ -372,7 +372,7 @@ binds {
     Mod+W { spawn "firefox"; }
     Mod+V { spawn "code"; }
     Mod+E { spawn "nautilus" "Downloads/"; }
-    Mod+Shift+E { spawn "wezterm" "-e" "--always-new-process" "ranger" "/home/kiara/Downloads/"; }
+    Mod+Shift+E { spawn "wezterm" "-e" "--always-new-process" "lf" "/home/kiara/Downloads/"; }
     Mod+Shift+Ctrl+Alt+Space { spawn "rofimoji" "--selector" "wofi" "-f" "emoji"; }
     Mod+N { spawn "systemctl" "hibernate"; }
     Mod+K { quit; }
