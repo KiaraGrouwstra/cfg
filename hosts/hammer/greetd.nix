@@ -10,7 +10,6 @@ in {
   # ];
 
   config = mkIf cfg.enable {
-    services.xserver.enable = true;
     services.greetd = {
       enable = true;
       restart = false;
