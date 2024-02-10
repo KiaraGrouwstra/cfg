@@ -8,77 +8,77 @@
     profiles = {
       kiara = {
         containers = { };
-        search = {
-          # Whether to force replace the existing search configuration
-          force = true;
-          # The default search engine used in the address bar and search bar
-          default = "Brave Search";
-          # The default search engine used in the Private Browsing
-          privateDefault = "Brave Search";
-          # The order the search engines are listed in
-          order = [ "Brave Search" ];
-          # Attribute set of search engine configurations
-          # engines = lib.mapAttrs (_: default {
-          #   updateInterval = 24 * 60 * 60 * 1000; # every day
-          # }) {
-          #   # "Bing".metaData.hidden = true;
-          #   "Brave Search" = {
-          #     urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
-          #     iconUpdateURL = "https://brave.com/static-assets/images/cropped-brave_appicon_release-32x32.png";
-          #     definedAliases = [ "@b" ];
-          #   };
-          #   "Nixpkgs-Package Search" = {
-          #     urls = [{ template = "https://search.nixos.org/packages?channel=unstable&size=250&sort=relevance&type=packages&query={searchTerms}"; }];
-          #     iconUpdateURL = "https://nixos.org/favicon.png";
-          #     definedAliases = [ "@nps" ];
-          #   };
-          #   "Nixpkgs-Modules Search" = {
-          #     urls = [{ template = "https://search.nixos.org/options?channel=unstable&size=200&sort=relevance&query={searchTerms}"; }];
-          #     iconUpdateURL = "https://nixos.org/favicon.png";
-          #     definedAliases = [ "@nms" ];
-          #   };
-          #   "NixOS-Wiki Search" = {
-          #     urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}&go=Go"; }];
-          #     iconUpdateURL = "https://nixos.org/favicon.png";
-          #     definedAliases = [ "@nws" ];
-          #   };
-          #   "Home-Manager Search" = {
-          #     urls = [{ template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}"; }];
-          #     iconUpdateURL = "https://nixos.org/favicon.png";
-          #     definedAliases = [ "@hms" ];
-          #   };
-          #   "GitHub-Code Search" = {
-          #     urls = [{ template = "https://github.com/search?q={searchTerms}&type=code"; }];
-          #     iconUpdateURL = "https://github.githubassets.com/favicons/favicon-dark.svg";
-          #     definedAliases = [ "@gcs" ];
-          #   };
-          #   "Noogle.dev Search" = {
-          #     urls = [{ template = "https://noogle.dev/?term=%22{searchTerms}%22"; }];
-          #     iconUpdateURL = "https://noogle.dev/favicon.png";
-          #     definedAliases = [ "@ngd" "@nog" ];
-          #   };
-          #   "Autonomous-System-Number Search" = {
-          #     urls = [{ template = "https://bgp.tools/search?q={searchTerms}"; }];
-          #     iconUpdateURL = "https://bgp.tools/favicon-32x32.png";
-          #     definedAliases = [ "@asn" ];
-          #   };
-          #   "Nixpkgs PRs" = {
-          #     urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
-          #     iconUpdateURL = "https://nixos.org/favicon.png";
-          #     definedAliases = [ "@npr" ];
-          #   };
-          #   "Request for Comments" = {
-          #     urls = [{ template = "https://datatracker.ietf.org/doc/html/rfc{searchTerms}"; }];
-          #     iconUpdateURL = "https://www.ietf.org/favicon.ico";
-          #     definedAliases = [ "@rfc" ];
-          #   };
-          #   "Way Back Machine" = {
-          #     urls = [{ template = "	https://web.archive.org/web/*/{searchTerms}"; }];
-          #     iconUpdateURL = "https://archive.org/favicon.ico";
-          #     definedAliases = [ "@wbm" ];
-          #   };
-          # };
-        };
+        # search = {
+        #   # Whether to force replace the existing search configuration
+        #   force = true;
+        #   # The default search engine used in the address bar and search bar
+        #   default = "Brave Search";
+        #   # The default search engine used in the Private Browsing
+        #   privateDefault = "Brave Search";
+        #   # The order the search engines are listed in
+        #   order = [ "Brave Search" ];
+        #   # Attribute set of search engine configurations
+        #   # engines = lib.mapAttrs (_: default {
+        #   #   updateInterval = 24 * 60 * 60 * 1000; # every day
+        #   # }) {
+        #   #   # "Bing".metaData.hidden = true;
+        #   #   "Brave Search" = {
+        #   #     urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
+        #   #     iconUpdateURL = "https://brave.com/static-assets/images/cropped-brave_appicon_release-32x32.png";
+        #   #     definedAliases = [ "@b" ];
+        #   #   };
+        #   #   "Nixpkgs-Package Search" = {
+        #   #     urls = [{ template = "https://search.nixos.org/packages?channel=unstable&size=250&sort=relevance&type=packages&query={searchTerms}"; }];
+        #   #     iconUpdateURL = "https://nixos.org/favicon.png";
+        #   #     definedAliases = [ "@nps" ];
+        #   #   };
+        #   #   "Nixpkgs-Modules Search" = {
+        #   #     urls = [{ template = "https://search.nixos.org/options?channel=unstable&size=200&sort=relevance&query={searchTerms}"; }];
+        #   #     iconUpdateURL = "https://nixos.org/favicon.png";
+        #   #     definedAliases = [ "@nms" ];
+        #   #   };
+        #   #   "NixOS-Wiki Search" = {
+        #   #     urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}&go=Go"; }];
+        #   #     iconUpdateURL = "https://nixos.org/favicon.png";
+        #   #     definedAliases = [ "@nws" ];
+        #   #   };
+        #   #   "Home-Manager Search" = {
+        #   #     urls = [{ template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}"; }];
+        #   #     iconUpdateURL = "https://nixos.org/favicon.png";
+        #   #     definedAliases = [ "@hms" ];
+        #   #   };
+        #   #   "GitHub-Code Search" = {
+        #   #     urls = [{ template = "https://github.com/search?q={searchTerms}&type=code"; }];
+        #   #     iconUpdateURL = "https://github.githubassets.com/favicons/favicon-dark.svg";
+        #   #     definedAliases = [ "@gcs" ];
+        #   #   };
+        #   #   "Noogle.dev Search" = {
+        #   #     urls = [{ template = "https://noogle.dev/?term=%22{searchTerms}%22"; }];
+        #   #     iconUpdateURL = "https://noogle.dev/favicon.png";
+        #   #     definedAliases = [ "@ngd" "@nog" ];
+        #   #   };
+        #   #   "Autonomous-System-Number Search" = {
+        #   #     urls = [{ template = "https://bgp.tools/search?q={searchTerms}"; }];
+        #   #     iconUpdateURL = "https://bgp.tools/favicon-32x32.png";
+        #   #     definedAliases = [ "@asn" ];
+        #   #   };
+        #   #   "Nixpkgs PRs" = {
+        #   #     urls = [{ template = "https://nixpk.gs/pr-tracker.html?pr={searchTerms}"; }];
+        #   #     iconUpdateURL = "https://nixos.org/favicon.png";
+        #   #     definedAliases = [ "@npr" ];
+        #   #   };
+        #   #   "Request for Comments" = {
+        #   #     urls = [{ template = "https://datatracker.ietf.org/doc/html/rfc{searchTerms}"; }];
+        #   #     iconUpdateURL = "https://www.ietf.org/favicon.ico";
+        #   #     definedAliases = [ "@rfc" ];
+        #   #   };
+        #   #   "Way Back Machine" = {
+        #   #     urls = [{ template = "	https://web.archive.org/web/*/{searchTerms}"; }];
+        #   #     iconUpdateURL = "https://archive.org/favicon.ico";
+        #   #     definedAliases = [ "@wbm" ];
+        #   #   };
+        #   # };
+        # };
         # Preloaded bookmarks
         # bookmarks = [
         #   {
