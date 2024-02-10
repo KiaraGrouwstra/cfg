@@ -58,6 +58,12 @@ in {
 
     programs.command-not-found.enable = true;
 
+    # argument completer
+    programs.carapace = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     ## credentials / security
 
     services.gpg-agent = {
