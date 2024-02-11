@@ -376,7 +376,7 @@ binds {
     Mod+V { spawn "code"; }
     Mod+E { spawn "nautilus" "Downloads/"; }
     Mod+Shift+E { spawn "wezterm" "-e" "--always-new-process" "lf" "/home/kiara/Downloads/"; }
-    Mod+Shift+Ctrl+Alt+Space { spawn "rofimoji" "--selector" "wofi" "-f" "emoji"; }
+    Mod+Shift+Ctrl+Alt+Space { spawn "anyrun" "--plugins" "libsymbols.so"; }
     Mod+N { spawn "systemctl" "hibernate"; }
     Mod+K { quit; }
     Mod+F3 { spawn "/home/kiara/.config/hypr/scripts/fontpreview.sh"; }
@@ -390,7 +390,7 @@ binds {
     Mod+U { spawn "/home/kiara/.config/rofi/power.sh"; }
     Mod+P { spawn "/home/kiara/.config/rofi/displays.sh"; }
     Mod+Y { spawn "/home/kiara/.config/rofi/keepassxc.sh" "-d" "~/Nextcloud/keepass.kdbx"; }
-    Mod+B { spawn "rofimoji" "--selector" "wofi" "-f" "latin-1_supplement" "-a" "copy"; }
+    Mod+B { spawn "anyrun" "--plugins" "libsymbols.so"; }
     Ctrl+Alt+Delete { spawn "wezterm" "-e" "--always-new-process" "htop"; }
     Mod+L { spawn "/home/kiara/.config/niri/scripts/lock.sh"; }
     Alt+Space { spawn "swaync-client" "--close-latest"; }
