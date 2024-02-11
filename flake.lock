@@ -433,6 +433,29 @@
         "type": "github"
       }
     },
+    "flare": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1707655098,
+        "narHash": "sha256-Dg5UhVTmxiwPIbU8fG/ehX9Zp8WI2V+JoOEI7P1Way4=",
+        "owner": "schmiddi-on-mobile",
+        "repo": "flare",
+        "rev": "623be2cf835b2d6cd862b4cf76c804a245ea5571",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "schmiddi-on-mobile",
+        "repo": "flare",
+        "type": "gitlab"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -1194,6 +1217,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils_5",
         "flake-utils-plus": "flake-utils-plus",
+        "flare": "flare",
         "hcloud-csi-driver": "hcloud-csi-driver",
         "home-manager": "home-manager",
         "hyprland-contrib": "hyprland-contrib",

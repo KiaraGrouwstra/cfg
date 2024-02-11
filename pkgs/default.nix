@@ -8,6 +8,7 @@
   "nix-software-center"
   "nixos-conf-editor"
   "nomad-driver-containerd-nix"
+  "flare"
 ] //
   # non-flakes: import from remaining `pkgs/*.nix` files
   (lib.importRest { inherit pkgs lib inputs; }
