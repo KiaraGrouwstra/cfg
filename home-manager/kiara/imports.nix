@@ -7,7 +7,6 @@
 
     ./anyrun
     ./colors.nix
-    ./chromium.nix
     ./desktop.nix
     ./dotfiles.nix
     ./emacs.nix

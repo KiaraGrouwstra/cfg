@@ -31,17 +31,15 @@ in {
       ricochet
       weechat
       kdeltachat
-      # nur.repos.xyenon.kazv
+      # nur.repos.xyenon.kazv  # https://github.com/XYenon/nur-packages/issues/14
       flare
 
       ## web browsers
-      # chromium
       tor-browser
       qutebrowser
       wget
       curl
       lynx
-      thorium-browser
       mercury-browser
 
     ];

@@ -17,7 +17,6 @@ in {
       just
       treefmt
       woodpecker-cli
-      bruno
 
       ## version control
       git

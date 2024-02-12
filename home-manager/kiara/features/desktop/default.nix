@@ -22,7 +22,6 @@ in {
       pinentry-curses
 
       ## clipboard
-      xclip
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wl-clip-persist # make clipboard persist across app close
       cliphist

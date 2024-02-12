@@ -15,21 +15,7 @@ in {
 
     programs.extra-container.enable = true;
 
-    users.extraGroups.vboxusers.members = [ "kiara" ];
-
     virtualisation = {
-
-      # missing wayland support: https://www.virtualbox.org/ticket/13471
-      virtualbox = {
-        host = {
-          enable = false;
-          enableExtensionPack = true;
-        };
-        guest = {
-          enable = false;
-          # x11 = false;
-        };
-      };
 
       # to use podman with ports as low as 80 run:
       # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
@@ -53,11 +39,6 @@ in {
         };
       };
 
-      # https://nixos.wiki/wiki/WayDroid
-      waydroid.enable = true;
-
-      # libvirtd
-      libvirtd.enable = true;
     };
     programs.dconf.enable = true;
 
