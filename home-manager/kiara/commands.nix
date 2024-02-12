@@ -48,6 +48,6 @@ in with pkgs; {
   baobab = "${baobab}/bin/baobab";
   keepassxc = "${keepassxc}/bin/keepassxc";
   firefox = "${firefox}/bin/firefox";
-  code = "${vscode}/bin/code";
+  codium = "${vscodium}/bin/codium";
   unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }

@@ -179,14 +179,13 @@
       # [ overlay ]
       overlays = builtins.attrValues overlaysAttrs ++ [
         nur.overlay
-        # inputs.nix-vscode-extensions.overlays.default
         inputs.catppuccin-vsc.overlays.default
       ];
       # for each system: nixpkgs
       pkgsFor = lib.genAttrs systems
         (system: import nixpkgs {
           inherit system overlays;
-          config.allowUnfree = true;
+          # config.allowUnfree = true;
         });
       # for each system: apply pkgs to a function
       forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});

@@ -4,13 +4,12 @@
 
   programs.vscode = {
     enable = true;
-    # package = pkgs.vscodium;  # limits selection in extension marketplace
-    package = pkgs.vscode;  # unfree + does telemetry
+    package = pkgs.vscodium;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
-    # codium --list-extensions | awk '{print tolower($0)}'
-    # TODO: updating https://github.com/nix-community/nix4vscode/issues/13
+    # porting installed extensions: `codium --list-extensions | awk '{print tolower($0)}'`
+    # finding new extensions: https://marketplace.visualstudio.com/vscode
     extensions = with (import ./vscode-extensions) { inherit pkgs lib; }; [
 
       # convenience
