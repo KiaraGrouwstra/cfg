@@ -16,6 +16,7 @@ in {
       any-nix-shell
       nix-direnv
       nixpkgs-review
+      garn
 
       ## packaging
       nix-software-center
