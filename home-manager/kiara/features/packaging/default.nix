@@ -17,6 +17,7 @@ in {
       nix-direnv
       nixpkgs-review
       garn
+      devbox
 
       ## packaging
       nix-software-center
