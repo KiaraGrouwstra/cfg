@@ -344,7 +344,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
         "SUPER, Y, exec, ~/.config/rofi/keepassxc.sh"
         # "SUPER, T, exec, ${rofi-systemd}"
         # "SUPER, B, exec, ${rofimoji} -f latin-1_supplement -a copy"
-        "CTRL_ALT, Delete, exec, ${unfullscreen} && ${terminal} ${htop}"
+        "CTRL_ALT, Delete, exec, ${unfullscreen} && ${terminal} ${btop}"
 
         # set $menu bemenu-run
 

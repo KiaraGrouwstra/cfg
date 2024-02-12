@@ -29,7 +29,7 @@ in {
       ## process management
       monitor
       gnome.gnome-system-monitor
-      htop
+      btop
 
       ## notifications
       libnotify

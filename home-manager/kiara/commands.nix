@@ -20,7 +20,7 @@ in with pkgs; {
   nmtui = "${networkmanager}/bin/nmtui";
   swaylock = "${swaylock-effects}/bin/swaylock";
   swww = "${swww}/bin/swww";
-  htop = "${htop}/bin/htop";
+  btop = "${btop}/bin/btop";
   wallust = "${wallust}/bin/wallust";
   nautilus = "${gnome.nautilus}/bin/nautilus";
   networkmanager_dmenu = "${networkmanager_dmenu}/bin/networkmanager_dmenu";
