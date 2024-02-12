@@ -1,4 +1,4 @@
-{ lib, config, pkgs, unfree, ... }:
+{ lib, config, pkgs, ... }:
 
 with lib;
 
@@ -27,7 +27,6 @@ in {
       matrix-commander
       kirc
       halloy
-      unfree.zoom-us
       python3Packages.yowsup
       ricochet
       weechat

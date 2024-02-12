@@ -1,4 +1,4 @@
-{ lib, config, pkgs, unfree, ... }:
+{ lib, config, pkgs, ... }:
 
 with lib;
 
@@ -54,7 +54,6 @@ in {
       gettext
       nodejs-slim
       nodePackages.npm
-      unfree.neo4j-desktop
       go
 
       ## arduino

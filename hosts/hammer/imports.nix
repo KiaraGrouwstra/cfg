@@ -18,7 +18,6 @@
     ./power.nix
     ./networking.nix
     ./sound.nix
-    ./gaming.nix
     ./virtualisation.nix
   ];
 }

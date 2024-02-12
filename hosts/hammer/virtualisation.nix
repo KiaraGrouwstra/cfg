@@ -17,9 +17,6 @@ in {
 
     users.extraGroups.vboxusers.members = [ "kiara" ];
 
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      lib.elem (lib.getName pkg) [ "vmware" ];
-
     virtualisation = {
 
       # missing wayland support: https://www.virtualbox.org/ticket/13471
@@ -31,20 +28,6 @@ in {
         guest = {
           enable = false;
           # x11 = false;
-        };
-      };
-
-      # missing wayland support: https://github.com/vmware/open-vm-tools/issues/660
-      vmware = {
-        host = {
-          enable = false;
-          # package = pkgs.vmware-workstation;
-          # extraConfig = "";
-          # extraPackages = [];
-        };
-        guest = {
-          enable = false;
-          # headless = true;
         };
       };
 
