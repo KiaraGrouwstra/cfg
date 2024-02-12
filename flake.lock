@@ -804,16 +804,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1707585035,
-        "narHash": "sha256-y5r4bNto83FWzgDo6i8Esr1HxjdvSDxvX+wpDF+zchs=",
-        "owner": "KiaraGrouwstra",
+        "lastModified": 1707717484,
+        "narHash": "sha256-37V2SGMcqDC9vBneonuA4mIYSfk2WLHjynlOlmjWCmE=",
+        "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "d3e8aec620aaab00bdbc1939b14865cc9f27d864",
+        "rev": "bccde351fb9d55ebf90f3061075ba8a72b8813a9",
         "type": "github"
       },
       "original": {
-        "owner": "KiaraGrouwstra",
-        "ref": "exclude-visual-tests-from-nix",
+        "owner": "YaLTeR",
         "repo": "niri",
         "type": "github"
       }

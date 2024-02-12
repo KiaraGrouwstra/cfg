@@ -108,8 +108,7 @@
       inputs.crate2nix.follows = "crate2nix";
     };
     niri-src = {
-      # url = "github:YaLTeR/niri";  # https://github.com/YaLTeR/niri/issues/181
-      url = "github:KiaraGrouwstra/niri/exclude-visual-tests-from-nix";
+      url = "github:YaLTeR/niri";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.crane.follows = "crane";
