@@ -78,7 +78,7 @@
 
     };
 
-    extraCss = builtins.readFile ./style-dark.css;
+    extraCss = lib.readFile ./style-dark.css;
 
     # will be put in ~/.config/anyrun/some-plugin.ron
     # refer to docs of xdg.configFile for available options
