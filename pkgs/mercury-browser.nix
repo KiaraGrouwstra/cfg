@@ -1,3 +1,4 @@
+# https://github.com/NixOS/nixpkgs/pull/261805
 { lib, stdenv, fetchurl, autoPatchelfHook, dpkg, wrapGAppsHook, alsa-lib
 , browserpass, bukubrow, cairo, cups, dbus, dbus-glib, ffmpeg, fontconfig
 , freetype, fx-cast-bridge, glib, glibc, gnome-browser-connector, gtk3, harfbuzz
