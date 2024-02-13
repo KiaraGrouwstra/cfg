@@ -50,11 +50,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    unbound-blocklist = {
-      url = "github:mirosval/unbound-blocklist";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixos";

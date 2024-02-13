@@ -1545,8 +1545,7 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "systems": "systems_8",
-        "treefmt-nix": "treefmt-nix",
-        "unbound-blocklist": "unbound-blocklist"
+        "treefmt-nix": "treefmt-nix"
       }
     },
     "rust-analyzer-src": {
@@ -1787,29 +1786,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "unbound-blocklist": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1707110704,
-        "narHash": "sha256-Sb43Tw/zQ2WB8ba8zwKSpPa1pSAhYPgNSweduY6U+Zo=",
-        "owner": "mirosval",
-        "repo": "unbound-blocklist",
-        "rev": "b55cc7c090cbe84cfc7c38239bdbd7a004d9a185",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mirosval",
-        "repo": "unbound-blocklist",
         "type": "github"
       }
     }

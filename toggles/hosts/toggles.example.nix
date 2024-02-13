@@ -1,6 +1,5 @@
 {
   toggles = {
-    # adblock.enable = true;
     databases.enable = true;
     greetd.enable = true;
     guix.enable = true;
