@@ -14,9 +14,7 @@
     ./font.nix
     ./gammastep.nix
     ./git.nix
-    # ./gnome/default.nix
     ./gtk.nix
-    ./kanshi.nix
     ./kitty.nix
     ./mime.nix
     ./neomutt.nix

@@ -37,12 +37,9 @@ with pkgs; {
   glow = "${glow}/bin/glow";
   lynx = "${lynx}/bin/lynx";
   visidata = "${visidata}/bin/visidata";
-  kanshictl = "${kanshi}/bin/kanshictl";
-  hyprpicker = "${hyprpicker}/bin/hyprpicker";
   webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
   baobab = "${baobab}/bin/baobab";
   keepassxc = "${keepassxc}/bin/keepassxc";
   firefox = "${firefox}/bin/firefox";
   codium = "${vscodium}/bin/codium";
-  unfullscreen = "~/.config/hypr/scripts/unfullscreen";
 }

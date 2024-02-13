@@ -76,7 +76,7 @@
           tooltip-format-disconnected = "Disconnected";
           max-length = 50;
           on-click = "${networkmanager_dmenu}";
-          on-click-right = "${unfullscreen} && ${terminal} ${nmtui}";
+          on-click-right = "${terminal} ${nmtui}";
         };
         clock = {
           format = "{:%H:%M}";
@@ -140,8 +140,8 @@
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
-          on-click = "${unfullscreen} && ${terminal} nix-collect-garbage -d";
-          on-click-right = "${unfullscreen} && ${baobab}";
+          on-click = "${terminal} nix-collect-garbage -d";
+          on-click-right = "${baobab}";
         };
         tray = { icon-size = 20; };
       };

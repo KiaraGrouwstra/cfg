@@ -13,17 +13,11 @@ in {
     home.packages = with pkgs; [
       ## mobile
       kdeconnect
-      android-tools
       wvkbd
-      cage
 
       ## speech / TTS
       speechd
-      espeak-classic
-      piper-tts
-      yasr
       orca
-      openai-whisper
 
     ];
 

@@ -12,31 +12,16 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       ## text editors
-      lapce
       vim
       amp
-      helix
       hexyl
-      featherpad
-      libsForQt5.kate
-      nota
       gnome-text-editor
 
       ## command-line document viewers / editors
-      unixtools.column
-      poppler_utils
-      pdf2odt
-      xsv
-      # csvkit  # https://github.com/NixOS/nixpkgs/issues/281150
-      dex
+      unixtools.column  # lesspipe
 
       ## markdown
       glow
-      ghostwriter
-      apostrophe
-      okular
-      mdcat
-      typst
 
       ## document viewers / editors
       evince

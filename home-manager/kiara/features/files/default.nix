@@ -13,18 +13,10 @@ in {
     home.packages = with pkgs; [
       ## file browser
       gnome.nautilus
-      gnome.nautilus-python
-      nautilus-open-any-terminal # manually patch gsettings: https://github.com/NixOS/nixpkgs/issues/259586#issuecomment-1752107159
-      ranger
-      mc
       baobab
 
       ## file handling / metadata
       xdg-utils
-      handlr
-      mimeo
-      desktop-file-utils
-      file
 
       ## compression
       zip
@@ -32,16 +24,8 @@ in {
       zlib
       unrar-free
 
-      ## backups
-      borgbackup
-      borgmatic
-      vorta
-
       ## file sharing
       nextcloud-client
-      sshfs
-      nodePackages.webtorrent-cli
-      onionshare-gui
 
       # security
       gnome.seahorse

@@ -14,8 +14,6 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       ## UI
-      wayland
-      niri-src
       waybar
       swayidle
       playerctl
@@ -36,8 +34,6 @@ in {
       swaynotificationcenter
 
       ## utilities
-      wdisplays
-      gnome.gnome-characters
       gnome.gnome-maps
 
       ## wallpapers / ricing

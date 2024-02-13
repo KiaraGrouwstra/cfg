@@ -11,18 +11,17 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      ## command-line utilities
+      ## terminals
       kitty
       wezterm
+
+      ## command-line utilities
       zsh
-      wev
-      usbutils
       tealdeer
       thefuck
-      dos2unix
       jaq
-      remarshal
-      pandoc
+      jq  # https://github.com/wofr06/lesspipe/issues/145
+      pandoc  # lesspipe
 
       ## command-line dropins
       xxh
@@ -31,18 +30,7 @@ in {
       eza
 
       ## networking
-      gnirehtet
-      mtr
       networkmanager_dmenu
-
-      ## virtualization
-      podman
-      podman-compose
-      podman-tui
-      docker-compose
-      lazydocker # TUI
-      qemu
-      arion
 
       ## credentials / security
       pass
@@ -69,14 +57,6 @@ in {
     programs.carapace = {
       enable = true;
       enableZshIntegration = true;
-    };
-
-    programs.nushell = {
-      enable = true;
-      # configFile.source = ./config.nu;
-      # envFile.source = ./env.nu;
-      environmentVariables = {};
-      shellAliases = {};
     };
 
     ## credentials / security

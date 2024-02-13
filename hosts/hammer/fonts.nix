@@ -7,6 +7,5 @@
     noto-fonts-cjk
     noto-fonts-emoji
     noto-fonts-emoji-blob-bin
-    proggyfonts
   ];
 }

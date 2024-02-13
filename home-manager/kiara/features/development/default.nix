@@ -13,33 +13,18 @@ in {
     home.packages = with pkgs; [
       ## development
       direnv
-      gnumake
-      just
       treefmt
-      woodpecker-cli
 
       ## version control
       git
       git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
-      gitui
       git-interactive-rebase-tool
-      git-cola
       gitg
 
       ## language-specific
-      nodePackages.markdownlint-cli
-      texlive.combined.scheme-full
-      gcc
-      poetry
-      jdk
-      yarn
-      idris2
-      hvm
       nixpkgs-fmt
       nixd
       nil
-      cargo
-      typescript
       haskellPackages.haskell-language-server
       ansible-language-server
       nodePackages.vim-language-server
@@ -49,17 +34,6 @@ in {
       nodePackages.typescript-language-server
       nodePackages.vscode-json-languageserver
       kotlin-language-server
-      sqlite
-      (python3.withPackages (ps: with ps; [ pandas ipython ipython-sql ]))
-      gettext
-      nodejs-slim
-      nodePackages.npm
-      go
-
-      ## arduino
-      arduino-cli
-      arduino
-      arduinoOTA
     ];
 
     programs = {
