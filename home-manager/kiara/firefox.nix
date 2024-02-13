@@ -4,7 +4,7 @@
 
   programs.firefox = {
     enable = true;
-    # package = pkgs.firefox;
+    package = pkgs.firefox-bin;
     profiles = {
       kiara = {
         containers = { };
