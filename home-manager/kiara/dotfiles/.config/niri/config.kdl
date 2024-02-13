@@ -369,8 +369,8 @@ binds {
     Mod+Shift+Ctrl+T { toggle-debug-tint; }
 
     // switch wallpaper
-    Mod+M { spawn "/home/kiara/.config/niri/scripts/random-wallpaper.sh"; }
-    Shift+Mod+M { spawn "/home/kiara/.config/niri/scripts/pick-wallpaper.sh"; }
+    Mod+M { spawn "random-wallpaper.sh"; }
+    Shift+Mod+M { spawn "pick-wallpaper.sh"; }
 
     Mod+W { spawn "firefox"; }
     Mod+V { spawn "codium"; }
@@ -379,7 +379,7 @@ binds {
     Mod+Shift+Ctrl+Alt+Space { spawn "anyrun" "--plugins" "libsymbols.so"; }
     Mod+N { spawn "systemctl" "hibernate"; }
     Mod+K { quit; }
-    Mod+F3 { spawn "/home/kiara/.config/hypr/scripts/fontpreview.sh"; }
+    Mod+F3 { spawn "fontpreview.sh"; }
 
     // Mod-/, kinda like Mod-?, shows a list of important hotkeys.
     Mod+Slash { show-hotkey-overlay; }
@@ -397,12 +397,12 @@ binds {
     Mod+Escape { spawn "swaync-client" "--close-all"; }
     Mod+Grave { spawn "swaync-client" "--toggle-panel"; }
 
-    Mod+Space { spawn "/home/kiara/.config/hypr/scripts/anyrun"; }
-    Shift+Mod+Space { spawn "/home/kiara/.config/hypr/scripts/wofi"; }
-    Alt+Mod+Space { spawn "/home/kiara/.config/hypr/scripts/rofi"; }
-    Mod+J { spawn "/home/kiara/.config/hypr/scripts/anyrun"; }
-    Shift+Mod+J { spawn "/home/kiara/.config/hypr/scripts/wofi"; }
-    Alt+Mod+J { spawn "/home/kiara/.config/hypr/scripts/rofi"; }
+    Mod+Space       { spawn "anyrun.sh"; }
+    Shift+Mod+Space { spawn "wofi.sh"; }
+    Alt+Mod+Space   { spawn "rofi.sh"; }
+    Mod+J           { spawn "anyrun.sh"; }
+    Shift+Mod+J     { spawn "wofi.sh"; }
+    Alt+Mod+J       { spawn "rofi.sh"; }
 }
 
 // Settings for debugging. Not meant for normal use.

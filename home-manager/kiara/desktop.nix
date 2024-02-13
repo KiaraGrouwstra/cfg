@@ -44,18 +44,18 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
       "text/csv"
     ])
 
-    (commandDesktop "tar.gz" ("" + ./dotfiles/.config/hypr/scripts/tar.gz.sh) [
+    (commandDesktop "tar.gz" "tar.gz.sh" [
       "application/x-gzip"
       "application/x-tar"
     ])
 
-    (commandDesktop "rar" ("" + ./dotfiles/.config/hypr/scripts/rar.sh) [
+    (commandDesktop "rar" "rar.sh" [
       "application/vnd.rar"
       "application/x-rar"
       "application/x-rar-compressed"
     ])
 
-    (commandDesktop "zip" ("" + ./dotfiles/.config/hypr/scripts/zip.sh)
+    (commandDesktop "zip" "zip.sh"
       [ "application/x-zip" ])
 
     (commandDesktop "webtorrent" "${webtorrent} download"

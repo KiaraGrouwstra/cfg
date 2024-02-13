@@ -22,6 +22,7 @@
     ./news.nix
     ./niri.nix
     ./rofi.nix
+    ./scripts.nix
     ./swaylock.nix
     ./stylix.nix
     ./vscode.nix
