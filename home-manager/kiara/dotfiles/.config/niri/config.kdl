@@ -391,7 +391,7 @@ binds {
     Mod+P { spawn "/home/kiara/.config/rofi/displays.sh"; }
     Mod+Y { spawn "/home/kiara/.config/rofi/keepassxc.sh" "-d" "~/Nextcloud/keepass.kdbx"; }
     Mod+B { spawn "anyrun" "--plugins" "libsymbols.so"; }
-    Ctrl+Alt+Delete { spawn "wezterm" "-e" "--always-new-process" "btop"; }
+    Ctrl+Alt+Delete { spawn "gnome-system-monitor"; }
     Mod+L { spawn "swaylock"; }
     Alt+Space { spawn "swaync-client" "--close-latest"; }
     Mod+Escape { spawn "swaync-client" "--close-all"; }
