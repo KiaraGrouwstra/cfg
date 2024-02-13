@@ -39,6 +39,7 @@ in {
       nixd
       nil
       cargo
+      typescript
       haskellPackages.haskell-language-server
       ansible-language-server
       nodePackages.vim-language-server
