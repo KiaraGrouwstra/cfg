@@ -16,6 +16,7 @@ in {
       "codium" = vscodium;
       "firefox" = firefox;
       "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
+      "org.wezfurlong.wezterm" = wezterm;
     }) // {
       # must `git add .` or new files won't be found
       ".config/swaync/configSchema.json".source =
