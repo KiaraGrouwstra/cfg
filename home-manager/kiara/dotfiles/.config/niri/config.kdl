@@ -373,7 +373,7 @@ binds {
     Shift+Mod+M { spawn "/home/kiara/.config/niri/scripts/pick-wallpaper.sh"; }
 
     Mod+W { spawn "firefox"; }
-    Mod+V { spawn "code"; }
+    Mod+V { spawn "codium"; }
     Mod+E { spawn "nautilus" "Downloads/"; }
     Mod+Shift+E { spawn "wezterm" "-e" "--always-new-process" "lf" "/home/kiara/Downloads/"; }
     Mod+Shift+Ctrl+Alt+Space { spawn "anyrun" "--plugins" "libsymbols.so"; }
