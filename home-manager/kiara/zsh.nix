@@ -18,7 +18,11 @@
     oh-my-zsh = {
       enable = true;
       # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
-      plugins = [ "git" "thefuck" "bgnotify" ];
+      plugins = [
+        "git"
+        "thefuck"   # hit Esc twice after a failed command to get suggestions
+        "bgnotify"
+      ];
       theme = "agnoster";
     };
     sessionVariables = {
