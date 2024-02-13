@@ -11,8 +11,6 @@
         layer = "top";
         position = "bottom";
         modules-left = [
-          "hyprland/language"
-          "hyprland/workspaces"
           "custom/right-arrow-dark"
           "mpris"
         ];
@@ -48,44 +46,6 @@
           tooltip = false;
         };
 
-        "hyprland/language" = { format = "{short}"; };
-        "hyprland/workspaces" =
-          if !config.wayland.windowManager.hyprland.enable then
-            { }
-          else {
-            active-only = false;
-            disable-scroll = true;
-            format = "{icon}";
-            format-window-separator = " ";
-            window-rewrite-default = "";
-            window-rewrite = {
-              firefox = "";
-              kitty = "";
-              wezterm = "";
-              codium = "󰨞";
-              thunderbird = "󰇮";
-              keepassxc = "";
-              nautilus = "󰉋";
-              signal = "󰭹";
-            };
-            format-icons = {
-              "1" = "壱";
-              "2" = "弐";
-              "3" = "参";
-              "4" = "肆";
-              "5" = "伍";
-              "6" = "陸";
-              "7" = "柒";
-              "8" = "捌";
-              "9" = "玖";
-              "10" = "拾";
-              default = "";
-            };
-            persistent-workspaces = { "*" = [ 1 2 3 4 5 6 7 8 9 10 ]; };
-            on-click = "activate";
-            on-scroll-up = "${niri} msg action focus-workspace-up";
-            on-scroll-down = "${niri} msg action focus-workspace-down";
-          };
         mpris = {
           format = "{player_icon} {status_icon} {dynamic}";
           format-playing = "{player_icon} {status_icon} {dynamic}";
@@ -209,7 +169,6 @@
         background: #1a1a1a;
       }
 
-      #workspaces,
       #clock,
       #pulseaudio,
       #memory,
@@ -218,31 +177,6 @@
       #disk,
       #tray {
         background: #1a1a1a;
-      }
-
-      #workspaces button {
-        padding: 0 2px;
-        color: #9d9683;
-      }
-      #workspaces button.visible.active {
-        color: #ea999c;
-      }
-      #workspaces button.visible {
-        color: #ffffff;
-      }
-      #workspaces button.empty {
-        color: #4d4633;
-      }
-      #workspaces button.urgent {
-        background-color: red;
-      }
-      #workspaces button:hover {
-        box-shadow: inherit;
-        text-shadow: inherit;
-      }
-      #workspaces button:hover {
-        background: #1a1a1a;
-        border: #1a1a1a;
       }
 
       #pulseaudio {
@@ -271,12 +205,6 @@
       }
 
       #window {
-          border-radius: 20px;
-          padding-left: 10px;
-          padding-right: 10px;
-      }
-
-      #language {
           border-radius: 20px;
           padding-left: 10px;
           padding-right: 10px;

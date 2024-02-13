@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-is_active=$(hyprctl activewindow -j | jaq '.fullscreen or .fullscreenmode or .fakefullscreen')
-if $is_active; then
-    hyprctl dispatch fullscreen;
-fi

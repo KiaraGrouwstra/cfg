@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 
-let hyprland-contrib = inputs.hyprland-contrib.packages.${pkgs.system};
-in with pkgs; {
+with pkgs; {
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";
@@ -27,7 +26,6 @@ in with pkgs; {
   cliphist = "${cliphist}/bin/cliphist";
   wl-copy = "${wl-clipboard}/bin/wl-copy";
   wl-paste = "${wl-clipboard}/bin/wl-paste";
-  hyprctl = "${hyprland}/bin/hyprctl";
   light = "${light}/bin/light";
   playerctl = "${playerctl}/bin/playerctl";
   wpctl = "${wireplumber}/bin/wpctl";
@@ -41,9 +39,6 @@ in with pkgs; {
   visidata = "${visidata}/bin/visidata";
   kanshictl = "${kanshi}/bin/kanshictl";
   hyprpicker = "${hyprpicker}/bin/hyprpicker";
-  inherit hyprland-contrib;
-  grimblast = ''
-    XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots" ${hyprland-contrib.grimblast}/bin/grimblast'';
   webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
   baobab = "${baobab}/bin/baobab";
   keepassxc = "${keepassxc}/bin/keepassxc";

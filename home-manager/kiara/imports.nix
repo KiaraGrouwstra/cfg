@@ -16,7 +16,6 @@
     ./git.nix
     # ./gnome/default.nix
     ./gtk.nix
-    ./hyprland.nix
     ./kanshi.nix
     ./kitty.nix
     ./mime.nix
@@ -25,9 +24,7 @@
     ./niri.nix
     ./rofi.nix
     ./swaylock.nix
-    ./systemd-fixes.nix
     ./stylix.nix
-    ./tty-init.nix
     ./vscode.nix
     ./waybar.nix
     ./wezterm.nix

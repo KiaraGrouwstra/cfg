@@ -59,10 +59,6 @@
       url = "github:catppuccin/vscode";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
