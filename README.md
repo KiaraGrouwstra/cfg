@@ -13,7 +13,7 @@ follow instructions:
 - ensure `/etc/nixos/hardware-configuration.nix` is reflected in `./hosts/$(hostname)/hardware-configuration.nix`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild --impure switch --fast --flake .#$USER-$(hostname) -p "$(git rev-parse --abbrev-ref HEAD)" --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace`
+- [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild --impure switch --fast --flake .#$USER-$(hostname) --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - set up toggles:
   - `cp ./toggles/hosts/toggles.example.nix ./toggles/hosts/toggles.nix`
