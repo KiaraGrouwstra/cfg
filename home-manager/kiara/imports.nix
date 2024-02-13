@@ -19,6 +19,7 @@
     ./mime.nix
     ./neomutt.nix
     ./neovim.nix
+    ./news.nix
     ./niri.nix
     ./rofi.nix
     ./swaylock.nix
