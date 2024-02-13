@@ -89,4 +89,4 @@ $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --on
 | Web browser   | [Firefox](https://hg.mozilla.org/mozilla-central/) |
 | File browser  | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus/) |
 | Terminal      | [Wezterm](https://github.com/wez/wezterm) |
-| Text editor   | [VSCode](https://github.com/microsoft/vscode) |
+| Shell         | [Zsh](https://zsh.org/) |
