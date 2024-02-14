@@ -1,5 +1,4 @@
-{ lib, ... }:
-let
+{lib, ...}: let
   addDesktop = x: "${x}.desktop";
   # take from the respective mimetype files
   images = map (_: "image/${_}") [
@@ -231,7 +230,7 @@ let
     "video/dv"
     "video/*"
   ];
-  models = [ "model/stl" "model/3mf" ];
+  models = ["model/stl" "model/3mf"];
   cad = [
     "application/acad"
     "application/x-acad"
@@ -349,30 +348,30 @@ let
   ];
 
   browsers =
-    map addDesktop [ "firefox" ];
-  editors = map addDesktop [ "codium" "lapce" "kate" ];
+    map addDesktop ["firefox"];
+  editors = map addDesktop ["codium" "lapce" "kate"];
   associations = lib.prioritizeList [
     (lib.genAttrs code (_: editors))
-    (lib.genAttrs images (_: [ "imv.desktop" ]))
+    (lib.genAttrs images (_: ["imv.desktop"]))
     (lib.genAttrs urls (_: browsers))
-    (lib.genAttrs readable (_: [ "org.gnome.Evince.desktop" ]))
-    (lib.genAttrs audio (_: [ "mpv.desktop" ]))
-    (lib.genAttrs video (_: [ "mpv.desktop" ]))
+    (lib.genAttrs readable (_: ["org.gnome.Evince.desktop"]))
+    (lib.genAttrs audio (_: ["mpv.desktop"]))
+    (lib.genAttrs video (_: ["mpv.desktop"]))
     (lib.genAttrs archives
-      (_: map addDesktop [ "org.gnome.FileRoller" "org.gnome.Nautilus" ]))
-    (lib.genAttrs documents (_: map addDesktop [ "writer" "less" ]))
-    (lib.genAttrs spreadsheets (_: map addDesktop [ "calc" "visidata" "less" ]))
-    (lib.genAttrs slides (_: map addDesktop [ "impress" "less" ]))
-    (lib.genAttrs models (_: map addDesktop [ "PrusaSlicer" ]))
-    (lib.genAttrs [ "text/x-gcode" ] (_: map addDesktop [ "PrusaGcodeviewer" ]))
-    (lib.genAttrs cad (_: map addDesktop [ "org.freecadweb.FreeCAD" ]))
-    (lib.genAttrs [ "application/x-gzip" "application/x-tar" ]
-      (_: map addDesktop [ "tar.gz" ]))
+      (_: map addDesktop ["org.gnome.FileRoller" "org.gnome.Nautilus"]))
+    (lib.genAttrs documents (_: map addDesktop ["writer" "less"]))
+    (lib.genAttrs spreadsheets (_: map addDesktop ["calc" "visidata" "less"]))
+    (lib.genAttrs slides (_: map addDesktop ["impress" "less"]))
+    (lib.genAttrs models (_: map addDesktop ["PrusaSlicer"]))
+    (lib.genAttrs ["text/x-gcode"] (_: map addDesktop ["PrusaGcodeviewer"]))
+    (lib.genAttrs cad (_: map addDesktop ["org.freecadweb.FreeCAD"]))
+    (lib.genAttrs ["application/x-gzip" "application/x-tar"]
+      (_: map addDesktop ["tar.gz"]))
     (lib.genAttrs [
       "application/vnd.rar"
       "application/x-rar"
       "application/x-rar-compressed"
-    ] (_: map addDesktop [ "rar" ]))
+    ] (_: map addDesktop ["rar"]))
     {
       "inode/directory" = map addDesktop [
         "lf"
@@ -382,23 +381,23 @@ let
         "lapce"
         "less"
       ]; # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
-      "x-scheme-handler/mailto" = [ "betterbird.desktop" ];
-      "text/calendar" = [ "org.gnome.Calendar.desktop" ];
-      "application/pdf" = map addDesktop [ "org.pwmt.zathura" "less" ];
+      "x-scheme-handler/mailto" = ["betterbird.desktop"];
+      "text/calendar" = ["org.gnome.Calendar.desktop"];
+      "application/pdf" = map addDesktop ["org.pwmt.zathura" "less"];
       "text/plain" =
-        map addDesktop [ "org.gnome.TextEditor" "less" "codium" "lapce" ];
-      "text/markdown" = map addDesktop [ "less" "glow" "codium" ];
-      "text/org" = map addDesktop [ "less" "codium" ];
+        map addDesktop ["org.gnome.TextEditor" "less" "codium" "lapce"];
+      "text/markdown" = map addDesktop ["less" "glow" "codium"];
+      "text/org" = map addDesktop ["less" "codium"];
       "application/epub+zip" =
-        map addDesktop [ "calibre-ebook-viewer" "calibre-ebook-edit" ];
-      "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
+        map addDesktop ["calibre-ebook-viewer" "calibre-ebook-edit"];
+      "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
       "application/json" = browsers;
       "text/csv" =
-        map addDesktop [ "calc" "visidata" "less" "org.gnome.TextEditor" ];
-      "application/vnd.smart.notebook" = map addDesktop [ "less" ];
-      "application/x-zip" = map addDesktop [ "zip" ];
-      "x-scheme-handler/magnet" = map addDesktop [ "webtorrent" "stremio" ];
-      "x-scheme-handler/irc" = map addDesktop [ "halloy" ];
+        map addDesktop ["calc" "visidata" "less" "org.gnome.TextEditor"];
+      "application/vnd.smart.notebook" = map addDesktop ["less"];
+      "application/x-zip" = map addDesktop ["zip"];
+      "x-scheme-handler/magnet" = map addDesktop ["webtorrent" "stremio"];
+      "x-scheme-handler/irc" = map addDesktop ["halloy"];
     }
   ];
 in {

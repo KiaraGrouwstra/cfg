@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.virtualisation;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.virtualisation;
 in {
   options.toggles.virtualisation.enable = mkEnableOption "virtualisation";
 
@@ -10,14 +13,13 @@ in {
   # ];
 
   config = mkIf cfg.enable {
-
     programs.extra-container.enable = true;
 
     virtualisation = {
-
       # to use podman with ports as low as 80 run:
       # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
-      podman = let dockerEnabled = config.virtualisation.docker.enable;
+      podman = let
+        dockerEnabled = config.virtualisation.docker.enable;
       in {
         enable = true;
         # Create a `docker` alias for podman, to use it as a drop-in replacement
@@ -36,7 +38,6 @@ in {
           setSocketVariable = true;
         };
       };
-
     };
     programs.dconf.enable = true;
 
@@ -44,6 +45,5 @@ in {
       enable = true;
       package = pkgs.apptainer;
     };
-
   };
 }

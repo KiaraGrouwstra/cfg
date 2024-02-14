@@ -1,9 +1,13 @@
-{ pkgs, lib, config, outputs, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  outputs,
+  ...
+}: {
   home.enableNixpkgsReleaseCheck = false;
 
-  imports = [ ./imports.nix ];
+  imports = [./imports.nix];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -37,5 +41,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }

@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.communication;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.communication;
 in {
   options.toggles.communication.enable = mkEnableOption "communication";
 
@@ -24,9 +27,7 @@ in {
       tor-browser
       wget
       curl
-      lynx  # lesspipe
-
+      lynx # lesspipe
     ];
-
   };
 }

@@ -1,12 +1,13 @@
-{ pkgs, inputs, config, ... }:
-
 {
-
+  pkgs,
+  inputs,
+  config,
+  ...
+}: {
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
-    settings = with (import ./commands.nix { inherit pkgs inputs; }); {
-
+    settings = with (import ./commands.nix {inherit pkgs inputs;}); {
       mainBar = {
         layer = "top";
         position = "bottom";
@@ -14,8 +15,7 @@
           "custom/right-arrow-dark"
           "mpris"
         ];
-        modules-center =
-          [ "custom/left-arrow-dark" "clock" "custom/right-arrow-dark" ];
+        modules-center = ["custom/left-arrow-dark" "clock" "custom/right-arrow-dark"];
         modules-right = [
           "custom/left-arrow-dark"
           "pulseaudio"
@@ -109,14 +109,13 @@
           format-muted = "󰝟";
           format-icons = {
             headphones = "";
-            default = [ "" "" ];
+            default = ["" ""];
           };
           scroll-step = 5;
           max-volume = 250;
           on-click = "${pamixer} -t";
           on-click-right = "${pavucontrol}";
-          on-scroll-down =
-            "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
+          on-scroll-down = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
           on-scroll-up = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
         };
         memory = {
@@ -134,7 +133,7 @@
             critical = 15;
           };
           format = "{icon}  {capacity}%";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = ["" "" "" "" ""];
         };
         disk = {
           interval = 5;
@@ -143,7 +142,7 @@
           on-click = "${terminal} nix-collect-garbage -d";
           on-click-right = "${baobab}";
         };
-        tray = { icon-size = 20; };
+        tray = {icon-size = 20;};
       };
     };
 
@@ -215,5 +214,4 @@
       }
     '';
   };
-
 }

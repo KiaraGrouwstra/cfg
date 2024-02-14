@@ -1,12 +1,14 @@
-{ pkgs, config, lib, inputs, ... }:
-
-let
-  nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
-in
 {
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}: let
+  nix-colors-lib = inputs.nix-colors.lib.contrib {inherit pkgs;};
+in {
   # If I can't dance to it, it's not my revolution. - Emma Goldman
   stylix = {
-
     cursor = {
       # https://github.com/catppuccin/cursors#previews
       package = pkgs.catppuccin-cursors.mochaDark;
@@ -44,7 +46,6 @@ in
       height = 768;
       logoScale = 3.0;
     };
-
   };
 
   xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
@@ -74,8 +75,8 @@ in
       package = pkgs.catppuccin-gtk.override {
         variant = "mocha";
         size = "compact";
-        accents = [ "maroon" ];
-        tweaks = [ "rimless" "black" ];
+        accents = ["maroon"];
+        tweaks = ["rimless" "black"];
       };
     };
   };
@@ -91,5 +92,4 @@ in
       accent = "Maroon";
     })
   ];
-
 }

@@ -1,8 +1,13 @@
-{ lib, config, pkgs, inputs, system, ... }:
-
-with lib;
-
-let cfg = config.toggles.packaging;
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.packaging;
 in {
   options.toggles.packaging.enable = mkEnableOption "packaging";
 
@@ -17,7 +22,6 @@ in {
 
       ## packaging
       appimage-run
-
     ];
   };
 }

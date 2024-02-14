@@ -1,21 +1,20 @@
-{ pkgs, inputs, ... }:
-
-with (import ./commands.nix { inherit pkgs inputs; }); {
-
+{
+  pkgs,
+  inputs,
+  ...
+}:
+with (import ./commands.nix {inherit pkgs inputs;}); {
   home.packages = let
-    commandDesktop = (name: command: mimeTypes:
-      (pkgs.makeDesktopItem {
-        name = name;
-        desktopName = name;
-        genericName = name;
-        exec = "${terminal} ${command}";
-        icon = "utilities-terminal";
-        categories =
-          [ "Office" "Viewer" ]; # https://askubuntu.com/a/674411/332744
-        mimeTypes = mimeTypes;
-      }));
+    commandDesktop = name: command: mimeTypes: (pkgs.makeDesktopItem {
+      name = name;
+      desktopName = name;
+      genericName = name;
+      exec = "${terminal} ${command}";
+      icon = "utilities-terminal";
+      categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
+      mimeTypes = mimeTypes;
+    });
   in [
-
     (commandDesktop "less" "${less}" [
       "text/plain"
       "text/html"
@@ -25,7 +24,7 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
       "application/pdf" # poppler_utils
     ])
 
-    (commandDesktop "glow" "${glow}" [ "text/markdown" ])
+    (commandDesktop "glow" "${glow}" ["text/markdown"])
 
     (commandDesktop "lynx" "${lynx}" [
       "x-scheme-handler/https"
@@ -56,11 +55,9 @@ with (import ./commands.nix { inherit pkgs inputs; }); {
     ])
 
     (commandDesktop "zip" "zip.sh"
-      [ "application/x-zip" ])
+      ["application/x-zip"])
 
     (commandDesktop "webtorrent" "${webtorrent} download"
-      [ "x-scheme-handler/magnet" ])
-
+      ["x-scheme-handler/magnet"])
   ];
-
 }

@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.development;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.development;
 in {
   options.toggles.development.enable = mkEnableOption "development";
 
@@ -37,7 +40,6 @@ in {
     ];
 
     programs = {
-
       direnv = {
         enable = true;
         nix-direnv.enable = true;
@@ -62,16 +64,13 @@ in {
         enable = true;
         gitCredentialHelper.enable = true;
         # https://github.com/topics/gh-extension
-        extensions = with pkgs; [ gh-dash gh-markdown-preview ];
+        extensions = with pkgs; [gh-dash gh-markdown-preview];
         settings = {
           version = 1;
           git_protocol = "ssh";
           prompt = "enabled";
         };
       };
-
     };
-
   };
-
 }

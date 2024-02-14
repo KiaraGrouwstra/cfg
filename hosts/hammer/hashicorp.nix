@@ -1,7 +1,10 @@
-{ pkgs, lib, inputs, config, ... }:
-
 {
-
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: {
   # https://mynixos.com/nixpkgs/options/services.nomad
   services.nomad = {
     enable = true;
@@ -9,7 +12,7 @@
     dropPrivileges =
       false; # Nomad as Root to access Docker/Podman sockets (>nomad_1_4) and exec driver
     enableDocker = true;
-    credentials = { };
+    credentials = {};
     extraPackages = with pkgs; [
       cni-plugins # sudo mkdir -p /opt/cni/ && sudo ln -s "${pkgs.cni-plugins}/bin" /opt/cni/bin
       nix
@@ -39,7 +42,7 @@
         enabled = true;
         bootstrap_expect = 1; # for demo; no fault tolerance
       };
-      client = { enabled = true; };
+      client = {enabled = true;};
       # https://github.com/hashicorp/nomad/issues/15471
       limits = {
         http_max_conns_per_client = 0;
@@ -47,7 +50,7 @@
       };
       plugin = {
         # https://developer.hashicorp.com/nomad/docs/drivers/raw_exec#plugin-options
-        raw_exec = { config = { enabled = true; }; };
+        raw_exec = {config = {enabled = true;};};
         # # https://developer.hashicorp.com/nomad/docs/drivers/exec#plugin-options
         # exec = {
         #   config = {};
@@ -90,7 +93,7 @@
           };
         };
         # https://github.com/input-output-hk/nomad-driver-nix/blob/main/example/agent.hcl
-        nix-driver = { config = { }; };
+        nix-driver = {config = {};};
         # https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2/src/branch/main/example/agent.hcl
         nix2-driver = {
           config = {
@@ -100,7 +103,8 @@
         # i should patch the nomad-driver-containerd-nix flake build to rename it to nomad-driver-containerd-nix to deduplicate
         # nomad-driver-containerd = { config = {}; };
         # https://github.com/MagicRB/nomad-driver-containerd-nix/blob/master/extra_config.hcl
-        nomad-driver-containerd = { # also `containerd-driver`?
+        nomad-driver-containerd = {
+          # also `containerd-driver`?
           config = {
             enabled = true;
             # containerd_runtime = "io.containerd.runc.v2";
@@ -108,14 +112,14 @@
           };
         };
       };
-      consul = { address = "localhost:8500"; };
+      consul = {address = "localhost:8500";};
     };
   };
 
   # I don't need Nomad starting when the system boots.
-  systemd.services.nomad.wantedBy = lib.mkForce [ ];
+  systemd.services.nomad.wantedBy = lib.mkForce [];
 
-  sops.secrets.hcloud-token = { };
+  sops.secrets.hcloud-token = {};
 
   # env vars needed by hetznercloud/csi-driver
   systemd.services.nomad.environment = {
@@ -138,11 +142,10 @@
       bind = "127.0.0.1";
       # advertise = null;
     };
-    extraConfigFiles = [ ];
+    extraConfigFiles = [];
     # https://developer.hashicorp.com/consul/docs/agent/config/config-files
-    extraConfig = { };
+    extraConfig = {};
   };
 
-  services.vault = { enable = true; };
-
+  services.vault = {enable = true;};
 }

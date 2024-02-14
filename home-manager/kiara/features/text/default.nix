@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.text;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.text;
 in {
   options.toggles.text.enable = mkEnableOption "text";
 
@@ -18,7 +21,7 @@ in {
       gnome-text-editor
 
       ## command-line document viewers / editors
-      unixtools.column  # lesspipe
+      unixtools.column # lesspipe
 
       ## markdown
       glow
@@ -36,6 +39,5 @@ in {
       enable = true;
       enableZshIntegration = true;
     };
-
   };
 }

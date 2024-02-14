@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.accessibility;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.accessibility;
 in {
   options.toggles.accessibility.enable = mkEnableOption "accessibility";
 
@@ -18,13 +21,11 @@ in {
       ## speech / TTS
       speechd
       orca
-
     ];
 
     services.kdeconnect = {
       enable = true;
       indicator = true;
     };
-
   };
 }

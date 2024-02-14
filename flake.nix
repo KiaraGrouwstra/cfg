@@ -1,5 +1,4 @@
 # nixos-rebuild switch will read its configuration from /etc/nixos/flake.nix if it is present.
-
 {
   description = "kiara's nix config";
 
@@ -162,106 +161,116 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nur, ... }@inputs:
-    let
-      inherit (self) outputs;
-      systems = [ "aarch64-linux" "i686-linux" "x86_64-linux" ];
-      x86 = { system = "x86_64-linux"; };
-      hammer = x86;
-      lib = nixpkgs.lib // home-manager.lib
-        // (import ./lib { inherit (nixpkgs) lib; });
-      # { default: overlay }
-      overlaysAttrs = import ./overlays.nix { inherit inputs lib; };
-      # [ overlay ]
-      overlays = builtins.attrValues overlaysAttrs ++ [
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+    nur,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    systems = ["aarch64-linux" "i686-linux" "x86_64-linux"];
+    x86 = {system = "x86_64-linux";};
+    hammer = x86;
+    lib =
+      nixpkgs.lib
+      // home-manager.lib
+      // (import ./lib {inherit (nixpkgs) lib;});
+    # { default: overlay }
+    overlaysAttrs = import ./overlays.nix {inherit inputs lib;};
+    # [ overlay ]
+    overlays =
+      builtins.attrValues overlaysAttrs
+      ++ [
         nur.overlay
         inputs.catppuccin-vsc.overlays.default
       ];
-      # for each system: nixpkgs
-      pkgsFor = lib.genAttrs systems
-        (system: import nixpkgs {
+    # for each system: nixpkgs
+    pkgsFor =
+      lib.genAttrs systems
+      (system:
+        import nixpkgs {
           inherit system overlays;
           # config.allowUnfree = true;
         });
-      # for each system: apply pkgs to a function
-      forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
-      # Your custom packages, acessible through 'nix build', 'nix shell', etc
-      # for each system: packages including overlays
-      packages = forAllSystems
-        (pkgs: import ./packages.nix { inherit inputs lib pkgs; });
+    # for each system: apply pkgs to a function
+    forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    # Your custom packages, acessible through 'nix build', 'nix shell', etc
+    # for each system: packages including overlays
+    packages =
+      forAllSystems
+      (pkgs: import ./packages.nix {inherit inputs lib pkgs;});
 
-      # Eval the treefmt modules from ./treefmt.nix
-      treefmtEval = forAllSystems
-        (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
-    in {
-      inherit lib packages;
+    # Eval the treefmt modules from ./treefmt.nix
+    treefmtEval =
+      forAllSystems
+      (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+  in {
+    inherit lib packages;
 
-      # for `nix fmt`
-      formatter =
-        forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+    # for `nix fmt`
+    formatter =
+      forAllSystems (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
 
-      # for `nix flake check`
-      checks = forAllSystems (pkgs: {
-        formatting = treefmtEval.${pkgs.system}.config.build.check self;
-      });
+    # for `nix flake check`
+    checks = forAllSystems (pkgs: {
+      formatting = treefmtEval.${pkgs.system}.config.build.check self;
+    });
 
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
 
-      imports = [ ./cachix.nix ];
+    imports = [./cachix.nix];
 
-      # Devshell for bootstrapping
-      # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
-      devShells = forAllSystems (pkgs: import ./shell.nix { inherit pkgs; });
+    # Devshell for bootstrapping
+    # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
+    devShells = forAllSystems (pkgs: import ./shell.nix {inherit pkgs;});
 
-      # Your custom packages and modifications, exported as overlays
-      overlays = overlaysAttrs;
+    # Your custom packages and modifications, exported as overlays
+    overlays = overlaysAttrs;
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-
-        kiara-hammer = with hammer;
-          nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit lib inputs outputs; };
-            inherit system;
-            modules = [
-              "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
-              nur.nixosModules.nur
-              { nixpkgs = { inherit overlays; }; }
-              ./hosts/hammer/configuration.nix
-              nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-              inputs.niri.nixosModules.niri
-            ];
-          };
-
-      };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-
-        "kiara@hammer" = with hammer;
-          lib.homeManagerConfiguration {
-            pkgs = pkgsFor.${system};
-            extraSpecialArgs = {
-              inherit lib inputs outputs;
-              unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
-            };
-            modules = [
-              "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
-              nur.nixosModules.nur
-              ./modules/home-manager
-              inputs.stylix.homeManagerModules.stylix
-              ./home-manager/kiara/home.nix
-              inputs.flake-programs-sqlite.nixosModules.programs-sqlite  # command-not-found
-            ];
-          };
-
-      };
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      kiara-hammer = with hammer;
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit lib inputs outputs;};
+          inherit system;
+          modules = [
+            "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
+            nur.nixosModules.nur
+            {nixpkgs = {inherit overlays;};}
+            ./hosts/hammer/configuration.nix
+            nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+            inputs.niri.nixosModules.niri
+          ];
+        };
     };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      "kiara@hammer" = with hammer;
+        lib.homeManagerConfiguration {
+          pkgs = pkgsFor.${system};
+          extraSpecialArgs = {
+            inherit lib inputs outputs;
+            unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+          };
+          modules = [
+            "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
+            nur.nixosModules.nur
+            ./modules/home-manager
+            inputs.stylix.homeManagerModules.stylix
+            ./home-manager/kiara/home.nix
+            inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+          ];
+        };
+    };
+  };
 }

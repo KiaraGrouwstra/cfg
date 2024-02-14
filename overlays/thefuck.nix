@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 # allow suggesting `nix-shell` when programs turn out not installed:
 # https://github.com/nvbn/thefuck/pull/1393
 pkgs.thefuck.overridePythonAttrs (old: {

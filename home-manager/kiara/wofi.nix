@@ -1,13 +1,17 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.wofi = {
     enable = true;
 
     package = pkgs.wofi.overrideAttrs (oa: {
-      patches = (oa.patches or [ ]) ++ [
-        ./wofi-run-shell.patch # Fix for https://todo.sr.ht/~scoopta/wofi/174
-      ];
+      patches =
+        (oa.patches or [])
+        ++ [
+          ./wofi-run-shell.patch # Fix for https://todo.sr.ht/~scoopta/wofi/174
+        ];
     });
 
     # https://github.com/prtce/wofi
@@ -137,7 +141,6 @@
           color: @bg;
       }
     '';
-
   };
 
   # home.packages =
@@ -145,5 +148,4 @@
   #     inherit (config.programs.password-store) package enable;
   #   in
   #   lib.optional enable (pkgs.pass-wofi.override { pass = package; });
-
 }

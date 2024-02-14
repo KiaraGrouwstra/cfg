@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
-
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -34,7 +35,7 @@
     pass = {
       enable = true;
       package = pkgs.rofi-pass-wayland;
-      stores = [ "~/.password-store/bij1-shared/" ];
+      stores = ["~/.password-store/bij1-shared/"];
       extraConfig = ''
         URL_field='url'
         USERNAME_field='user'
@@ -43,6 +44,5 @@
     };
   };
 
-  home.packages = with pkgs; [ rofi-systemd rofimoji ];
-
+  home.packages = with pkgs; [rofi-systemd rofimoji];
 }

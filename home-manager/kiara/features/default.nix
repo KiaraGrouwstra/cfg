@@ -1,7 +1,4 @@
-{ ... }:
-
-{
-
+{...}: {
   imports = [
     ./development/default.nix
     ./files/default.nix
@@ -13,5 +10,4 @@
     ./desktop/default.nix
     ./tools/default.nix
   ];
-
 }

@@ -1,7 +1,8 @@
-{ lib, pkgs, ... }:
-
 {
-
+  lib,
+  pkgs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -76,5 +77,4 @@
       endif
     '';
   };
-
 }

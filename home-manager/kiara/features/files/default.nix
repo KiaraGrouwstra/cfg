@@ -1,8 +1,12 @@
-{ lib, config, pkgs, inputs, ... }:
-
-with lib;
-
-let cfg = config.toggles.files;
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.files;
 in {
   options.toggles.files.enable = mkEnableOption "files";
 
@@ -53,8 +57,7 @@ in {
         }
         {
           fpath = ".*.md$";
-          command =
-            "sh: bat --paging=never --color=always %pistol-filename% | head -8";
+          command = "sh: bat --paging=never --color=always %pistol-filename% | head -8";
         }
       ];
     };
@@ -63,7 +66,7 @@ in {
       enable = true;
       settings = {
         number = true;
-        ratios = [ 1 1 2 ];
+        ratios = [1 1 2];
         tabstop = 4;
       };
       extraConfig = ''
@@ -80,7 +83,7 @@ in {
         gh = "cd ~";
         i = "$less $f";
       };
-      cmdKeybindings = { "<c-g>" = "cmd-escape"; };
+      cmdKeybindings = {"<c-g>" = "cmd-escape";};
       previewer = {
         # Key to bind to the script at `previewer.source` and pipe through less. Setting to null will not bind any key.
         keybinding = "i";
@@ -99,6 +102,5 @@ in {
         '';
       };
     };
-
   };
 }

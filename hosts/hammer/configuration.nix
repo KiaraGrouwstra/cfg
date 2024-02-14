@@ -1,21 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, inputs, outputs, ... }:
-
-let
-    nixPath = "/run/current-system/nixpkgs";
-    nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
-in
 {
-  imports = [
-    ./imports.nix
-    inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.nixosModules.sops
-  ] ++ (lib.attrValues outputs.nixosModules);
+  config,
+  pkgs,
+  lib,
+  inputs,
+  outputs,
+  ...
+}: let
+  nixPath = "/run/current-system/nixpkgs";
+  nix-colors-lib = inputs.nix-colors.lib.contrib {inherit pkgs;};
+in {
+  imports =
+    [
+      ./imports.nix
+      inputs.home-manager.nixosModules.home-manager
+      inputs.sops-nix.nixosModules.sops
+    ]
+    ++ (lib.attrValues outputs.nixosModules);
 
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  home-manager.extraSpecialArgs = {inherit inputs outputs;};
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
@@ -23,7 +28,7 @@ in
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     # Windows disks
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
   };
 
   # # Setup keyfile
@@ -72,7 +77,7 @@ in
     shell = pkgs.zsh;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -96,7 +101,7 @@ in
     browserpass.enable = true;
   };
 
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
 
   # List services that you want to enable:
 
@@ -105,7 +110,7 @@ in
 
   # needed for gnupg
   services.pcscd.enable = true;
-  services.dbus.packages = [ pkgs.gcr ];
+  services.dbus.packages = [pkgs.gcr];
   # if not working run: `pkill gpg-agent`
 
   # location
@@ -140,7 +145,7 @@ in
     #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
     defaultSopsFile = ../../secrets.enc.yml;
     secrets = {
-      age-keys = { };
+      age-keys = {};
       user-password-kiara.neededForUsers = true;
     };
   };
@@ -157,13 +162,12 @@ in
     QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
     # Nautilus Audio/Video Properties: Your GStreamer installation is missing a plug-in. #195936
-    GST_PLUGIN_SYSTEM_PATH_1_0 =
-      lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
-        gst-plugins-good
-        gst-plugins-bad
-        gst-plugins-ugly
-        gst-libav
-      ]);
+    GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
+      gst-plugins-good
+      gst-plugins-bad
+      gst-plugins-ugly
+      gst-libav
+    ]);
   };
 
   # let nautilus access trash and remotes
@@ -192,7 +196,7 @@ in
   system.extraSystemBuilderCmds = ''
     ln -sv ${pkgs.path} $out/nixpkgs
   '';
-  nix.nixPath = [ "nixpkgs=${nixPath}" ];
+  nix.nixPath = ["nixpkgs=${nixPath}"];
   systemd.tmpfiles.rules = [
     "L+ ${nixPath} - - - - ${pkgs.path}"
   ];

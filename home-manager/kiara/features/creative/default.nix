@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.creative;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.creative;
 in {
   options.toggles.creative.enable = mkEnableOption "creative";
 
@@ -26,7 +29,6 @@ in {
       ## 3d printing
       prusa-slicer
       freecad
-
     ];
   };
 }

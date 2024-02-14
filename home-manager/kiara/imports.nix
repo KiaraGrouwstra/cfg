@@ -1,7 +1,4 @@
-{ ... }:
-
-{
-
+{...}: {
   imports = [
     ./features/default.nix
 
@@ -32,5 +29,4 @@
     ./zathura.nix
     ./zsh.nix
   ];
-
 }

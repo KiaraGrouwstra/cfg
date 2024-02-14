@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-
-with lib;
-
-let cfg = config.toggles.guix;
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.guix;
 in {
   options.toggles.guix.enable = mkEnableOption "guix";
 
@@ -10,8 +12,7 @@ in {
   # ];
 
   config = mkIf cfg.enable {
-
-    services.guix = { enable = true; };
+    services.guix = {enable = true;};
     systemd.services.guix-daemon.serviceConfig.Nice = 19;
   };
 }

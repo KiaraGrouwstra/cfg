@@ -1,11 +1,7 @@
-{ inputs, ... }:
-
-let
+{inputs, ...}: let
   inherit (inputs.nix-colors) colorSchemes;
-in
-{
-
-  imports = [ inputs.nix-colors.homeManagerModules.default ];
+in {
+  imports = [inputs.nix-colors.homeManagerModules.default];
 
   # # TODO: convert from https://github.com/Misterio77/nix-colors#using
   # # to https://github.com/SenchoPens/base16.nix/blob/main/DOCUMENTATION.md#mkschemeattrs
@@ -35,5 +31,4 @@ in
   #     base0F = "#f2cdcd"; # flamingo
   #   };
   # };
-
 }

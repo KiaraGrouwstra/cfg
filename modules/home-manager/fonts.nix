@@ -1,6 +1,8 @@
-{ lib, config, ... }:
-
-let
+{
+  lib,
+  config,
+  ...
+}: let
   mkFontOption = kind: {
     name = lib.mkOption {
       type = lib.types.str;
@@ -20,8 +22,8 @@ in {
   options.fontProfiles = {
     enable = lib.mkEnableOption "Whether to enable font profiles";
     monospace = mkFontOption "monospace";
-    regular   = mkFontOption "regular";
-    emoji     = mkFontOption "emoji";
+    regular = mkFontOption "regular";
+    emoji = mkFontOption "emoji";
   };
 
   config = lib.mkIf cfg.enable {

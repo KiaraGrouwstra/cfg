@@ -1,7 +1,4 @@
-{ ... }:
-
-{
-
+{...}: {
   # seems still used in DMs
   services.xserver = {
     enable = true;
@@ -20,7 +17,5 @@
       variant = "";
       options = "caps:escape";
     };
-
   };
-
 }

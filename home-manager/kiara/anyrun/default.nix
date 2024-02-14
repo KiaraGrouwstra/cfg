@@ -1,12 +1,15 @@
-{ pkgs, inputs, config, lib, ... }:
-
 {
-
-  imports = [ inputs.anyrun.homeManagerModules.default ];
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}: {
+  imports = [inputs.anyrun.homeManagerModules.default];
 
   home.file = lib.listToAttrs (lib.lists.map (k: {
       name = ".config/anyrun/plugins/lib${k}.so";
-      value = { source = "${inputs.anyrun.packages.${pkgs.system}.${k}}/lib/lib${k}.so"; };
+      value = {source = "${inputs.anyrun.packages.${pkgs.system}.${k}}/lib/lib${k}.so";};
     }) [
       "applications"
       "symbols"
@@ -75,7 +78,6 @@
       # Limit amount of entries shown in total
       # numbers seem to work while `null` seems overridden
       maxEntries = 100;
-
     };
 
     extraCss = lib.readFile ./style-dark.css;
@@ -83,7 +85,6 @@
     # will be put in ~/.config/anyrun/some-plugin.ron
     # refer to docs of xdg.configFile for available options
     extraConfigFiles = {
-
       # https://github.com/Kirottu/anyrun/blob/master/plugins/applications/README.md
       "applications.ron".text = ''
         Config(
@@ -182,8 +183,6 @@
           engines: [DuckDuckGo]
         )
       '';
-
     };
-
   };
 }

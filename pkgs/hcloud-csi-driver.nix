@@ -1,5 +1,9 @@
-{ lib, inputs, buildGoModule, ... }:
-
+{
+  lib,
+  inputs,
+  buildGoModule,
+  ...
+}:
 buildGoModule rec {
   pname = "hcloud-csi-driver";
   version = "2.6.0";
@@ -19,10 +23,9 @@ buildGoModule rec {
 
   meta = with lib; {
     homepage = "https://github.com/hetznercloud/csi-driver";
-    description =
-      "Kubernetes Container Storage Interface driver for Hetzner Cloud Volumes";
+    description = "Kubernetes Container Storage Interface driver for Hetzner Cloud Volumes";
     platforms = platforms.linux;
     license = licenses.mit;
-    maintainers = with maintainers; [ KiaraGrouwstra ];
+    maintainers = with maintainers; [KiaraGrouwstra];
   };
 }

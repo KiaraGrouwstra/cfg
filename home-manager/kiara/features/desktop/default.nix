@@ -1,8 +1,12 @@
-{ lib, config, pkgs, inputs, ... }:
-
-with lib;
-
-let cfg = config.toggles.desktop;
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.desktop;
 in {
   options.toggles.desktop.enable = mkEnableOption "desktop";
 
@@ -44,12 +48,10 @@ in {
       wpgtk
       fontpreview
       wallust
-
     ];
 
-    services.lorri = { enable = true; };
+    services.lorri = {enable = true;};
 
     services.playerctld.enable = true;
-
   };
 }

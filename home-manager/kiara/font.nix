@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   fontProfiles = {
     enable = true;
     regular = {
@@ -7,7 +7,7 @@
     };
     monospace = {
       # https://www.nerdfonts.com/font-downloads
-      package = pkgs.nerdfonts.override { fonts = [ "MartianMono" "FiraCode" ]; };
+      package = pkgs.nerdfonts.override {fonts = ["MartianMono" "FiraCode"];};
       name = "MartianMono Nerd Font";
     };
     # https://search.nixos.org/packages?query=emoji

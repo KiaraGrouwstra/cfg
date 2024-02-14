@@ -1,7 +1,4 @@
-{ ... }:
-
-{
-
+{...}: {
   programs.emacs = {
     enable = true;
     extraPackages = epkgs:
@@ -18,5 +15,4 @@
   };
 
   programs.offlineimap.enable = true;
-
 }

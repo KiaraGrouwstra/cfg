@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.niri;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.niri;
 in {
   options.toggles.niri.enable = mkEnableOption "niri";
 
@@ -20,13 +23,13 @@ in {
 
     programs.niri.enable = true;
 
-    environment.systemPackages = with pkgs; [ swaybg ];
+    environment.systemPackages = with pkgs; [swaybg];
 
     systemd.user.services.swaybg = {
       enable = true;
       script = "${pkgs.swaybg}/bin/swaybg";
       # scriptArgs = "-m fill -i \"%h/Pictures/wallpapers/wallpaperflare.com_wallpaper(2).jpg\"";
-      restartTriggers = [ "on-failure" ];
+      restartTriggers = ["on-failure"];
       unitConfig = {
         PartOf = "graphical-session.target";
         After = "graphical-session.target";
@@ -34,10 +37,8 @@ in {
       };
     };
 
-    systemd.user.services.niri.wants =
-      [ "waybar.service" "swaync.service" "swaybg.service" ];
+    systemd.user.services.niri.wants = ["waybar.service" "swaync.service" "swaybg.service"];
 
     # programs.xwayland.enable = true;
-
   };
 }

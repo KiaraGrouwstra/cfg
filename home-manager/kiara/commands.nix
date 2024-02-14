@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
-
+{
+  pkgs,
+  inputs,
+  ...
+}:
 with pkgs; {
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";

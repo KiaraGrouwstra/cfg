@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     wayland
     niri-src
@@ -11,5 +8,4 @@
     alacritty
     fuzzel
   ];
-
 }

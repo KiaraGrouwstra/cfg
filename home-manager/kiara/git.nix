@@ -1,8 +1,5 @@
-{ ... }:
-
-{
+{...}: {
   programs.git = {
-
     enable = true;
     userName = "Kiara Grouwstra";
     userEmail = "kiara@bij1.org";
@@ -59,6 +56,5 @@
       push.autoSetupRemote = true;
       branch.autoSetupMerge = "simple";
     };
-
   };
 }

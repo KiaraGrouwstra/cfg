@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-
-with lib;
-
-let cfg = config.toggles.tools;
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.toggles.tools;
 in {
   options.toggles.tools.enable = mkEnableOption "tools";
 
@@ -20,8 +23,8 @@ in {
       tealdeer
       thefuck
       jaq
-      jq  # https://github.com/wofr06/lesspipe/issues/145
-      pandoc  # lesspipe
+      jq # https://github.com/wofr06/lesspipe/issues/145
+      pandoc # lesspipe
 
       ## command-line dropins
       xxh
@@ -37,7 +40,6 @@ in {
       keepassxc
       browserpass
       gnupg
-
     ];
 
     ## command-line utilities
@@ -46,7 +48,7 @@ in {
 
     # shell-agnostic style
     programs.starship = {
-      enable = false;  # too slow
+      enable = false; # too slow
       enableZshIntegration = true;
       # https://starship.rs/config/
       # .config/starship.toml
@@ -69,8 +71,7 @@ in {
 
     programs.browserpass = {
       # enable = true;  # Error installing file '.mozilla/native-messaging-hosts/com.github.browserpass.native.json' outside $HOME
-      browsers = [ "firefox" ];
+      browsers = ["firefox"];
     };
-
   };
 }
