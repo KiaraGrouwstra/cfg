@@ -33,7 +33,7 @@
     };
     shellAliases = {
       docker-compose = "podman-compose";
-      ls = "eza";
+      ls = "eza --icons";
       jq = "jaq";
       # ssh = "kitten ssh";  # for kitty
     };
