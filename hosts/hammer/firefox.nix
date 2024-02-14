@@ -16,7 +16,7 @@
       # enable dark pdfjs theme
       "pdfjs.viewerCssTheme" = 2;
       # break restrictions on extensions
-      "privacy.resistFingerprinting.block_mozAddonManager" = true;
+      # "privacy.resistFingerprinting.block_mozAddonManager" = true;
       # "extensions.webextensions.restrictedDomains" = ""; # use only trusted extensions
       # enable userChrome.css
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -46,7 +46,7 @@
       DisableSafeMode = false;
       DisableSecurityBypass = true;
       DisableSetDesktopBackground = true;
-      DisableSystemAddonUpdate = true;
+      # DisableSystemAddonUpdate = true;
       DisableTelemetry = true;
       DisplayBookmarksToolbar = false;
       DontCheckDefaultBrowser = true;
@@ -57,7 +57,7 @@
         Fingerprinting = false;
         # Exceptions = ["https://example.com"];
       };
-      ExtensionUpdate = false;
+      # ExtensionUpdate = false;
       FirefoxHome = {
         Pocket = false;
         Snippets = false;
@@ -68,12 +68,12 @@
         ImproveSuggest = false;
         Locked = true;
       };
-      InstallAddonsPermission.Default = false;
+      # InstallAddonsPermission.Default = false;
       ManualAppUpdateOnly = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
       OfferToSaveLoginsDefault = false;
-      PasswordManagerEnabled = true;
+      PasswordManagerEnabled = false;
       UserMessaging = {
         ExtensionRecommendations = false;
         SkipOnboarding = true;
@@ -82,10 +82,10 @@
         # Use a proxy module rather than `nixpkgs.config.firefox.smartcardSupport = true`
         "PKCS#11 Proxy Module" = "${pkgs.p11-kit}/lib/p11-kit-proxy.so";
       };
-      SearchEngines = {
-        Default = "duckduckgo";
-        PreventInstalls = true;
-      };
+      # SearchEngines = {
+      #   Default = "duckduckgo";
+      #   PreventInstalls = true;
+      # };
       SearchSuggestEnabled = false;
     };
     languagePacks = [ "en-US" "nl" "ja" "zh-CN" ];
