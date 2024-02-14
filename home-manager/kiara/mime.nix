@@ -349,7 +349,7 @@ let
   ];
 
   browsers =
-    map addDesktop [ "firefox" "mercury-browser" ];
+    map addDesktop [ "firefox" ];
   editors = map addDesktop [ "codium" "lapce" "kate" ];
   associations = lib.prioritizeList [
     (lib.genAttrs code (_: editors))

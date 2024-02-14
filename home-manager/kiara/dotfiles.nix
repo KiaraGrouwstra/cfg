@@ -14,7 +14,7 @@ in {
     // autoStartLinks (with pkgs; {
       "org.keepassxc.KeePassXC" = keepassxc;
       "codium" = vscodium;
-      "firefox" = firefox;
+      "firefox" = firefox-bin;
       "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
       "org.wezfurlong.wezterm" = wezterm;
     }) // {
