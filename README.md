@@ -13,12 +13,12 @@ follow instructions:
 - ensure `/etc/nixos/hardware-configuration.nix` is reflected in `./hosts/$(hostname)/hardware-configuration.nix`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `sudo nixos-rebuild --impure switch --fast --flake .#$USER-$(hostname) --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace | tee nixos-rebuild.log`
+- [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild --impure switch --fast --flake .#$USER-$(hostname) --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace 2>&1 | tee nixos-rebuild.log`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - set up toggles:
   - `cp ./toggles/hosts/toggles.example.nix ./toggles/hosts/toggles.nix`
   - `cp ./toggles/home-manager/toggles.example.nix ./toggles/home-manager/toggles.nix`
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `home-manager --flake .#$USER@$(hostname) --impure switch -b backup --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace | tee home-manager.log`
+- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `nix fmt && home-manager --flake .#$USER@$(hostname) --impure switch -b backup --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) --show-trace 2>&1 | tee home-manager.log`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
