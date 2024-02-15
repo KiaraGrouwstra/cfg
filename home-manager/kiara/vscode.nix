@@ -38,7 +38,6 @@
       jnoortheen.nix-ide
       tamasfe.even-better-toml
       hashicorp.hcl
-      hashicorp.terraform
       justusadam.language-haskell
       kokakiwi.vscode-just
       haskell.haskell

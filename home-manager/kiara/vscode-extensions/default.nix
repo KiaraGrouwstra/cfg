@@ -39,18 +39,11 @@ in {
     sha256 = "0rs57csczwx6wrs99c442qpf6vllv2fby37f3a9rhwc8sg6849vn";
   };
 
-  "hashicorp"."terraform" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "terraform";
-    publisher = "hashicorp";
-    version = "2.29.2024012316";
-    sha256 = "1i29i5s0kjcanlzsh4xxrlrimi2dsxrmh84aazs429vmivs3xi43";
-  };
-
   "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1838";
-    sha256 = "1dgamjs4jp6z6r03jqi4ifdcdv8bw75vhjwd0jm05yvnnall70vw";
+    version = "0.4.1841";
+    sha256 = "051l9rg3vxanb4rnh93prlb720hwba2h6hdhyc58b90blpjjr1v3";
   };
 
   "tamasfe"."even-better-toml" = vscode-utils.extensionFromVscodeMarketplace {
@@ -84,8 +77,8 @@ in {
   "asvetliakov"."vscode-neovim" = vscode-utils.extensionFromVscodeMarketplace {
     name = "vscode-neovim";
     publisher = "asvetliakov";
-    version = "1.6.0";
-    sha256 = "1i5c92kygkcjw61i3lxhalv5ajsc32b4a7002c80pik41gsc0f7b";
+    version = "1.6.1";
+    sha256 = "03f9rlwv6d3hpiniaaf6qcw3pd0pbv6q8j2h8qs1hz5hpp5ispzh";
   };
 
   "hashicorp"."hcl" = vscode-utils.extensionFromVscodeMarketplace {

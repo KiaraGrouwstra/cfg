@@ -51,10 +51,6 @@ publisher_name = "hashicorp"
 extension_name = "hcl"
 
 [[extensions]]
-publisher_name = "hashicorp"
-extension_name = "terraform"
-
-[[extensions]]
 publisher_name = "justusadam"
 extension_name = "language-haskell"
 
