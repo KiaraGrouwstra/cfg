@@ -921,11 +921,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707717484,
-        "narHash": "sha256-37V2SGMcqDC9vBneonuA4mIYSfk2WLHjynlOlmjWCmE=",
+        "lastModified": 1708108837,
+        "narHash": "sha256-0Z3KT3VEQxM1c41KnNeXTCdqVHexfPUtnbvMQlKGSWc=",
         "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "7960a73e9dda9f82c67e2f7b37766c88f5889c14",
+        "rev": "baaac2f3c46c4322fb2b740aa869dc48047c30f3",
         "type": "github"
       },
       "original": {
