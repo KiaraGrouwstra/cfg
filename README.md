@@ -94,11 +94,15 @@ $(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --on
 
 ## Debugging builds
 
-- local repo: `git bisect`
-- nixpkgs:
-  - `git bisect run "bisect-nixpkgs.sh $NIXPKGS_FORK && sudo nixos-rebuild dry-build --flake .#$USER-$(hostname) --show-trace && <COMMAND>"`
-  - `git bisect run "bisect-nixpkgs.sh $NIXPKGS_FORK && home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace && <COMMAND>"`
-  - [in `nixpkgs` repo](https://stackoverflow.com/questions/4713088/how-do-i-use-git-bisect/22592593#22592593), e.g. for signal:
+### System flake
+
+```sh
+git bisect start $BAD $GOOD && git bisect run $CMD
+```
+
+### `nixpkgs` package
+
+[run in `nixpkgs` repo](https://stackoverflow.com/questions/4713088/how-do-i-use-git-bisect/22592593#22592593), e.g. for `signal-desktop`:
 
 ```sh
 cat >> .test<< EOF
@@ -109,4 +113,23 @@ chmod +x ./test
 git bisect start -- pkgs/applications/networking/instant-messengers/signal-desktop/
 git bisect bad
 git bisect run sh -c './test; [ $? -eq 0 ]'
+```
+
+### Flake input
+
+From the dependency's repo, run:
+
+```sh
+export DEPENDENCY_INPUT=nixpkgs
+export DEPENDENCY_URL=https://github.com/NixOS/nixpkgs
+export SYSTEM_REPO=<MY_SYSTEM_FLAKE_REPO_PATH>
+
+# if judgement needs manual intervention:
+$SYSTEM_REPO/bisect.sh $DEPENDENCY_PATH $DEPENDENCY_URL $SYSTEM_REPO
+# <COMMAND>
+# git bisect good
+# git bisect bad
+
+# if judgement can be automated:
+git bisect run "$SYSTEM_REPO/bisect.sh $DEPENDENCY_PATH $DEPENDENCY_URL $SYSTEM_REPO && <COMMAND>"
 ```
