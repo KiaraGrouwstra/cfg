@@ -398,10 +398,12 @@ binds {
     Mod+Grave { spawn "swaync-client" "--toggle-panel"; }
 
     Mod+Space       { spawn "anyrun.sh"; }
-    Shift+Mod+Space { spawn "wofi.sh"; }
+    Shift+Mod+Space { spawn "wezterm" "-e" "--always-new-process" "jit.sh"; }
+    Ctrl+Mod+Space { spawn "wofi.sh"; }
     Alt+Mod+Space   { spawn "rofi.sh"; }
     Mod+J           { spawn "anyrun.sh"; }
-    Shift+Mod+J     { spawn "wofi.sh"; }
+    Shift+Mod+J     { spawn "wezterm" "-e" "--always-new-process" "jit.sh"; }
+    Ctrl+Mod+J     { spawn "wofi.sh"; }
     Alt+Mod+J       { spawn "rofi.sh"; }
 }
 

@@ -138,6 +138,10 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     garn = {
       url = "github:garnix-io/garn";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -266,6 +270,7 @@
             "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
             nur.nixosModules.nur
             ./modules/home-manager
+            inputs.nix-index-database.hmModules.nix-index
             inputs.stylix.homeManagerModules.stylix
             ./home-manager/kiara/home.nix
             inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
