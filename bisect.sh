@@ -1,17 +1,5 @@
 #!/usr/bin/env sh
 
-# # flake perspective
-# # after: git -C $DEPENDENCY_PATH bisect $BAD $GOOD
-# export DEPENDENCY_INPUT=niri-src
-# export DEPENDENCY_PATH=~/Downloads/nix/deps/niri
-# export DEPENDENCY_URL=https://github.com/YaLTeR/niri
-# TARGET_COMMIT=$(git -C $DEPENDENCY_PATH rev-parse HEAD)
-# CURRENT_COMMIT=$(cat flake.lock | jq -r ".nodes.[\"${DEPENDENCY_INPUT}\"].locked.rev")
-# sed -E -i "s/$CURRENT_COMMIT/$TARGET_COMMIT/g" flake.lock
-# TARGET_HASH=$(nix-prefetch-url "${DEPENDENCY_URL}/archive/refs/${TARGET_COMMIT}.zip" --type sha256)
-# CURRENT_HASH=$(cat flake.lock | jq -r ".nodes.[\"${DEPENDENCY_INPUT}\"].locked.narHash")
-# sed -E -i "s/$CURRENT_HASH/$TARGET_HASH/g" flake.lock
-
 # # bisecting dep's perspective
 # # after: git bisect $BAD $GOOD
 # export DEPENDENCY_INPUT=niri-src
