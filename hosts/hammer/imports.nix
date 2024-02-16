@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ./xserver.nix
     ./databases.nix
-    ./firefox.nix
     ./fonts.nix
     ./greetd.nix
     ./guix.nix
