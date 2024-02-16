@@ -27,7 +27,7 @@ hyprctl binds -j | jaq -r '
 .key + ": " +
 .dispatcher + " " +
 .arg
-' | sed -E 's#/nix/store/[^/]+\/bin\/###g' | anyrun --plugins libstdin.so | wl-copy
+' | sed -E 's#/nix/store/[^/]+\/bin\/###g' | fzf | wl-copy
 
 # # the mod mask is as follows:
 # 64: super

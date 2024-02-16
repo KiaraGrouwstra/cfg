@@ -4,12 +4,12 @@ m() { rofi -dmenu -i "$@" ;}
 
 clip_username() {
   echo "$dbpass" | keepassxc-cli show "$db" "$entry" | grep 'UserName:' | \
-    cut -b 11- | xclip -sel clip
+    cut -b 11- | wl-copy
 }
 clip_password() { echo "$dbpass" | keepassxc-cli clip "$db" "$entry" "$timeout" ;}
-clip_title() { echo "$element" | cut -b 8- | xclip -sel clip ;}
-clip_url() { echo "$element" | cut -b 6- | xclip -sel clip ;}
-clip_notes() { echo "$element" | cut -b 8- | xclip -sel clip ;}
+clip_title() { echo "$element" | cut -b 8- | wl-copy ;}
+clip_url() { echo "$element" | cut -b 6- | wl-copy ;}
+clip_notes() { echo "$element" | cut -b 8- | wl-copy ;}
 
 generate_password() {
   char_num=$(m -p "Number of password characters" -l 0 -width 400)

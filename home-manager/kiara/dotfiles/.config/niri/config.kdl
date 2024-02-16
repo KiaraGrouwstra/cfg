@@ -370,7 +370,7 @@ binds {
 
     // switch wallpaper
     Mod+M { spawn "random-wallpaper.sh"; }
-    Shift+Mod+M { spawn "pick-wallpaper.sh"; }
+    Shift+Mod+M { spawn "wezterm" "-e" "--always-new-process" "pick-wallpaper.sh"; }
 
     Mod+W { spawn "firefox"; }
     Mod+V { spawn "codium"; }
@@ -384,10 +384,10 @@ binds {
     // Mod-/, kinda like Mod-?, shows a list of important hotkeys.
     Mod+Slash { show-hotkey-overlay; }
 
-    Mod+F9 { spawn "/home/kiara/.config/rofi/main-menu.sh"; }
+    Mod+F9 { spawn "wezterm" "-e" "--always-new-process" "main-menu.sh"; }
     Mod+I { spawn "wezterm" "-e" "--always-new-process" "nmtui"; }
     Mod+Shift+I { spawn "networkmanager_dmenu"; }
-    Mod+U { spawn "/home/kiara/.config/rofi/power.sh"; }
+    Mod+U { spawn "wezterm" "-e" "--always-new-process" "power.sh"; }
     Mod+P { spawn "/home/kiara/.config/rofi/displays.sh"; }
     Mod+Y { spawn "/home/kiara/.config/rofi/keepassxc.sh" "-d" "~/Nextcloud/keepass.kdbx"; }
     Mod+B { spawn "anyrun" "--plugins" "libsymbols.so"; }
