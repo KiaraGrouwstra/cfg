@@ -19,6 +19,7 @@ in {
       ## nix
       any-nix-shell
       nix-direnv
+      lazy-desktop
 
       ## packaging
       appimage-run
@@ -26,6 +27,7 @@ in {
 
     programs.nix-index = {
       enable = true;
+      symlinkToCacheHome = true;
       enableBashIntegration = false;
       enableZshIntegration = false;
     };
