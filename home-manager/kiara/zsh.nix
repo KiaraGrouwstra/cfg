@@ -27,7 +27,6 @@
         "thefuck" # hit Esc twice after a failed command to get suggestions
         "bgnotify"
       ];
-      theme = "agnoster";
     };
     sessionVariables = {
       GTK_THEME = "Catppuccin-Frappe-Compact-Maroon-Dark";

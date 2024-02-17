@@ -42,23 +42,37 @@ in {
       gnupg
     ];
 
-    ## command-line utilities
+    programs = {
 
-    programs.command-not-found.enable = true;
+      ## command-line utilities
 
-    # shell-agnostic style
-    programs.starship = {
-      enable = false; # too slow
-      enableZshIntegration = true;
-      # https://starship.rs/config/
-      # .config/starship.toml
-      # settings = {};
-    };
+      command-not-found.enable = true;
 
-    # argument completer
-    programs.carapace = {
-      enable = true;
-      enableZshIntegration = true;
+      powerline-go = {
+        enable = true;
+        modules = [
+          "ssh"
+          "cwd"
+          "perms"
+          "git"
+          "nix-shell"
+          "jobs"
+          "exit"
+          "root"
+        ];
+      };
+
+      # argument completer
+      carapace = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+
+      browserpass = {
+        # enable = true;  # Error installing file '.mozilla/native-messaging-hosts/com.github.browserpass.native.json' outside $HOME
+        browsers = ["firefox"];
+      };
+
     };
 
     ## credentials / security
@@ -69,9 +83,5 @@ in {
       pinentryFlavor = "curses";
     };
 
-    programs.browserpass = {
-      # enable = true;  # Error installing file '.mozilla/native-messaging-hosts/com.github.browserpass.native.json' outside $HOME
-      browsers = ["firefox"];
-    };
   };
 }
