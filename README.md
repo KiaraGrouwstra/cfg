@@ -13,12 +13,11 @@ follow instructions:
 - ensure `/etc/nixos/hardware-configuration.nix` is reflected in `./hosts/$(hostname)/hardware-configuration.nix`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild --impure switch --fast --flake .#$USER-$(hostname) --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) 2>&1 | tee nixos-rebuild.log`
+- [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild --impure switch --fast --flake .#hammer 2>&1 | tee build.log`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - set up toggles:
   - `cp ./toggles/hosts/toggles.example.nix ./toggles/hosts/toggles.nix`
   - `cp ./toggles/home-manager/toggles.example.nix ./toggles/home-manager/toggles.nix`
-- [home-manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone): `nix fmt && home-manager --flake .#$USER@$(hostname) --impure switch -b backup --option substitute $(if [ $(nmcli general status | grep full | wc -l) -eq 1 ]; then echo true; else echo false; fi) 2>&1 | tee home-manager.log`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`
@@ -64,18 +63,6 @@ ls -lt /nix/var/nix/profiles/system-*-link
 # switch to a configuration given a number
 export n=1
 $(echo sudo `ls -lt /nix/var/nix/profiles/system-${n}-link | grep --extended-regexp --only-matching '/nix/store/.*'`/bin/switch-to-configuration switch)
-```
-
-### home manager
-
-```sh
-# list generations
-home-manager generations
-# switch to a configuration manually
-/nix/store/<revision>/activate
-# switch to a configuration given a number
-export n=1
-$(echo `home-manager generations | grep "id ${n} " | grep --extended-regexp --only-matching '/nix/store/.*'`/activate)
 ```
 
 ## Used software

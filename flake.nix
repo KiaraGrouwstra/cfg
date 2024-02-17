@@ -241,10 +241,14 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      kiara-hammer = with hammer;
+      hammer = with hammer; let
+        specialArgs = {
+          inherit lib inputs outputs;
+          unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+        };
+      in
         nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit lib inputs outputs;};
-          inherit system;
+          inherit system specialArgs;
           modules = [
             "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
             nur.nixosModules.nur
@@ -252,28 +256,18 @@
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
             inputs.niri.nixosModules.niri
-          ];
-        };
-    };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "kiara@hammer" = with hammer;
-        lib.homeManagerConfiguration {
-          pkgs = pkgsFor.${system};
-          extraSpecialArgs = {
-            inherit lib inputs outputs;
-            unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
-          };
-          modules = [
-            "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
-            nur.nixosModules.nur
-            ./modules/home-manager
-            inputs.nix-index-database.hmModules.nix-index
-            inputs.stylix.homeManagerModules.stylix
-            ./home-manager/kiara/home.nix
-            inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+            { home-manager = {
+              extraSpecialArgs = specialArgs;
+              users.kiara.imports = [
+                "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
+                nur.nixosModules.nur
+                ./modules/home-manager
+                inputs.nix-index-database.hmModules.nix-index
+                inputs.stylix.homeManagerModules.stylix
+                ./home-manager/kiara/home.nix
+                inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+              ];
+            }; }
           ];
         };
     };
