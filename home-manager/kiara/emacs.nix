@@ -11,6 +11,7 @@
         offlineimap
         org
         direnv
+        doom
       ];
   };
 
