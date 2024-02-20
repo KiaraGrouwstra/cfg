@@ -9,10 +9,7 @@
   ...
 }:
 let
-  nix-index-database = builtins.fetchurl {
-    url = "https://github.com/nix-community/nix-index-database/releases/download/2024-02-11-030837/index-x86_64-linux";
-    sha256 = "1zc6wraxrjrm93z71244ly07jbdg2fq2g3dqzf02n55z410cblgv";
-  };
+  nix-index = inputs.nix-index-database.packages.${stdenv.system}.nix-index-with-db;
 in
 stdenv.mkDerivation {
   name = "lazy-desktop";
@@ -21,10 +18,7 @@ stdenv.mkDerivation {
   dontBuild = true;
   installPhase = ''
 mkdir -p $out/share/applications
-# ln -s ${inputs.nix-index-database} files
-ln -s ${nix-index-database} files
 nix-locate \
-  --db . \
   --top-level \
   --minimal \
   --regex \
