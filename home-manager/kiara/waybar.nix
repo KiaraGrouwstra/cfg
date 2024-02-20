@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  config,
   ...
 }: {
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration

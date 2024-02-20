@@ -1,31 +1,20 @@
 {
-  lib,
-  config,
   pkgs,
   ...
 }:
-with lib; let
-  cfg = config.toggles.accessibility;
-in {
-  options.toggles.accessibility.enable = mkEnableOption "accessibility";
+{
+  home.packages = with pkgs; [
+    ## mobile
+    kdeconnect
+    wvkbd
 
-  # imports = lib.optionals cfg.enable [
-  # ];
+    ## speech / TTS
+    speechd
+    orca
+  ];
 
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      ## mobile
-      kdeconnect
-      wvkbd
-
-      ## speech / TTS
-      speechd
-      orca
-    ];
-
-    services.kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
   };
 }

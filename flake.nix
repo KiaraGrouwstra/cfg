@@ -250,7 +250,6 @@
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
-            "${builtins.getEnv "PWD"}/toggles/hosts/toggles.nix"
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix
@@ -259,7 +258,6 @@
             { home-manager = {
               extraSpecialArgs = specialArgs;
               users.kiara.imports = [
-                "${builtins.getEnv "PWD"}/toggles/home-manager/toggles.nix"
                 nur.nixosModules.nur
                 ./modules/home-manager
                 inputs.nix-index-database.hmModules.nix-index

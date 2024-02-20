@@ -1,34 +1,23 @@
 {
-  lib,
-  config,
   pkgs,
   ...
 }:
-with lib; let
-  cfg = config.toggles.creative;
-in {
-  options.toggles.creative.enable = mkEnableOption "creative";
+{
+  home.packages = with pkgs; [
+    ## graphics
+    imv
 
-  # imports = lib.optionals cfg.enable [
-  # ];
+    ## audio
+    pamixer
+    cava
 
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      ## graphics
-      imv
+    ## video
+    mpv
+    vlc
+    stremio # add providers for content, e.g. https://torrentio.strem.fun/
 
-      ## audio
-      pamixer
-      cava
-
-      ## video
-      mpv
-      vlc
-      stremio # add providers for content, e.g. https://torrentio.strem.fun/
-
-      ## 3d printing
-      prusa-slicer
-      freecad
-    ];
-  };
+    ## 3d printing
+    prusa-slicer
+    freecad
+  ];
 }

@@ -1,43 +1,32 @@
 {
-  lib,
-  config,
   pkgs,
   ...
 }:
-with lib; let
-  cfg = config.toggles.text;
-in {
-  options.toggles.text.enable = mkEnableOption "text";
+{
+  home.packages = with pkgs; [
+    ## text editors
+    vim
+    amp
+    hexyl
+    gnome-text-editor
 
-  # imports = lib.optionals cfg.enable [
-  # ];
+    ## command-line document viewers / editors
+    unixtools.column # lesspipe
 
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      ## text editors
-      vim
-      amp
-      hexyl
-      gnome-text-editor
+    ## markdown
+    glow
 
-      ## command-line document viewers / editors
-      unixtools.column # lesspipe
+    ## document viewers / editors
+    evince
+    calibre
+    libreoffice-fresh
+  ];
 
-      ## markdown
-      glow
+  programs.lesspipe.enable = true;
 
-      ## document viewers / editors
-      evince
-      calibre
-      libreoffice-fresh
-    ];
-
-    programs.lesspipe.enable = true;
-
-    # used by enhancd
-    programs.fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+  # used by enhancd
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

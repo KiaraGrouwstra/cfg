@@ -1,57 +1,43 @@
 {
-  lib,
-  config,
   pkgs,
-  inputs,
   ...
 }:
-with lib; let
-  cfg = config.toggles.desktop;
-in {
-  options.toggles.desktop.enable = mkEnableOption "desktop";
+{
+  home.packages = with pkgs; [
+    ## UI
+    waybar
+    swayidle
+    playerctl
+    pinentry-curses
 
-  # imports = lib.optionals cfg.enable [
-  # # imports = [
-  # #   ./gammastep.nix
-  # ];
+    ## clipboard
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    wl-clip-persist # make clipboard persist across app close
+    cliphist
 
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      ## UI
-      waybar
-      swayidle
-      playerctl
-      pinentry-curses
+    ## process management
+    monitor
+    gnome.gnome-system-monitor
+    btop
 
-      ## clipboard
-      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-      wl-clip-persist # make clipboard persist across app close
-      cliphist
+    ## notifications
+    libnotify
+    swaynotificationcenter
 
-      ## process management
-      monitor
-      gnome.gnome-system-monitor
-      btop
+    ## utilities
+    gnome.gnome-maps
 
-      ## notifications
-      libnotify
-      swaynotificationcenter
+    ## wallpapers / ricing
+    swww # animated transitions
+    waypaper # frontend
+    pywal
+    pywalfox-native
+    wpgtk
+    fontpreview
+    wallust
+  ];
 
-      ## utilities
-      gnome.gnome-maps
+  services.lorri = {enable = true;};
 
-      ## wallpapers / ricing
-      swww # animated transitions
-      waypaper # frontend
-      pywal
-      pywalfox-native
-      wpgtk
-      fontpreview
-      wallust
-    ];
-
-    services.lorri = {enable = true;};
-
-    services.playerctld.enable = true;
-  };
+  services.playerctld.enable = true;
 }

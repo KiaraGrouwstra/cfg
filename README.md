@@ -15,9 +15,6 @@ follow instructions:
 - in `flake.nix` add device profiles for the system and user
 - [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild --impure switch --fast --flake .#hammer 2>&1 | tee build.log`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
-- set up toggles:
-  - `cp ./toggles/hosts/toggles.example.nix ./toggles/hosts/toggles.nix`
-  - `cp ./toggles/home-manager/toggles.example.nix ./toggles/home-manager/toggles.nix`
 - updating:
   - `sudo nix-channel --update`
   - `nix flake update`

@@ -1,30 +1,19 @@
 {
-  lib,
-  config,
   pkgs,
   ...
 }:
-with lib; let
-  cfg = config.toggles.niri;
-in {
-  options.toggles.niri.enable = mkEnableOption "niri";
+{
+  services.xserver.displayManager.defaultSession = "niri";
 
-  # imports = lib.optionals cfg.enable [
-  # ];
+  # xdg-desktop-portal uses D-Bus
+  services.dbus.enable = true;
 
-  config = mkIf cfg.enable {
-    services.xserver.displayManager.defaultSession = "niri";
+  # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
+  qt.platformTheme = "qt5ct";
 
-    # xdg-desktop-portal uses D-Bus
-    services.dbus.enable = true;
+  programs.niri.enable = true;
 
-    # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
-    qt.platformTheme = "qt5ct";
+  environment.systemPackages = with pkgs; [swaybg];
 
-    programs.niri.enable = true;
-
-    environment.systemPackages = with pkgs; [swaybg];
-
-    # programs.xwayland.enable = true;
-  };
+  # programs.xwayland.enable = true;
 }
