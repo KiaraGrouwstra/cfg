@@ -25,20 +25,6 @@ in {
 
     environment.systemPackages = with pkgs; [swaybg];
 
-    systemd.user.services.swaybg = {
-      enable = true;
-      script = "${pkgs.swaybg}/bin/swaybg";
-      # scriptArgs = "-m fill -i \"%h/Pictures/wallpapers/wallpaperflare.com_wallpaper(2).jpg\"";
-      restartTriggers = ["on-failure"];
-      unitConfig = {
-        PartOf = "graphical-session.target";
-        After = "graphical-session.target";
-        Requisite = "graphical-session.target";
-      };
-    };
-
-    systemd.user.services.niri.wants = ["waybar.service" "swaync.service" "swaybg.service"];
-
     # programs.xwayland.enable = true;
   };
 }
