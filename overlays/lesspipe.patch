@@ -1,0 +1,39 @@
+diff --git a/lesspipe.sh b/lesspipe.sh
+index 33f7dd7..4e173d3 100755
+--- a/lesspipe.sh
++++ b/lesspipe.sh
+@@ -366,6 +366,7 @@ get_unpack_cmd () {
+ 		rar)
+ 			{ has_cmd bsdtar && prog=bsdtar; } ||
+ 			{ has_cmd unrar && prog=unrar; } ||
++			{ has_cmd unrar-free && prog=unrar-free; } ||
+ 			{ has_cmd rar && prog=rar; } ;;
+ 		ms-cab-compressed)
+ 			{ has_cmd bsdtar && prog=bsdtar; } ||
+@@ -596,7 +597,7 @@ isfinal () {
+ 			{ has_cmd pandoc && cmd=(pandoc -f csv -t plain "$1"); } ;;
+ 		json)
+ 			[[ $COLOR = *always ]] && opt=(-C .) || opt=(.)
+-			has_cmd jq && cmd=(jq "${opt[@]}" "$1") ;;
++			has_cmd jaq && cmd=(jaq "${opt[@]}" "$1") ;;
+ 		zlib)
+ 			has_cmd zlib-flate && zlib-flate -uncompress < "$1" && return ;;
+ 	esac
+@@ -651,6 +652,8 @@ isarchive () {
+ 				;;
+ 			rar|unrar)
+ 				istemp "$prog p -inul" "$2" "$3" ;;
++			unrar-free)
++				istemp "$prog -t" "$2" "$3" ;;
+ 			ar)
+ 				istemp "ar p" "$2" "$3" ;;
+ 			unzip)
+@@ -669,6 +672,8 @@ isarchive () {
+ 				$prog tvf "$2" ;;
+ 			rar|unrar)
+ 				istemp "$prog v" "$2" ;;
++			unrar-free)
++				istemp "$prog -t" "$2" ;;
+ 			ar)
+ 				istemp "ar vt" "$2" ;;
+ 			unzip)

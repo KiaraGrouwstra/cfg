@@ -13,7 +13,6 @@
     tealdeer
     thefuck
     jaq
-    jq # https://github.com/wofr06/lesspipe/issues/145
     pandoc # lesspipe
 
     ## command-line dropins
