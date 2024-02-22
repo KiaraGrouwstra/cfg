@@ -5,7 +5,8 @@
 {
   home.packages = with pkgs; [
     ## graphics
-    imv
+    # imv  # insecure
+    gnome.eog
 
     ## audio
     pamixer

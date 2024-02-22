@@ -194,8 +194,6 @@
     spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/kiara/Pictures/wallpaper"
     spawn-at-startup "wallust" "run" "`cat ~/.cache/wal/wal`"
 
-    spawn-at-startup "polkit-kde-agent"  // plasma-polkit-agent
-
     spawn-at-startup "waybar"
 
     // screen sharing

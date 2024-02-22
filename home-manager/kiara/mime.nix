@@ -352,7 +352,7 @@
   editors = map addDesktop ["codium" "lapce" "kate"];
   associations = lib.prioritizeList [
     (lib.genAttrs code (_: editors))
-    (lib.genAttrs images (_: ["imv.desktop"]))
+    (lib.genAttrs images (_: ["org.gnome.eog.desktop"]))
     (lib.genAttrs urls (_: browsers))
     (lib.genAttrs readable (_: ["org.gnome.Evince.desktop"]))
     (lib.genAttrs audio (_: ["mpv.desktop"]))

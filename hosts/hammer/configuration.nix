@@ -40,8 +40,6 @@ in {
   #   "/crypto_keyfile.bin" = null;
   # };
 
-  security.polkit.enable = true;
-
   # nitrokey
   # security.pam.p11.enable = true;
 
