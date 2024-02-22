@@ -382,7 +382,7 @@
         "less"
       ]; # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
       "x-scheme-handler/mailto" = ["betterbird.desktop"];
-      "text/calendar" = ["org.gnome.Cbetterbirdktop"];
+      "text/calendar" = ["org.gnome.Calendar.desktop"];
       "application/pdf" = map addDesktop ["org.pwmt.zathura" "less"];
       "text/plain" =
         map addDesktop ["org.gnome.TextEditor" "less" "codium" "lapce"];

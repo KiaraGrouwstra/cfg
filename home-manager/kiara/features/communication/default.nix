@@ -12,7 +12,7 @@
     ## chat / communications
     telegram-desktop
     flare
-betterbird
+
     ## web browsers
     tor-browser
     wget

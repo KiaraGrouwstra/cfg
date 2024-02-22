@@ -63,7 +63,7 @@
           };
         };
         network = {
-          intebetterbirdo1";
+          interface = "wlo1";
           format = "{ifname}";
           format-wifi = " ";
           format-ethernet = "󰈀 ";
