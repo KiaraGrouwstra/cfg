@@ -30,7 +30,6 @@
       };
     };
   };
-  programs.dconf.enable = true;
 
   programs.singularity = {
     enable = true;

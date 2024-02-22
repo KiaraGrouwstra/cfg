@@ -43,19 +43,6 @@ in {
   # nitrokey
   # security.pam.p11.enable = true;
 
-  # swaylock
-  security.pam.services = {
-    swaylock = {
-      text = ''
-        auth include login
-      '';
-      showMotd = true;
-      # p11Auth = true;
-      # enableGnomeKeyring = true;
-      # enableKwallet = true;
-    };
-  };
-
   # printing
   services.printing.enable = true;
 
@@ -123,8 +110,6 @@ in {
 
   # screensharing
   services.pipewire.wireplumber.enable = true;
-
-  programs.dconf.enable = true;
 
   programs.plotinus.enable = true;
 
