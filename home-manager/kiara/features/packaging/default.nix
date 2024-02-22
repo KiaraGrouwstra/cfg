@@ -7,7 +7,6 @@
     ## nix
     any-nix-shell
     nix-direnv
-    lazy-desktop
 
     ## packaging
     appimage-run
