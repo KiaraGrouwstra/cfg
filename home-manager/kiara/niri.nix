@@ -196,6 +196,8 @@
 
     spawn-at-startup "waybar"
 
+    spawn-at-startup "kdeconnect-cli"
+
     // screen sharing
     spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
