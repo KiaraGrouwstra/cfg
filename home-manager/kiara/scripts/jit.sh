@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell nixpkgs#bash nixpkgs#nix nixpkgs#gum nixpkgs#bubblewrap github:Mic92/nix-index-database#default --command bash
+#!/usr/bin/env -S nix shell nixpkgs#bash nixpkgs#nix nixpkgs#nix-index nixpkgs#gum github:Mic92/nix-index-database#default --command bash
 # https://discourse.nixos.org/t/nixpkgs-desktop/39781/6
 
 set -euo pipefail

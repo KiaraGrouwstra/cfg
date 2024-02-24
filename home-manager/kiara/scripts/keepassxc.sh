@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env -S nix shell nixpkgs#wl-clipboard nixpkgs#keepassxc nixpkgs#rofi --command bash
 
 m() { rofi -dmenu -i "$@" ;}
 
