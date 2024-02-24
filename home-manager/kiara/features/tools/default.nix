@@ -52,6 +52,8 @@
       ];
     };
 
+    fzf.enable = true;
+
     # argument completer
     carapace = {
       enable = true;

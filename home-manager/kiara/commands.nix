@@ -3,6 +3,8 @@
   ...
 }:
 with pkgs; {
+  eza = "${eza}/bin/eza";
+  fzf = "${fzf}/bin/fzf";
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";
