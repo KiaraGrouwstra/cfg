@@ -24,7 +24,7 @@ with (import ./commands.nix {inherit pkgs inputs;}); {
       "application/pdf" # poppler_utils
     ])
 
-    (commandDesktop "glow" "${glow}" ["text/markdown"])
+    (commandDesktop "glow" "${glow} -p" ["text/markdown"])
 
     (commandDesktop "lynx" "${lynx}" [
       "x-scheme-handler/https"

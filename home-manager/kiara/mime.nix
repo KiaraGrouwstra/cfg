@@ -386,7 +386,7 @@
       "application/pdf" = map addDesktop ["org.pwmt.zathura" "less"];
       "text/plain" =
         map addDesktop ["org.gnome.TextEditor" "less" "codium" "lapce"];
-      "text/markdown" = map addDesktop ["less" "glow" "codium"];
+      "text/markdown" = map addDesktop ["glow" "less" "codium"];
       "text/org" = map addDesktop ["less" "codium"];
       "application/epub+zip" =
         map addDesktop ["calibre-ebook-viewer" "calibre-ebook-edit"];
