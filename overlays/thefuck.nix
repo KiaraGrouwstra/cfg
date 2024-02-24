@@ -5,8 +5,8 @@ pkgs.thefuck.overridePythonAttrs (old: {
   src = pkgs.fetchFromGitHub {
     owner = "KiaraGrouwstra";
     repo = "thefuck";
-    rev = "16d838bf6f63117b161a2f1e6572e06108b007eb";
-    hash = "sha256-goo8sbMlJK9/6gfVn4A3LGNdTJf1W4n52+1qZMLpXos=";
+    rev = "50ee10ba1d7485b9dd9184e9acc82fc418018da1";
+    hash = "sha256-IAQGvIDBdU7xeTpJ/QKiCABxHA7MCwzRQng17slx9ug=";
   };
   doCheck = false;
 })
