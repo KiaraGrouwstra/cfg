@@ -27,6 +27,7 @@
   services.syncthing.enable = true;
 
   # configure nautilus-open-any-terminal
+  # TODO: address using https://github.com/NixOS/nixpkgs/pull/234615
   dconf.settings = {
     "com/github/stunkymonkey/nautilus-open-any-terminal" = {
       terminal = "wezterm";
