@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-chosen=$(printf '⏻  Power Off\n⭮  Restart\n🌙  Suspend\n❄️  Hibernate\n🚪  Log Out\n🔒  Lock' | fzf)
+chosen=$(printf '⏻  Power Off\n⭮  Restart\n🌙  Suspend\n❄️  Hibernate\n🚪  Log Out\n🔒  Lock' | gum choose)
 
 case "$chosen" in
 	"⏻  Power Off") systemctl poweroff -i ;;

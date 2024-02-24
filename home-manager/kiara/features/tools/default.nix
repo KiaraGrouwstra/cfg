@@ -14,6 +14,7 @@
     thefuck
     jaq
     pandoc # lesspipe
+    gum
 
     ## command-line dropins
     xxh

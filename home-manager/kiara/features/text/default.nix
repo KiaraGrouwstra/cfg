@@ -24,9 +24,4 @@
 
   programs.lesspipe.enable = true;
 
-  # used by enhancd
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 }
