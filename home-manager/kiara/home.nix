@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   outputs,
   ...
 }: {
@@ -14,7 +15,7 @@
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
 
-  home.sessionVariables = {
+  home.sessionVariables = with (import ./commands.nix {inherit pkgs inputs;}); {
     # `nixos-option`
     # qt wayland: https://github.com/keepassxreboot/keepassxc/issues/2973
     QT_QPA_PLATFORM = "wayland";
@@ -23,6 +24,7 @@
     SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = "1";
     MOZ_ENABLE_WAYLAND = "1";
+    PAGER = "${gum} pager";
     ENHANCD_FILTER = "gum choose --no-limit";
   };
 
