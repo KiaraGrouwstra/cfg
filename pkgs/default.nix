@@ -7,7 +7,6 @@
   ...
 }: (
   lib.dryFlakes pkgs inputs [
-    # "niri"
     "nix-software-center"
     "nixos-conf-editor"
     "nomad-driver-containerd-nix"

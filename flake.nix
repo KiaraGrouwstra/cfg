@@ -90,8 +90,8 @@
       url = "github:KiaraGrouwstra/nomad-driver-containerd-nix/kiara";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-flake = {
-      url = "github:sodiboo/niri-flake?rev=8eb71d53594db49935b6d1fa50c5e7b44d3ae567";
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.crate2nix.follows = "crate2nix";
@@ -153,8 +153,6 @@
     self,
     nixpkgs,
     home-manager,
-    nixos-hardware,
-    nur,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -170,11 +168,10 @@
     # [ overlay ]
     overlays =
       builtins.attrValues overlaysAttrs
-      ++ [
+      ++ (with inputs; [
         nur.overlay
-        inputs.niri-flake.overlays.niri
-        inputs.catppuccin-vsc.overlays.default
-      ];
+        catppuccin-vsc.overlays.default
+      ]);
     # for each system: nixpkgs
     pkgsFor =
       lib.genAttrs systems
@@ -234,21 +231,21 @@
       in
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
-          modules = [
+          modules = with inputs; [
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-            inputs.niri-flake.nixosModules.niri
+            niri.nixosModules.niri
             { home-manager = {
               extraSpecialArgs = specialArgs;
-              users.kiara.imports = [
+              users.kiara.imports = with inputs; [
                 nur.nixosModules.nur
                 ./modules/home-manager
-                inputs.nix-index-database.hmModules.nix-index
-                inputs.stylix.homeManagerModules.stylix
+                nix-index-database.hmModules.nix-index
+                stylix.homeManagerModules.stylix
                 ./home-manager/kiara/home.nix
-                inputs.flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+                flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
               ];
             }; }
           ];

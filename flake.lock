@@ -818,7 +818,7 @@
         "type": "github"
       }
     },
-    "niri-flake": {
+    "niri": {
       "inputs": {
         "crate2nix": [
           "crate2nix"
@@ -834,17 +834,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1708644719,
-        "narHash": "sha256-bo/Jz5ye9/WZrPavLo+6QcPeM+GsRGwJaE9V/HVCfIw=",
+        "lastModified": 1708795486,
+        "narHash": "sha256-2Nptg2pizHea1MYaIVkdPen4/cDRpo9LBEqeklV4Suw=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "8eb71d53594db49935b6d1fa50c5e7b44d3ae567",
+        "rev": "9e8a0c25f0cb39db572775724e55878d0e8627aa",
         "type": "github"
       },
       "original": {
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "8eb71d53594db49935b6d1fa50c5e7b44d3ae567",
         "type": "github"
       }
     },
@@ -1471,7 +1470,7 @@
         "garn": "garn",
         "hcloud-csi-driver": "hcloud-csi-driver",
         "home-manager": "home-manager",
-        "niri-flake": "niri-flake",
+        "niri": "niri",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
         "nix-software-center": "nix-software-center",
