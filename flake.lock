@@ -268,26 +268,6 @@
         "type": "github"
       }
     },
-    "crane": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1708560786,
-        "narHash": "sha256-gcTA/iq9mfrwGPQsoxVryWhCAgBwL2GJLGO/s06/0wY=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "9a5972e2e8d0b1716cc4e42af8b75eca6914fbff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "crate2nix": {
       "inputs": {
         "cachix": [
@@ -374,27 +354,6 @@
       "original": {
         "owner": "numtide",
         "repo": "devshell",
-        "type": "github"
-      }
-    },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1708582955,
-        "narHash": "sha256-OOq0YCdOgCyMpr4TFPJVorU5I8k97G8AQ1mhnktp+ZA=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "244b9af2d0180619adcca5d020d085341c0d28c9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
         "type": "github"
       }
     },
@@ -859,7 +818,7 @@
         "type": "github"
       }
     },
-    "niri": {
+    "niri-flake": {
       "inputs": {
         "crate2nix": [
           "crate2nix"
@@ -867,9 +826,7 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "niri-src": [
-          "niri-src"
-        ],
+        "niri-src": "niri-src",
         "niri-stable": "niri-stable",
         "niri-unstable": "niri-unstable",
         "nixpkgs": [
@@ -877,45 +834,33 @@
         ]
       },
       "locked": {
-        "lastModified": 1708612970,
-        "narHash": "sha256-xaPETTbosZFFWXKLHcwqBotmngwnkjpplqmnsq0yzsU=",
+        "lastModified": 1708644719,
+        "narHash": "sha256-bo/Jz5ye9/WZrPavLo+6QcPeM+GsRGwJaE9V/HVCfIw=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "ee2aefa5153870d9bc1e9a70a32aea5954e52299",
+        "rev": "8eb71d53594db49935b6d1fa50c5e7b44d3ae567",
         "type": "github"
       },
       "original": {
         "owner": "sodiboo",
         "repo": "niri-flake",
+        "rev": "8eb71d53594db49935b6d1fa50c5e7b44d3ae567",
         "type": "github"
       }
     },
     "niri-src": {
-      "inputs": {
-        "crane": [
-          "crane"
-        ],
-        "fenix": [
-          "fenix"
-        ],
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nix-filter": "nix-filter",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
+      "flake": false,
       "locked": {
-        "lastModified": 1708582898,
-        "narHash": "sha256-Q7z99bH3tvV5FKzYw6Pvm6JKCrhyQHRF/to93TQriDY=",
+        "lastModified": 1708141626,
+        "narHash": "sha256-vO6ak5rT6ntBC20vYC36zcEcHv7Cki9y8A+c7ThfsUg=",
         "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "f32a25eefefa23a0849a8f3c2710bcfd4fd8d5a0",
+        "rev": "62892d636112230dc16778b91331fbe97576b005",
         "type": "github"
       },
       "original": {
         "owner": "YaLTeR",
+        "ref": "v0.1.2",
         "repo": "niri",
         "type": "github"
       }
@@ -993,21 +938,6 @@
       "original": {
         "owner": "misterio77",
         "repo": "nix-colors",
-        "type": "github"
-      }
-    },
-    "nix-filter": {
-      "locked": {
-        "lastModified": 1705332318,
-        "narHash": "sha256-kcw1yFeJe9N4PjQji9ZeX47jg0p9A0DuU4djKvg1a7I=",
-        "owner": "numtide",
-        "repo": "nix-filter",
-        "rev": "3449dc925982ad46246cfc36469baf66e1b64f17",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "nix-filter",
         "type": "github"
       }
     },
@@ -1529,11 +1459,9 @@
         "anyrun": "anyrun",
         "cachix": "cachix",
         "catppuccin-vsc": "catppuccin-vsc",
-        "crane": "crane",
         "crate2nix": "crate2nix",
         "devenv": "devenv",
         "devshell": "devshell",
-        "fenix": "fenix",
         "flake-compat": "flake-compat_3",
         "flake-parts": "flake-parts_2",
         "flake-programs-sqlite": "flake-programs-sqlite",
@@ -1543,8 +1471,7 @@
         "garn": "garn",
         "hcloud-csi-driver": "hcloud-csi-driver",
         "home-manager": "home-manager",
-        "niri": "niri",
-        "niri-src": "niri-src",
+        "niri-flake": "niri-flake",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
         "nix-software-center": "nix-software-center",
@@ -1564,23 +1491,6 @@
         "stylix": "stylix",
         "systems": "systems_8",
         "treefmt-nix": "treefmt-nix"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1708459863,
-        "narHash": "sha256-PzlnvPOv/1l2lSU0oj+gY+hq5MRqJNU3KWSO+RCwhgs=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "543d7e98dbcc0668528dbf3f5b32d752882baa33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "snowfall-lib": {

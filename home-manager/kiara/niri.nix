@@ -1,7 +1,6 @@
 {pkgs, lib, ...}: {
   home.packages = with pkgs; [
     wayland
-    niri-src
     qt6.qtwayland
     swaybg
     # in case of non-parsing configs
@@ -385,7 +384,7 @@
         Mod+V { spawn "codium"; }
         Mod+E { spawn "nautilus" "Downloads/"; }
         Mod+Shift+E { spawn ${terminal} "lf" "/home/kiara/Downloads/"; }
-        Mod+Shift+Ctrl+Alt+Space { spawn "anyrun" "--plugins" "libsymbols.so"; }
+        Mod+Shift+Ctrl+Alt+Space { spawn ${terminal} "fzf" "--plugins" "libsymbols.so"; }
         Mod+N { spawn "systemctl" "hibernate"; }
         Mod+K { quit; }
         Mod+F3 { spawn ${terminal} "fontpreview.sh"; }
