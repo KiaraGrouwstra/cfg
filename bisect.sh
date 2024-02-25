@@ -19,6 +19,5 @@ sed -E -i "s/$CURRENT_HASH/$TARGET_HASH/g" $LOCK_FILE
 
 export DEPENDENCY_PATH=$PWD
 cd $SYSTEM_REPO
-home-manager --flake .#$USER@$(hostname) switch -b backup --show-trace
-sudo nixos-rebuild dry-build --flake .#$USER-$(hostname) --show-trace
+sudo nixos-rebuild switch --flake .#$USER-$(hostname)
 cd $DEPENDENCY_PATH
