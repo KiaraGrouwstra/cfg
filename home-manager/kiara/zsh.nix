@@ -37,6 +37,7 @@
       docker-compose = "podman-compose";
       ls = "eza --icons";
       jq = "jaq";
+      f = "fuck";  # in case zsh plugin's #1 suggestion won't do
       # ssh = "kitten ssh";  # for kitty
     };
     initExtra = lib.readFile ./zsh.zsh;
