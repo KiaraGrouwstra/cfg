@@ -131,8 +131,10 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon}  {capacity}%";
-          format-icons = ["" "" "" "" ""];
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󱘖 {capacity}%";
+          format-icons = ["" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
         disk = {
           interval = 5;
