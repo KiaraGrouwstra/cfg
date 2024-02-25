@@ -3,6 +3,7 @@
   ...
 }:
 with pkgs; {
+  nix = "${nix}/bin/nix";
   tree = "${tree}/bin/tree";
   bat = "${bat}/bin/bat";
   pistol = "${pistol}/bin/pistol";

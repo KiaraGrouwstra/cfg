@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{pkgs, lib, inputs, ...}: {
   home.packages = with pkgs; [
     wayland
     qt6.qtwayland
@@ -7,8 +7,9 @@
     alacritty
     fuzzel
   ];
-  programs.niri.config = let
+  programs.niri.config = with (import ./commands.nix {inherit pkgs inputs;}); let
     terminal = ''"wezterm" "-e" "--always-new-process"'';
+    run = program: ''"${nix}" "run" "nixpkgs#${program}"'';
     binds = with lib;
       {
         suffixes,
@@ -400,6 +401,7 @@
         Mod+Y { spawn "/home/kiara/.config/rofi/keepassxc.sh" "-d" "~/Nextcloud/keepass.kdbx"; }
         Mod+B { spawn "anyrun" "--plugins" "libsymbols.so"; }
         Ctrl+Alt+Delete { spawn "gnome-system-monitor"; }
+        Ctrl+Shift+Escape { spawn "alacritty" "-e" ${run "zfxtop"}; }
         Mod+L { spawn "swaylock"; }
         Alt+Space { spawn "swaync-client" "--close-latest"; }
         Mod+Escape { spawn "swaync-client" "--close-all"; }
