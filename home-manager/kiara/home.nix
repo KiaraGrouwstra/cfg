@@ -25,12 +25,6 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";
     MOZ_ENABLE_WAYLAND = "1";
     PAGER = "${gum} pager";
-    ENHANCD_FILTER = ''
-      ${fzf} --preview '${eza} -al --tree --level 1 --group-directories-first --git-ignore
-              --header --git --no-user --no-time --no-filesize --no-permissions {}'
-              --preview-window right,50% --height 35% --reverse --ansi
-      :gum choose --no-limit
-    '';
   };
 
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089

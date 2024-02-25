@@ -9,6 +9,7 @@
     ./emacs.nix
     ./firefox.nix
     ./font.nix
+    ./fzf.nix
     ./gammastep.nix
     ./git.nix
     ./gtk.nix

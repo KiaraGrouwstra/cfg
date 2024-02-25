@@ -141,6 +141,9 @@ in {
 
   services.gnome.gnome-keyring.enable = true; # flare-signal
 
+  # used by enhancd
+  programs.fzf.fuzzyCompletion = true;
+
   environment.sessionVariables = {
     # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
     QT_QPA_PLATFORM = "wayland";
