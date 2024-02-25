@@ -59,5 +59,13 @@ with (import ./commands.nix {inherit pkgs inputs;}); {
 
     (commandDesktop "webtorrent" "${webtorrent} download"
       ["x-scheme-handler/magnet"])
+
+    # fallback option delegating MIME handling to pistol
+    # TODO: https://codeberg.org/kiara/cfg/issues/69
+    (commandDesktop "pistol" "${pistol}" [
+      "text/*"
+      "application/*"
+    ])
+
   ];
 }

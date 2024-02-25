@@ -398,6 +398,7 @@
       "application/x-zip" = map addDesktop ["zip"];
       "x-scheme-handler/magnet" = map addDesktop ["webtorrent" "stremio"];
       "x-scheme-handler/irc" = map addDesktop ["halloy"];
+      "text/*" = map addDesktop ["pistol"];
     }
   ];
 in {
