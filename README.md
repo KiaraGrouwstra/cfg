@@ -13,7 +13,7 @@ follow instructions:
 - ensure `/etc/nixos/hardware-configuration.nix` is reflected in `./hosts/$(hostname)/hardware-configuration.nix`
 - in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild --impure switch --fast --flake .#hammer 2>&1 | tee build.log`
+- [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild switch --fast --flake .#hammer 2>&1 | tee build.log`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
 - updating:
   - `sudo nix-channel --update`

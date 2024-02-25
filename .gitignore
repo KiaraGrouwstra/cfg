@@ -3,5 +3,3 @@
 /result
 /hardware-configuration.nix
 /configuration.nix
-/toggles/hosts/toggles.nix
-/toggles/home-manager/toggles.nix
