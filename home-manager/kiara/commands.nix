@@ -3,8 +3,12 @@
   ...
 }:
 with pkgs; {
+  tree = "${tree}/bin/tree";
+  bat = "${bat}/bin/bat";
+  pistol = "${pistol}/bin/pistol";
   eza = "${eza}/bin/eza";
   fzf = "${fzf}/bin/fzf";
+  hexyl = "${hexyl}/bin/hexyl";
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";

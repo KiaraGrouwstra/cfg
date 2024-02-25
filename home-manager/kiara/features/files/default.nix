@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -34,20 +35,29 @@
     };
   };
 
+  # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
-    associations = [
+    associations = with (import ../../commands.nix {inherit pkgs inputs;}); [
       {
         mime = "application/json";
-        command = "bat %pistol-filename%";
+        command = "${bat} --color=always %pistol-filename%";
       }
       {
         mime = "application/*";
-        command = "hexyl %pistol-filename%";
+        command = "${hexyl} %pistol-filename%";
       }
       {
         fpath = ".*.md$";
-        command = "sh: bat --paging=never --color=always %pistol-filename% | head -8";
+        command = "${glow} -s dark %pistol-filename%";
+      }
+      {
+        mime = "text/*";
+        command = "${bat} --color=always %pistol-filename%";
+      }
+      {
+        mime = "inode/directory";
+        command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git %pistol-filename%";
       }
     ];
   };
