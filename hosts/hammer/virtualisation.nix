@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   programs.extra-container.enable = true;
 
   virtualisation = {

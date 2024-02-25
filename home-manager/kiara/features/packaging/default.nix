@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ## nix
     any-nix-shell
@@ -20,5 +16,4 @@
   };
 
   programs.nix-index-database.comma.enable = true;
-
 }

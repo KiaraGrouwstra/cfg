@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ## text editors
     vim
@@ -23,5 +19,4 @@
   ];
 
   programs.lesspipe.enable = true;
-
 }

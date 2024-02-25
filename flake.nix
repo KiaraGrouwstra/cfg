@@ -237,17 +237,19 @@
             ./hosts/hammer/configuration.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
             niri.nixosModules.niri
-            { home-manager = {
-              extraSpecialArgs = specialArgs;
-              users.kiara.imports = with inputs; [
-                nur.nixosModules.nur
-                ./modules/home-manager
-                nix-index-database.hmModules.nix-index
-                stylix.homeManagerModules.stylix
-                ./home-manager/kiara/home.nix
-                flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
-              ];
-            }; }
+            {
+              home-manager = {
+                extraSpecialArgs = specialArgs;
+                users.kiara.imports = with inputs; [
+                  nur.nixosModules.nur
+                  ./modules/home-manager
+                  nix-index-database.hmModules.nix-index
+                  stylix.homeManagerModules.stylix
+                  ./home-manager/kiara/home.nix
+                  flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+                ];
+              };
+            }
           ];
         };
     };

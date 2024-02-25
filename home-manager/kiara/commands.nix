@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{pkgs, ...}:
 with pkgs; {
   nix = "${nix}/bin/nix";
   tree = "${tree}/bin/tree";

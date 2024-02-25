@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ## terminals
     kitty
@@ -33,7 +29,6 @@
   ];
 
   programs = {
-
     ## command-line utilities
 
     command-not-found.enable = true;
@@ -62,7 +57,6 @@
       # enable = true;  # Error installing file '.mozilla/native-messaging-hosts/com.github.browserpass.native.json' outside $HOME
       browsers = ["firefox"];
     };
-
   };
 
   ## credentials / security
@@ -72,5 +66,4 @@
     enableSshSupport = true;
     pinentryFlavor = "curses";
   };
-
 }

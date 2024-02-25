@@ -1,8 +1,9 @@
-{pkgs, inputs, ...}:
-
-with (import ./commands.nix {inherit pkgs inputs;});
 {
-
+  pkgs,
+  inputs,
+  ...
+}:
+with (import ./commands.nix {inherit pkgs inputs;}); {
   programs.fzf = {
     enable = true;
     # https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
@@ -42,5 +43,4 @@ with (import ./commands.nix {inherit pkgs inputs;});
   };
 
   home.sessionVariables.ENHANCD_FILTER = "${fzf} --preview '${pistol} {}'";
-
 }

@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   home.packages = with pkgs; [
     ## file browser
     gnome.nautilus

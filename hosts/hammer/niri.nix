@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   nixpkgs.overlays = [inputs.niri.overlays.niri];
 
   services.xserver.displayManager.defaultSession = "niri";
@@ -17,5 +16,4 @@
   };
 
   environment.systemPackages = with pkgs; [swaybg];
-
 }

@@ -66,6 +66,5 @@ with (import ./commands.nix {inherit pkgs inputs;}); {
       "text/*"
       "application/*"
     ])
-
   ];
 }

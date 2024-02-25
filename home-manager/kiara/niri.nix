@@ -1,4 +1,9 @@
-{pkgs, lib, inputs, ...}: {
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     wayland
     qt6.qtwayland
@@ -28,7 +33,7 @@
       in
         # replaceStrings (attrNames substitutions) (attrValues substitutions)
         string;
-    in ''
+  in ''
     // This config is in the KDL format: https://kdl.dev
     // "/-" comments out the following node.
 
@@ -260,83 +265,83 @@
         Alt+F4 { close-window; }
 
         ${binds {
-          prefixes = {
-            "Mod+Ctrl" = "focus-monitor";
-            "Mod+Shift+Ctrl" = "move-column-to-monitor";
-            "Mod+Shift+Ctrl+Alt" = "move-workspace-to-monitor";
-          };
-          suffixes = {
-            # right hand
-            Left  = "left";
-            Down  = "down";
-            Up    = "up";
-            Right = "right";
-            # left hand
-            S     = "left";
-            X     = "down";
-            Z     = "up";
-            D     = "right";
-          };
-        }}
+      prefixes = {
+        "Mod+Ctrl" = "focus-monitor";
+        "Mod+Shift+Ctrl" = "move-column-to-monitor";
+        "Mod+Shift+Ctrl+Alt" = "move-workspace-to-monitor";
+      };
+      suffixes = {
+        # right hand
+        Left = "left";
+        Down = "down";
+        Up = "up";
+        Right = "right";
+        # left hand
+        S = "left";
+        X = "down";
+        Z = "up";
+        D = "right";
+      };
+    }}
 
         ${binds {
-          prefixes = {
-            "Mod" = "focus";
-            "Mod+Shift" = "move";
-            "Mod+Alt" = "move";
-          };
-          suffixes = {
-            # right hand
-            Left  = "column-left";
-            Down  = "window-down";
-            Up    = "window-up";
-            Right = "column-right";
-            # left hand
-            S     = "column-left";
-            X     = "window-down";
-            Z     = "window-up";
-            D     = "column-right";
-          };
-        }}
+      prefixes = {
+        "Mod" = "focus";
+        "Mod+Shift" = "move";
+        "Mod+Alt" = "move";
+      };
+      suffixes = {
+        # right hand
+        Left = "column-left";
+        Down = "window-down";
+        Up = "window-up";
+        Right = "column-right";
+        # left hand
+        S = "column-left";
+        X = "window-down";
+        Z = "window-up";
+        D = "column-right";
+      };
+    }}
 
         ${binds {
-          prefixes = {
-            "Mod" = "focus-column";
-            "Mod+Shift" = "move-column-to";
-          };
-          suffixes = {
-            Home  = "first";
-            End   = "last";
-          };
-        }}
+      prefixes = {
+        "Mod" = "focus-column";
+        "Mod+Shift" = "move-column-to";
+      };
+      suffixes = {
+        Home = "first";
+        End = "last";
+      };
+    }}
 
         ${binds {
-          prefixes = {
-            "Mod" = "focus-workspace";
-            "Mod+Shift" = "move-column-to-workspace";
-            "Mod+Alt" = "move-column-to-workspace";
-            "Mod+Ctrl" = "move-workspace";
-          };
-          suffixes = {
-            # right hand
-            Page_Up = "up";
-            Page_Down = "down";
-            # left hand
-            A = "up";
-            F = "down";
-          };
-        }}
+      prefixes = {
+        "Mod" = "focus-workspace";
+        "Mod+Shift" = "move-column-to-workspace";
+        "Mod+Alt" = "move-column-to-workspace";
+        "Mod+Ctrl" = "move-workspace";
+      };
+      suffixes = {
+        # right hand
+        Page_Up = "up";
+        Page_Down = "down";
+        # left hand
+        A = "up";
+        F = "down";
+      };
+    }}
 
         ${binds {
-          suffixes = lib.listToAttrs (map (n: {
-            name = n;
-            value = "workspace ${n}";
-          }) (map toString (lib.range 1 9)));
-          prefixes = {
-            "Mod" = "focus";
-            "Mod+Shift" = "move-column-to";
-          };
-        }}
+      suffixes = lib.listToAttrs (map (n: {
+        name = n;
+        value = "workspace ${n}";
+      }) (map toString (lib.range 1 9)));
+      prefixes = {
+        "Mod" = "focus";
+        "Mod+Shift" = "move-column-to";
+      };
+    }}
 
         Mod+Comma  { consume-window-into-column; }
         Mod+Period { expel-window-from-column; }
