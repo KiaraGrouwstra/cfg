@@ -202,21 +202,21 @@
             # The angle is the same as in linear-gradient, and is optional,
             # defaulting to 180 (top-to-bottom gradient).
             # You can use any CSS linear-gradient tool on the web to set these up.
-            # (plain "active-gradient" [
-            #   (leaf "from" ["#80c8ff"])
-            #   (leaf "to" ["#bbddff"])
-            #   (leaf "angle" [45])
-            # ])
+            (leaf "active-gradient" [{
+              from = "#80c8ff";
+              to = "#bbddff";
+              angle = 45;
+            }])
 
             # You can also color the gradient relative to the entire view
             # of the workspace, rather than relative to just the window itself.
             # To do that, set relative-to="workspace-view".
-            # (plain "inactive-gradient" [
-            #   (leaf "from" ["#505050"])
-            #   (leaf "to" ["#808080"])
-            #   (leaf "angle" [45])
-            #   (leaf "relative-to" ["workspace-view"])
-            # ])
+            (leaf "inactive-gradient" [{
+              from = "#505050";
+              to = "#808080";
+              angle = 45;
+              relative-to = "workspace-view";
+            }])
 
         ])
 
