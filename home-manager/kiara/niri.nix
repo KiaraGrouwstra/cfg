@@ -71,7 +71,7 @@
     # "Mod+I" -> "nmtui" -> (spawn "Mod+I" ["nmtui"])
     terminal = keybind: args: spawnCmd keybind ("wezterm -e --always-new-process ${args}");
     # simplify a list of leaves to attrset form
-    # { natural-scroll = []; accel-profile = "flat"; } -> [ (plain-leaf "natural-scroll") (leaf "accel-profile" "flat") ]
+    # { foo = "bar"; } -> [ (leaf "foo" "bar") ]
     leaves = lib.mapAttrsToList leaf;
 
   in serialize.nodes [
@@ -131,7 +131,7 @@
         # instead of power off.
         # Uncomment this if you would like to configure the power button elsewhere
         # (i.e. logind.conf).
-        # (plain-leaf "disable-power-key-handling")
+        # (leaf "disable-power-key-handling" [])
     ])
 
     # You can configure outputs by their name, which you can find
@@ -315,7 +315,7 @@
     # Uncomment this line to ask the clients to omit their client-side decorations if possible.
     # If the client will specifically ask for CSD, the request will be honored.
     # Additionally, clients will be informed that they are tiled, removing some rounded corners.
-    # (plain-leaf "prefer-no-csd")
+    # (leaf "prefer-no-csd" [])
     # this option makes some terminals less ugly, but clashes with vscode :(
 
     # You can change the path where screenshots are saved.
@@ -336,7 +336,7 @@
     # Animation settings.
     (plain "animations" [
         # Uncomment to turn off all animations.
-        # (plain-leaf "off")
+        # (leaf "off" [])
 
         # Slow down all animations by this factor. Values below 1 speed them up instead.
         # (leaf "slowdown" 3.0)
