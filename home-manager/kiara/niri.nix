@@ -16,8 +16,9 @@
     with (import ./commands.nix {inherit pkgs inputs;});
     with inputs.niri.kdl;
   let
-    terminal = keybind: args: spawn keybind (["wezterm" "-e" "--always-new-process"] ++ args);
-    run = program: ["${nix}" "run" "nixpkgs#${program}"];
+    # "curl" -> "nix run nixpkgs#curl"
+    run = program: "${nix} run nixpkgs#${program}";
+
     binds =
       {
         suffixes,
@@ -49,12 +50,27 @@
             }) (lib.attrNames attrs);
       in
         pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)]));
+    # keybinding with parameters
+    # "Print" -> "screenshot" -> [] -> plain "Print" [ (leaf "screenshot" []) ]
     bind = keys: action: args:
       plain keys [
         (leaf action args)
       ];
-    spawn = lib.flip bind "spawn";
+    # key-binding without parameters
+    # "Print" -> "screenshot" -> (bind "Print" "screenshot" [])
     simple = keys: action: bind keys action [];
+    # key-binding of the `spawn` action
+    # "Mod+L" -> ["swaylock"] -> plain "Mod+L" [ (leaf "spawn" ["swaylock"]) ]
+    spawn = lib.flip bind "spawn";
+    # key-binding to run a program. naively splits by spaces, so commands should not have substrings containing spaces.
+    # "XF86MonBrightnessUp" -> "light -A 1" -> (spawn "XF86MonBrightnessUp" ["light" "-A" "1"])
+    spawnCmd = keybind: cmd: (spawn keybind (lib.strings.splitString " " cmd));
+    # command to launch at startup. naively splits by spaces, so commands should not have substrings containing spaces.
+    # "waybar" -> (leaf "spawn-at-startup" ["waybar"])
+    startup = cmd: leaf "spawn-at-startup" (lib.strings.splitString " " cmd);
+    # "Mod+I" -> "nmtui" -> (spawn "Mod+I" ["nmtui"])
+    terminal = keybind: args: spawnCmd keybind ("wezterm -e --always-new-process ${args}");
+
   in serialize.nodes [
 
     (plain "input" [
@@ -261,21 +277,21 @@
     # Note that running niri as a session supports xdg-desktop-autostart,
     # which may be more convenient to use.
 
-    (leaf "spawn-at-startup" ["swaybg" "-m" "fill" "-i" "/home/kiara/Pictures/wallpaper"])
-    (leaf "spawn-at-startup" ["wallust" "run" "`cat ~/.cache/wal/wal`"])
+    (startup "waybar")
 
-    (leaf "spawn-at-startup" ["waybar"])
-
-    (leaf "spawn-at-startup" ["kdeconnect-cli"])
+    (startup "kdeconnect-cli")
 
     # screen sharing
-    (leaf "spawn-at-startup" ["dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"])
+    (startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 
     # Lock screen after idling
     # spawn-at-startup "swayidle" "-w" "timeout" "900" "'swaylock -f'"
 
-    (leaf "spawn-at-startup" ["wl-paste" "--type" "text" "--watch" "cliphist" "store"]) # Stores only text data
-    (leaf "spawn-at-startup" ["wl-paste" "--type" "image" "--watch" "cliphist" "store"]) # Stores only image data
+    (startup "wl-paste --type text --watch cliphist store") # Stores only text data
+    (startup "wl-paste --type image --watch cliphist store") # Stores only image data
+
+    (startup "swaybg -m fill -i /home/kiara/Pictures/wallpaper")
+    (leaf "spawn-at-startup" ["wallust" "run" "`cat ~/.cache/wal/wal`"])
 
     # You can override environment variables for processes spawned by niri.
     (plain "environment" [
@@ -428,20 +444,20 @@
         # Most actions that you can bind here can also be invoked programmatically with
         # `niri msg action do-something`.
 
-        (spawn "Mod+T" ["wezterm"])
+        (spawnCmd "Mod+T" "wezterm")
 
         # You can also use a shell:
         # (spawn "Mod+T" ["bash" "-c" "notify-send hello && exec alacritty"])
 
-        (spawn "XF86AudioRaiseVolume" ["wpctl" "set-volume" "-l" "2.0" "@DEFAULT_AUDIO_SINK@" "5%+"])
-        (spawn "XF86AudioLowerVolume" ["wpctl" "set-volume" "-l" "2.0" "@DEFAULT_AUDIO_SINK@" "5%-"])
-        (spawn "XF86AudioMute" ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"])
-        (spawn "XF86AudioPlay" ["playerctl" "play-pause"])
-        (spawn "XF86AudioStop" ["playerctl" "stop"])
-        (spawn "XF86AudioPrev" ["playerctl" "previous"])
-        (spawn "XF86AudioNext" ["playerctl" "next"])
-        (spawn "XF86MonBrightnessDown" ["light" "-U" "1"])
-        (spawn "XF86MonBrightnessUp" ["light" "-A" "1"])
+        (spawnCmd "XF86AudioRaiseVolume" "wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+")
+        (spawnCmd "XF86AudioLowerVolume" "wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-")
+        (spawnCmd "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+        (spawnCmd "XF86AudioPlay" "playerctl play-pause")
+        (spawnCmd "XF86AudioStop" "playerctl stop")
+        (spawnCmd "XF86AudioPrev" "playerctl previous")
+        (spawnCmd "XF86AudioNext" "playerctl next")
+        (spawnCmd "XF86MonBrightnessDown" "light -U 1")
+        (spawnCmd "XF86MonBrightnessUp" "light -A 1")
 
         (simple "Mod+Q" "close-window")
         (simple "Alt+F4" "close-window")
@@ -475,7 +491,7 @@
 
         (binds {
           prefixes = {
-            "Mod" = "focus-column";
+            Mod = "focus-column";
             "Mod+Shift" = "move-column-to";
           };
           suffixes = {
@@ -486,7 +502,7 @@
 
         (binds {
           prefixes = {
-            "Mod" = "focus-workspace";
+            Mod = "focus-workspace";
             "Mod+Shift" = "move-column-to-workspace";
             "Mod+Alt" = "move-column-to-workspace";
             "Mod+Ctrl" = "move-workspace";
@@ -565,43 +581,43 @@
         (simple "Mod+Shift+Ctrl+T" "toggle-debug-tint")
 
         # switch wallpaper
-        (spawn "Mod+M" ["random-wallpaper.sh"])
-        (terminal "Shift+Mod+M" ["pick-wallpaper.sh"])
+        (spawnCmd "Mod+M" "random-wallpaper.sh")
+        (terminal "Shift+Mod+M" "pick-wallpaper.sh")
 
-        (spawn "Mod+W" ["firefox"])
-        (spawn "Mod+V" ["codium"])
-        (spawn "Mod+E" ["nautilus" "Downloads/"])
-        (terminal "Mod+Shift+E" ["lf" "/home/kiara/Downloads/"])
-        (terminal "Mod+Shift+Ctrl+Alt+Space" ["pick-character.sh" ./scripts/emoji.txt])
-        (spawn "Mod+N" ["systemctl" "hibernate"])
+        (spawnCmd "Mod+W" "firefox")
+        (spawnCmd "Mod+V" "codium")
+        (spawnCmd "Mod+E" "nautilus Downloads/")
+        (terminal "Mod+Shift+E" "lf /home/kiara/Downloads/")
+        (terminal "Mod+Shift+Ctrl+Alt+Space" "pick-character.sh ${./scripts/emoji.txt}")
+        (spawnCmd "Mod+N" "systemctl hibernate")
         (simple "Mod+K" "quit")
-        (terminal "Mod+F3" ["fontpreview.sh"])
+        (terminal "Mod+F3" "fontpreview.sh")
 
         # Mod-/, kinda like Mod-?, shows a list of important hotkeys.
         (simple "Mod+Slash" "show-hotkey-overlay")
 
-        (terminal "Mod+F9" ["main-menu.sh"])
-        (terminal "Mod+I" ["nmtui"])
-        (spawn "Mod+Shift+I" ["networkmanager_dmenu"])
-        (terminal "Mod+U" ["power.sh"])
-        (spawn "Mod+P" ["/home/kiara/.config/rofi/displays.sh"])
-        (spawn "Mod+Y" ["/home/kiara/.config/rofi/keepassxc.sh" "-d" "~/Nextcloud/keepass.kdbx"])
-        (spawn "Mod+B" ["anyrun" "--plugins" "libsymbols.so"])
-        (spawn "Ctrl+Alt+Delete" ["gnome-system-monitor"])
-        (spawn "Ctrl+Shift+Escape" (["alacritty" "-e"] ++ run "zfxtop"))
-        (spawn "Mod+L" ["swaylock"])
-        (spawn "Alt+Space" ["swaync-client" "--close-latest"])
-        (spawn "Mod+Escape" ["swaync-client" "--close-all"])
-        (spawn "Mod+Grave" ["swaync-client" "--toggle-panel"])
+        (terminal "Mod+F9" "main-menu.sh")
+        (terminal "Mod+I" "nmtui")
+        (spawnCmd "Mod+Shift+I" "networkmanager_dmenu")
+        (terminal "Mod+U" "power.sh")
+        (spawnCmd "Mod+P" "/home/kiara/.config/rofi/displays.sh")
+        (spawnCmd "Mod+Y" "/home/kiara/.config/rofi/keepassxc.sh -d ~/Nextcloud/keepass.kdbx")
+        (spawnCmd "Mod+B" "anyrun --plugins libsymbols.so")
+        (spawnCmd "Ctrl+Alt+Delete" "gnome-system-monitor")
+        (spawnCmd "Ctrl+Shift+Escape" "alacritty -e ${run "zfxtop"}")
+        (spawnCmd "Mod+L" "swaylock")
+        (spawnCmd "Alt+Space" "swaync-client --close-latest")
+        (spawnCmd "Mod+Escape" "swaync-client --close-all")
+        (spawnCmd "Mod+Grave" "swaync-client --toggle-panel")
 
-        (spawn "Mod+Space" ["anyrun.sh"])
-        (terminal "Shift+Mod+Space" ["jit.sh"])
-        (spawn "Ctrl+Mod+Space" ["wofi.sh"])
-        (spawn "Alt+Mod+Space" ["rofi.sh"])
-        (spawn "Mod+J" ["anyrun.sh"])
-        (terminal "Shift+Mod+J" ["jit.sh"])
-        (spawn "Ctrl+Mod+J" ["wofi.sh"])
-        (spawn "Alt+Mod+J" ["rofi.sh"])
+        (spawnCmd "Mod+Space" "anyrun.sh")
+        (terminal "Shift+Mod+Space" "jit.sh")
+        (spawnCmd "Ctrl+Mod+Space" "wofi.sh")
+        (spawnCmd "Alt+Mod+Space" "rofi.sh")
+        (spawnCmd "Mod+J" "anyrun.sh")
+        (terminal "Shift+Mod+J" "jit.sh")
+        (spawnCmd "Ctrl+Mod+J" "wofi.sh")
+        (spawnCmd "Alt+Mod+J" "rofi.sh")
     ])
 
     # Settings for debugging. Not meant for normal use.
