@@ -78,19 +78,19 @@
             (plain "xkb" [
                 # You can set rules, model, layout, variant and options.
                 # For more information, see xkeyboard-config(7).
-                (leaf "layout" ["us,nl"])
-                (leaf "options" ["caps:escape"])
+                (leaf "layout" "us,nl")
+                (leaf "options" "caps:escape")
             ])
 
             # You can set the keyboard repeat parameters. The defaults match wlroots and sway.
             # Delay is in milliseconds before the repeat starts. Rate is in characters per second.
-            # (leaf "repeat-delay" [600])
-            # (leaf "repeat-rate" [25])
+            # (leaf "repeat-delay" 600)
+            # (leaf "repeat-rate" 25)
 
             # Niri can remember the keyboard layout globally (the default) or per-window.
             # - "global" - layout change is global for all windows.
             # - "window" - layout is tracked for each window individually.
-            (leaf "track-layout" ["global"])
+            (leaf "track-layout" "global")
         ])
 
         # Next sections include libinput settings.
@@ -100,28 +100,28 @@
             # (plain-leaf "dwt")
             # (plain-leaf "dwtp")
             (plain-leaf "natural-scroll")
-            # (leaf "accel-speed" [0.2])
-            # (leaf "accel-profile" ["flat"])
-            # (leaf "tap-button-map] ["left-middle-right"])
+            # (leaf "accel-speed" 0.2)
+            # (leaf "accel-profile" "flat")
+            # (leaf "tap-button-map] "left-middle-right")
         ])
 
         (plain "mouse" [
             # (plain-leaf "natural-scroll")
-            (leaf "accel-speed" [0.2])
-            # (leaf "accel-profile" ["flat"])
+            (leaf "accel-speed" 0.2)
+            # (leaf "accel-profile" "flat")
         ])
 
         (plain "trackpoint" [
             (plain-leaf "natural-scroll")
-            (leaf "accel-speed" [0.2])
-            # (leaf "accel-profile" ["flat"])
+            (leaf "accel-speed" 0.2)
+            # (leaf "accel-profile" "flat")
         ])
 
         (plain "tablet" [
             # Set the name of the output (see below) which the tablet will map to.
             # If this is unset or the output doesn't exist, the tablet maps to one of the
             # existing outputs.
-            (leaf "map-to-output" ["eDP-1"])
+            (leaf "map-to-output" "eDP-1")
         ])
 
         # By default, niri will take over the power button to make it sleep
@@ -139,11 +139,11 @@
     #     # (plain-leaf "off")
 
     #     # Scale is a floating-point number, but at the moment only integer values work.
-    #     (leaf "scale" [2.0])
+    #     (leaf "scale" 2.0)
 
     #     # Transform allows to rotate the output counter-clockwise, valid values are:
     #     # normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    #     (leaf "transform" ["normal"])
+    #     (leaf "transform" "normal")
 
     #     # Resolution and, optionally, refresh rate of the output.
     #     # The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -162,7 +162,7 @@
     #     # so to put another output directly adjacent to it on the right, set its x to 1920.
     #     # It the position is unset or results in an overlap, the output is instead placed
     #     # automatically.
-    #     (leaf "position" ["x=1280" "y=0"])
+    #     (leaf "position" { x = 1280; y = 0; })
     # ])
 
     (plain "layout" [
@@ -180,7 +180,7 @@
             # (plain-leaf "off")
 
             # How many logical pixels the ring extends out from the windows.
-            (leaf "width" [4])
+            (leaf "width" 4)
 
             # Colors can be set in a variety of ways:
             # - CSS named colors: "red"
@@ -188,10 +188,10 @@
             # - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
             # Color of the ring on the active monitor.
-            # (leaf "active-color" ["#ef9f76ee"])
+            # (leaf "active-color" "#ef9f76ee")
 
             # Color of the ring on inactive monitors.
-            # (leaf "inactive-color" ["#595959aa"])
+            # (leaf "inactive-color" "#595959aa")
 
             # You can also use gradients. They take precedence over solid colors.
             # Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -202,21 +202,21 @@
             # The angle is the same as in linear-gradient, and is optional,
             # defaulting to 180 (top-to-bottom gradient).
             # You can use any CSS linear-gradient tool on the web to set these up.
-            (leaf "active-gradient" [{
+            (leaf "active-gradient" {
               from = "#80c8ff";
               to = "#bbddff";
               angle = 45;
-            }])
+            })
 
             # You can also color the gradient relative to the entire view
             # of the workspace, rather than relative to just the window itself.
             # To do that, set relative-to="workspace-view".
-            (leaf "inactive-gradient" [{
+            (leaf "inactive-gradient" {
               from = "#505050";
               to = "#808080";
               angle = 45;
               relative-to = "workspace-view";
-            }])
+            })
 
         ])
 
@@ -226,9 +226,9 @@
             # If you enable the border, you probably want to disable the focus ring.
             (plain-leaf "off")
 
-            (leaf "width" [4])
-            # (leaf "active-color" ["#ffc87fff"])
-            # (leaf "inactive-color" ["#505050ff"])
+            (leaf "width" 4)
+            # (leaf "active-color" "#ffc87fff")
+            # (leaf "inactive-color" "#505050ff")
         ])
 
         # You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
@@ -236,21 +236,21 @@
             # Proportion sets the width as a fraction of the output width, taking gaps into account.
             # For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
             # The default preset widths are 1/3, 1/2 and 2/3 of the output.
-            (leaf "proportion" [0.33333])
-            (leaf "proportion" [0.5])
-            (leaf "proportion" [0.66667])
+            (leaf "proportion" 0.33333)
+            (leaf "proportion" 0.5)
+            (leaf "proportion" 0.66667)
 
             # Fixed sets the width in logical pixels exactly.
-            # (leaf "fixed" [1920])
+            # (leaf "fixed" 1920)
         ])
 
         # You can change the default width of the new windows.
-        # (plain "default-column-width" [ (leaf "proportion" [0.5]) ])
+        # (plain "default-column-width" [ (leaf "proportion" 0.5) ])
         # If you leave the brackets empty, the windows themselves will decide their initial width.
         (plain "default-column-width" [])
 
         # Set gaps around windows in logical pixels.
-        (leaf "gaps" [16])
+        (leaf "gaps" 16)
 
         # Struts shrink the area occupied by windows, similarly to layer-shell panels.
         # You can think of them as a kind of outer gaps. They are set in logical pixels.
@@ -258,10 +258,10 @@
         # Top and bottom struts will simply add outer gaps in addition to the area occupied by
         # layer-shell panels and regular gaps.
         (plain "struts" [
-            (leaf "left" [64])
-            (leaf "right" [64])
-            # (leaf "top" [64])
-            # (leaf "bottom" [64])
+            (leaf "left" 64)
+            (leaf "right" 64)
+            # (leaf "top" 64)
+            # (leaf "bottom" 64)
         ])
 
         # When to center a column when changing focus, options are:
@@ -270,7 +270,7 @@
         # - "on-overflow", focusing a column will center it if it doesn't fit
         #   together with the previously focused column.
         # - "always", the focused column will always be centered.
-        (leaf "center-focused-column" ["never"])
+        (leaf "center-focused-column" "never")
     ])
 
     # Add lines like this to spawn processes at startup.
@@ -285,7 +285,7 @@
     (startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 
     # Lock screen after idling
-    # spawn-at-startup "swayidle" "-w" "timeout" "900" "'swaylock -f'"
+    # (leaf "spawn-at-startup" ["swayidle" "-w" "timeout" "900" "'swaylock -f'"])
 
     (startup "wl-paste --type text --watch cliphist store") # Stores only text data
     (startup "wl-paste --type image --watch cliphist store") # Stores only image data
@@ -296,17 +296,17 @@
     # You can override environment variables for processes spawned by niri.
     (plain "environment" [
         # Set a variable like this:
-        (leaf "QT_QPA_PLATFORM" ["wayland"])
+        (leaf "QT_QPA_PLATFORM" "wayland")
 
         # Remove a variable by using null as the value:
-        # (leaf "DISPLAY" [null])
+        # (leaf "DISPLAY" "null")
     ])
 
     (plain "cursor" [
         # Change the theme and size of the cursor as well as set the
         # `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
-        # (leaf "xcursor-theme" ["default"])
-        (leaf "xcursor-size" [24])
+        # (leaf "xcursor-theme" "default")
+        (leaf "xcursor-size" 24)
     ])
 
     # Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -318,10 +318,10 @@
     # You can change the path where screenshots are saved.
     # A ~ at the front will be expanded to the home directory.
     # The path is formatted with strftime(3) to give you the screenshot date and time.
-    (leaf "screenshot-path" ["~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"])
+    (leaf "screenshot-path" "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png")
 
     # You can also set this to null to disable saving screenshots to disk.
-    # (leaf "screenshot-path" ["null"])
+    # (leaf "screenshot-path" "null")
 
     # Settings for the "Important Hotkeys" overlay.
     (plain "hotkey-overlay" [
@@ -336,7 +336,7 @@
         # (plain-leaf "off")
 
         # Slow down all animations by this factor. Values below 1 speed them up instead.
-        # (leaf "slowdown" [3.0])
+        # (leaf "slowdown" 3.0)
 
         # You can configure all individual animations.
         # Available settings are the same for all of them:
@@ -349,8 +349,8 @@
         # including after the touchpad gesture.
         (plain "workspace-switch" [
             # (plain-leaf "off")
-            # (leaf "duration-ms" [250])
-            (leaf "curve" ["ease-out-cubic"])
+            # (leaf "duration-ms" 250)
+            (leaf "curve" "ease-out-cubic")
         ])
 
         # All horizontal camera view movement:
@@ -360,23 +360,23 @@
         # - And so on.
         (plain "horizontal-view-movement" [
             # (plain-leaf "off")
-            # (leaf "duration-ms" [250])
+            # (leaf "duration-ms" 250)
             (leaf "curve" ["ease-out-cubic"])
         ])
 
         # Window opening animation. Note that this one has different defaults.
         (plain "window-open" [
             # (plain-leaf "off")
-            # (leaf "duration-ms" [150])
-            (leaf "curve" ["ease-out-cubic"])
+            # (leaf "duration-ms" 150)
+            (leaf "curve" "ease-out-cubic")
         ])
 
         # Config parse error and new default config creation notification
         # open/close animation.
         (plain "config-notification-open-close" [
             # (plain-leaf "off")
-            # (leaf "duration-ms" [250])
-            (leaf "curve" ["ease-out-cubic"])
+            # (leaf "duration-ms" 250)
+            (leaf "curve" "ease-out-cubic")
         ])
     ])
 
@@ -386,37 +386,37 @@
     #     # Match directives control which windows this rule will apply to.
     #     # You can match by app-id and by title.
     #     # The window must match all properties of the match directive.
-    #     (leaf "match" [{ app-id="org.myapp.MyApp"; title="My Cool App"; }])
+    #     (leaf "match" { app-id="org.myapp.MyApp"; title="My Cool App"; })
 
     #     # There can be multiple match directives. A window must match any one
     #     # of the rule's match directives.
     #     #
     #     # If there are no match directives, any window will match the rule.
-    #     (leaf "match" [{ title = "Second App"; }])
+    #     (leaf "match" { title = "Second App"; })
 
     #     # You can also add exclude directives which have the same properties.
     #     # If a window matches any exclude directive, it won't match this rule.
     #     #
     #     # Both app-id and title are regular expressions.
     #     # Raw KDL strings are helpful here.
-    #     (leaf "exclude" [{ app-id = ''r#"\.unwanted\."#''; }])
+    #     (leaf "exclude" { app-id = ''r#"\.unwanted\."#''; })
 
     #     # Here are the properties that you can set on a window rule.
     #     # You can override the default column width.
-    #     (plain "default-column-width" [ (leaf "proportion" [0.75]) ])
+    #     (plain "default-column-width" [ (leaf "proportion" 0.75) ])
 
     #     # You can set the output that this window will initially open on.
     #     # If such an output does not exist, it will open on the currently
     #     # focused output as usual.
-    #     (leaf "open-on-output" ["eDP-1"])
+    #     (leaf "open-on-output" "eDP-1")
 
     #     # Make this window open as a maximized column.
-    #     (leaf "open-maximized" [true])
+    #     (leaf "open-maximized" true)
 
     #     # Make this window open fullscreen.
-    #     (leaf "open-fullscreen" [true])
+    #     (leaf "open-fullscreen" true)
     #     # You can also set this to false to prevent a window from opening fullscreen.
-    #     (leaf "open-fullscreen" [false])
+    #     (leaf "open-fullscreen" false)
     # ])
 
     # Here's a useful example. Work around WezTerm's initial configure bug
@@ -426,7 +426,7 @@
     #     # since this is the default config, and we want no false positives.
     #     # You can get away with just app-id="wezterm" if you want.
     #     # The regular expression can match anywhere in the string.
-    #     (leaf "match" [{ app-id = ''r#"^org\.wezfurlong\.wezterm$"#''; }])
+    #     (leaf "match" { app-id = ''r#"^org\.wezfurlong\.wezterm$"#''; })
     #     (plain "default-column-width" [])
     # ])
 
@@ -554,12 +554,12 @@
         # * adjust width as a percentage of screen width: "-10%" or "+10%"
         # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
         # set-column-width "100" will make the column occupy 200 physical screen pixels.
-        (bind "Mod+Minus" "set-column-width" ["-10%"])
-        (bind "Mod+Equal" "set-column-width" ["+10%"])
+        (bind "Mod+Minus" "set-column-width" "-10%")
+        (bind "Mod+Equal" "set-column-width" "+10%")
 
         # Finer height adjustments when in column with other windows.
-        (bind "Mod+Shift+Minus" "set-window-height" ["-10%"])
-        (bind "Mod+Shift+Equal" "set-window-height" ["+10%"])
+        (bind "Mod+Shift+Minus" "set-window-height" "-10%")
+        (bind "Mod+Shift+Equal" "set-window-height" "+10%")
 
         # Actions to switch layouts.
         # Note: if you uncomment these, make sure you do NOT have
@@ -641,7 +641,7 @@
         # (plain-leaf "disable-cursor-plane")
 
         # Override the DRM device that niri will use for all rendering.
-        # (leaf "render-drm-device" ["/dev/dri/renderD129"])
+        # (leaf "render-drm-device" "/dev/dri/renderD129")
 
         # Enable the color-transformations capability of the Smithay renderer.
         # May cause a slight decrease in rendering performance.
