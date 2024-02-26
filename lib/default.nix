@@ -26,6 +26,9 @@ with lib; let
 in {
   inherit mapVals dirAttrs;
 
+  # (a -> b -> c) -> b -> a -> c
+  flip = f: x: y: f y x;
+
   # (k: k + k) -> { a = 1; } -> { aa = 1; }
   mapKeys = f: mapAttrs' (k: v: nameValuePair (f k) v);
 
@@ -39,7 +42,7 @@ in {
   importRest = {pkgs, ...} @ args: path: (mapAttrs (_: file:
       pkgs.callPackage file
       args) # import with the same args, add `...` arg if needed
-    
+
     (filterAttrs (name: _: name != "default") (dirAttrs ".nix" path)));
 
   # pkgs -> inputs -> ["a" {b="c";}] -> { "a" = inputs.a.packages.${pkgs.system}.default; "c" = inputs.b.packages.${pkgs.system}.c; }
