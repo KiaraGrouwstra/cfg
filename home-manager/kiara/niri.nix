@@ -70,17 +70,24 @@
     startup = cmd: leaf "spawn-at-startup" (lib.strings.splitString " " cmd);
     # "Mod+I" -> "nmtui" -> (spawn "Mod+I" ["nmtui"])
     terminal = keybind: args: spawnCmd keybind ("wezterm -e --always-new-process ${args}");
+    # simplify a list of leaves to attrset form
+    # { natural-scroll = null; accel-profile = "flat"; } -> [ (plain-leaf "natural-scroll") (leaf "accel-profile" "flat") ]
+    leaves = nodes: lib.lists.map ({ name, value }:
+      if value == null
+        then plain-leaf name
+        else leaf name value
+    ) (lib.attrsets.attrsToList nodes);
 
   in serialize.nodes [
 
     (plain "input" [
         (plain "keyboard" [
-            (plain "xkb" [
+            (plain "xkb" (leaves {
                 # You can set rules, model, layout, variant and options.
                 # For more information, see xkeyboard-config(7).
-                (leaf "layout" "us,nl")
-                (leaf "options" "caps:escape")
-            ])
+                layout = "us,nl";
+                options = "caps:escape";
+            }))
 
             # You can set the keyboard repeat parameters. The defaults match wlroots and sway.
             # Delay is in milliseconds before the repeat starts. Rate is in characters per second.
@@ -95,34 +102,34 @@
 
         # Next sections include libinput settings.
         # Omitting settings disables them, or leaves them at their default values.
-        (plain "touchpad" [
-            (plain-leaf "tap")
-            # (plain-leaf "dwt")
-            # (plain-leaf "dwtp")
-            (plain-leaf "natural-scroll")
-            # (leaf "accel-speed" 0.2)
-            # (leaf "accel-profile" "flat")
-            # (leaf "tap-button-map] "left-middle-right")
-        ])
+        (plain "touchpad" (leaves {
+            tap = null;
+            # dwt = null;
+            # dwtp = null;
+            natural-scroll = null;
+            # accel-speed = 0.2;
+            # accel-profile = "flat";
+            # tap-button-map = "left-middle-right";
+        }))
 
-        (plain "mouse" [
-            # (plain-leaf "natural-scroll")
-            (leaf "accel-speed" 0.2)
-            # (leaf "accel-profile" "flat")
-        ])
+        (plain "mouse" (leaves {
+            # natural-scroll = null
+            accel-speed = 0.2;
+            # accel-profile = "flat";
+        }))
 
-        (plain "trackpoint" [
-            (plain-leaf "natural-scroll")
-            (leaf "accel-speed" 0.2)
-            # (leaf "accel-profile" "flat")
-        ])
+        (plain "trackpoint" (leaves {
+            natural-scroll = null;
+            accel-speed = 0.2;
+            accel-profile = "flat";
+        }))
 
-        (plain "tablet" [
+        (plain "tablet" (leaves {
             # Set the name of the output (see below) which the tablet will map to.
             # If this is unset or the output doesn't exist, the tablet maps to one of the
             # existing outputs.
-            (leaf "map-to-output" "eDP-1")
-        ])
+            map-to-output = "eDP-1";
+        }))
 
         # By default, niri will take over the power button to make it sleep
         # instead of power off.
@@ -134,16 +141,16 @@
     # You can configure outputs by their name, which you can find
     # by running `niri msg outputs` while inside a niri instance.
     # The built-in laptop monitor is usually called "eDP-1".
-    # (node "output" ["eDP-1"] [
+    # (node "output" ["eDP-1"] (leaves {
     #     # Uncomment this line to disable this output.
-    #     # (plain-leaf "off")
+    #     # off = null;
 
     #     # Scale is a floating-point number, but at the moment only integer values work.
-    #     (leaf "scale" 2.0)
+    #     scale = 2.0;
 
     #     # Transform allows to rotate the output counter-clockwise, valid values are:
     #     # normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    #     (leaf "transform" "normal")
+    #     transform = "normal";
 
     #     # Resolution and, optionally, refresh rate of the output.
     #     # The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -151,7 +158,7 @@
     #     # for the resolution.
     #     # If the mode is omitted altogether or is invalid, niri will pick one automatically.
     #     # Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    #     (leaf "mode" "1920x1080@120.030")
+    #     mode = "1920x1080@120.030";
 
     #     # Position of the output in the global coordinate space.
     #     # This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -162,8 +169,8 @@
     #     # so to put another output directly adjacent to it on the right, set its x to 1920.
     #     # It the position is unset or results in an overlap, the output is instead placed
     #     # automatically.
-    #     (leaf "position" { x = 1280; y = 0; })
-    # ])
+    #     position = { x = 1280; y = 0; };
+    # }))
 
     (plain "layout" [
         # By default focus ring and border are rendered as a solid background rectangle
@@ -175,12 +182,12 @@
         # client-side decorations.
 
         # You can change how the focus ring looks.
-        (plain "focus-ring" [
+        (plain "focus-ring" (leaves {
             # Uncomment this line to disable the focus ring.
-            # (plain-leaf "off")
+            # off = null;
 
             # How many logical pixels the ring extends out from the windows.
-            (leaf "width" 4)
+            width = 4;
 
             # Colors can be set in a variety of ways:
             # - CSS named colors: "red"
@@ -188,10 +195,10 @@
             # - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
             # Color of the ring on the active monitor.
-            # (leaf "active-color" "#ef9f76ee")
+            # active-color = "#ef9f76ee";
 
             # Color of the ring on inactive monitors.
-            # (leaf "inactive-color" "#595959aa")
+            # inactive-color = "#595959aa";
 
             # You can also use gradients. They take precedence over solid colors.
             # Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -202,34 +209,34 @@
             # The angle is the same as in linear-gradient, and is optional,
             # defaulting to 180 (top-to-bottom gradient).
             # You can use any CSS linear-gradient tool on the web to set these up.
-            (leaf "active-gradient" {
+            active-gradient = {
               from = "#80c8ff";
               to = "#bbddff";
               angle = 45;
-            })
+            };
 
             # You can also color the gradient relative to the entire view
             # of the workspace, rather than relative to just the window itself.
             # To do that, set relative-to="workspace-view".
-            (leaf "inactive-gradient" {
+            inactive-gradient = {
               from = "#505050";
               to = "#808080";
               angle = 45;
               relative-to = "workspace-view";
-            })
+            };
 
-        ])
+        }))
 
         # You can also add a border. It's similar to the focus ring, but always visible.
-        (plain "border" [
+        (plain "border" (leaves {
             # The settings are the same as for the focus ring.
             # If you enable the border, you probably want to disable the focus ring.
-            (plain-leaf "off")
+            off = null;
 
-            (leaf "width" 4)
-            # (leaf "active-color" "#ffc87fff")
-            # (leaf "inactive-color" "#505050ff")
-        ])
+            width = 4;
+            # active-color = "#ffc87fff";
+            # inactive-color = "#505050ff";
+        }))
 
         # You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
         (plain "preset-column-widths" [
@@ -257,12 +264,12 @@
         # Left and right struts will cause the next window to the side to always be visible.
         # Top and bottom struts will simply add outer gaps in addition to the area occupied by
         # layer-shell panels and regular gaps.
-        (plain "struts" [
-            (leaf "left" 64)
-            (leaf "right" 64)
-            # (leaf "top" 64)
-            # (leaf "bottom" 64)
-        ])
+        (plain "struts" (leaves {
+            left = 64;
+            right = 64;
+            # top = 64;
+            # bottom = 64;
+        }))
 
         # When to center a column when changing focus, options are:
         # - "never", default behavior, focusing an off-screen column will keep at the left
@@ -294,20 +301,20 @@
     (leaf "spawn-at-startup" ["wallust" "run" "`cat ~/.cache/wal/wal`"])
 
     # You can override environment variables for processes spawned by niri.
-    (plain "environment" [
+    (plain "environment" (leaves {
         # Set a variable like this:
-        (leaf "QT_QPA_PLATFORM" "wayland")
+        QT_QPA_PLATFORM = "wayland";
 
         # Remove a variable by using null as the value:
-        # (leaf "DISPLAY" "null")
-    ])
+        DISPLAY = "null";
+    }))
 
-    (plain "cursor" [
+    (plain "cursor" (leaves {
         # Change the theme and size of the cursor as well as set the
         # `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
-        # (leaf "xcursor-theme" "default")
-        (leaf "xcursor-size" 24)
-    ])
+        # xcursor-theme = "default";
+        xcursor-size = 24;
+    }))
 
     # Uncomment this line to ask the clients to omit their client-side decorations if possible.
     # If the client will specifically ask for CSD, the request will be honored.
@@ -324,10 +331,10 @@
     # (leaf "screenshot-path" "null")
 
     # Settings for the "Important Hotkeys" overlay.
-    (plain "hotkey-overlay" [
+    (plain "hotkey-overlay" (leaves {
         # Uncomment this line if you don't want to see the hotkey help at niri startup.
-        (plain-leaf "skip-at-startup")
-    ])
+        skip-at-startup = null;
+    }))
 
 
     # Animation settings.
@@ -347,37 +354,37 @@
 
         # Animation when switching workspaces up and down,
         # including after the touchpad gesture.
-        (plain "workspace-switch" [
-            # (plain-leaf "off")
-            # (leaf "duration-ms" 250)
-            (leaf "curve" "ease-out-cubic")
-        ])
+        (plain "workspace-switch" (leaves {
+            # off = null;
+            # duration-ms = 250;
+            curve = "ease-out-cubic";
+        }))
 
         # All horizontal camera view movement:
         # - When a window off-screen is focused and the camera scrolls to it.
         # - When a new window appears off-screen and the camera scrolls to it.
         # - When a window resizes bigger and the camera scrolls to show it in full.
         # - And so on.
-        (plain "horizontal-view-movement" [
-            # (plain-leaf "off")
-            # (leaf "duration-ms" 250)
-            (leaf "curve" ["ease-out-cubic"])
-        ])
+        (plain "horizontal-view-movement" (leaves {
+            # off = null
+            # duration-ms = 250;
+            curve = "ease-out-cubic";
+        }))
 
         # Window opening animation. Note that this one has different defaults.
-        (plain "window-open" [
-            # (plain-leaf "off")
-            # (leaf "duration-ms" 150)
-            (leaf "curve" "ease-out-cubic")
-        ])
+        (plain "window-open" (leaves {
+            # off = null;
+            # duration-ms = 150;
+            curve = "ease-out-cubic";
+        }))
 
         # Config parse error and new default config creation notification
         # open/close animation.
-        (plain "config-notification-open-close" [
-            # (plain-leaf "off")
-            # (leaf "duration-ms" 250)
-            (leaf "curve" "ease-out-cubic")
-        ])
+        (plain "config-notification-open-close" (leaves {
+            # off = null;
+            # duration-ms = 250;
+            curve = "ease-out-cubic";
+        }))
     ])
 
     # Window rules let you adjust behavior for individual windows.
@@ -622,31 +629,31 @@
 
     # Settings for debugging. Not meant for normal use.
     # These can change or stop working at any point with little notice.
-    (plain "debug" [
+    (plain "debug" (leaves {
         # Make niri take over its DBus services even if it's not running as a session.
         # Useful for testing screen recording changes without having to relogin.
         # The main niri instance will *not* currently take back the services; so you will
         # need to relogin in the end.
-        # (plain-leaf "dbus-interfaces-in-non-session-instances")
+        # dbus-interfaces-in-non-session-instances = null;
 
         # Wait until every frame is done rendering before handing it over to DRM.
-        # (plain-leaf "wait-for-frame-completion-before-queueing")
+        # wait-for-frame-completion-before-queueing = null;
 
         # Enable direct scanout into overlay planes.
         # May cause frame drops during some animations on some hardware.
-        # (plain-leaf "enable-overlay-planes")
+        # enable-overlay-planes = null;
 
         # Disable the use of the cursor plane.
         # The cursor will be rendered together with the rest of the frame.
-        # (plain-leaf "disable-cursor-plane")
+        # disable-cursor-plane = null;
 
         # Override the DRM device that niri will use for all rendering.
-        # (leaf "render-drm-device" "/dev/dri/renderD129")
+        # render-drm-device = "/dev/dri/renderD129";
 
         # Enable the color-transformations capability of the Smithay renderer.
         # May cause a slight decrease in rendering performance.
-        # (plain-leaf "enable-color-transformations-capability")
-    ])
+        # enable-color-transformations-capability = null;
+    }))
 
   ];
 }
