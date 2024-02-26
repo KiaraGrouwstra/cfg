@@ -71,12 +71,8 @@
     # "Mod+I" -> "nmtui" -> (spawn "Mod+I" ["nmtui"])
     terminal = keybind: args: spawnCmd keybind ("wezterm -e --always-new-process ${args}");
     # simplify a list of leaves to attrset form
-    # { natural-scroll = null; accel-profile = "flat"; } -> [ (plain-leaf "natural-scroll") (leaf "accel-profile" "flat") ]
-    leaves = nodes: lib.lists.map ({ name, value }:
-      if value == null
-        then plain-leaf name
-        else leaf name value
-    ) (lib.attrsets.attrsToList nodes);
+    # { natural-scroll = []; accel-profile = "flat"; } -> [ (plain-leaf "natural-scroll") (leaf "accel-profile" "flat") ]
+    leaves = lib.mapAttrsToList leaf;
 
   in serialize.nodes [
 
@@ -103,10 +99,10 @@
         # Next sections include libinput settings.
         # Omitting settings disables them, or leaves them at their default values.
         (plain "touchpad" (leaves {
-            tap = null;
-            # dwt = null;
-            # dwtp = null;
-            natural-scroll = null;
+            tap = [];
+            # dwt = [];
+            # dwtp = [];
+            natural-scroll = [];
             # accel-speed = 0.2;
             # accel-profile = "flat";
             # tap-button-map = "left-middle-right";
@@ -119,7 +115,7 @@
         }))
 
         (plain "trackpoint" (leaves {
-            natural-scroll = null;
+            natural-scroll = [];
             accel-speed = 0.2;
             accel-profile = "flat";
         }))
@@ -143,7 +139,7 @@
     # The built-in laptop monitor is usually called "eDP-1".
     # (node "output" ["eDP-1"] (leaves {
     #     # Uncomment this line to disable this output.
-    #     # off = null;
+    #     # off = [];
 
     #     # Scale is a floating-point number, but at the moment only integer values work.
     #     scale = 2.0;
@@ -184,7 +180,7 @@
         # You can change how the focus ring looks.
         (plain "focus-ring" (leaves {
             # Uncomment this line to disable the focus ring.
-            # off = null;
+            # off = [];
 
             # How many logical pixels the ring extends out from the windows.
             width = 4;
@@ -231,7 +227,7 @@
         (plain "border" (leaves {
             # The settings are the same as for the focus ring.
             # If you enable the border, you probably want to disable the focus ring.
-            off = null;
+            off = [];
 
             width = 4;
             # active-color = "#ffc87fff";
@@ -333,7 +329,7 @@
     # Settings for the "Important Hotkeys" overlay.
     (plain "hotkey-overlay" (leaves {
         # Uncomment this line if you don't want to see the hotkey help at niri startup.
-        skip-at-startup = null;
+        skip-at-startup = [];
     }))
 
 
@@ -355,7 +351,7 @@
         # Animation when switching workspaces up and down,
         # including after the touchpad gesture.
         (plain "workspace-switch" (leaves {
-            # off = null;
+            # off = [];
             # duration-ms = 250;
             curve = "ease-out-cubic";
         }))
@@ -373,7 +369,7 @@
 
         # Window opening animation. Note that this one has different defaults.
         (plain "window-open" (leaves {
-            # off = null;
+            # off = [];
             # duration-ms = 150;
             curve = "ease-out-cubic";
         }))
@@ -381,7 +377,7 @@
         # Config parse error and new default config creation notification
         # open/close animation.
         (plain "config-notification-open-close" (leaves {
-            # off = null;
+            # off = [];
             # duration-ms = 250;
             curve = "ease-out-cubic";
         }))
@@ -634,25 +630,25 @@
         # Useful for testing screen recording changes without having to relogin.
         # The main niri instance will *not* currently take back the services; so you will
         # need to relogin in the end.
-        # dbus-interfaces-in-non-session-instances = null;
+        # dbus-interfaces-in-non-session-instances = [];
 
         # Wait until every frame is done rendering before handing it over to DRM.
-        # wait-for-frame-completion-before-queueing = null;
+        # wait-for-frame-completion-before-queueing = [];
 
         # Enable direct scanout into overlay planes.
         # May cause frame drops during some animations on some hardware.
-        # enable-overlay-planes = null;
+        # enable-overlay-planes = [];
 
         # Disable the use of the cursor plane.
         # The cursor will be rendered together with the rest of the frame.
-        # disable-cursor-plane = null;
+        # disable-cursor-plane = [];
 
         # Override the DRM device that niri will use for all rendering.
         # render-drm-device = "/dev/dri/renderD129";
 
         # Enable the color-transformations capability of the Smithay renderer.
         # May cause a slight decrease in rendering performance.
-        # enable-color-transformations-capability = null;
+        # enable-color-transformations-capability = [];
     }))
 
   ];
