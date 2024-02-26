@@ -3,7 +3,7 @@ import re
 
 enabled_by_default = nix_available
 
-pattern = re.compile("expected '(sha\d+-[^=]+=)', got '(sha\d+-[^=]+=)'$")
+pattern = re.compile("expected '.*?(sha\d+-[^=]+=).*?', got '.*?(sha\d+-[^=]+=).*?'$")
 
 def match(command):
     return (

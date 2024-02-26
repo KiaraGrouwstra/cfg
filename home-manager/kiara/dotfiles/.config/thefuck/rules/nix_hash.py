@@ -3,7 +3,7 @@ import re
 
 enabled_by_default = nix_available
 
-pattern = re.compile('specified: (sha\d+:[^=]+=)\n\s*got: (sha\d+:[^=]+=)$')
+pattern = re.compile('specified: .*?(sha\d+:[^=]+=).*?\n\s*got: .*?(sha\d+:[^=]+=).*?$')
 
 def match(command):
     return (
