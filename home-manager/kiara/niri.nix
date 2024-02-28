@@ -224,8 +224,8 @@
     cursor = {
       # Change the theme and size of the cursor as well as set the
       # `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
-      # xcursor-theme = "default";
-      xcursor-size = 24;
+      # theme = "default";
+      size = 24;
     };
 
     # You can change the path where screenshots are saved.
@@ -246,9 +246,9 @@
 
       # You can configure all individual animations.
       # Available settings are the same for all of them:
-      # - off disables the animation.
+      # - enable false disables the animation.
       # - duration-ms sets the duration of the animation in milliseconds.
-      # - curve sets the easing curve. Currently, available curves
+      # - animation-curve sets the easing curve. Currently, available curves
       #   are "ease-out-cubic" and "ease-out-expo".
 
       # Animation when switching workspaces up and down,
@@ -256,7 +256,7 @@
       workspace-switch = {
         enable = true;
         duration-ms = 250;
-        curve = "ease-out-cubic";
+        animation-curve = "ease-out-cubic";
       };
 
       # All horizontal camera view movement:
@@ -267,14 +267,14 @@
       horizontal-view-movement = {
         enable = true;
         duration-ms = 250;
-        curve = "ease-out-cubic";
+        animation-curve = "ease-out-cubic";
       };
 
       # Window opening animation. Note that this one has different defaults.
       window-open = {
         enable = true;
-        duration = 150;
-        curve = "ease-out-cubic";
+        duration-ms = 150;
+        animation-curve = "ease-out-cubic";
       };
 
       # Config parse error and new default config creation notification
@@ -282,7 +282,7 @@
       config-notification-open-close = {
         enable = true;
         duration-ms = 250;
-        curve = "ease-out-cubic";
+        animation-curve = "ease-out-cubic";
       };
     };
 
