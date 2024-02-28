@@ -8,6 +8,9 @@ _: {
     extraConfig = {
       init.defaultBranch = "main";
       advice.objectNameWarning = false;
+      push.autoSetupRemote = true;
+      branch.autoSetupMerge = "simple";
+      checkout.defaultRemote = "origin";
     };
 
     ignores = [
@@ -52,9 +55,5 @@ _: {
       ".vscode"
     ];
 
-    extraConfig = {
-      push.autoSetupRemote = true;
-      branch.autoSetupMerge = "simple";
-    };
   };
 }
