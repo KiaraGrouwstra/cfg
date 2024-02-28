@@ -3,11 +3,11 @@ import re
 
 enabled_by_default = nix_available
 
-pattern = re.compile("expected '.*?(sha\d+-[^=]+=).*?', got '.*?(sha\d+-[^=]+=).*?'$")
+pattern = re.compile("expected '.*?(sha\d+-[^=]+=).*?', got '.*?(sha\d+-[^=]+=)")
 
 def match(command):
     return (
-        "NAR hash mismatch in input" in command.output
+        "NAR hash mismatch" in command.output
     )
 
 def get_new_command(command):
