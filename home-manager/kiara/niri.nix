@@ -114,7 +114,9 @@
     #   };
     # };
 
-    layout = {
+    layout = let
+      colors = config.lib.stylix.colors.withHashtag;
+    in {
       # By default focus ring and border are rendered as a solid background rectangle
       # behind windows. That is, they will show up through semitransparent windows.
       # This is because windows using client-side decorations can have an arbitrary shape.
@@ -151,8 +153,8 @@
         # defaulting to 180 (top-to-bottom gradient).
         # You can use any CSS linear-gradient tool on the web to set these up.
         active-gradient = {
-          from = "#80c8ff";
-          to = "#bbddff";
+          from = colors.base04;
+          to = colors.base05;
           angle = 45;
         };
 
@@ -160,8 +162,8 @@
         # of the workspace, rather than relative to just the window itself.
         # To do that, set relative-to="workspace-view".
         inactive-gradient = {
-          from = "#505050";
-          to = "#808080";
+          from = colors.base00;
+          to = colors.base01;
           angle = 45;
           relative-to = "workspace-view";
         };
@@ -173,8 +175,8 @@
         # If you enable the border, you probably want to disable the focus ring.
         enable = false;
         width = 4;
-        # active-color = "#ffc87fff";
-        # inactive-color = "#505050ff";
+        # active-color = colors.base0A;
+        # inactive-color = colors.base03;
       };
       # You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
       preset-column-widths = [
@@ -221,11 +223,12 @@
     prefer-no-csd = false;
     # this option makes some terminals less ugly, but clashes with vscode :(
 
-    cursor = {
+    cursor = with config.stylix.cursor; {
       # Change the theme and size of the cursor as well as set the
       # `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
       # theme = "default";
-      size = 24;
+      theme = name;
+      inherit size;
     };
 
     # You can change the path where screenshots are saved.
