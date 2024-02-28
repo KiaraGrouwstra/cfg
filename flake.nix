@@ -243,6 +243,7 @@
                 users.kiara.imports = with inputs; [
                   nur.nixosModules.nur
                   ./modules/home-manager
+                  niri.homeModules.experimental-settings
                   nix-index-database.hmModules.nix-index
                   stylix.homeManagerModules.stylix
                   ./home-manager/kiara/home.nix

@@ -834,11 +834,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1708997778,
-        "narHash": "sha256-TTaxBOS3ouierIWpBEMWeaGDRJLcHL9Tm5rZdks1XBE=",
+        "lastModified": 1709064879,
+        "narHash": "sha256-AypMb2FEcwWqDTA4FNfGnTuoyUfSsu8zAlVStsa8pu0=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "e01594f3a45a3847faa9f24f6b592db135ada5f7",
+        "rev": "3d53d3bcd1ecd3f9661e116e7b9987b0852a5ea3",
         "type": "github"
       },
       "original": {
