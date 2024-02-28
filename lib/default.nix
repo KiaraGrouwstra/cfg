@@ -42,7 +42,7 @@ in {
   importRest = {pkgs, ...} @ args: path: (mapAttrs (_: file:
       pkgs.callPackage file
       args) # import with the same args, add `...` arg if needed
-
+    
     (filterAttrs (name: _: name != "default") (dirAttrs ".nix" path)));
 
   # pkgs -> inputs -> ["a" {b="c";}] -> { "a" = inputs.a.packages.${pkgs.system}.default; "c" = inputs.b.packages.${pkgs.system}.c; }

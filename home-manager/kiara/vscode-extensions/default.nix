@@ -2,7 +2,7 @@
   pkgs,
   lib,
 }: let
-  vscode-utils = pkgs.vscode-utils;
+  inherit (pkgs) vscode-utils;
 in {
   "pkief"."material-icon-theme" = vscode-utils.extensionFromVscodeMarketplace {
     name = "material-icon-theme";

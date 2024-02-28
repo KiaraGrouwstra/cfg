@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.neomutt.enable = true;
   accounts.email.accounts = let
     transipMail = {

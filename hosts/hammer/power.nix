@@ -1,4 +1,4 @@
-{...}: {
+_: {
   powerManagement.powertop.enable = true;
   powerManagement.cpuFreqGovernor = "ondemand";
 

@@ -297,48 +297,45 @@
       DISPLAY = "null";
     };
 
-    binds =
-      let
-        # "curl" -> "nix run nixpkgs#curl"
-        run = with (import ./commands.nix {inherit pkgs inputs;});
-          program: "${nix} run nixpkgs#${program}";
-        # "nmtui" -> "wezterm -e --always-new-process nmtui"
-        terminal = args: "wezterm -e --always-new-process ${args}";
-        # { prefixes.Mod = "focus"; suffixes.Up = "window-up"; } -> { "Mod+Up" = plain-leaf "focus-window-up"; }
-        binds =
-          {
-            suffixes,
-            prefixes,
-            substitutions ? {},
-          }: let
-            replacer = lib.replaceStrings (lib.attrNames substitutions) (lib.attrValues substitutions);
-            format = prefix: suffix: {
-              name = "${prefix.key}+${suffix.key}";
-              value = let
-                actual-suffix =
-                  if lib.isList suffix.action
-                  then {
-                    action = lib.head suffix.action;
-                    args = lib.tail suffix.action;
-                  }
-                  else {
-                    inherit (suffix) action;
-                    args = [];
-                  };
-              in
-                inputs.niri.kdl.leaf (replacer "${prefix.action}-${actual-suffix.action}") actual-suffix.args;
-            };
-            pairs = attrs: fn:
-              lib.concatMap (key:
-                fn {
-                  inherit key;
-                  action = attrs.${key};
-                }) (lib.attrNames attrs);
+    binds = let
+      # "curl" -> "nix run nixpkgs#curl"
+      run = with (import ./commands.nix {inherit pkgs inputs;});
+        program: "${nix} run nixpkgs#${program}";
+      # "nmtui" -> "wezterm -e --always-new-process nmtui"
+      terminal = args: "wezterm -e --always-new-process ${args}";
+      # { prefixes.Mod = "focus"; suffixes.Up = "window-up"; } -> { "Mod+Up" = plain-leaf "focus-window-up"; }
+      binds = {
+        suffixes,
+        prefixes,
+        substitutions ? {},
+      }: let
+        replacer = lib.replaceStrings (lib.attrNames substitutions) (lib.attrValues substitutions);
+        format = prefix: suffix: {
+          name = "${prefix.key}+${suffix.key}";
+          value = let
+            actual-suffix =
+              if lib.isList suffix.action
+              then {
+                action = lib.head suffix.action;
+                args = lib.tail suffix.action;
+              }
+              else {
+                inherit (suffix) action;
+                args = [];
+              };
           in
-            lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
+            inputs.niri.kdl.leaf (replacer "${prefix.action}-${actual-suffix.action}") actual-suffix.args;
+        };
+        pairs = attrs: fn:
+          lib.concatMap (key:
+            fn {
+              inherit key;
+              action = attrs.${key};
+            }) (lib.attrNames attrs);
       in
+        lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
+    in
       lib.mapVals (str: inputs.niri.kdl.leaf "spawn" (cmd str)) {
-
         # Keys consist of modifiers separated by + signs, followed by an XKB key name
         # in the end. To find an XKB name for a particular key, you may use a program
         # like wev.
@@ -401,8 +398,7 @@
         "Ctrl+Mod+J" = "wofi.sh";
         "Alt+Mod+J" = "rofi.sh";
       }
-      //
-      lib.mapVals (inputs.niri.kdl.plain-leaf) {
+      // lib.mapVals inputs.niri.kdl.plain-leaf {
         "Mod+Q" = "close-window";
         "Alt+F4" = "close-window";
         "Mod+Comma" = "consume-window-into-column";
@@ -483,7 +479,6 @@
           F = "down";
         };
       })
-
       # You can refer to workspaces by index. However, keep in mind that
       # niri is a dynamic workspace system, so these commands are kind of
       # "best effort". Trying to refer to a workspace index bigger than

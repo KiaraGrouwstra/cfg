@@ -6,13 +6,12 @@
 with (import ./commands.nix {inherit pkgs inputs;}); {
   home.packages = let
     commandDesktop = name: command: mimeTypes: (pkgs.makeDesktopItem {
-      name = name;
+      inherit name mimeTypes;
       desktopName = name;
       genericName = name;
       exec = "${terminal} ${command}";
       icon = "utilities-terminal";
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
-      mimeTypes = mimeTypes;
     });
   in [
     (commandDesktop "less" "${less}" [

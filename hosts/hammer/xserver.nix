@@ -1,4 +1,4 @@
-{...}: {
+_: {
   # seems still used in DMs
   services.xserver = {
     enable = true;
