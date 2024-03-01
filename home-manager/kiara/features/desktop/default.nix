@@ -21,6 +21,7 @@
     swaynotificationcenter
 
     ## utilities
+    pavucontrol
     gnome.gnome-maps
 
     ## wallpapers / ricing
