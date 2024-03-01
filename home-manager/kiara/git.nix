@@ -4,6 +4,10 @@ _: {
     userName = "Kiara Grouwstra";
     userEmail = "kiara@bij1.org";
     delta.enable = true;
+    aliases = {
+      # commit staged changes to main branch
+      main = "!export BRANCH=$(git rev-parse --abbrev-ref HEAD) && git stash --keep-index --include-untracked && git switch main && git commit && git push && git switch $BRANCH && git rebase main && git push --force && git stash pop";
+    };
 
     extraConfig = {
       init.defaultBranch = "main";
