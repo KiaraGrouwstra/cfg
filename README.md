@@ -15,9 +15,7 @@ follow instructions:
 - in `flake.nix` add device profiles for the system and user
 - [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild switch --fast --flake .#hammer 2>&1 | tee build.log`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
-- updating:
-  - `sudo nix-channel --update`
-  - `nix flake update`
+- updating: `nix flake update`
 - shell: `nix-shell --command zsh -p lolcat`
 
 ### secrets
