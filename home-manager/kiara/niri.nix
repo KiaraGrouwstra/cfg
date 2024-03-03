@@ -251,7 +251,7 @@
       # Available settings are the same for all of them:
       # - enable false disables the animation.
       # - duration-ms sets the duration of the animation in milliseconds.
-      # - animation-curve sets the easing curve. Currently, available curves
+      # - curve sets the easing curve. Currently, available curves
       #   are "ease-out-cubic" and "ease-out-expo".
 
       # Animation when switching workspaces up and down,
@@ -259,7 +259,7 @@
       workspace-switch = {
         enable = true;
         duration-ms = 250;
-        animation-curve = "ease-out-cubic";
+        curve = "ease-out-cubic";
       };
 
       # All horizontal camera view movement:
@@ -270,14 +270,14 @@
       horizontal-view-movement = {
         enable = true;
         duration-ms = 250;
-        animation-curve = "ease-out-cubic";
+        curve = "ease-out-cubic";
       };
 
       # Window opening animation. Note that this one has different defaults.
       window-open = {
         enable = true;
         duration-ms = 150;
-        animation-curve = "ease-out-cubic";
+        curve = "ease-out-cubic";
       };
 
       # Config parse error and new default config creation notification
@@ -285,7 +285,7 @@
       config-notification-open-close = {
         enable = true;
         duration-ms = 250;
-        animation-curve = "ease-out-cubic";
+        curve = "ease-out-cubic";
       };
     };
 
@@ -303,7 +303,7 @@
         program: "${nix} run nixpkgs#${program}";
       # "nmtui" -> "wezterm -e --always-new-process nmtui"
       terminal = args: "wezterm -e --always-new-process ${args}";
-      # { prefixes.Mod = "focus"; suffixes.Up = "window-up"; } -> { "Mod+Up" = plain-leaf "focus-window-up"; }
+      # { prefixes.Mod = "focus"; suffixes.Up = "window-up"; } -> { "Mod+Up" = "focus-window-up"; }
       binds = {
         suffixes,
         prefixes,
@@ -324,7 +324,10 @@
                 args = [];
               };
           in
-            inputs.niri.kdl.leaf (replacer "${prefix.action}-${actual-suffix.action}") actual-suffix.args;
+            {
+              ${replacer "${prefix.action}-${actual-suffix.action}"} =
+                actual-suffix.args;
+            };
         };
         pairs = attrs: fn:
           lib.concatMap (key:
@@ -335,7 +338,7 @@
       in
         lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
     in
-      lib.mapVals (str: inputs.niri.kdl.leaf "spawn" (cmd str)) {
+      lib.mapVals (str: { spawn = cmd str; }) {
         # Keys consist of modifiers separated by + signs, followed by an XKB key name
         # in the end. To find an XKB name for a particular key, you may use a program
         # like wev.
@@ -398,7 +401,8 @@
         "Ctrl+Mod+J" = "wofi.sh";
         "Alt+Mod+J" = "rofi.sh";
       }
-      // lib.mapVals inputs.niri.kdl.plain-leaf {
+      //
+      {
         "Mod+Q" = "close-window";
         "Alt+F4" = "close-window";
         "Mod+Comma" = "consume-window-into-column";
@@ -497,7 +501,7 @@
           "Mod+Shift" = "move-column-to";
         };
       })
-      // (with inputs.niri.kdl; {
+      // {
         # Finer width adjustments.
         # This command can also:
         # * set width in pixels: "1000"
@@ -506,21 +510,21 @@
         # * adjust width as a percentage of screen width: "-10%" or "+10%"
         # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
         # set-column-width "100" will make the column occupy 200 physical screen pixels.
-        "Mod+Minus" = leaf "set-column-width" "-10%";
-        "Mod+Equal" = leaf "set-column-width" "+10%";
+        "Mod+Minus" = { set-column-width = "-10%"; };
+        "Mod+Equal" = { set-column-width = "+10%"; };
 
         # Finer height adjustments when in column with other windows.
-        "Mod+Shift+Minus" = leaf "set-window-height" "-10%";
-        "Mod+Shift+Equal" = leaf "set-window-height" "+10%";
+        "Mod+Shift+Minus" = { set-window-height = "-10%"; };
+        "Mod+Shift+Equal" = { set-window-height = "+10%"; };
 
         # Actions to switch layouts.
         # Note: if you uncomment these, make sure you do NOT have
         # a matching layout switch hotkey configured in xkb options above.
         # Having both at once on the same hotkey will break the switching,
         # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-        # "Mod+Space"       = leaf "switch-layout" "next";
-        # "Mod+Shift+Space" = leaf "switch-layout" "prev";
-      });
+        # "Mod+Space"       = { switch-layout = "next"; };
+        # "Mod+Shift+Space" = { switch-layout = "prev"; };
+      };
 
     # Add lines like this to spawn processes at startup.
     # Note that running niri as a session supports xdg-desktop-autostart,
