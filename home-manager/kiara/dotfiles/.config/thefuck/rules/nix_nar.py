@@ -5,6 +5,7 @@ enabled_by_default = nix_available
 
 pattern = re.compile("expected '.*?(sha\d+-[^=]+=).*?', got '.*?(sha\d+-[^=]+=)")
 
+@for_app('nix', 'nix-env', 'nix-shell')
 def match(command):
     return (
         "NAR hash mismatch" in command.output

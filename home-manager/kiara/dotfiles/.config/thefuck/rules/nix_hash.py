@@ -5,6 +5,7 @@ enabled_by_default = nix_available
 
 pattern = re.compile('specified: .*?(sha\d+.[^=]+=).*?\n\s*got: *.*?(sha\d+.[^=]+=)')
 
+@for_app('nix', 'nix-env', 'nix-shell')
 def match(command):
     return (
         "error: hash mismatch" in command.output
