@@ -1,4 +1,33 @@
 {pkgs, ...}: {
+  imports = [
+    # ./ansible.nix
+    ./bash.nix
+    ./docker.nix
+    ./css.nix
+    ./git.nix
+    ./go.nix
+    # ./haskell.nix
+    ./hcl.nix
+    ./html.nix
+    # ./java.nix
+    # ./javascript.nix
+    # ./just.nix
+    ./json.nix
+    # ./kotlin.nix
+    # ./idris.nix
+    # ./latex.nix
+    # ./scala.nix
+    ./markdown.nix
+    ./nix.nix
+    # ./org.nix
+    ./python.nix
+    ./rust.nix
+    ./sh.nix
+    ./toml.nix
+    ./typescript.nix
+    ./vim.nix
+    ./yaml.nix
+  ];
   home.packages = with pkgs; [
     ## development
     direnv
@@ -9,20 +38,6 @@
     git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
     git-interactive-rebase-tool
     gitg
-
-    ## language-specific
-    nixpkgs-fmt
-    nixd
-    nil
-    haskellPackages.haskell-language-server
-    ansible-language-server
-    nodePackages.vim-language-server
-    nodePackages.yaml-language-server
-    nodePackages.bash-language-server
-    nodePackages.dockerfile-language-server-nodejs
-    nodePackages.typescript-language-server
-    nodePackages.vscode-json-languageserver
-    kotlin-language-server
   ];
 
   programs = {

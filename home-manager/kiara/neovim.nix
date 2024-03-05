@@ -19,7 +19,7 @@
       nvchad
       nvchad-ui
       # chadtree
-      nvim-treesitter.withAllGrammars
+      nvim-treesitter.withAllGrammars  # TODO: split up as per https://mynixos.com/nixpkgs/packages/vimPlugins.nvim-treesitter-parsers
       coc-fzf
       coc-prettier
       coc-snippets
@@ -28,32 +28,8 @@
       coc-highlight
       coc-diagnostic
       coc-spell-checker
-      coc-markdownlint
-      coc-sh
-      coc-go
-      coc-git
-      coc-rls
-      coc-css
-      coc-toml
-      coc-nvim
-      coc-java
-      coc-json
-      coc-html
-      coc-yaml
-      coc-metals
-      coc-texlab
-      coc-python
-      coc-smartf
-      coc-eslint
-      coc-docker
-      coc-vimlsp
-      coc-tslint
-      coc-vimtex
-      coc-pyright
-      coc-tsserver
       coc-solargraph
-      coc-tslint-plugin
-      coc-rust-analyzer
+      coc-smartf
     ];
     extraConfig = ''
       set number

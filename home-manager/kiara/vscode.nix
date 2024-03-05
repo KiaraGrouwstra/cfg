@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    nodePackages.vscode-json-languageserver
+  ];
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -19,6 +23,7 @@
       asvetliakov.vscode-neovim
       kahole.magit
       foam.foam-vscode
+      editorconfig.editorconfig
 
       # styling
       pkief.material-icon-theme
@@ -33,27 +38,7 @@
         colorOverrides = {};
         customUIColors = {};
       })
-
-      # highlighting
-      jnoortheen.nix-ide
-      tamasfe.even-better-toml
-      hashicorp.hcl
-      justusadam.language-haskell
-      kokakiwi.vscode-just
-      haskell.haskell
-      meraymond.idris-vscode
-      marp-team.marp-vscode
-      vscode-org-mode.org-mode
-      redhat.vscode-yaml
-
-      # linting
-      editorconfig.editorconfig
-      davidanson.vscode-markdownlint
     ];
-    # haskell = {
-    #   enable = true;
-    #   hie.enable = true;
-    # };
     userSettings = let
       # "b" -> { a = 1; } -> { b_a = 1; }
       inNamespace = prefix: lib.mapKeys (k: "${prefix}.${k}");
