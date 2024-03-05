@@ -11,6 +11,7 @@
     ## video
     mpv
     vlc
+    rhythmbox
     stremio # add providers for content, e.g. https://torrentio.strem.fun/
 
     ## 3d printing
