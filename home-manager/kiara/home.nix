@@ -27,6 +27,11 @@
     PAGER = "${gum} pager";
   };
 
+  sops = {
+    age.keyFile = "/etc/nixos/keys.txt";
+    defaultSopsFile = ../../secrets.enc.yml;
+  };
+
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
   manual.manpages.enable = false;
 

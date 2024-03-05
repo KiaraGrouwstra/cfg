@@ -242,6 +242,7 @@
                 extraSpecialArgs = specialArgs;
                 users.kiara.imports = with inputs; [
                   nur.nixosModules.nur
+                  inputs.sops-nix.homeManagerModules.sops
                   ./modules/home-manager
                   niri.homeModules.experimental-settings
                   nix-index-database.hmModules.nix-index
