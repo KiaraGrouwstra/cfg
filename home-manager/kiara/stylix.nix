@@ -21,10 +21,10 @@ in {
       serif = regular;
       sansSerif = regular;
       sizes = {
-        applications = 14;
-        desktop = 14;
-        popups = 14;
-        terminal = 16;
+        applications = 12;
+        desktop = 12;
+        popups = 12;
+        terminal = 14;
       };
     };
 
