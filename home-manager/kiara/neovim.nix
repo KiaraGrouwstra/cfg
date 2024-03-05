@@ -3,6 +3,11 @@
   pkgs,
   ...
 }: {
+
+  home.packages = with pkgs; [
+    nodejs  # for coc
+  ];
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -15,40 +20,40 @@
       nvchad-ui
       # chadtree
       nvim-treesitter.withAllGrammars
-      # coc-fzf
-      # coc-prettier
-      # coc-snippets
-      # coc-explorer
-      # coc-stylelint
-      # coc-highlight
-      # coc-diagnostic
-      # coc-spell-checker
-      # coc-markdownlint
-      # coc-sh
-      # coc-go
-      # coc-git
-      # coc-rls
-      # coc-css
-      # coc-toml
-      # coc-nvim
-      # coc-java
-      # coc-json
-      # coc-html
-      # coc-yaml
-      # coc-metals
-      # coc-texlab
-      # coc-python
-      # coc-smartf
-      # coc-eslint
-      # coc-docker
-      # coc-vimlsp
-      # coc-tslint
-      # coc-vimtex
-      # coc-pyright
-      # coc-tsserver
-      # coc-solargraph
-      # coc-tslint-plugin
-      # coc-rust-analyzer
+      coc-fzf
+      coc-prettier
+      coc-snippets
+      coc-explorer
+      coc-stylelint
+      coc-highlight
+      coc-diagnostic
+      coc-spell-checker
+      coc-markdownlint
+      coc-sh
+      coc-go
+      coc-git
+      coc-rls
+      coc-css
+      coc-toml
+      coc-nvim
+      coc-java
+      coc-json
+      coc-html
+      coc-yaml
+      coc-metals
+      coc-texlab
+      coc-python
+      coc-smartf
+      coc-eslint
+      coc-docker
+      coc-vimlsp
+      coc-tslint
+      coc-vimtex
+      coc-pyright
+      coc-tsserver
+      coc-solargraph
+      coc-tslint-plugin
+      coc-rust-analyzer
     ];
     extraConfig = ''
       set number
