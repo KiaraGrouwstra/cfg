@@ -18,7 +18,6 @@ with (import ./commands.nix {inherit pkgs inputs;}); {
       "--sort"
       "--height 100%"
       "--border"
-      "--preview '${pistol} {}'"
     ];
     # hotkeys: https://github.com/junegunn/fzf#key-bindings-for-command-line
     # CTRL-T: take file
