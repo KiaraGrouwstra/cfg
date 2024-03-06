@@ -532,7 +532,7 @@
     spawn-at-startup = [
       {command = ["waybar"];}
 
-      {command = ["kdeconnect-cli"];}
+      {command = ["kdeconnect-indicator"];}
 
       # screen sharing
       {command = cmd "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
