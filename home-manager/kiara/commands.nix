@@ -7,6 +7,8 @@ with pkgs; {
   eza = "${eza}/bin/eza";
   fzf = "${fzf}/bin/fzf";
   hexyl = "${hexyl}/bin/hexyl";
+  viu = "${viu}/bin/viu";
+  timg = "${timg}/bin/timg";
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";

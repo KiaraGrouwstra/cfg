@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   ...
 }: {
@@ -22,6 +23,10 @@
 
     # security
     gnome.seahorse
+
+    # previews
+    viu
+    timg
   ];
 
   services.syncthing.enable = true;
@@ -37,26 +42,37 @@
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
-    associations = with (import ../../commands.nix {inherit pkgs inputs;}); [
+    associations = with (import ../../commands.nix {inherit pkgs inputs;}); lib.lists.map (
+      # append ` %pistol-filename%` to command
+      {command, ...}@attrs: attrs // { command = "${command} %pistol-filename%"; }
+    ) [
       {
         mime = "application/json";
-        command = "${bat} --color=always %pistol-filename%";
+        command = "${bat} --color=always";
       }
       {
         mime = "application/*";
-        command = "${hexyl} %pistol-filename%";
+        command = hexyl;
       }
       {
         fpath = ".*.md$";
-        command = "${glow} -s dark %pistol-filename%";
+        command = "${glow} -s dark";
+      }
+      {
+        mime = "image/*";
+        command = viu;
       }
       {
         mime = "text/*";
-        command = "${bat} --color=always %pistol-filename%";
+        command = "${bat} --color=always";
+      }
+      {
+        mime = "video/*";
+        command = timg;
       }
       {
         mime = "inode/directory";
-        command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git %pistol-filename%";
+        command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git";
       }
     ];
   };

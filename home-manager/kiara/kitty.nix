@@ -14,6 +14,7 @@ in {
 
   programs.kitty = {
     enable = true;
+    package = pkgs.kitty;
     settings = {
       close_on_child_death = true; # yes
       confirm_os_window_close = 0;
