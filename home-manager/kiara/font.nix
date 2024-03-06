@@ -2,8 +2,8 @@
   fontProfiles = {
     enable = true;
     regular = {
-      package = pkgs.hachimarupop;
-      name = "knsw_HachiMaruPop";
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
     };
     monospace = {
       # https://www.nerdfonts.com/font-downloads
