@@ -15,5 +15,3 @@ function markdown() {
   pandoc $1 > /tmp/$1.html
   xdg-open /tmp/$1.html
 }
-
-cd
