@@ -205,9 +205,13 @@
       }
 
       #window {
-          border-radius: 20px;
-          padding-left: 10px;
-          padding-right: 10px;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      #network.disconnected {
+        color: #ff0000;
       }
     '';
   };
