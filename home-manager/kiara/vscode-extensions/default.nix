@@ -1,5 +1,6 @@
 {
   pkgs,
+  ...
 }: let
   inherit (pkgs) vscode-utils;
 in {
