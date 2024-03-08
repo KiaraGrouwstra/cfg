@@ -12,11 +12,12 @@
     pandoc # lesspipe
     gum
 
-    ## command-line dropins
+    ## command-line dropins (ish)
     xxh
     bat
     ripgrep
     eza
+    fd
 
     ## networking
     networkmanager_dmenu
