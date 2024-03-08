@@ -7,10 +7,7 @@ with lib; let
   # ".ext" -> "a/b" -> { "foo" = "a/b/foo.ext"; "bar" = "a/b/bar.ext"; }
   dirAttrs = let
     # ".ext" -> "a/b.ext" -> "b"
-    fileAttrName = suffix: path: let
-      ext = last (splitString "." path);
-    in
-      removeSuffix suffix (builtins.baseNameOf path);
+    fileAttrName = suffix: path: removeSuffix suffix (builtins.baseNameOf path);
 
     # maps a file to a path
     # ".ext" -> "a/b" -> "c/d.ext" -> { name = "d"; value = "a/b/c/d.ext"; }
@@ -85,7 +82,7 @@ in {
   # recursively symlink any files in a directory from $HOME
   homeFolder = baseDir: let
     makePath = breadcrumbs: baseDir + "/${strings.concatStringsSep "/" breadcrumbs}";
-    fileImport = breadcrumbs: type: {
+    fileImport = breadcrumbs: _type: {
       "${strings.concatStringsSep "/" breadcrumbs}".source =
         makePath breadcrumbs;
     };

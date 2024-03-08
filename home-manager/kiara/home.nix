@@ -1,9 +1,6 @@
 {
   pkgs,
-  lib,
-  config,
   inputs,
-  outputs,
   ...
 }: {
   home.enableNixpkgsReleaseCheck = false;

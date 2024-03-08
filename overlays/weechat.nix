@@ -1,6 +1,6 @@
 {pkgs, ...}:
 pkgs.weechat.override {
-  configure = {availablePlugins, ...}: {
+  configure = _: {
     scripts = with pkgs.weechatScripts; [
       wee-slack
       edit

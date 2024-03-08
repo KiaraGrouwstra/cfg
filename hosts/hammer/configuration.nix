@@ -10,7 +10,6 @@
   ...
 }: let
   nixPath = "/run/current-system/nixpkgs";
-  nix-colors-lib = inputs.nix-colors.lib.contrib {inherit pkgs;};
 in {
   imports =
     [

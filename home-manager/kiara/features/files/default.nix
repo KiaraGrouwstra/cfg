@@ -42,39 +42,40 @@
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
-    associations = with (import ../../commands.nix {inherit pkgs inputs;}); lib.lists.map (
-      # append ` %pistol-filename%` to command
-      {command, ...}@attrs: attrs // { command = "${command} %pistol-filename%"; }
-    ) [
-      {
-        mime = "application/json";
-        command = "${bat} --color=always";
-      }
-      {
-        mime = "application/*";
-        command = hexyl;
-      }
-      {
-        fpath = ".*.md$";
-        command = "${glow} -s dark";
-      }
-      {
-        mime = "image/*";
-        command = viu;
-      }
-      {
-        mime = "text/*";
-        command = "${bat} --color=always";
-      }
-      {
-        mime = "video/*";
-        command = timg;
-      }
-      {
-        mime = "inode/directory";
-        command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git";
-      }
-    ];
+    associations = with (import ../../commands.nix {inherit pkgs inputs;});
+      lib.lists.map (
+        # append ` %pistol-filename%` to command
+        {command, ...} @ attrs: attrs // {command = "${command} %pistol-filename%";}
+      ) [
+        {
+          mime = "application/json";
+          command = "${bat} --color=always";
+        }
+        {
+          mime = "application/*";
+          command = hexyl;
+        }
+        {
+          fpath = ".*.md$";
+          command = "${glow} -s dark";
+        }
+        {
+          mime = "image/*";
+          command = viu;
+        }
+        {
+          mime = "text/*";
+          command = "${bat} --color=always";
+        }
+        {
+          mime = "video/*";
+          command = timg;
+        }
+        {
+          mime = "inode/directory";
+          command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git";
+        }
+      ];
   };
 
   programs.lf = {

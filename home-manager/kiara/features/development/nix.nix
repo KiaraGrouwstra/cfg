@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     nixpkgs-fmt
     nixd
@@ -6,7 +10,8 @@
   ];
   programs.vscode.extensions = let
     exts = (import ../../vscode-extensions) {inherit pkgs lib;};
-  in with exts; [
-    jnoortheen.nix-ide
-  ];
+  in
+    with exts; [
+      jnoortheen.nix-ide
+    ];
 }

@@ -323,11 +323,10 @@
                 inherit (suffix) action;
                 args = [];
               };
-          in
-            {
-              ${replacer "${prefix.action}-${actual-suffix.action}"} =
-                actual-suffix.args;
-            };
+          in {
+            ${replacer "${prefix.action}-${actual-suffix.action}"} =
+              actual-suffix.args;
+          };
         };
         pairs = attrs: fn:
           lib.concatMap (key:
@@ -338,7 +337,7 @@
       in
         lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
     in
-      lib.mapVals (str: { spawn = cmd str; }) {
+      lib.mapVals (str: {spawn = cmd str;}) {
         # Keys consist of modifiers separated by + signs, followed by an XKB key name
         # in the end. To find an XKB name for a particular key, you may use a program
         # like wev.
@@ -401,8 +400,7 @@
         "Ctrl+Mod+J" = "wofi.sh";
         "Alt+Mod+J" = "rofi.sh";
       }
-      //
-      {
+      // {
         "Mod+Q" = "close-window";
         "Alt+F4" = "close-window";
         "Mod+Comma" = "consume-window-into-column";
@@ -510,12 +508,12 @@
         # * adjust width as a percentage of screen width: "-10%" or "+10%"
         # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
         # set-column-width "100" will make the column occupy 200 physical screen pixels.
-        "Mod+Minus" = { set-column-width = "-10%"; };
-        "Mod+Equal" = { set-column-width = "+10%"; };
+        "Mod+Minus" = {set-column-width = "-10%";};
+        "Mod+Equal" = {set-column-width = "+10%";};
 
         # Finer height adjustments when in column with other windows.
-        "Mod+Shift+Minus" = { set-window-height = "-10%"; };
-        "Mod+Shift+Equal" = { set-window-height = "+10%"; };
+        "Mod+Shift+Minus" = {set-window-height = "-10%";};
+        "Mod+Shift+Equal" = {set-window-height = "+10%";};
 
         # Actions to switch layouts.
         # Note: if you uncomment these, make sure you do NOT have

@@ -1,11 +1,9 @@
 {
-  lib,
   pkgs,
   ...
 }: {
-
   home.packages = with pkgs; [
-    nodejs  # for coc
+    nodejs # for coc
   ];
 
   programs.neovim = {
@@ -19,7 +17,7 @@
       nvchad
       nvchad-ui
       # chadtree
-      nvim-treesitter.withAllGrammars  # TODO: split up as per https://mynixos.com/nixpkgs/packages/vimPlugins.nvim-treesitter-parsers
+      nvim-treesitter.withAllGrammars # TODO: split up as per https://mynixos.com/nixpkgs/packages/vimPlugins.nvim-treesitter-parsers
       coc-fzf
       coc-prettier
       coc-snippets
