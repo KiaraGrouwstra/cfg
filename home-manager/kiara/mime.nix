@@ -347,33 +347,33 @@
     "text/*"
   ];
 
-  browsers =
-    map addDesktop ["firefox"];
-  editors = map addDesktop ["codium" "lapce" "kate"];
-  associations = lib.prioritizeList [
+  # .desktop names: ~/.local/share/applications/
+  browsers = ["firefox"];
+  editors = ["codium" "lapce" "kate"];
+  associations = lib.prioritizeList (lib.lists.map (lib.mapVals (lib.lists.map addDesktop)) [
     (lib.genAttrs code (_: editors))
-    (lib.genAttrs images (_: ["imv.desktop"]))
+    (lib.genAttrs images (_: ["imv"]))
     (lib.genAttrs urls (_: browsers))
-    (lib.genAttrs readable (_: ["org.gnome.Evince.desktop"]))
-    (lib.genAttrs audio (_: ["mpv.desktop"]))
-    (lib.genAttrs video (_: ["mpv.desktop"]))
+    (lib.genAttrs readable (_: ["org.gnome.Evince"]))
+    (lib.genAttrs audio (_: ["mpv"]))
+    (lib.genAttrs video (_: ["mpv"]))
     (lib.genAttrs archives
-      (_: map addDesktop ["org.gnome.FileRoller" "thunar"]))
-    (lib.genAttrs documents (_: map addDesktop ["writer" "less"]))
-    (lib.genAttrs spreadsheets (_: map addDesktop ["calc" "visidata" "less"]))
-    (lib.genAttrs slides (_: map addDesktop ["impress" "less"]))
-    (lib.genAttrs models (_: map addDesktop ["PrusaSlicer"]))
-    (lib.genAttrs ["text/x-gcode"] (_: map addDesktop ["PrusaGcodeviewer"]))
-    (lib.genAttrs cad (_: map addDesktop ["org.freecadweb.FreeCAD"]))
+      (_: ["org.gnome.FileRoller" "thunar"]))
+    (lib.genAttrs documents (_: ["writer" "less"]))
+    (lib.genAttrs spreadsheets (_: ["calc" "visidata" "less"]))
+    (lib.genAttrs slides (_: ["impress" "less"]))
+    (lib.genAttrs models (_: ["PrusaSlicer"]))
+    (lib.genAttrs ["text/x-gcode"] (_: ["PrusaGcodeviewer"]))
+    (lib.genAttrs cad (_: ["org.freecadweb.FreeCAD"]))
     (lib.genAttrs ["application/x-gzip" "application/x-tar"]
-      (_: map addDesktop ["tar.gz"]))
+      (_: ["tar.gz"]))
     (lib.genAttrs [
       "application/vnd.rar"
       "application/x-rar"
       "application/x-rar-compressed"
-    ] (_: map addDesktop ["rar"]))
+    ] (_: ["rar"]))
     {
-      "inode/directory" = map addDesktop [
+      "inode/directory" = [
         "lf"
         "ranger"
         "thunar"
@@ -381,31 +381,30 @@
         "lapce"
         "less"
       ]; # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
-      "x-scheme-handler/mailto" = ["betterbird.desktop"];
-      "text/calendar" = ["org.gnome.Calendar.desktop"];
-      "application/pdf" = map addDesktop ["org.pwmt.zathura" "less"];
+      "x-scheme-handler/mailto" = ["betterbird"];
+      "text/calendar" = ["org.gnome.Calendar"];
+      "application/pdf" = ["org.pwmt.zathura" "less"];
       "text/plain" =
-        map addDesktop ["org.gnome.TextEditor" "less" "codium" "lapce"];
-      "text/markdown" = map addDesktop ["glow" "less" "codium"];
-      "text/org" = map addDesktop ["less" "codium"];
+        ["org.gnome.TextEditor" "less" "codium" "lapce"];
+      "text/markdown" = ["glow" "less" "codium"];
+      "text/org" = ["less" "codium"];
       "application/epub+zip" =
-        map addDesktop ["calibre-ebook-viewer" "calibre-ebook-edit"];
-      "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
+        ["calibre-ebook-viewer" "calibre-ebook-edit"];
+      "x-scheme-handler/tg" = ["telegramdesktop"];
       "application/json" = browsers;
       "text/csv" =
-        map addDesktop ["calc" "visidata" "less" "org.gnome.TextEditor"];
-      "application/vnd.smart.notebook" = map addDesktop ["less"];
-      "application/x-zip" = map addDesktop ["zip"];
-      "x-scheme-handler/magnet" = map addDesktop ["webtorrent" "stremio"];
-      "x-scheme-handler/irc" = map addDesktop ["halloy"];
-      "text/*" = map addDesktop ["pistol"];
+        ["calc" "visidata" "less" "org.gnome.TextEditor"];
+      "application/vnd.smart.notebook" = ["less"];
+      "application/x-zip" = ["zip"];
+      "x-scheme-handler/magnet" = ["webtorrent" "stremio"];
+      "x-scheme-handler/irc" = ["halloy"];
     }
     # use pistol as fallback for terminal-based read-only previews
     (lib.genAttrs
       (lib.lists.map (x: x.mime) config.programs.pistol.associations)
       (_: ["pistol"])
     )
-  ];
+  ]);
 in {
   xdg.mimeApps = {
     enable = true;
