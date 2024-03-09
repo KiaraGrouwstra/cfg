@@ -358,7 +358,7 @@
     (lib.genAttrs audio (_: ["mpv.desktop"]))
     (lib.genAttrs video (_: ["mpv.desktop"]))
     (lib.genAttrs archives
-      (_: map addDesktop ["org.gnome.FileRoller" "org.gnome.Nautilus"]))
+      (_: map addDesktop ["org.gnome.FileRoller" "thunar"]))
     (lib.genAttrs documents (_: map addDesktop ["writer" "less"]))
     (lib.genAttrs spreadsheets (_: map addDesktop ["calc" "visidata" "less"]))
     (lib.genAttrs slides (_: map addDesktop ["impress" "less"]))
@@ -376,7 +376,7 @@
       "inode/directory" = map addDesktop [
         "lf"
         "ranger"
-        "org.gnome.Nautilus"
+        "thunar"
         "codium"
         "lapce"
         "less"

@@ -30,7 +30,7 @@ with pkgs; {
   swww = "${swww}/bin/swww";
   btop = "${btop}/bin/btop";
   wallust = "${wallust}/bin/wallust";
-  nautilus = "${gnome.nautilus}/bin/nautilus";
+  thunar = "${xfce.thunar}/bin/thunar";
   networkmanager_dmenu = "${networkmanager_dmenu}/bin/networkmanager_dmenu";
   cliphist = "${cliphist}/bin/cliphist";
   wl-copy = "${wl-clipboard}/bin/wl-copy";

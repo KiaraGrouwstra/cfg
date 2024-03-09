@@ -87,6 +87,7 @@ in {
     mtr.enable = true;
     zsh.enable = true;
     browserpass.enable = true;
+    thunar.enable = true;
   };
 
   environment.shells = with pkgs; [zsh];
@@ -147,16 +148,9 @@ in {
     # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
     QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    # Nautilus Audio/Video Properties: Your GStreamer installation is missing a plug-in. #195936
-    GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" (with pkgs.gst_all_1; [
-      gst-plugins-good
-      gst-plugins-bad
-      gst-plugins-ugly
-      gst-libav
-    ]);
   };
 
-  # let nautilus access trash and remotes
+  # let file managers access trash and remotes
   services.gvfs.enable = true;
 
   nixpkgs.config.allowUnfree = true;

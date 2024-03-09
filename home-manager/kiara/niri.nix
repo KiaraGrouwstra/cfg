@@ -373,7 +373,7 @@
 
         "Mod+W" = "firefox";
         "Mod+V" = "codium";
-        "Mod+E" = "nautilus Downloads/";
+        "Mod+E" = "thunar Downloads/";
         "Mod+Shift+E" = terminal "lf /home/kiara/Downloads/";
         "Mod+Shift+Ctrl+Alt+Space" = terminal "pick-character.sh ${./scripts/emoji.txt}";
         "Mod+N" = "systemctl hibernate";

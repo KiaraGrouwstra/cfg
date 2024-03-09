@@ -6,7 +6,6 @@
 }: {
   home.packages = with pkgs; [
     ## file browser
-    gnome.nautilus
     baobab
 
     ## file handling / metadata
@@ -30,14 +29,6 @@
   ];
 
   services.syncthing.enable = true;
-
-  # configure nautilus-open-any-terminal
-  # TODO: address using https://github.com/NixOS/nixpkgs/pull/234615
-  dconf.settings = {
-    "com/github/stunkymonkey/nautilus-open-any-terminal" = {
-      terminal = "wezterm";
-    };
-  };
 
   # TODO: reconciliate with MIME associations
   programs.pistol = {

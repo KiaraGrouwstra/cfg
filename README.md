@@ -69,7 +69,7 @@ $(echo sudo `ls -lt /nix/var/nix/profiles/system-${n}-link | grep --extended-reg
 | Notifications | [swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
 | Menu          | [Anyrun](https://github.com/Kirottu/anyrun) |
 | Web browser   | [Firefox](https://hg.mozilla.org/mozilla-central/) |
-| File browser  | [Nautilus](https://gitlab.gnome.org/GNOME/nautilus/) |
+| File browser  | [Thunar](https://gitlab.xfce.org/xfce/thunar/) |
 | Terminal      | [Wezterm](https://github.com/wez/wezterm) |
 | Text editor   | [VSCodium](https://github.com/vscodium/vscodium) |
 | Shell         | [Zsh](https://zsh.org/) |
