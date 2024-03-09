@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   config,
   ...
 }: {
@@ -299,7 +298,7 @@
 
     binds = let
       # "curl" -> "nix run nixpkgs#curl"
-      run = with (import ./commands.nix {inherit pkgs inputs;});
+      run = with (import ./commands/pkgs.nix {inherit pkgs;});
         program: "${nix} run nixpkgs#${program}";
       # "nmtui" -> "wezterm -e --always-new-process nmtui"
       terminal = args: "wezterm -e --always-new-process ${args}";

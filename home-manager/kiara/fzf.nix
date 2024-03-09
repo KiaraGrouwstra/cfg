@@ -1,9 +1,8 @@
 {
   pkgs,
-  inputs,
   ...
 }:
-with (import ./commands.nix {inherit pkgs inputs;}); {
+with (import ./commands/pkgs.nix {inherit pkgs;}); {
   programs.fzf = {
     enable = true;
     # https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh

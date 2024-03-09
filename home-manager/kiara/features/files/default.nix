@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -33,7 +32,7 @@
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
-    associations = with (import ../../commands.nix {inherit pkgs inputs;});
+    associations = with (import ../../commands/pkgs.nix {inherit pkgs;});
       lib.lists.map (
         # append ` %pistol-filename%` to command
         {command, ...} @ attrs: attrs // {command = "${command} %pistol-filename%";}

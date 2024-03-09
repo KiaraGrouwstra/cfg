@@ -1,4 +1,5 @@
 {pkgs, ...}:
+# TODO: JIT'ify? (#152)
 with pkgs; {
   nix = "${nix}/bin/nix";
   tree = "${tree}/bin/tree";

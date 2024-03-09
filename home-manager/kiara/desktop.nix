@@ -1,9 +1,8 @@
 {
   pkgs,
-  inputs,
   ...
 }:
-with (import ./commands.nix {inherit pkgs inputs;}); {
+with (import ./commands/pkgs.nix {inherit pkgs;}); {
   home.packages = let
     # redundant with mime associations / `programs.pistol` / `dmenu run`?
     commandDesktop = name: command: mimeTypes: (pkgs.makeDesktopItem {
