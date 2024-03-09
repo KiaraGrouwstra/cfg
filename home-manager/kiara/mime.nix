@@ -350,7 +350,15 @@
   # .desktop names: ~/.local/share/applications/
   browsers = ["firefox"];
   editors = ["codium" "lapce" "kate"];
+  # MIME associations: specific items go lower left
+  # (first in the inner list but late in the outer list),
+  # generic ones upper-right
   associations = lib.prioritizeList (lib.lists.map (lib.mapVals (lib.lists.map addDesktop)) [
+    # use pistol as fallback for terminal-based read-only previews
+    (lib.genAttrs
+      (lib.lists.map (x: x.mime) config.programs.pistol.associations)
+      (_: ["pistol"])
+    )
     (lib.genAttrs code (_: editors))
     (lib.genAttrs images (_: ["imv"]))
     (lib.genAttrs urls (_: browsers))
@@ -399,11 +407,6 @@
       "x-scheme-handler/magnet" = ["webtorrent" "stremio"];
       "x-scheme-handler/irc" = ["halloy"];
     }
-    # use pistol as fallback for terminal-based read-only previews
-    (lib.genAttrs
-      (lib.lists.map (x: x.mime) config.programs.pistol.associations)
-      (_: ["pistol"])
-    )
   ]);
 in {
   xdg.mimeApps = {
