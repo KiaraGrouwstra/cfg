@@ -385,9 +385,9 @@
       "text/calendar" = ["org.gnome.Calendar"];
       "application/pdf" = ["org.pwmt.zathura" "less"];
       "text/plain" =
-        ["org.gnome.TextEditor" "less" "codium" "lapce"];
-      "text/markdown" = ["glow" "less" "codium"];
-      "text/org" = ["less" "codium"];
+        ["codium" "org.gnome.TextEditor" "lapce" "less"];
+      "text/markdown" = ["codium" "glow" "less"];
+      "text/org" = ["codium" "less"];
       "application/epub+zip" =
         ["calibre-ebook-viewer" "calibre-ebook-edit"];
       "x-scheme-handler/tg" = ["telegramdesktop"];
