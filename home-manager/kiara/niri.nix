@@ -381,8 +381,7 @@
         "Mod+I" = terminal "nmtui";
         "Mod+Shift+I" = "networkmanager_dmenu";
         "Mod+U" = terminal "power.sh";
-        "Mod+P" = "/home/kiara/.config/rofi/displays.sh";
-        "Mod+Y" = "/home/kiara/.config/rofi/keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
+        "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
         "Mod+B" = "anyrun --plugins libsymbols.so";
         "Ctrl+Alt+Delete" = "gnome-system-monitor";
         "Ctrl+Shift+Escape" = "alacritty -e ${run "zfxtop"}";
