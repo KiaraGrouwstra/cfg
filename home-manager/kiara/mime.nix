@@ -1,4 +1,4 @@
-{lib, ...}: let
+{lib, config, ...}: let
   addDesktop = x: "${x}.desktop";
   # take from the respective mimetype files
   images = map (_: "image/${_}") [
@@ -400,6 +400,11 @@
       "x-scheme-handler/irc" = map addDesktop ["halloy"];
       "text/*" = map addDesktop ["pistol"];
     }
+    # use pistol as fallback for terminal-based read-only previews
+    (lib.genAttrs
+      (lib.lists.map (x: x.mime) config.programs.pistol.associations)
+      (_: ["pistol"])
+    )
   ];
 in {
   xdg.mimeApps = {

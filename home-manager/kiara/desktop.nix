@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
 with (import ./commands/pkgs.nix {inherit pkgs;}); {
@@ -14,6 +16,8 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
     });
   in [
+    # TODO: populate as per lesspipe
+    # https://github.com/wofr06/lesspipe?tab=readme-ov-file#41-supported-compression-methods-and-archive-formats
     (commandDesktop "less" "${less}" [
       "text/plain"
       "text/html"
@@ -60,10 +64,9 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
       ["x-scheme-handler/magnet"])
 
     # fallback option delegating MIME handling to pistol
-    # TODO: https://codeberg.org/kiara/cfg/issues/69
-    (commandDesktop "pistol" "${pistol}" [
-      "text/*"
-      "application/*"
-    ])
+    (commandDesktop "pistol" "${pistol}"
+      # grab associations from programs.pistol
+      (lib.lists.map (x: x.mime) config.programs.pistol.associations)
+    )
   ];
 }

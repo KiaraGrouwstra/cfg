@@ -32,6 +32,8 @@
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
+    # if i wanna use pistol for previews thru lf/fzf, these should be pure
+    # read-only operations, so no like starting torrent downloads.
     associations = with (import ../../commands/pkgs.nix {inherit pkgs;});
       lib.lists.map (
         # append ` %pistol-filename%` to command
@@ -46,7 +48,7 @@
           command = hexyl;
         }
         {
-          fpath = ".*.md$";
+          mime = "text/markdown";
           command = "${glow} -s dark";
         }
         {
