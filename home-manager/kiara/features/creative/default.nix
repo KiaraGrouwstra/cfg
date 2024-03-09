@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     ## graphics
-    # imv  # insecure
-    gnome.eog
+    imv
 
     ## audio
     pamixer
