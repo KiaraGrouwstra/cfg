@@ -88,6 +88,8 @@ in {
     zsh.enable = true;
     browserpass.enable = true;
     thunar.enable = true;
+    plotinus.enable = true;
+    fzf.fuzzyCompletion = true; # enhancd
   };
 
   environment.shells = with pkgs; [zsh];
@@ -110,8 +112,6 @@ in {
 
   # screensharing
   services.pipewire.wireplumber.enable = true;
-
-  programs.plotinus.enable = true;
 
   environment.variables = {
     XDG_CONFIG_HOME = "$HOME/.config";
@@ -140,9 +140,6 @@ in {
   services.gnome.at-spi2-core.enable = true; # orca
 
   services.gnome.gnome-keyring.enable = true; # flare-signal
-
-  # used by enhancd
-  programs.fzf.fuzzyCompletion = true;
 
   environment.sessionVariables = {
     # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
