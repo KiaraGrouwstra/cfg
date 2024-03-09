@@ -62,33 +62,10 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nomad-driver-singularity = {
-      url = "github:hpcng/nomad-driver-singularity";
-      flake = false;
-    };
-    # export HCLOUD_TOKEN="..."
-    # nomad var put secrets/hcloud hcloud_token=$HCLOUD_TOKEN
-    hcloud-csi-driver = {
-      url = "github:hetznercloud/csi-driver";
-      flake = false;
-    };
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-    };
-    # there's a few drivers actually...
-    nomad-driver-nix2 = {
-      url = "git+https://git.deuxfleurs.fr/Deuxfleurs/nomad-driver-nix2";
-      flake = false;
-    };
-    nomad-driver-containerd = {
-      url = "github:roblox/nomad-driver-containerd";
-      flake = false;
-    };
-    nomad-driver-containerd-nix = {
-      url = "github:KiaraGrouwstra/nomad-driver-containerd-nix/kiara";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
       url = "github:sodiboo/niri-flake";

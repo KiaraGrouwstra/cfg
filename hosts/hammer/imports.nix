@@ -6,7 +6,6 @@
     ./fonts.nix
     ./greetd.nix
     ./guix.nix
-    ./hashicorp.nix
     ./niri.nix
     ./locale.nix
     ./power.nix
