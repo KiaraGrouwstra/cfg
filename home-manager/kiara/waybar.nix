@@ -140,7 +140,7 @@
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
-          on-click = "${terminal} nix-collect-garbage -d";
+          on-click = "${terminal} bash -c 'rm -rf ~/.local/share/Trash/* && nix-collect-garbage -d'";
           on-click-right = "${baobab}";
         };
         tray = {icon-size = 20;};
