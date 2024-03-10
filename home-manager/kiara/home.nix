@@ -21,6 +21,8 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";
     MOZ_ENABLE_WAYLAND = "1";
     PAGER = "${gum} pager";
+    TERMINAL = terminal;
+    TERM     = terminal;
   };
 
   sops = {
