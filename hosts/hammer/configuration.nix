@@ -19,6 +19,10 @@ in {
     ]
     ++ (lib.attrValues outputs.nixosModules);
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

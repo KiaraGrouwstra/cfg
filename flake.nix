@@ -80,33 +80,10 @@
       inputs.flake-compat.follows = "flake-compat";
       inputs.devshell.follows = "devshell";
       inputs.crate2nix_stable.follows = "crate2nix";
-      inputs.cachix.follows = "cachix";
-    };
-    cachix = {
-      url = "github:cachix/cachix";
-      inputs.nixpkgs.follows = "nixpkgs"; # nixos-unstable
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.devenv.follows = "devenv";
-    };
-    devenv = {
-      url = "github:cachix/devenv/python-rewrite";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.poetry2nix.follows = "poetry2nix";
-    };
-    poetry2nix = {
-      url = "github:nix-community/poetry2nix";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.treefmt-nix.follows = "treefmt-nix";
     };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    garn = {
-      url = "github:garnix-io/garn";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     anyrun = {
       url = "github:Kirottu/anyrun";
