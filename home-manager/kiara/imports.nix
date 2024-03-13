@@ -4,6 +4,7 @@
 
     ./anyrun
     ./colors.nix
+    ./commands.nix
     ./desktop.nix
     ./dotfiles.nix
     ./emacs.nix
