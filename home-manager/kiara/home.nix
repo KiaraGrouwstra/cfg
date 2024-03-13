@@ -22,7 +22,7 @@
     MOZ_ENABLE_WAYLAND = "1";
     PAGER = "${gum} pager";
     TERMINAL = terminal;
-    TERM     = terminal;
+    # TERM     = terminal; # breaks gpg with error 'screen or window too small'
   };
 
   sops = {
