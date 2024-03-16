@@ -90,6 +90,10 @@ extension_name = "yuck"
 publisher_name = "kdl-org"
 extension_name = "kdl"
 
+[[extensions]]
+publisher_name = "lextudio"
+extension_name = "restructuredtext"
+
 # linting
 
 [[extensions]]

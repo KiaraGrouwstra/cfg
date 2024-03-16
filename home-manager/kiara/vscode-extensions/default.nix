@@ -1,14 +1,38 @@
+{ pkgs, lib }:
+
+let
+  vscode-utils = pkgs.vscode-utils;
+in
 {
-  pkgs,
-  ...
-}: let
-  inherit (pkgs) vscode-utils;
-in {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "pkief"."material-icon-theme" = vscode-utils.extensionFromVscodeMarketplace {
     name = "material-icon-theme";
     publisher = "pkief";
-    version = "4.33.0";
-    sha256 = "1yg48sfpmq8mc110d5hikw177v4iw2w5lmmd34fjlff5kvk5q2j7";
+    version = "4.34.0";
+    sha256 = "1ahshxw66436mc9jpiyfac0hinnqm3s0g3akybjrda13yd9884y7";
   };
 
   "redhat"."vscode-yaml" = vscode-utils.extensionFromVscodeMarketplace {
@@ -42,8 +66,8 @@ in {
   "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1841";
-    sha256 = "051l9rg3vxanb4rnh93prlb720hwba2h6hdhyc58b90blpjjr1v3";
+    version = "0.4.1882";
+    sha256 = "1fg6r73d9zydpi1fwjzrsg3l7v6amzvkh109y9031zsa5hdr6wc5";
   };
 
   "tamasfe"."even-better-toml" = vscode-utils.extensionFromVscodeMarketplace {
@@ -60,6 +84,13 @@ in {
     sha256 = "115y86w6n2bi33g1xh6ipz92jz5797d3d00mr4k8dv5fz76d35dd";
   };
 
+  "lextudio"."restructuredtext" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "restructuredtext";
+    publisher = "lextudio";
+    version = "190.1.20";
+    sha256 = "13zqpkd0gk1xh1vpc5x3zzy4nlkyzr9ap7a95in9z2y5pk6hp8px";
+  };
+
   "haskell"."haskell" = vscode-utils.extensionFromVscodeMarketplace {
     name = "haskell";
     publisher = "haskell";
@@ -67,18 +98,18 @@ in {
     sha256 = "09pr3ya77ryj5n80k5srwaxmr0j77f6xp67w0kz324i6fhjd12bq";
   };
 
+  "asvetliakov"."vscode-neovim" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "vscode-neovim";
+    publisher = "asvetliakov";
+    version = "1.7.1";
+    sha256 = "0ib4sjk7r370ckvaqb4yzgy7csy8pli9z2jhibhhwwcq2748ah4q";
+  };
+
   "marp-team"."marp-vscode" = vscode-utils.extensionFromVscodeMarketplace {
     name = "marp-vscode";
     publisher = "marp-team";
     version = "2.8.0";
     sha256 = "1rzmiz0026g0wkb3sq7mr60il0m9gsm8k9alhdbv8zwf0k9x3yf7";
-  };
-
-  "asvetliakov"."vscode-neovim" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "vscode-neovim";
-    publisher = "asvetliakov";
-    version = "1.6.1";
-    sha256 = "03f9rlwv6d3hpiniaaf6qcw3pd0pbv6q8j2h8qs1hz5hpp5ispzh";
   };
 
   "hashicorp"."hcl" = vscode-utils.extensionFromVscodeMarketplace {
@@ -91,8 +122,8 @@ in {
   "foam"."foam-vscode" = vscode-utils.extensionFromVscodeMarketplace {
     name = "foam-vscode";
     publisher = "foam";
-    version = "0.25.7";
-    sha256 = "11za3jb47vrxwxy6mqmvf23amkz27sfhjxfzrchl57ygzw5d0q84";
+    version = "0.25.8";
+    sha256 = "0b3bjiw5s0i1jajc9ybmmri566gr8mp68flbyxpn4mqs4bwdfxdn";
   };
 
   "kahole"."magit" = vscode-utils.extensionFromVscodeMarketplace {
@@ -102,18 +133,18 @@ in {
     sha256 = "068hsif9d91wd006zp4wq0zv3rzwjvm0za9wc8jl59h9ql0811m8";
   };
 
+  "jnoortheen"."nix-ide" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "nix-ide";
+    publisher = "jnoortheen";
+    version = "0.3.1";
+    sha256 = "1cpfckh6zg8byi6x1llkdls24w9b0fvxx4qybi9zfcy5gc60r6nk";
+  };
+
   "vscode-org-mode"."org-mode" = vscode-utils.extensionFromVscodeMarketplace {
     name = "org-mode";
     publisher = "vscode-org-mode";
     version = "1.0.0";
     sha256 = "1dp6mz1rb8awrrpig1j8y6nyln0186gkmrflfr8hahaqr668il53";
-  };
-
-  "jnoortheen"."nix-ide" = vscode-utils.extensionFromVscodeMarketplace {
-    name = "nix-ide";
-    publisher = "jnoortheen";
-    version = "0.2.2";
-    sha256 = "1264027sjh9a112si0y0p3pk3y36shj5b4qkpsj207z7lbxqq0wg";
   };
 
   "arrterian"."nix-env-selector" = vscode-utils.extensionFromVscodeMarketplace {
@@ -126,8 +157,8 @@ in {
   "mkhl"."direnv" = vscode-utils.extensionFromVscodeMarketplace {
     name = "direnv";
     publisher = "mkhl";
-    version = "0.16.0";
-    sha256 = "1jmwqbbh5x5z7dscgcn4pb0g41k7zlhgf5i8syl3ipv6z270aq5v";
+    version = "0.17.0";
+    sha256 = "1n2qdd1rspy6ar03yw7g7zy3yjg9j1xb5xa4v2q12b0y6dymrhgn";
   };
 
   "eww-yuck"."yuck" = vscode-utils.extensionFromVscodeMarketplace {
@@ -158,3 +189,4 @@ in {
     sha256 = "0yam13n021lmc93m8rpw96ksci0jshfrlnnfdk1q9yqrxydy6320";
   };
 }
+

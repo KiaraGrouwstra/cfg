@@ -21,6 +21,7 @@
     ./nix.nix
     # ./org.nix
     ./python.nix
+    ./rst.nix
     ./rust.nix
     ./sh.nix
     ./toml.nix
