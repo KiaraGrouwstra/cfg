@@ -353,6 +353,7 @@
   # MIME associations: specific items go lower left
   # (first in the inner list but late in the outer list),
   # generic ones upper-right
+  # MIME types: https://www.digipres.org/formats/mime-types/
   associations = lib.prioritizeList (lib.lists.map (lib.mapVals (lib.lists.map addDesktop)) [
     # use pistol as fallback for terminal-based read-only previews
     (lib.genAttrs
