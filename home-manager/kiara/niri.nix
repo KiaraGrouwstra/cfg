@@ -371,6 +371,7 @@
         "Shift+Mod+M" = terminal "pick-wallpaper.sh";
 
         "Mod+W" = "firefox";
+        "Mod+Shift+W" = "tor-browser";
         "Mod+V" = "codium";
         "Mod+E" = "thunar Downloads/";
         "Mod+Shift+E" = terminal "lf /home/kiara/Downloads/";
