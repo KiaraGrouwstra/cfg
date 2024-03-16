@@ -28,6 +28,14 @@ in
 
 
 
+
+  "ms-python"."python" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "python";
+    publisher = "ms-python";
+    version = "2024.3.10742127";
+    sha256 = "187x6j7300wgvcxh2lcic6ivvavsllzhq0cayqiji943pw3z3k2r";
+  };
+
   "pkief"."material-icon-theme" = vscode-utils.extensionFromVscodeMarketplace {
     name = "material-icon-theme";
     publisher = "pkief";

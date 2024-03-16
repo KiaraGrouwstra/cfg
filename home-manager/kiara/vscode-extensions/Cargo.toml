@@ -94,6 +94,10 @@ extension_name = "kdl"
 publisher_name = "lextudio"
 extension_name = "restructuredtext"
 
+[[extensions]]
+publisher_name = "ms-python"
+extension_name = "python"
+
 # linting
 
 [[extensions]]
