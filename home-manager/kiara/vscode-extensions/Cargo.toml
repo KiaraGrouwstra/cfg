@@ -95,6 +95,10 @@ publisher_name = "lextudio"
 extension_name = "restructuredtext"
 
 [[extensions]]
+publisher_name = "trond-snekvik"
+extension_name = "simple-rst"
+
+[[extensions]]
 publisher_name = "ms-python"
 extension_name = "python"
 

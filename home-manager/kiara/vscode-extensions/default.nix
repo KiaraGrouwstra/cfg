@@ -29,6 +29,7 @@ in
 
 
 
+
   "ms-python"."python" = vscode-utils.extensionFromVscodeMarketplace {
     name = "python";
     publisher = "ms-python";
@@ -74,8 +75,8 @@ in
   "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1882";
-    sha256 = "1fg6r73d9zydpi1fwjzrsg3l7v6amzvkh109y9031zsa5hdr6wc5";
+    version = "0.4.1883";
+    sha256 = "0afdf1dj9mssdpmp1smv9q5x685qy8hffh9cgm6hwqy2b77ml91y";
   };
 
   "tamasfe"."even-better-toml" = vscode-utils.extensionFromVscodeMarketplace {
@@ -125,6 +126,13 @@ in
     publisher = "hashicorp";
     version = "0.3.2";
     sha256 = "0snjivxdhr3s0lqarrzdzkv2f4qv28plbr3s9zpx7nqqfs97f4bk";
+  };
+
+  "trond-snekvik"."simple-rst" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "simple-rst";
+    publisher = "trond-snekvik";
+    version = "1.5.4";
+    sha256 = "1js1489nd9fycvpgh39mwzpbqm28qi4gzi68443v3vhw3dsg4wjv";
   };
 
   "foam"."foam-vscode" = vscode-utils.extensionFromVscodeMarketplace {
