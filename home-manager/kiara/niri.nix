@@ -113,9 +113,7 @@
     #   };
     # };
 
-    layout = let
-      colors = config.lib.stylix.colors.withHashtag;
-    in {
+    layout = {
       # By default focus ring and border are rendered as a solid background rectangle
       # behind windows. That is, they will show up through semitransparent windows.
       # This is because windows using client-side decorations can have an arbitrary shape.
@@ -124,59 +122,8 @@
       # Niri will draw focus ring and border *around* windows that agree to omit their
       # client-side decorations.
 
-      # You can change how the focus ring looks.
-      focus-ring = {
-        enable = true;
-
-        # How many logical pixels the ring extends out from the windows.
-        width = 4;
-
-        # Colors can be set in a variety of ways:
-        # - CSS named colors: "red"
-        # - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        # - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
-
-        # Color of the ring on the active monitor.
-        # active-color = "#ef9f76ee";
-
-        # Color of the ring on inactive monitors.
-        # inactive-color = "#595959aa";
-
-        # You can also use gradients. They take precedence over solid colors.
-        # Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        # Colors can be set in a variety of ways here:
-        # - CSS named colors: from="red"
-        # - RGB hex: from="#rgb", from="#rgba", from="#rrggbb", from="#rrggbbaa"
-        # - CSS-like notation: from="rgb(255, 127, 0)", rgba(), hsl() and a few others.
-        # The angle is the same as in linear-gradient, and is optional,
-        # defaulting to 180 (top-to-bottom gradient).
-        # You can use any CSS linear-gradient tool on the web to set these up.
-        active-gradient = {
-          from = colors.base04;
-          to = colors.base05;
-          angle = 45;
-        };
-
-        # You can also color the gradient relative to the entire view
-        # of the workspace, rather than relative to just the window itself.
-        # To do that, set relative-to="workspace-view".
-        inactive-gradient = {
-          from = colors.base00;
-          to = colors.base01;
-          angle = 45;
-          relative-to = "workspace-view";
-        };
-      };
-
-      # You can also add a border. It's similar to the focus ring, but always visible.
-      border = {
-        # The settings are the same as for the focus ring.
-        # If you enable the border, you probably want to disable the focus ring.
-        enable = false;
-        width = 4;
-        # active-color = colors.base0A;
-        # inactive-color = colors.base03;
-      };
+      # How many logical pixels the border extends. It's similar to the focus ring, but always visible.
+      border.width = 4;
       # You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
       preset-column-widths = [
         # Proportion sets the width as a fraction of the output width, taking gaps into account.
@@ -222,14 +169,6 @@
     prefer-no-csd = false;
     # this option makes some terminals less ugly, but clashes with vscode :(
 
-    cursor = with config.stylix.cursor; {
-      # Change the theme and size of the cursor as well as set the
-      # `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
-      # theme = "default";
-      theme = name;
-      inherit size;
-    };
-
     # You can change the path where screenshots are saved.
     # A ~ at the front will be expanded to the home directory.
     # The path is formatted with strftime(3) to give you the screenshot date and time.
@@ -239,54 +178,6 @@
     # Settings for the "Important Hotkeys" overlay.
     # Enable if you don't want to see the hotkey help at niri startup.
     hotkey-overlay.skip-at-startup = true;
-
-    # Animation settings.
-    animations = {
-      enable = true;
-      # Slow down all animations by this factor. Values below 1 speed them up instead.
-      # slowdown = 3.0;
-
-      # You can configure all individual animations.
-      # Available settings are the same for all of them:
-      # - enable false disables the animation.
-      # - duration-ms sets the duration of the animation in milliseconds.
-      # - curve sets the easing curve. Currently, available curves
-      #   are "ease-out-cubic" and "ease-out-expo".
-
-      # Animation when switching workspaces up and down,
-      # including after the touchpad gesture.
-      workspace-switch = {
-        enable = true;
-        duration-ms = 250;
-        curve = "ease-out-cubic";
-      };
-
-      # All horizontal camera view movement:
-      # - When a window off-screen is focused and the camera scrolls to it.
-      # - When a new window appears off-screen and the camera scrolls to it.
-      # - When a window resizes bigger and the camera scrolls to show it in full.
-      # - And so on.
-      horizontal-view-movement = {
-        enable = true;
-        duration-ms = 250;
-        curve = "ease-out-cubic";
-      };
-
-      # Window opening animation. Note that this one has different defaults.
-      window-open = {
-        enable = true;
-        duration-ms = 150;
-        curve = "ease-out-cubic";
-      };
-
-      # Config parse error and new default config creation notification
-      # open/close animation.
-      config-notification-open-close = {
-        enable = true;
-        duration-ms = 250;
-        curve = "ease-out-cubic";
-      };
-    };
 
     environment = {
       # Set a variable like this:
@@ -602,7 +493,5 @@
 
     # ];
 
-    additional-nodes = [];
   };
-  programs.niri.config = config.programs.niri.generated-kdl-config;
 }
