@@ -30,6 +30,7 @@ in
 
 
 
+
   "ms-python"."python" = vscode-utils.extensionFromVscodeMarketplace {
     name = "python";
     publisher = "ms-python";
@@ -175,6 +176,13 @@ in
     publisher = "mkhl";
     version = "0.17.0";
     sha256 = "1n2qdd1rspy6ar03yw7g7zy3yjg9j1xb5xa4v2q12b0y6dymrhgn";
+  };
+
+  "swyddfa"."esbonio" = vscode-utils.extensionFromVscodeMarketplace {
+    name = "esbonio";
+    publisher = "swyddfa";
+    version = "0.92.1";
+    sha256 = "1d4y6hfbywgb04ib882159faws537fy4mb0yllskc0xh0426zljc";
   };
 
   "eww-yuck"."yuck" = vscode-utils.extensionFromVscodeMarketplace {

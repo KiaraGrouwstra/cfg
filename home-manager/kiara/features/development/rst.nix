@@ -9,5 +9,6 @@
     with exts; [
       lextudio.restructuredtext
       trond-snekvik.simple-rst
+      swyddfa.esbonio
     ];
 }
