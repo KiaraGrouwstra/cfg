@@ -34,7 +34,5 @@
     wallust
   ];
 
-  services.lorri = {enable = true;};
-
   services.playerctld.enable = true;
 }
