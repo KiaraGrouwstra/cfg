@@ -13,7 +13,7 @@
     fuzzel
   ];
   programs.niri.settings = let
-    cmd = lib.strings.splitString " ";
+    sh = cmd: ["sh" "-c" (lib.escape ["\""] cmd)];
   in {
     input = {
       keyboard = {
@@ -227,7 +227,7 @@
       in
         lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
     in
-      lib.mapVals (str: {spawn = cmd str;}) {
+      lib.mapVals (str: {spawn = sh str;}) {
         # Keys consist of modifiers separated by + signs, followed by an XKB key name
         # in the end. To find an XKB name for a particular key, you may use a program
         # like wev.
@@ -423,16 +423,16 @@
       {command = ["kdeconnect-indicator"];}
 
       # screen sharing
-      {command = cmd "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
+      {command = sh "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
 
       # Lock screen after idling
       # {command = ["swayidle" "-w" "timeout" "900" "'swaylock -f'"];}
 
-      {command = cmd "wl-paste --type text --watch cliphist store";} # Stores only text data
-      {command = cmd "wl-paste --type image --watch cliphist store";} # Stores only image data
+      {command = sh "wl-paste --type text --watch cliphist store";} # Stores only text data
+      {command = sh "wl-paste --type image --watch cliphist store";} # Stores only image data
 
-      {command = cmd "swaybg -m fill -i /home/kiara/Pictures/wallpaper";}
-      {command = ["wallust" "run" "`cat ~/.cache/wal/wal`"];}
+      {command = sh "swaybg -m fill -i /home/kiara/Pictures/wallpaper";}
+      {command = sh "wallust run `cat ~/.cache/wal/wal`";}
     ];
 
     # window-rules = [
