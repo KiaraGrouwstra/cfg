@@ -48,7 +48,6 @@ with pkgs; {
   lynx = "${lynx}/bin/lynx";
   visidata = "${visidata}/bin/visidata";
   webtorrent = "${nodePackages.webtorrent-cli}/bin/webtorrent";
-  baobab = "${baobab}/bin/baobab";
   keepassxc = "${keepassxc}/bin/keepassxc";
   firefox = "${firefox-bin}/bin/firefox";
   codium = "${vscodium}/bin/codium";

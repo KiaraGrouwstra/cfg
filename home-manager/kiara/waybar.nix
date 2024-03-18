@@ -140,7 +140,7 @@
           format = "󱛟  {percentage_used:2}%";
           path = "/";
           on-click = "${terminal} bash -c 'rm -rf ~/.local/share/Trash/* && nix-collect-garbage -d'";
-          on-click-right = "${baobab}";
+          on-click-right = "${terminal} nix shell nixpkgs#du-dust --command dust";
         };
         tray = {icon-size = 20;};
       };

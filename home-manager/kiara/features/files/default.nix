@@ -4,9 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    ## file browser
-    baobab
-
     ## file handling / metadata
     xdg-utils
 
