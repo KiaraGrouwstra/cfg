@@ -15,7 +15,9 @@
   ];
   programs.niri.settings = let
     sh = cmd: ["sh" "-c" (lib.escape ["\""] cmd)];
-  in {
+  in
+    with (import ./commands/pkgs.nix {inherit pkgs;});
+  {
     input = {
       keyboard = {
         xkb = {
@@ -246,43 +248,43 @@
         # You can also use a shell:
         # "Mod+T" = ["bash" "-c" "notify-send hello && exec alacritty"];
 
-        "Mod+T" = "wezterm";
+        "Mod+T" = wezterm;
         # audio
-        XF86AudioRaiseVolume = "wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
-        XF86AudioLowerVolume = "wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
-        XF86AudioMute = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        XF86AudioPlay = "playerctl play-pause";
-        XF86AudioStop = "playerctl stop";
-        XF86AudioPrev = "playerctl previous";
-        XF86AudioNext = "playerctl next";
+        XF86AudioRaiseVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
+        XF86AudioLowerVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
+        XF86AudioMute = "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        XF86AudioPlay = "${playerctl} play-pause";
+        XF86AudioStop = "${playerctl} stop";
+        XF86AudioPrev = "${playerctl} previous";
+        XF86AudioNext = "${playerctl} next";
         # screen brightness
-        XF86MonBrightnessDown = "light -U 1";
-        XF86MonBrightnessUp = "light -A 1";
+        XF86MonBrightnessDown = "${light} -U 1";
+        XF86MonBrightnessUp = "${light} -A 1";
 
         # switch wallpaper
         "Mod+M" = "random-wallpaper.sh";
         "Shift+Mod+M" = terminal "pick-wallpaper.sh";
 
-        "Mod+W" = "firefox";
-        "Mod+Shift+W" = "tor-browser";
-        "Mod+V" = "codium";
-        "Mod+E" = "thunar Downloads/";
+        "Mod+W" = firefox;
+        "Mod+Shift+W" = tor-browser;
+        "Mod+V" = codium;
+        "Mod+E" = "${thunar} Downloads/";
         "Mod+Shift+E" = terminal "lf /home/kiara/Downloads/";
         "Mod+Shift+Ctrl+Alt+Space" = terminal "pick-character.sh ${./scripts/emoji.txt}";
-        "Mod+N" = "systemctl hibernate";
+        "Mod+N" = "${systemctl} hibernate";
         "Mod+F3" = terminal "fontpreview.sh";
         "Mod+F9" = terminal "main-menu.sh";
         "Mod+I" = terminal "nmtui";
-        "Mod+Shift+I" = "networkmanager_dmenu";
+        "Mod+Shift+I" = networkmanager_dmenu;
         "Mod+U" = terminal "power.sh";
         "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
-        "Mod+B" = "anyrun --plugins libsymbols.so";
-        "Ctrl+Alt+Delete" = "gnome-system-monitor";
+        "Mod+B" = symbols;
+        "Ctrl+Alt+Delete" = gnome-system-monitor;
         "Ctrl+Shift+Escape" = "alacritty -e ${run "zfxtop"}";
-        "Mod+L" = "swaylock";
-        "Alt+Space" = "swaync-client --close-latest";
-        "Mod+Escape" = "swaync-client --close-all";
-        "Mod+Grave" = "swaync-client --toggle-panel";
+        "Mod+L" = swaylock;
+        "Alt+Space" = "${swaync-client} --close-latest";
+        "Mod+Escape" = "${swaync-client} --close-all";
+        "Mod+Grave" = "${swaync-client} --toggle-panel";
         "Mod+Space" = "anyrun.sh";
         "Shift+Mod+Space" = terminal "jit.sh";
         "Ctrl+Mod+Space" = "wofi.sh";
@@ -420,21 +422,21 @@
     # Note that running niri as a session supports xdg-desktop-autostart,
     # which may be more convenient to use.
     spawn-at-startup = [
-      {command = ["waybar"];}
+      {command = [waybar];}
 
-      {command = ["kdeconnect-indicator"];}
+      {command = [kdeconnect-indicator];}
 
       # screen sharing
-      {command = sh "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
+      {command = sh "${dbus-update-activation-environment} --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
 
       # Lock screen after idling
-      # {command = ["swayidle" "-w" "timeout" "900" "'swaylock -f'"];}
+      # {command = sh "${swayidle} -w timeout 900 '${swaylock} -f'";}
 
-      {command = sh "wl-paste --type text --watch cliphist store";} # Stores only text data
-      {command = sh "wl-paste --type image --watch cliphist store";} # Stores only image data
+      {command = sh "${wl-paste} --type text --watch cliphist store";} # Stores only text data
+      {command = sh "${wl-paste} --type image --watch cliphist store";} # Stores only image data
 
-      {command = sh "swaybg -m fill -i /home/kiara/Pictures/wallpaper";}
-      {command = sh "wallust run `cat ~/.cache/wal/wal`";}
+      {command = sh "${swaybg} -m fill -i /home/kiara/Pictures/wallpaper";}
+      {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}
     ];
 
     # window-rules = [

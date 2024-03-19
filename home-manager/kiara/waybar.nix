@@ -73,7 +73,7 @@
           tooltip-format-ethernet = "{ifname} {ipaddr}/{cidr}";
           tooltip-format-disconnected = "Disconnected";
           max-length = 50;
-          on-click = "${networkmanager_dmenu}";
+          on-click = networkmanager_dmenu;
           on-click-right = "${terminal} ${nmtui}";
         };
         clock = {
@@ -112,7 +112,7 @@
           scroll-step = 5;
           max-volume = 250;
           on-click = "${pamixer} -t";
-          on-click-right = "${pavucontrol}";
+          on-click-right = pavucontrol;
           on-scroll-down = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
           on-scroll-up = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
         };
