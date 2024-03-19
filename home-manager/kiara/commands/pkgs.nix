@@ -1,6 +1,6 @@
 {pkgs, ...}:
 # TODO: JIT'ify? (#152)
-with pkgs; {
+let commands = with pkgs; {
   nix = "${nix}/bin/nix";
   tree = "${tree}/bin/tree";
   bat = "${bat}/bin/bat";
@@ -57,4 +57,18 @@ with pkgs; {
   keepassxc = "${keepassxc}/bin/keepassxc";
   firefox = "${firefox-bin}/bin/firefox";
   codium = "${vscodium}/bin/codium";
-}
+}; in commands // (with commands;
+# command wrappers
+let
+  inherit (pkgs) lib;
+in
+{
+  # "curl" -> "nix run nixpkgs#curl"
+  run = program: "${nix} run nixpkgs#${program}";
+  # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui'"
+  term = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}'";
+  # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui'; $SHELL"
+  hold = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}; $SHELL'";
+  # "du-dust" -> "dust" -> "nix shell nixpkgs#du-dust --command dust"
+  shell = name: cmd: "${nix} shell nixpkgs#${name} --command \"${lib.escape ["\""] cmd}\"";
+})

@@ -191,11 +191,6 @@
     };
 
     binds = let
-      # "curl" -> "nix run nixpkgs#curl"
-      run = with (import ./commands/pkgs.nix {inherit pkgs;});
-        program: "${nix} run nixpkgs#${program}";
-      # "nmtui" -> "wezterm -e --always-new-process nmtui"
-      terminal = args: "wezterm -e --always-new-process ${args}";
       # { prefixes.Mod = "focus"; suffixes.Up = "window-up"; } -> { "Mod+Up" = "focus-window-up"; }
       binds = {
         suffixes,
@@ -263,34 +258,34 @@
 
         # switch wallpaper
         "Mod+M" = "random-wallpaper.sh";
-        "Shift+Mod+M" = terminal "pick-wallpaper.sh";
+        "Shift+Mod+M" = term "pick-wallpaper.sh";
 
         "Mod+W" = firefox;
         "Mod+Shift+W" = tor-browser;
         "Mod+V" = codium;
         "Mod+E" = "${thunar} Downloads/";
-        "Mod+Shift+E" = terminal "lf /home/kiara/Downloads/";
-        "Mod+Shift+Ctrl+Alt+Space" = terminal "pick-character.sh ${./scripts/emoji.txt}";
+        "Mod+Shift+E" = term "${lf} /home/kiara/Downloads/";
+        "Mod+Shift+Ctrl+Alt+Space" = term "pick-character.sh ${./scripts/emoji.txt}";
         "Mod+N" = "${systemctl} hibernate";
-        "Mod+F3" = terminal "fontpreview.sh";
-        "Mod+F9" = terminal "main-menu.sh";
-        "Mod+I" = terminal "nmtui";
+        "Mod+F3" = term "fontpreview.sh";
+        "Mod+F9" = term "main-menu.sh";
+        "Mod+I" = term "nmtui";
         "Mod+Shift+I" = networkmanager_dmenu;
-        "Mod+U" = terminal "power.sh";
+        "Mod+U" = term "power.sh";
         "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
         "Mod+B" = symbols;
         "Ctrl+Alt+Delete" = gnome-system-monitor;
-        "Ctrl+Shift+Escape" = "alacritty -e ${run "zfxtop"}";
+        "Ctrl+Shift+Escape" = "${alacritty} -e ${run "zfxtop"}";
         "Mod+L" = swaylock;
         "Alt+Space" = "${swaync-client} --close-latest";
         "Mod+Escape" = "${swaync-client} --close-all";
         "Mod+Grave" = "${swaync-client} --toggle-panel";
         "Mod+Space" = "anyrun.sh";
-        "Shift+Mod+Space" = terminal "jit.sh";
+        "Shift+Mod+Space" = term "jit.sh";
         "Ctrl+Mod+Space" = "wofi.sh";
         "Alt+Mod+Space" = "rofi.sh";
         "Mod+J" = "anyrun.sh";
-        "Shift+Mod+J" = terminal "jit.sh";
+        "Shift+Mod+J" = term "jit.sh";
         "Ctrl+Mod+J" = "wofi.sh";
         "Alt+Mod+J" = "rofi.sh";
       })

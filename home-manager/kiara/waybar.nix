@@ -74,7 +74,7 @@
           tooltip-format-disconnected = "Disconnected";
           max-length = 50;
           on-click = networkmanager_dmenu;
-          on-click-right = "${terminal} ${nmtui}";
+          on-click-right = term nmtui;
         };
         clock = {
           format = "{:%H:%M}";
@@ -139,8 +139,8 @@
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
-          on-click = "${terminal} bash -c 'rm -rf ~/.local/share/Trash/* && nix-collect-garbage -d'";
-          on-click-right = "${terminal} nix shell nixpkgs#du-dust --command dust";
+          on-click = hold "rm -rf ~/.local/share/Trash/* && rm -rf ~/.cache/* && nix-collect-garbage -d && echo sudo nix-collect-garbage -d";
+          on-click-right = hold (shell "du-dust" "dust");
         };
         tray = {icon-size = 20;};
       };
