@@ -10,6 +10,13 @@ with pkgs; {
   hexyl = "${hexyl}/bin/hexyl";
   viu = "${viu}/bin/viu";
   timg = "${timg}/bin/timg";
+  systemctl = "${systemd}/bin/systemctl";
+  alacritty = "${alacritty}/bin/alacritty";
+  swaybg = "${swaybg}/bin/swaybg";
+  dbus-update-activation-environment = "${dbus}/bin/dbus-update-activation-environment";
+  tor-browser = "${tor-browser}/bin/tor-browser";
+  kdeconnect-indicator = "${kdeconnect}/bin/kdeconnect-indicator";
+  gnome-system-monitor = "${gnome.gnome-system-monitor}/bin/gnome-system-monitor";
   waybar = "${waybar}/bin/waybar";
   notify-send = "${libnotify}/bin/notify-send";
   swaync = "${swaynotificationcenter}/bin/swaync";
@@ -19,7 +26,6 @@ with pkgs; {
   kitty = "${pkgs.kitty}/bin/kitty";
   kitten = "${pkgs.kitty}/bin/kitten";
   wezterm = "${wezterm}/bin/wezterm";
-  anyrun = "${anyrun}/bin/anyrun";
   wofi = "${wofi}/bin/wofi";
   rofi = "${rofi-wayland}/bin/rofi -i";
   rofi-systemd = "${rofi-systemd}/bin/.rofi-systemd-wrapped";
