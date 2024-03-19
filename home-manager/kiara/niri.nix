@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -227,7 +228,8 @@
       in
         lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
     in
-      lib.mapVals (str: {spawn = sh str;}) {
+      lib.mapVals (str: {spawn = sh str;}) (
+          with (import ./commands/inputs.nix {inherit pkgs inputs;}); {
         # Keys consist of modifiers separated by + signs, followed by an XKB key name
         # in the end. To find an XKB name for a particular key, you may use a program
         # like wev.
@@ -289,7 +291,7 @@
         "Shift+Mod+J" = terminal "jit.sh";
         "Ctrl+Mod+J" = "wofi.sh";
         "Alt+Mod+J" = "rofi.sh";
-      }
+      })
       // {
         "Mod+Q" = "close-window";
         "Alt+F4" = "close-window";
