@@ -273,7 +273,7 @@
         "Mod+Shift+I" = networkmanager_dmenu;
         "Mod+U" = term "power.sh";
         "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
-        "Mod+B" = symbols;
+        "Mod+B" = "${anyrun} --plugins libsymbols.so";
         "Ctrl+Alt+Delete" = gnome-system-monitor;
         "Ctrl+Shift+Escape" = "${alacritty} -e ${run "zfxtop"}";
         "Mod+L" = swaylock;
