@@ -18,7 +18,7 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
   in [
     # TODO: populate as per lesspipe
     # https://github.com/wofr06/lesspipe?tab=readme-ov-file#41-supported-compression-methods-and-archive-formats
-    (commandDesktop "less" "${less}" [
+    (commandDesktop "less" less [
       "text/plain"
       "text/html"
       "text/markdown" # mdcat / pandoc
@@ -29,13 +29,13 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
 
     (commandDesktop "glow" "${glow} -p" ["text/markdown"])
 
-    (commandDesktop "lynx" "${lynx}" [
+    (commandDesktop "lynx" lynx [
       "x-scheme-handler/https"
       "x-scheme-handler/http"
       "text/html"
     ])
 
-    (commandDesktop "visidata" "${visidata}" [
+    (commandDesktop "visidata" visidata [
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       "application/vnd.openxmlformats-officedocument.spreadsheetml.template"
       "application/vnd.ms-excel"
@@ -64,7 +64,7 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
       ["x-scheme-handler/magnet"])
 
     # fallback option delegating MIME handling to pistol
-    (commandDesktop "pistol" "${pistol}"
+    (commandDesktop "pistol" pistol
       # grab associations from programs.pistol
       (lib.lists.map (x: x.mime) config.programs.pistol.associations)
     )
