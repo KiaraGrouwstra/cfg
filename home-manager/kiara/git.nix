@@ -2,7 +2,7 @@ _: {
   programs.git = {
     enable = true;
     userName = "Kiara Grouwstra";
-    userEmail = "kiara@bij1.org";
+    userEmail = "kiara.grouwstra@gmail.com";
     difftastic = {
       enable = true;
       color = "auto";
