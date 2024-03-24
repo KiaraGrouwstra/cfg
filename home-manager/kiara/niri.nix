@@ -264,7 +264,7 @@
         "Mod+Shift+W" = tor-browser;
         "Mod+V" = codium;
         "Mod+E" = "${thunar} Downloads/";
-        "Mod+Shift+E" = term "${lf} /home/kiara/Downloads/";
+        "Mod+Shift+E" = term "${lf} ${config.home.homeDirectory}/Downloads/";
         "Mod+Shift+Ctrl+Alt+Space" = term "pick-character.sh ${./scripts/emoji.txt}";
         "Mod+N" = "${systemctl} hibernate";
         "Mod+F3" = term "fontpreview.sh";
@@ -430,7 +430,7 @@
       {command = sh "${wl-paste} --type text --watch cliphist store";} # Stores only text data
       {command = sh "${wl-paste} --type image --watch cliphist store";} # Stores only image data
 
-      {command = sh "${swaybg} -m fill -i /home/kiara/Pictures/wallpaper";}
+      {command = sh "${swaybg} -m fill -i ${config.home.homeDirectory}/Pictures/wallpaper";}
       {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}
     ];
 
