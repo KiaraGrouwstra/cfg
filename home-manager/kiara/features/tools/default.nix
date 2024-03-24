@@ -6,7 +6,6 @@
 
     ## command-line utilities
     zsh
-    tealdeer
     thefuck
     jaq
     pandoc # lesspipe
@@ -46,6 +45,15 @@
         "exit"
         "root"
       ];
+    };
+
+    tealdeer = {
+      enable = true;
+      # https://dbrgn.github.io/tealdeer/config.html
+      settings = {
+        updates.auto_update = true;
+        display.use_pager = true;
+      };
     };
 
     # argument completer
