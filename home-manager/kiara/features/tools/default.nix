@@ -56,6 +56,11 @@
       };
     };
 
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     # argument completer
     carapace = {
       enable = true;
