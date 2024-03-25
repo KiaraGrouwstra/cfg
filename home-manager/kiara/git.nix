@@ -20,6 +20,7 @@ _: {
       push.autoSetupRemote = true;
       branch.autoSetupMerge = "simple";
       checkout.defaultRemote = "origin";
+      safe.directory = "/tmp"; # needed for ago.sh
     };
 
     ignores = [

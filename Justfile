@@ -41,3 +41,7 @@ encode:
 # Decode secrets
 decode:
   sops -d secrets.enc.yml > secrets.yml
+
+# Check when inputs were last updated
+age:
+  age.sh
