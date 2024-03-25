@@ -76,13 +76,10 @@ in {
   environment.systemPackages = with pkgs; [
     vim
     wget
-    home-manager
     curl
     git
-    cachix
     sops
     rage
-    ssh-to-age
   ];
 
   programs = {
