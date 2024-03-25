@@ -13,7 +13,6 @@ with (import ../../commands/pkgs.nix {inherit pkgs;});
   home.packages = with pkgs; [
     ## file handling / metadata
     xdg-utils
-    exiftool
 
     ## compression
     zip
