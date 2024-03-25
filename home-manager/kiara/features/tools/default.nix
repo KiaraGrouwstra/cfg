@@ -10,6 +10,7 @@
     jaq
     pandoc # lesspipe
     gum
+    lazygit
 
     ## command-line dropins (ish)
     xxh
