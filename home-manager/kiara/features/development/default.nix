@@ -11,7 +11,7 @@
     ./html.nix
     # ./java.nix
     # ./javascript.nix
-    # ./just.nix
+    ./just.nix
     ./json.nix
     # ./kotlin.nix
     # ./idris.nix
