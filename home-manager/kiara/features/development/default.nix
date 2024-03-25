@@ -66,20 +66,6 @@
       enableZshIntegration = true;
     };
 
-    mise = {
-      enable = true;
-      globalConfig = {
-        tools = {
-          # node = "lts";
-          # python = [ "3.10" "3.11" ];
-        };
-      };
-      settings = {
-        verbose = false;
-        experimental = true;
-      };
-    };
-
     gh = {
       enable = true;
       gitCredentialHelper.enable = true;
