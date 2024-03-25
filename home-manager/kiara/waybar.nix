@@ -136,7 +136,7 @@
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
-          on-click = hold "rm -rf ~/.local/share/Trash/* && rm -rf ~/.cache/* && nix-collect-garbage -d && echo sudo nix-collect-garbage -d";
+          on-click = hold "rm -rf ~/.local/share/Trash/* && rm -rf ~/.cache/* && ${just} -f ${../../Justfile} gc";
           on-click-right = hold (shell "du-dust" "dust");
         };
         tray = {icon-size = 20;};
