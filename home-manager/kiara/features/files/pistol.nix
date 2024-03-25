@@ -3,15 +3,14 @@
   pkgs,
   ...
 }:
-with (import ../../commands/pkgs.nix {inherit pkgs;});
-{
-
+with (import ../../commands/pkgs.nix {inherit pkgs;}); {
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
     # if i wanna use pistol for previews thru fzf or file managers, these should be pure
     # read-only operations, so no like starting torrent downloads.
-    associations = lib.lists.map (
+    associations =
+      lib.lists.map (
         # append ` %pistol-filename%` to command
         {command, ...} @ attrs: attrs // {command = "${command} %pistol-filename%";}
       ) [
@@ -44,6 +43,5 @@ with (import ../../commands/pkgs.nix {inherit pkgs;});
           command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git";
         }
       ];
-
   };
 }

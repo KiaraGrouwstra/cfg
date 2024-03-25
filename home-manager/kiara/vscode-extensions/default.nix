@@ -1,36 +1,6 @@
-{ pkgs, lib }:
-
-let
-  vscode-utils = pkgs.vscode-utils;
-in
-{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{pkgs, ...}: let
+  inherit (pkgs) vscode-utils;
+in {
   "ms-python"."python" = vscode-utils.extensionFromVscodeMarketplace {
     name = "python";
     publisher = "ms-python";
@@ -213,4 +183,3 @@ in
     sha256 = "0yam13n021lmc93m8rpw96ksci0jshfrlnnfdk1q9yqrxydy6320";
   };
 }
-

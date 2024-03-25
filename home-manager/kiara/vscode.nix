@@ -15,7 +15,7 @@
     mutableExtensionsDir = false;
     # porting installed extensions: `codium --list-extensions | awk '{print tolower($0)}'`
     # finding new extensions: https://marketplace.visualstudio.com/vscode
-    extensions = with (import ./vscode-extensions) {inherit pkgs lib;}; [
+    extensions = with (import ./vscode-extensions) {inherit pkgs;}; [
       # convenience
       mkhl.direnv
       mikestead.dotenv

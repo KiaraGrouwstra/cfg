@@ -64,7 +64,8 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
       ["x-scheme-handler/magnet"])
 
     # fallback option delegating MIME handling to pistol
-    (commandDesktop "pistol" pistol
+    (
+      commandDesktop "pistol" pistol
       # grab associations from programs.pistol
       (lib.lists.map (x: x.mime) config.programs.pistol.associations)
     )

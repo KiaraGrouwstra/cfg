@@ -15,36 +15,22 @@ follow instructions:
 - in `flake.nix` add device profiles for the system and user
 - [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild switch --fast --flake .#hammer 2>&1 | tee build.log`
 - [cache](https://app.cachix.org/cache/kiara#pull): install `cachix` then `cachix use kiara`
-- updating: `nix flake update --refresh`
-- shell: `nix-shell --command zsh -p lolcat`
 
-### secrets
-
-- encoding: `sops -e secrets.yml > secrets.enc.yml`
-- decoding: `sops -d secrets.enc.yml > secrets.yml`
-
-### updating
+### list commands
 
 ```sh
-nix flake update --override-input nixpkgs github:NixOS/nixpkgs/<rev>
+just -l
 ```
 
 ## references
 
-- inspiration on repo setup:
-  - [javacafe01](https://github.com/javacafe01/dotfiles)
-  - [Misterio77](https://github.com/Misterio77/nix-config)
-- search for options and packages:
-  - [mynixos.com](https://mynixos.com/)
-  - [mipmip.github.io/home-manager-option-search](https://mipmip.github.io/home-manager-option-search/)
-  - [flakestry.dev](https://flakestry.dev/)
-  - [nur.nix-community.org](https://nur.nix-community.org/)
-- nix functions:
-  - [mipmip.github.io/nix-builtins-search](https://mipmip.github.io/nix-builtins-search/)
-  - [noogle.dev](https://noogle.dev/)
-- packages: non-nix
-  - [packages.guix.gnu.org](https://packages.guix.gnu.org/)
-  - [flathub.org](https://flathub.org/)
+- [search.nixos.org](https://search.nixos.org)
+- [search.nixos.org/options](https://search.nixos.org/options)
+- [home-manager options](https://nix-community.github.io/home-manager/options.xhtml)
+- [mynixos.com](https://mynixos.com/)
+- [flakestry.dev](https://flakestry.dev/)
+- [nur.nix-community.org](https://nur.nix-community.org/)
+- [noogle.dev](https://noogle.dev/)
 
 ## rollbacks
 
@@ -57,7 +43,7 @@ ls -lt /nix/var/nix/profiles/system-*-link
 /nix/var/nix/profiles/system-<CONFIGURATION>-link/bin/switch-to-configuration switch
 # switch to a configuration given a number
 export n=1
-$(echo sudo `ls -lt /nix/var/nix/profiles/system-${n}-link | grep --extended-regexp --only-matching '/nix/store/.*'`/bin/switch-to-configuration switch)
+$(echo sudo `ls -l /nix/var/nix/profiles/system-${n}-link | grep --extended-regexp --only-matching '/nix/store/.*'`/bin/switch-to-configuration switch)
 ```
 
 ## Used software
@@ -66,10 +52,10 @@ $(echo sudo `ls -lt /nix/var/nix/profiles/system-${n}-link | grep --extended-reg
 |---------------|--------------|
 | Compositor    | [Niri](https://github.com/YaLTeR/niri/) |
 | Bar           | [Waybar](https://github.com/Alexays/Waybar/) |
-| Notifications | [swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
+| Notifications | [Swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
 | Menu          | [Anyrun](https://github.com/Kirottu/anyrun) |
 | Web browser   | [Firefox](https://hg.mozilla.org/mozilla-central/) |
-| File browser  | [Thunar](https://gitlab.xfce.org/xfce/thunar/) |
+| File browser  | [Yazi](https://yazi-rs.github.io/) |
 | Terminal      | [Wezterm](https://github.com/wez/wezterm) |
 | Text editor   | [VSCodium](https://github.com/vscodium/vscodium) |
 | Shell         | [Zsh](https://zsh.org/) |

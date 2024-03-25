@@ -1,4 +1,8 @@
-{lib, config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   addDesktop = x: "${x}.desktop";
   # take from the respective mimetype files
   images = map (_: "image/${_}") [
@@ -356,7 +360,8 @@
   # MIME types: https://www.digipres.org/formats/mime-types/
   associations = lib.prioritizeList (lib.lists.map (lib.mapVals (lib.lists.map addDesktop)) [
     # use pistol as fallback for terminal-based read-only previews
-    (lib.genAttrs
+    (
+      lib.genAttrs
       (lib.lists.map (x: x.mime) config.programs.pistol.associations)
       (_: ["pistol"])
     )
@@ -392,16 +397,13 @@
       "x-scheme-handler/mailto" = ["betterbird"];
       "text/calendar" = ["org.gnome.Calendar"];
       "application/pdf" = ["org.pwmt.zathura" "less"];
-      "text/plain" =
-        ["codium" "org.gnome.TextEditor" "lapce" "less"];
+      "text/plain" = ["codium" "org.gnome.TextEditor" "lapce" "less"];
       "text/markdown" = ["codium" "glow" "less"];
       "text/org" = ["codium" "less"];
-      "application/epub+zip" =
-        ["calibre-ebook-viewer" "calibre-ebook-edit"];
+      "application/epub+zip" = ["calibre-ebook-viewer" "calibre-ebook-edit"];
       "x-scheme-handler/tg" = ["telegramdesktop"];
       "application/json" = browsers;
-      "text/csv" =
-        ["calc" "visidata" "less" "org.gnome.TextEditor"];
+      "text/csv" = ["calc" "visidata" "less" "org.gnome.TextEditor"];
       "application/vnd.smart.notebook" = ["less"];
       "application/x-zip" = ["zip"];
       "x-scheme-handler/magnet" = ["webtorrent" "stremio"];

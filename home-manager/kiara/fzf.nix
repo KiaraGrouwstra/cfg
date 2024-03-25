@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{pkgs, ...}:
 with (import ./commands/pkgs.nix {inherit pkgs;}); {
   programs.fzf = {
     enable = true;

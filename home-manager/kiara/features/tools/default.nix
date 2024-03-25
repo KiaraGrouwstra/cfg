@@ -17,6 +17,7 @@
     ripgrep
     eza
     fd
+    just
 
     ## networking
     networkmanager_dmenu

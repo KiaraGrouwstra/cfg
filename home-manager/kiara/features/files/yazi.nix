@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     exiftool
   ];
@@ -41,9 +36,7 @@
     # };
     # https://yazi-rs.github.io/docs/configuration/yazi
     # https://github.com/sxyazi/yazi/blob/latest/yazi-config/preset/yazi.toml
-    settings =
-      with (import ../../commands/pkgs.nix {inherit pkgs;});
-    {
+    settings = with (import ../../commands/pkgs.nix {inherit pkgs;}); {
       log = {
         enabled = false;
       };
@@ -52,46 +45,49 @@
         prepend_keymap = [
           # https://yazi-rs.github.io/docs/tips/#dropping-to-shell
           {
-            on   = [ "<C-s>" ];
-            run  = ''shell "$SHELL" --block --confirm'';
+            on = ["<C-s>"];
+            run = ''shell "$SHELL" --block --confirm'';
             desc = "Open shell here";
           }
           # https://yazi-rs.github.io/docs/tips/#smart-enter
           {
-            on   = [ "l" ];
-            run  = "plugin --sync smart-enter";
+            on = ["l"];
+            run = "plugin --sync smart-enter";
             desc = "Enter the child directory, or open the file";
           }
           # https://yazi-rs.github.io/docs/tips/#drag-and-drop
           {
-            on  = [ "<C-n>" ];
+            on = ["<C-n>"];
             run = ''
               shell '${ripdrag} "$@" -x 2>/dev/null &' --confirm
             '';
           }
           # https://yazi-rs.github.io/docs/tips/#selected-files-to-clipboard
           {
-            on  = [ "y" ];
-            run = [ "yank" ''
-              shell --confirm 'for path in "$@"; do echo "file://$path"; done | ${wl-copy} -t text/uri-list'
-            '' ];
+            on = ["y"];
+            run = [
+              "yank"
+              ''
+                shell --confirm 'for path in "$@"; do echo "file://$path"; done | ${wl-copy} -t text/uri-list'
+              ''
+            ];
           }
           # https://yazi-rs.github.io/docs/tips/#navigation-wraparound
           {
-            on  = [ "k" ];
+            on = ["k"];
             run = "plugin --sync arrow --args=-1";
           }
           {
-            on  = [ "j" ];
+            on = ["j"];
             run = "plugin --sync arrow --args=1";
           }
           # https://yazi-rs.github.io/docs/tips/#parent-arrow
           {
-            on  = [ "K" ];
+            on = ["K"];
             run = "plugin --sync parent-arrow --args=-1";
           }
           {
-            on  = [ "J" ];
+            on = ["J"];
             run = "plugin --sync parent-arrow --args=1";
           }
         ];
@@ -100,13 +96,12 @@
         prepend_keymap = [
           # https://yazi-rs.github.io/docs/tips/#close-input-by-esc
           {
-            on   = [ "<Esc>" ];
-            run  = "close";
+            on = ["<Esc>"];
+            run = "close";
             desc = "Cancel input";
           }
         ];
       };
     };
-
   };
 }

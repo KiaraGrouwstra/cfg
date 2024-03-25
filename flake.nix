@@ -165,11 +165,6 @@
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
     nixosModules = import ./modules/nixos;
-    # Reusable home-manager modules you might want to export
-    # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
-
-    imports = [./cachix.nix];
 
     # Devshell for bootstrapping
     # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
@@ -190,6 +185,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = with inputs; [
+            ./cachix.nix
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix

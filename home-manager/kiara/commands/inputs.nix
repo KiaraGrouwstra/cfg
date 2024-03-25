@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 with inputs; let
   inherit (pkgs) system;
 in {

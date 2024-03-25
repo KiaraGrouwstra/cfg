@@ -1,10 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-with (import ../../commands/pkgs.nix {inherit pkgs;});
-{
+{pkgs, ...}:
+with (import ../../commands/pkgs.nix {inherit pkgs;}); {
   imports = [
     ./yazi.nix
     ./pistol.nix
@@ -32,5 +27,4 @@ with (import ../../commands/pkgs.nix {inherit pkgs;});
   ];
 
   services.syncthing.enable = true;
-
 }

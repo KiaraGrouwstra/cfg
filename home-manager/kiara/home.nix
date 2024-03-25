@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [./imports.nix];
