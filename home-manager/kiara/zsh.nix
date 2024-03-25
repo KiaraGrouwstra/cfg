@@ -26,9 +26,6 @@
     };
     sessionVariables = {
       GTK_THEME = "Catppuccin-Frappe-Compact-Maroon-Dark";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      BROWSER = "firefox";
     };
     shellAliases = {
       docker-compose = "podman-compose";

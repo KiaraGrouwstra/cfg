@@ -23,6 +23,9 @@
     PAGER = "${gum} pager";
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    BROWSER = "firefox";
   };
 
   sops = {
