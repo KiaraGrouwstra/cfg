@@ -1,4 +1,5 @@
 #!/usr/bin/env -S nix shell nixpkgs#wl-clipboard nixpkgs#keepassxc nixpkgs#rofi --command bash
+# pick and copy a keepassxc password
 
 m() { rofi -dmenu -i "$@" ;}
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env -S nix shell nixpkgs#wl-clipboard nixpkgs#jaq nixpkgs#gum nixpkgs#hyprland --command bash
-# shows keybindings thru rofi
+# show keybindings
 
 # unfortunately messy as bash won't retain strings as multi-line when stored in variables
 

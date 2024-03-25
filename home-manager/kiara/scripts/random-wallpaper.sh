@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# set a random wallpaper
 pidof swaybg && kill -9 $(pidof swaybg)
 find ~/Pictures/wallpapers/ \
   | sort -R \

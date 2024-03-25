@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# power options
 chosen=$(printf '⏻  Power Off\n⭮  Restart\n🌙  Suspend\n❄️  Hibernate\n🚪  Log Out\n🔒  Lock' | gum choose)
 
 case "$chosen" in

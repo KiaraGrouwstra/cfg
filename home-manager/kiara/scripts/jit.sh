@@ -1,4 +1,5 @@
 #!/usr/bin/env -S nix shell nixpkgs#bash nixpkgs#nix nixpkgs#nix-index nixpkgs#fzf github:Mic92/nix-index-database#default --command bash
+# pick a program from nixpkgs and run it
 # https://discourse.nixos.org/t/nixpkgs-desktop/39781/6
 
 set -euo pipefail
