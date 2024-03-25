@@ -24,9 +24,6 @@
         "bgnotify"
       ];
     };
-    sessionVariables = {
-      GTK_THEME = "Catppuccin-Frappe-Compact-Maroon-Dark";
-    };
     shellAliases = {
       docker-compose = "podman-compose";
       ls = "eza --icons";

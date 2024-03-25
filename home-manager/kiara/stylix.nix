@@ -8,6 +8,11 @@
   nix-colors-lib = inputs.nix-colors.lib.contrib {inherit pkgs;};
 in {
   # If I can't dance to it, it's not my revolution. - Emma Goldman
+
+  home.sessionVariables = {
+    GTK_THEME = "Catppuccin-Mocha-Compact-Maroon-Dark";
+  };
+
   stylix = {
     cursor = {
       # https://github.com/catppuccin/cursors#previews
