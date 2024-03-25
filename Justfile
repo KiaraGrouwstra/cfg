@@ -14,13 +14,11 @@ test:
 up:
   nix flake update --refresh
 
-# Update specific input
-# Usage: just upp nixpkgs
+# Update specific input. Usage: just upp nixpkgs
 upp input:
   nix flake lock --update-input {{input}}
 
-# Open a Nix REPL
-# Run manually to load flake: `:lf .`
+# Open a Nix REPL - run manually to load flake: `:lf .`
 repl:
   nix repl
 
