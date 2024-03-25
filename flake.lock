@@ -877,7 +877,8 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "systems": "systems_2",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt-nix": "treefmt-nix",
+        "yazi-mime": "yazi-mime"
       }
     },
     "snowfall-lib": {
@@ -1012,6 +1013,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "yazi-mime": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710725404,
+        "narHash": "sha256-r52DG4NhXhfcF+8kLLmxZKxdSn43XaGJ4gMMEx2BDng=",
+        "owner": "DreamMaoMao",
+        "repo": "mime.yazi",
+        "rev": "0df065736824c2b1c5555edce232d46d1219d4b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DreamMaoMao",
+        "repo": "mime.yazi",
         "type": "github"
       }
     }

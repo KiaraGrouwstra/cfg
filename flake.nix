@@ -94,6 +94,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    yazi-mime = {
+      url = "github:DreamMaoMao/mime.yazi";
+      flake = false;
+    };
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";

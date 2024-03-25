@@ -8,6 +8,17 @@ GUIX_PROFILE="$HOME/.guix-profile"
 # flatpak
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
 
+# yazi: update current working directory on exit
+# https://yazi-rs.github.io/docs/quick-start/#shell-wrapper
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # markdown
 function mrkd() { pandoc ${@:1:2} | lynx -stdin; }
 # TODO: style browser for local html files

@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: let
   autoStartLinks = lib.mapAttrs' (desktopName: package:
@@ -22,6 +23,7 @@ in {
     // {
       # must `git add .` or new files won't be found
       ".config/swaync/configSchema.json".source = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
+      ".config/yazi/plugins/mime.yazi".source = "${inputs.yazi-mime}/init.lua";
       # https://github.com/nix-community/home-manager/issues/322#issuecomment-1856128020
       ".ssh/config" = {
         source = ./dotfiles/.ssh/config;

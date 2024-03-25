@@ -383,8 +383,7 @@
     ] (_: ["rar"]))
     {
       "inode/directory" = [
-        "lf"
-        "ranger"
+        "yazi"
         "thunar"
         "codium"
         "lapce"
