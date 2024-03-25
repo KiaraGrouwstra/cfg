@@ -20,6 +20,12 @@ with secrets managed using [Sops](https://github.com/getsops/sops/).
 just -l
 ```
 
+or if `just` isn't available yet:
+
+```sh
+nix run nixpkgs#just -- -l
+```
+
 ## used software
 
 | Component     | Software     |
