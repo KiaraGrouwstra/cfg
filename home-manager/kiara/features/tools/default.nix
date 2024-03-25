@@ -71,7 +71,7 @@
     };
 
     browserpass = {
-      # enable = true;  # Error installing file '.mozilla/native-messaging-hosts/com.github.browserpass.native.json' outside $HOME
+      enable = true;
       browsers = ["firefox"];
     };
   };
