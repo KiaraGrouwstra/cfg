@@ -48,19 +48,23 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
       "text/csv"
     ])
 
-    (commandDesktop "tar.gz" "tar.gz.sh" [
+    # https://code.google.com/archive/p/theunarchiver/wikis/SupportedFormats.wiki
+    (commandDesktop "unar" "unar.sh" [
+      "application/x-zip"
       "application/x-gzip"
+      "application/x-gzip-compressed"
+      "application/gzip-compressed"
+      "application/gzipped"
+      "gzip/document"
+      "application/gzip"
+      "application/x-gunzip"
       "application/x-tar"
-    ])
-
-    (commandDesktop "rar" "rar.sh" [
       "application/vnd.rar"
       "application/x-rar"
       "application/x-rar-compressed"
+      "application/x-bzip2"
+      "application/x-7z-compressed"
     ])
-
-    (commandDesktop "zip" "zip.sh"
-      ["application/x-zip"])
 
     (commandDesktop "webtorrent" "${webtorrent} download"
       ["x-scheme-handler/magnet"])
