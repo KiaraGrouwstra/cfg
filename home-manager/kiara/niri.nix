@@ -263,8 +263,8 @@
         "Mod+W" = firefox;
         "Mod+Shift+W" = tor-browser;
         "Mod+V" = codium;
-        "Mod+E" = "${thunar} Downloads/";
-        "Mod+Shift+E" = term "yy.sh ${config.home.homeDirectory}/Downloads/";
+        "Mod+Shift+E" = "${thunar} Downloads/";
+        "Mod+E" = term "yy.sh ${config.home.homeDirectory}/Downloads/";
         "Mod+Shift+Ctrl+Alt+Space" = term "pick-character.sh ${./scripts/emoji.txt}";
         "Mod+N" = "${systemctl} hibernate";
         "Mod+F3" = term "fontpreview.sh";
