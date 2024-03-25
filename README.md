@@ -31,20 +31,6 @@ just -l
 - [nur.nix-community.org](https://nur.nix-community.org/)
 - [noogle.dev](https://noogle.dev/)
 
-## rollbacks
-
-### nixos
-
-```sh
-# list configurations
-ls -lt /nix/var/nix/profiles/system-*-link
-# switch to a configuration manually
-/nix/var/nix/profiles/system-<CONFIGURATION>-link/bin/switch-to-configuration switch
-# switch to a configuration given a number
-export n=1
-$(echo sudo `ls -l /nix/var/nix/profiles/system-${n}-link | grep --extended-regexp --only-matching '/nix/store/.*'`/bin/switch-to-configuration switch)
-```
-
 ## Used software
 
 | Component     | Software     |
