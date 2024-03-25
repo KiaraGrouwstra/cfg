@@ -1,37 +1,26 @@
 # .nixconfig
 
-This is my setup for [NixOS](https://nixos.org/) using [Nix Flakes](https://nixos.wiki/wiki/Flakes),
-and with secrets managed using [Sops](https://github.com/getsops/sops/).
+This is my setup for [NixOS](https://nixos.org/),
+with secrets managed using [Sops](https://github.com/getsops/sops/).
 
 ## usage
 
-follow instructions:
+### prerequisites
 
-- [download](https://nixos.org/download) / [install](https://nixos.org/manual/nixos/stable/#sec-installation) / boot [nixos](https://nixos.org/)
-- take access to nixos directory: `sudo chown -R $USER /etc/nixos/`
-- add [`age`](https://github.com/FiloSottile/age) keys file to `/etc/nixos/keys.txt` to decode the secrets
-- ensure `/etc/nixos/hardware-configuration.nix` is reflected in `./hosts/$(hostname)/hardware-configuration.nix`
-- in the `configuration.nix` [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
-- in `flake.nix` add device profiles for the system and user
-- [nixos](https://nixos.org/manual/nixos/stable): `nix fmt && sudo nixos-rebuild switch --fast --flake .#hammer 2>&1 | tee build.log`
+- [install](https://nixos.org/manual/nixos/stable/#sec-installation) NixOS
+- [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
+- update `./hosts/<PROFILE>/hardware-configuration.nix`
+- get a user password by either:
+  - [setting one](https://nixos.org/manual/nixos/stable/options#opt-users.users._name_.initialPassword) in `./hosts/<PROFILE>/configuration.nix`
+  - decoding secrets by adding the [`age`](https://github.com/FiloSottile/age) keys file to `/etc/nixos/keys.txt`
 
-### list commands
+### commands
 
 ```sh
 just -l
 ```
 
-## references
-
-- [search.nixos.org](https://search.nixos.org)
-- [search.nixos.org/options](https://search.nixos.org/options)
-- [home-manager options](https://nix-community.github.io/home-manager/options.xhtml)
-- [mynixos.com](https://mynixos.com/)
-- [flakestry.dev](https://flakestry.dev/)
-- [nur.nix-community.org](https://nur.nix-community.org/)
-- [noogle.dev](https://noogle.dev/)
-
-## Used software
+## used software
 
 | Component     | Software     |
 |---------------|--------------|
@@ -44,6 +33,16 @@ just -l
 | Terminal      | [Wezterm](https://github.com/wez/wezterm) |
 | Text editor   | [VSCodium](https://github.com/vscodium/vscodium) |
 | Shell         | [Zsh](https://zsh.org/) |
+
+## references
+
+- [search.nixos.org](https://search.nixos.org)
+- [search.nixos.org/options](https://search.nixos.org/options)
+- [home-manager options](https://nix-community.github.io/home-manager/options.xhtml)
+- [mynixos.com](https://mynixos.com/)
+- [flakestry.dev](https://flakestry.dev/)
+- [nur.nix-community.org](https://nur.nix-community.org/)
+- [noogle.dev](https://noogle.dev/)
 
 ## Debugging builds
 
