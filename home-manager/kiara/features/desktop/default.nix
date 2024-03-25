@@ -5,7 +5,6 @@
     swayidle
     playerctl
     pinentry-curses
-    ripdrag # yazi
 
     ## clipboard
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout

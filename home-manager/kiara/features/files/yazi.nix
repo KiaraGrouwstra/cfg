@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     exiftool
+    ripdrag
   ];
 
   programs.yazi = {
