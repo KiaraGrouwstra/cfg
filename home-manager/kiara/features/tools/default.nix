@@ -58,6 +58,7 @@
       };
     };
 
+    # z: cd but with memory
     zoxide = {
       enable = true;
       enableZshIntegration = true;
