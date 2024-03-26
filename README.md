@@ -2,6 +2,8 @@
 
 This is my setup for [NixOS](https://nixos.org/).
 
+![screenshot showing niri with neofetch and yazi in wezterm](./screenshot.png)
+
 ## usage
 
 ### prerequisites
