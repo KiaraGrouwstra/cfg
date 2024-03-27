@@ -74,7 +74,7 @@ nix run nixpkgs#just -- -l
   - [NUR](https://nur.nix-community.org/)
   - [Flakes](https://flakestry.dev/)
 - [Guix](https://packages.guix.gnu.org/)
-- [Flatpack](https://flathub.org/)
+- [Flatpak](https://flathub.org/)
 - [AppImage](https://appimagehub.com/)
 
 ### what goes where
