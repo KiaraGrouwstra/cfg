@@ -24,7 +24,13 @@
     networkmanager_dmenu
 
     ## credentials / security
-    pass
+    (pass.withExtensions (exts: with exts; [
+      pass-otp
+      pass-import
+      pass-genphrase
+      pass-checkup
+      pass-update
+    ]))
     keepassxc
     browserpass
     gnupg
