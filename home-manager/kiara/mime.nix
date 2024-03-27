@@ -408,6 +408,7 @@
       "application/x-zip" = ["zip"];
       "x-scheme-handler/magnet" = ["webtorrent" "stremio"];
       "x-scheme-handler/irc" = ["halloy"];
+      "application/x-desktop" = ["xdg-open"];
     }
   ]);
 in {

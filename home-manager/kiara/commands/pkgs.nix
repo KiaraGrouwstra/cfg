@@ -3,6 +3,7 @@
 let
   commands = with pkgs; {
     nix = "${nix}/bin/nix";
+    xdg-open = "${xdg-utils}/bin/xdg-open";
     tree = "${tree}/bin/tree";
     bat = "${bat}/bin/bat";
     pistol = "${pistol}/bin/pistol";

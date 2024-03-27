@@ -27,6 +27,8 @@ with (import ./commands/pkgs.nix {inherit pkgs;}); {
       "application/pdf" # poppler_utils
     ])
 
+    (commandDesktop "xdg-open" xdg-open ["application/x-desktop"])
+
     (commandDesktop "glow" "${glow} -p" ["text/markdown"])
 
     (commandDesktop "lynx" lynx [
