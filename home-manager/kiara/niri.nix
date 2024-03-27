@@ -211,7 +211,7 @@
                   args = [];
                 };
             in {
-              ${replacer "${prefix.action}-${actual-suffix.action}"} =
+              action.${replacer "${prefix.action}-${actual-suffix.action}"} =
                 actual-suffix.args;
             };
           };
@@ -224,7 +224,7 @@
         in
           lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
       in
-        lib.mapVals (str: {spawn = sh str;}) (
+        lib.mapVals (str: {action.spawn = sh str;}) (
           with (import ./commands/inputs.nix {inherit pkgs inputs;}); {
             # Keys consist of modifiers separated by + signs, followed by an XKB key name
             # in the end. To find an XKB name for a particular key, you may use a program
@@ -289,7 +289,7 @@
             "Alt+Mod+J" = "rofi.sh";
           }
         )
-        // {
+        // (lib.mapVals (str: { action."${str}" = []; }) {
           "Mod+Q" = "close-window";
           "Alt+F4" = "close-window";
           "Mod+Comma" = "consume-window-into-column";
@@ -317,7 +317,7 @@
           "Mod+K" = "quit";
           # Mod-/, kinda like Mod-?, shows a list of important hotkeys.
           "Mod+Slash" = "show-hotkey-overlay";
-        }
+        })
         // (binds {
           prefixes = {
             "Mod" = "focus";
@@ -388,7 +388,7 @@
             "Mod+Shift" = "move-column-to";
           };
         })
-        // {
+        // (lib.mapVals (cmd: {action = cmd;}) {
           # Finer width adjustments.
           # This command can also:
           # * set width in pixels: "1000"
@@ -411,7 +411,7 @@
           # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
           # "Mod+Space"       = { switch-layout = "next"; };
           # "Mod+Shift+Space" = { switch-layout = "prev"; };
-        };
+        });
 
       # Add lines like this to spawn processes at startup.
       # Note that running niri as a session supports xdg-desktop-autostart,
