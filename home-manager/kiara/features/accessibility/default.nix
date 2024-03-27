@@ -7,6 +7,9 @@
     ## speech / TTS
     speechd
     orca
+
+    # AI
+    local-ai
   ];
 
   services.kdeconnect = {
