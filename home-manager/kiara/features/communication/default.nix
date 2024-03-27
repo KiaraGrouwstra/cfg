@@ -7,7 +7,7 @@
 
     ## chat / communications
     telegram-desktop
-    flare
+    flare-signal
 
     ## web browsers
     tor-browser
