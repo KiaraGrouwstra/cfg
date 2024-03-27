@@ -141,6 +141,7 @@ Used keyboard layout: `en-us` with `Caps Lock` remapped to `Esc`.
     - `CTRL-R` - Paste the selected command from history onto the command-line
     - `ALT-C` - `cd` into the selected directory
 - [`gum`](https://github.com/charmbracelet/gum/blob/main/pager/pager.go)
+- [`zathura`](https://defkey.com/zathura-shortcuts)
 
 ## mouse
 
