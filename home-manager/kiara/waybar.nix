@@ -57,6 +57,8 @@
             paused = "󰏤";
             stopped = "󰓛";
           };
+          on-scroll-down = "${playerctl} next";
+          on-scroll-up = "${playerctl} previous";
         };
         network = {
           interface = "wlo1";
@@ -116,10 +118,14 @@
         memory = {
           interval = 5;
           format = "  {}%";
+          on-click = gnome-system-monitor;
+          on-click-right = term (run "btop");
         };
         cpu = {
           interval = 5;
           format = "󱛟  {usage:2}%";
+          on-click = "${alacritty} -e ${run "zfxtop"}";
+          on-click-right = term (run "btop");
         };
         battery = {
           states = {
@@ -131,12 +137,13 @@
           format-charging = "󰂄 {capacity}%";
           format-plugged = "󱘖 {capacity}%";
           format-icons = ["" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          on-click       = term (run "powersupply");
         };
         disk = {
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
-          on-click = hold "rm -rf ~/.local/share/Trash/* && rm -rf ~/.cache/* && ${just} -f ${../../Justfile} gc";
+          on-click = hold "${just} -f ${../../Justfile} gc";
           on-click-right = hold (shell "du-dust" "dust");
         };
         tray = {icon-size = 20;};
