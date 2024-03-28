@@ -372,20 +372,13 @@
     (lib.genAttrs audio (_: ["mpv"]))
     (lib.genAttrs video (_: ["mpv"]))
     (lib.genAttrs archives
-      (_: ["org.gnome.FileRoller" "thunar"]))
+      (_: ["unar" "org.gnome.FileRoller" "thunar"]))
     (lib.genAttrs documents (_: ["writer" "less"]))
     (lib.genAttrs spreadsheets (_: ["calc" "visidata" "less"]))
     (lib.genAttrs slides (_: ["impress" "less"]))
     (lib.genAttrs models (_: ["PrusaSlicer"]))
     (lib.genAttrs ["text/x-gcode"] (_: ["PrusaGcodeviewer"]))
     (lib.genAttrs cad (_: ["org.freecadweb.FreeCAD"]))
-    (lib.genAttrs ["application/x-gzip" "application/x-tar"]
-      (_: ["tar.gz"]))
-    (lib.genAttrs [
-      "application/vnd.rar"
-      "application/x-rar"
-      "application/x-rar-compressed"
-    ] (_: ["rar"]))
     {
       "inode/directory" = [
         "yazi"
@@ -405,7 +398,6 @@
       "application/json" = browsers;
       "text/csv" = ["calc" "visidata" "less" "org.gnome.TextEditor"];
       "application/vnd.smart.notebook" = ["less"];
-      "application/x-zip" = ["zip"];
       "x-scheme-handler/magnet" = ["webtorrent" "stremio"];
       "x-scheme-handler/irc" = ["halloy"];
       "application/x-desktop" = ["xdg-open"];
