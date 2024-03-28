@@ -103,6 +103,7 @@ the `flake.lock`ed nixpkgs is used for:
 - [Guix](https://packages.guix.gnu.org/)
 - [Flatpak](https://flathub.org/)
 - [AppImage](https://appimagehub.com/)
+- [Progressive Web Apps](https://pwasforfirefox.filips.si/)
 
 ## command drop-ins
 
