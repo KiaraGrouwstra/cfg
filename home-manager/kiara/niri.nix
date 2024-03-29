@@ -167,8 +167,7 @@
       # Enable to ask the clients to omit their client-side decorations if possible.
       # If the client will specifically ask for CSD, the request will be honored.
       # Additionally, clients will be informed that they are tiled, removing some rounded corners.
-      prefer-no-csd = false;
-      # this option makes some terminals less ugly, but clashes with vscode :(
+      prefer-no-csd = true;
 
       # You can change the path where screenshots are saved.
       # A ~ at the front will be expanded to the home directory.
