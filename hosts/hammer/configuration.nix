@@ -146,6 +146,16 @@ in {
   # let file managers access trash and remotes
   services.gvfs.enable = true;
 
+  systemd.services.local-ai = let
+    port = "8080";
+  in {
+    wantedBy = [ "multi-user.target" ];
+    # serviceConfig.ExecStart = "${config.commands.local-ai} --localai-config-dir . --address :${port}";
+    serviceConfig.ExecStart = "${pkgs.local-ai}/bin/local-ai --localai-config-dir . --address :${port}";
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;

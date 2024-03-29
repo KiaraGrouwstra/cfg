@@ -8,7 +8,7 @@
     orca
 
     # AI
-    local-ai
+    mods
   ];
 
   home.persistence."/persist/home/kiara".directories = [

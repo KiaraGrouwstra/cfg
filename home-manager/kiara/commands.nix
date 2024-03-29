@@ -52,6 +52,7 @@ let
           gnome.gnome-system-monitor
           swaynotificationcenter
           xfce.thunar
+          local-ai
         ]
         ++ lib.attrValues
         {

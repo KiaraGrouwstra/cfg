@@ -1,0 +1,9 @@
+name: cloned-voice
+backend: vall-e-x
+parameters:
+  model: "cloned-voice"
+vall-e:
+  # The path to the audio file to be cloned
+  # relative to the models directory
+  # Max 15s
+  audio_path: "audio-sample.wav"
