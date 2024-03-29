@@ -16,7 +16,7 @@
   programs.niri.settings = let
     sh = cmd: ["sh" "-c" (lib.escape ["\""] cmd)];
   in
-    with (import ./commands/pkgs.nix {inherit pkgs;}); {
+    with config.commands; {
       input = {
         keyboard = {
           xkb = {
@@ -225,7 +225,7 @@
           lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
       in
         lib.mapVals (str: {action.spawn = sh str;}) (
-          with (import ./commands/inputs.nix {inherit pkgs inputs;}); {
+          with config.commands; {
             # Keys consist of modifiers separated by + signs, followed by an XKB key name
             # in the end. To find an XKB name for a particular key, you may use a program
             # like wev.

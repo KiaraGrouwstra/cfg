@@ -173,7 +173,7 @@ niri supports three-finger swipes between:
 |-|-|
 | [system configuration](https://search.nixos.org/options) | [`./hosts/`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/) |
 | [home-manager configuration](https://nix-community.github.io/home-manager/options.xhtml) | [`./home-manager/`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/) |
-| binaries and command wrappers | [`./home-manager/kiara/commands/`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/commands/) |
+| binaries and command wrappers | [`./home-manager/kiara/commands.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/commands.nix) |
 | reusable [modules](https://nixos.wiki/wiki/Module) | [`./modules/`](https://codeberg.org/kiara/cfg/src/branch/main/modules) |
 | custom [functions](https://noogle.dev/) | [`./lib/`](https://codeberg.org/kiara/cfg/src/branch/main/lib) |
 | [custom packages](https://blog.ielliott.io/nix-docs/mkDerivation.html) | [`./pkgs/*.nix`](https://codeberg.org/kiara/cfg/src/branch/main/pkgs) (from flake inputs: [`./pkgs/default.nix`](https://codeberg.org/kiara/cfg/src/branch/main/pkgs/default.nix)) |

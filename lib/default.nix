@@ -39,7 +39,7 @@ in {
   importRest = {pkgs, ...} @ args: path: (mapAttrs (_: file:
       pkgs.callPackage file
       args) # import with the same args, add `...` arg if needed
-    
+
     (filterAttrs (name: _: name != "default") (dirAttrs ".nix" path)));
 
   # pkgs -> inputs -> ["a" {b="c";}] -> { "a" = inputs.a.packages.${pkgs.system}.default; "c" = inputs.b.packages.${pkgs.system}.c; }
@@ -100,4 +100,35 @@ in {
       attrsets.mapAttrsToList processItem fileSet;
   in
     attrsets.mergeAttrsList (lists.flatten (iterDir []));
+
+  # pkgs.bat -> { name = "bat"; value = pkgs.bat; }
+  # packages have paths like "/nix/store/*-bash-5.2p26",
+  # so grab package names from between the dashes to use as key
+  attrsFromPackage = (pkg: let
+      name =
+        # work around error: the string <string> is not allowed to refer to a store path
+        lib.strings.unsafeDiscardStringContext (
+          lib.concatStringsSep "-" (
+            # filter out bits starting with numbers, for e.g. multi-part versions like 20240203-110809-5046fc22
+            lib.lists.filter
+            (x: (lib.strings.match "^[[:digit:]].*" x) == null)
+            # after the last dash is the version
+            (lib.init
+              # before the first dash is the hash
+              (lib.tail
+                # the name is enclosed by dashes
+                (lib.splitString
+                  "-"
+                  (builtins.toPath pkg)
+                )
+              )
+            )
+          )
+        );
+    in
+    { inherit name; value = pkg; }
+  );
+
+  # { rofi = pkgs.rofi-wayland; } -> { rofi = "${pkgs.rofi-wayland}/bin/rofi"; }
+  dryCommands = lib.mapAttrs (binaryName: package: "${package}/bin/${binaryName}");
 }

@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
-    settings = with (import ./commands/pkgs.nix {inherit pkgs;}); {
+    settings = with config.commands; {
       mainBar = {
         layer = "top";
         position = "bottom";

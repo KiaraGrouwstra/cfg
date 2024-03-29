@@ -4,7 +4,7 @@
   config,
   ...
 }:
-with (import ./commands/pkgs.nix {inherit pkgs;}); {
+with config.commands; {
   home.packages = let
     # redundant with mime associations / `programs.pistol` / `dmenu run`?
     commandDesktop = name: command: mimeTypes: (pkgs.makeDesktopItem {

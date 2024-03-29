@@ -1,5 +1,5 @@
-{pkgs, ...}:
-with (import ../../commands/pkgs.nix {inherit pkgs;}); {
+{pkgs, config, ...}:
+with config.commands; {
   imports = [
     ./yazi.nix
     ./pistol.nix

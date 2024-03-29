@@ -1,9 +1,10 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
-with (import ../../commands/pkgs.nix {inherit pkgs;}); {
+with config.commands; {
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;

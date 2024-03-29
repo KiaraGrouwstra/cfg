@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [./imports.nix];
@@ -8,7 +8,7 @@
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
 
-  home.sessionVariables = with (import ./commands/pkgs.nix {inherit pkgs;}); {
+  home.sessionVariables = with config.commands; {
     # `nixos-option`
     # qt wayland: https://github.com/keepassxreboot/keepassxc/issues/2973
     QT_QPA_PLATFORM = "wayland";

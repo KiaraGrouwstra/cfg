@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   home.packages = with pkgs; [
     exiftool
     ripdrag
@@ -37,7 +37,7 @@
     # };
     # https://yazi-rs.github.io/docs/configuration/yazi
     # https://github.com/sxyazi/yazi/blob/latest/yazi-config/preset/yazi.toml
-    settings = with (import ../../commands/pkgs.nix {inherit pkgs;}); {
+    settings = with config.commands; {
       log = {
         enabled = false;
       };
