@@ -433,11 +433,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1710670521,
-        "narHash": "sha256-Clq/nN73bNe0oN9EV9KvvMlfuushMnw84rqP70G/O9I=",
+        "lastModified": 1711670512,
+        "narHash": "sha256-bs/Y28dOnvGNefs+9Pu0vIWAVkTtqAlXAxWldjdpz9w=",
         "owner": "schmiddi-on-mobile",
         "repo": "flare",
-        "rev": "1872ef437544ef1819d7f5f2e1a60469053f4f23",
+        "rev": "f02ee27ea1dacfd8117e910067387cc4e938231e",
         "type": "gitlab"
       },
       "original": {
@@ -788,11 +788,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1711523803,
-        "narHash": "sha256-UKcYiHWHQynzj6CN/vTcix4yd1eCu1uFdsuarupdCQQ=",
+        "lastModified": 1708807242,
+        "narHash": "sha256-sRTRkhMD4delO/hPxxi+XwLqPn8BuUq6nnj4JqLwOu0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2726f127c15a4cc9810843b96cad73c7eb39e443",
+        "rev": "73de017ef2d18a04ac4bfd0c02650007ccb31c2a",
         "type": "github"
       },
       "original": {
