@@ -1,7 +1,6 @@
 {pkgs, config, ...}: {
   home.packages = with pkgs; [
     exiftool
-    ripdrag
   ];
 
   programs.yazi = {

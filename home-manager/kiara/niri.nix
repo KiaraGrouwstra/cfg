@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
     wayland
     qt6.qtwayland
-    swaybg
     # in case of non-parsing configs
     alacritty
     fuzzel
@@ -427,8 +426,8 @@
         # Lock screen after idling
         # {command = sh "${swayidle} -w timeout 900 '${swaylock} -f'";}
 
-        {command = sh "${wl-paste} --type text --watch cliphist store";} # Stores only text data
-        {command = sh "${wl-paste} --type image --watch cliphist store";} # Stores only image data
+        {command = sh "${wl-paste} --type text --watch ${cliphist} store";} # Stores only text data
+        {command = sh "${wl-paste} --type image --watch ${cliphist} store";} # Stores only image data
 
         {command = sh "${swaybg} -m fill -i ${config.home.homeDirectory}/Pictures/wallpaper";}
         {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}

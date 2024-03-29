@@ -6,9 +6,6 @@ with config.commands; {
   ];
 
   home.packages = with pkgs; [
-    ## file handling / metadata
-    xdg-utils
-
     ## compression
     zip
     unzip
@@ -20,10 +17,6 @@ with config.commands; {
 
     # security
     gnome.seahorse
-
-    # previews
-    viu
-    timg
   ];
 
   services.syncthing.enable = true;

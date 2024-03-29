@@ -7,21 +7,14 @@
     ## command-line utilities
     zsh
     thefuck
-    jaq
     pandoc # lesspipe
-    gum
     lazygit
 
     ## command-line dropins (ish)
     xxh
-    bat
     ripgrep
-    eza
     fd
     just
-
-    ## networking
-    networkmanager_dmenu
 
     ## credentials / security
     (pass.withExtensions (exts: with exts; [
@@ -31,7 +24,6 @@
       pass-checkup
       pass-update
     ]))
-    keepassxc
     browserpass
     gnupg
   ];

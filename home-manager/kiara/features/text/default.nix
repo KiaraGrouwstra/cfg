@@ -3,14 +3,10 @@
     ## text editors
     vim
     amp
-    hexyl
     gnome-text-editor
 
     ## command-line document viewers / editors
     unixtools.column # lesspipe
-
-    ## markdown
-    glow
 
     ## document viewers / editors
     evince

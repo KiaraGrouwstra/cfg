@@ -10,9 +10,7 @@
     flare-signal
 
     ## web browsers
-    tor-browser
     wget
     curl
-    lynx # lesspipe
   ];
 }

@@ -4,7 +4,6 @@
     imv
 
     ## audio
-    pamixer
     cava
 
     ## video
