@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{config, ...}:
 with config.commands; {
   programs.fzf = {
     enable = true;

@@ -1,4 +1,4 @@
-{pkgs, config, ...}: {
+{config, ...}: {
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [./imports.nix];

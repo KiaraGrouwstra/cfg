@@ -1,4 +1,8 @@
-{pkgs, config, ...}:
+{
+  pkgs,
+  config,
+  ...
+}:
 with config.commands; {
   imports = [
     ./yazi.nix

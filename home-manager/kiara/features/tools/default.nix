@@ -17,13 +17,14 @@
     just
 
     ## credentials / security
-    (pass.withExtensions (exts: with exts; [
-      pass-otp
-      pass-import
-      pass-genphrase
-      pass-checkup
-      pass-update
-    ]))
+    (pass.withExtensions (exts:
+      with exts; [
+        pass-otp
+        pass-import
+        pass-genphrase
+        pass-checkup
+        pass-update
+      ]))
     browserpass
     gnupg
   ];

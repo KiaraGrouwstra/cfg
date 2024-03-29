@@ -1,4 +1,7 @@
-{pkgs, config, ...}: {
+{
+  config,
+  ...
+}: {
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
@@ -119,13 +122,13 @@
           interval = 5;
           format = "  {}%";
           on-click = gnome-system-monitor;
-          on-click-right = term (run "btop");
+          on-click-right = term btop;
         };
         cpu = {
           interval = 5;
           format = "󱛟  {usage:2}%";
-          on-click = "${alacritty} -e ${run "zfxtop"}";
-          on-click-right = term (run "btop");
+          on-click = "${alacritty} -e ${zfxtop}";
+          on-click-right = term btop;
         };
         battery = {
           states = {
@@ -137,14 +140,14 @@
           format-charging = "󰂄 {capacity}%";
           format-plugged = "󱘖 {capacity}%";
           format-icons = ["" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-          on-click       = term (run "powersupply");
+          on-click = term powersupply;
         };
         disk = {
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
           on-click = hold "${just} -f ${../../Justfile} gc";
-          on-click-right = hold (shell "du-dust" "dust");
+          on-click-right = hold dust;
         };
         tray = {icon-size = 20;};
       };

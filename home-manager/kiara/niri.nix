@@ -273,7 +273,7 @@
             "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
             "Mod+B" = "${anyrun} --plugins libsymbols.so";
             "Ctrl+Alt+Delete" = gnome-system-monitor;
-            "Ctrl+Shift+Escape" = "${alacritty} -e ${run "zfxtop"}";
+            "Ctrl+Shift+Escape" = "${alacritty} -e ${zfxtop}";
             "Mod+L" = swaylock;
             "Alt+Space" = "${swaync-client} --close-latest";
             "Mod+Escape" = "${swaync-client} --close-all";
@@ -288,7 +288,7 @@
             "Alt+Mod+J" = "rofi.sh";
           }
         )
-        // (lib.mapVals (str: { action."${str}" = []; }) {
+        // (lib.mapVals (str: {action."${str}" = [];}) {
           "Mod+Q" = "close-window";
           "Alt+F4" = "close-window";
           "Mod+Comma" = "consume-window-into-column";
