@@ -17,7 +17,7 @@
     SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    PAGER = "${gum} pager";
+    PAGER = "${gum} pager --soft-wrap";
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
     EDITOR = "nvim";
