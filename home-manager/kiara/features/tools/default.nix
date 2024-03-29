@@ -34,18 +34,9 @@
 
     command-not-found.enable = true;
 
-    powerline-go = {
+    oh-my-posh = {
       enable = true;
-      modules = [
-        "ssh"
-        "cwd"
-        "perms"
-        "git"
-        "nix-shell"
-        "jobs"
-        "exit"
-        "root"
-      ];
+      enableZshIntegration = true;
     };
 
     tealdeer = {
