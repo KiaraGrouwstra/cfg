@@ -9,14 +9,6 @@
   home.homeDirectory = "/home/kiara";
 
   home.sessionVariables = with config.commands; {
-    # `nixos-option`
-    # qt wayland: https://github.com/keepassxreboot/keepassxc/issues/2973
-    QT_QPA_PLATFORM = "wayland";
-    ECORE_EVAS_ENGINE = "wayland_egl";
-    ELM_ENGINE = "wayland_egl";
-    SDL_VIDEODRIVER = "wayland";
-    _JAVA_AWT_WM_NONREPARENTING = "1";
-    MOZ_ENABLE_WAYLAND = "1";
     PAGER = "${gum} pager --soft-wrap";
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
