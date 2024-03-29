@@ -23,5 +23,4 @@ with config.commands; {
     gnome.seahorse
   ];
 
-  services.syncthing.enable = true;
 }
