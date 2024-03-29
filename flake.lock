@@ -425,6 +425,27 @@
         "type": "github"
       }
     },
+    "flare": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1710670521,
+        "narHash": "sha256-Clq/nN73bNe0oN9EV9KvvMlfuushMnw84rqP70G/O9I=",
+        "owner": "schmiddi-on-mobile",
+        "repo": "flare",
+        "rev": "1872ef437544ef1819d7f5f2e1a60469053f4f23",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "schmiddi-on-mobile",
+        "repo": "flare",
+        "type": "gitlab"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -767,6 +788,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1711523803,
+        "narHash": "sha256-UKcYiHWHQynzj6CN/vTcix4yd1eCu1uFdsuarupdCQQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2726f127c15a4cc9810843b96cad73c7eb39e443",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1711401922,
         "narHash": "sha256-QoQqXoj8ClGo0sqD/qWKFWezgEwUL0SUh37/vY2jNhc=",
         "owner": "nixos",
@@ -838,6 +875,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils_2",
         "flake-utils-plus": "flake-utils-plus",
+        "flare": "flare",
         "home-manager": "home-manager",
         "niri": "niri",
         "nix-colors": "nix-colors",
@@ -846,7 +884,7 @@
         "nixos": "nixos",
         "nixos-conf-editor": "nixos-conf-editor",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "snowfall-lib": "snowfall-lib",

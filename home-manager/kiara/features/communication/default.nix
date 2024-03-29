@@ -7,7 +7,7 @@
 
     ## chat / communications
     telegram-desktop
-    flare-signal
+    flare
 
     ## web browsers
     wget
