@@ -42,6 +42,7 @@
         enabled = false;
       };
       manager = {
+        show_hidden = true;
         sort_dir_first = true;
         prepend_keymap = [
           # https://yazi-rs.github.io/docs/tips/#dropping-to-shell
