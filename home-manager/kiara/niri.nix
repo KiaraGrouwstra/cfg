@@ -493,7 +493,7 @@
          matches = [
            { is-active = false; }
          ];
-         opacity = 0.9;
+         opacity = 0.8;
        }
 
       ];
