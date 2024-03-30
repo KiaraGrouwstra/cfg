@@ -38,6 +38,10 @@ let
           playerctl
           pamixer
           pavucontrol
+          nixd
+          nil
+          shfmt
+          alejandra
           less
           glow
           lynx # lesspipe
@@ -66,6 +70,7 @@ let
             ;
           codium = vscode;
           kitten = kitty;
+          hx = helix;
         })
       // {
         nmtui = networkmanager;
@@ -77,12 +82,18 @@ let
         swaync = swaynotificationcenter;
         swaync-client = swaynotificationcenter;
         systemctl = systemd;
-        hx = helix;
         inherit (xfce) thunar;
         wl-copy = wl-clipboard;
         wl-paste = wl-clipboard;
         wpctl = wireplumber;
         webtorrent = nodePackages.webtorrent-cli;
+        clangd = clang-tools;
+        css-languageserver = nodePackages.vscode-css-languageserver-bin;
+        inherit (nodePackages)
+          bash-language-server
+          typescript-language-server
+          typescript
+          ;
       }
       // (with inputs; {
         inherit (anyrun.packages.${system}) anyrun;

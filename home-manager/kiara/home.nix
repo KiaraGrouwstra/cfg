@@ -12,7 +12,7 @@
     PAGER = nvimpager;
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
-    EDITOR = "nvim";
+    EDITOR = "hx";
     VISUAL = "nvim";
     BROWSER = "firefox";
   };

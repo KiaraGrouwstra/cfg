@@ -79,7 +79,7 @@ the `flake.lock`ed nixpkgs is used for:
 | File browser   | [Yazi](https://yazi-rs.github.io/) |
 | Terminal       | [Wezterm](https://github.com/wez/wezterm) |
 | Text editor    | [VSCodium](https://github.com/vscodium/vscodium) |
-| Editor (shell) | [Neovim](https://neovim.io/) |
+| Editor (shell) | [Helix](https://docs.helix-editor.com/keymap.html) |
 | Shell          | [Zsh](https://zsh.org/) |
 | Fuzzy finder   | [Fzf](https://github.com/junegunn/fzf) |
 | Pager          | [Nvimpager](https://github.com/lucc/nvimpager) |

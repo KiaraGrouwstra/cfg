@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+
+  imports = [
+    ./helix.nix
+  ];
+
   home.packages = with pkgs; [
     ## text editors
     vim
