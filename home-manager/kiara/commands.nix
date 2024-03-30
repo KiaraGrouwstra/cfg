@@ -77,6 +77,7 @@ let
         swaync = swaynotificationcenter;
         swaync-client = swaynotificationcenter;
         systemctl = systemd;
+        hx = helix;
         inherit (xfce) thunar;
         wl-copy = wl-clipboard;
         wl-paste = wl-clipboard;
