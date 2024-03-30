@@ -432,68 +432,28 @@
         {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}
       ];
 
+      # general before specific
       window-rules = [
-
-        # Window rules let you adjust behavior for individual windows.
-        # They are processed in order of appearance in this file.
-      #   {
-      #     matches = [
-      #       # Match directives control which windows this rule will apply to.
-      #       # You can match by app-id and by title.
-      #       # The window must match all properties of the match directive.
-      #       { app-id="org.myapp.MyApp"; title="My Cool App"; }
-
-      #       # There can be multiple match directives. A window must match any one
-      #       # of the rule's match directives.
-      #       #
-      #       # If there are no match directives, any window will match the rule.
-      #       { title = "Second App"; }
-      #     ];
-      #     excludes = [
-      #       # You can also add exclude directives which have the same properties.
-      #       # If a window matches any exclude directive, it won't match this rule.
-      #       #
-      #       # Both app-id and title are regular expressions.
-      #       # Raw KDL strings are helpful here.
-      #       { app-id = ''r#"\.unwanted\."#''; }
-      #     ];
-
-      #     # Here are the properties that you can set on a window rule.
-      #     # You can override the default column width.
-      #     default-column-width = {proportion=0.75;};
-
-      #     # You can set the output that this window will initially open on.
-      #     # If such an output does not exist, it will open on the currently
-      #     # focused output as usual.
-      #     open-on-output = "eDP-1";
-
-      #     # Make this window open as a maximized column.
-      #     open-maximized = true;
-
-      #     # Make this window open fullscreen.
-      #     # You can also set this to false to prevent a window from opening fullscreen.
-      #     open-fullscreen = true;
-      #   }
-
-       {
-         matches = [
-           { app-id="wezterm"; is-active = false; }
-         ];
-         opacity = 0.7;
-       }
-
-       {
-         matches = [
-           { app-id="wezterm"; is-active = true; }
-         ];
-         opacity = 0.8;
-       }
 
        {
          matches = [
            { is-active = false; }
          ];
          opacity = 0.8;
+       }
+
+       {
+         matches = [
+           { app-id="wezterm|kitty"; }
+         ];
+         opacity = 0.8;
+       }
+
+       {
+         matches = [
+           { app-id="wezterm|kitty"; is-active = false; }
+         ];
+         opacity = 0.7;
        }
 
       ];
