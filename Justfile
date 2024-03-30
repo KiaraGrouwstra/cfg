@@ -1,6 +1,6 @@
 # Rebuild the system
 switch:
-  sudo nixos-rebuild switch --fast --flake .#hammer
+  sudo nixos-rebuild switch --fast --flake .#hammer --show-trace
 
 # Format code
 fmt:
