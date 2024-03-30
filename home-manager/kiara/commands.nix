@@ -47,7 +47,18 @@ let
           lynx # lesspipe
           visidata
           keepassxc
-        ]
+          libnotify
+          gnome.gnome-system-monitor
+          swaynotificationcenter
+          xfce.thunar
+        ] ++ lib.attrValues
+          { inherit (nodePackages)
+            webtorrent-cli
+            vscode-css-languageserver-bin
+            bash-language-server
+            typescript-language-server
+            ;
+          }
         ++ (with config.programs;
           lib.lists.map (lib.getAttr "package") [
             # programs.<name>.package
@@ -57,6 +68,10 @@ let
             wezterm
             wofi
             yazi
+            swaylock
+            firefox
+            vscode
+            helix
           ]))
     )
     //
@@ -64,34 +79,20 @@ let
     ((with config.programs;
         lib.mapVals (lib.getAttr "package") {
           # programs.<name>.package
-          inherit
-            swaylock
-            firefox
-            ;
-          codium = vscode;
           kitten = kitty;
-          hx = helix;
         })
       // {
         nmtui = networkmanager;
-        notify-send = libnotify;
         xdg-open = xdg-utils;
         kdeconnect-indicator = kdeconnect;
-        inherit (gnome) gnome-system-monitor;
         dbus-update-activation-environment = dbus;
-        swaync = swaynotificationcenter;
         swaync-client = swaynotificationcenter;
         systemctl = systemd;
-        inherit (xfce) thunar;
         wl-copy = wl-clipboard;
         wl-paste = wl-clipboard;
         wpctl = wireplumber;
-        webtorrent = nodePackages.webtorrent-cli;
         clangd = clang-tools;
-        css-languageserver = nodePackages.vscode-css-languageserver-bin;
         inherit (nodePackages)
-          bash-language-server
-          typescript-language-server
           typescript
           ;
       }
