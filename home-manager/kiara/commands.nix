@@ -28,6 +28,7 @@ let
           swaybg
           tor-browser
           gum
+          nvimpager
           ripdrag
           just
           wallust

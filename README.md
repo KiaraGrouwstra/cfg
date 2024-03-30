@@ -82,7 +82,7 @@ the `flake.lock`ed nixpkgs is used for:
 | Editor (shell) | [Neovim](https://neovim.io/) |
 | Shell          | [Zsh](https://zsh.org/) |
 | Fuzzy finder   | [Fzf](https://github.com/junegunn/fzf) |
-| Pager          | [Gum](https://github.com/charmbracelet/gum#pager) |
+| Pager          | [Nvimpager](https://github.com/lucc/nvimpager) |
 
 ## style
 

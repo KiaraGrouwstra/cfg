@@ -9,7 +9,7 @@
   home.homeDirectory = "/home/kiara";
 
   home.sessionVariables = with config.commands; {
-    # PAGER = "${gum} pager --soft-wrap";
+    PAGER = nvimpager;
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
     EDITOR = "nvim";
