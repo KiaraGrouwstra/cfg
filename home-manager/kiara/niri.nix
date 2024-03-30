@@ -432,10 +432,10 @@
         {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}
       ];
 
-      # window-rules = [
+      window-rules = [
 
-      #   # Window rules let you adjust behavior for individual windows.
-      #   # They are processed in order of appearance in this file.
+        # Window rules let you adjust behavior for individual windows.
+        # They are processed in order of appearance in this file.
       #   {
       #     matches = [
       #       # Match directives control which windows this rule will apply to.
@@ -475,19 +475,27 @@
       #     open-fullscreen = true;
       #   }
 
-      #   # Here's a useful example. Work around WezTerm's initial configure bug
-      #   # by setting an empty default-column-width.
-      #   {
-      #     # This regular expression is intentionally made as specific as possible,
-      #     # since this is the default config, and we want no false positives.
-      #     # You can get away with just app-id="wezterm" if you want.
-      #     # The regular expression can match anywhere in the string.
-      #     matches = [
-      #       { app-id = ''r#"^org\.wezfurlong\.wezterm$"#''; }
-      #     ];
-      #     default-column-width = {};
-      #   }
+       {
+         matches = [
+           { app-id="wezterm"; is-active = false; }
+         ];
+         opacity = 0.7;
+       }
 
-      # ];
+       {
+         matches = [
+           { app-id="wezterm"; is-active = true; }
+         ];
+         opacity = 0.8;
+       }
+
+       {
+         matches = [
+           { is-active = false; }
+         ];
+         opacity = 0.9;
+       }
+
+      ];
     };
 }
