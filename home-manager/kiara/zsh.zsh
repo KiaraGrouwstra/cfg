@@ -1,3 +1,5 @@
+set -o vi
+
 # nix-shell
 any-nix-shell zsh --info-right | source /dev/stdin
 
