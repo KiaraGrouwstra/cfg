@@ -128,11 +128,12 @@ Used keyboard layout: `en-us` with `Caps Lock` remapped to `Esc`.
 - [`swaynotificationcenter`](https://github.com/ErikReider/SwayNotificationCenter#control-center-shortcuts)
 - [`firefox`](https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly) ([`vimium-c`](https://github.com/gdh1995/vimium-c#keyboard-bindings))
 - [`yazi`](https://yazi-rs.github.io/docs/quick-start#keybindings) ([custom](https://yazi-rs.github.io/docs/tips))
-- `wezterm`
+- `wezterm` (overrides: [`./home-manager/kiara/features/text/helix.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/features/text/helix.nix))
   - [scrollback](https://wezfurlong.org/wezterm/scrollback.html)
   - [quick select](https://wezfurlong.org/wezterm/quickselect.html)
   - [copy mode](https://wezfurlong.org/wezterm/copymode.html)
 - [`vscodium`](https://code.visualstudio.com/docs/getstarted/keybindings) (overrides: [`./home-manager/kiara/vscode.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/vscode.nix))
+- [`helix`](https://docs.helix-editor.com/keymap.html) (overrides: [`./home-manager/kiara/features/text/helix.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/features/text/helix.nix))
 - [`neovim`](https://neovim.io/doc/user/)
 - [`zsh`](https://gist.github.com/2KAbhishek/9c6d607e160b0439a186d4fbd1bd81df)
   - `Tab` completion should suggest sub-commands thru [`tldr`](https://dbrgn.github.io/tealdeer/) pages
