@@ -17,6 +17,7 @@ _: {
     extraConfig = {
       init.defaultBranch = "main";
       advice.objectNameWarning = false;
+      pull.rebase = true;
       push.autoSetupRemote = true;
       branch.autoSetupMerge = "simple";
       checkout.defaultRemote = "origin";
