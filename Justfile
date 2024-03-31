@@ -12,7 +12,7 @@ test:
 
 # Update all inputs
 up:
-  nix flake update --refresh
+  nix flake update --refresh --commit-lock-file
 
 # Update specific input. Usage: just upp nixpkgs
 upp input:
