@@ -55,7 +55,7 @@ nix run nixpkgs#just -- -l
 
 - secrets: [sops](https://github.com/getsops/sops/)
 - formatter: [treefmt](https://github.com/numtide/treefmt) + [editorconfig](https://editorconfig.org/)
-- commands: [just](https://github.com/casey/just)
+- commands: [just](https://just.systems/)
 - CI: [garnix](https://garnix.io/)
 - cache: [`./cachix/`](https://codeberg.org/kiara/cfg/src/branch/main/cachix)
 - environment loader: [direnv](https://direnv.net/)
