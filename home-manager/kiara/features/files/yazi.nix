@@ -96,6 +96,14 @@
             run = "plugin --sync parent-arrow --args=1";
           }
         ];
+        append_keymap = [
+          # skip confirm on delete
+          {
+            on = [ "d" ];
+            run = "remove --force";
+            desc = "Move the files to the trash";
+          }
+        ];
       };
       input = {
         prepend_keymap = [
