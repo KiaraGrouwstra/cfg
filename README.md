@@ -13,7 +13,9 @@ This is my setup for [NixOS](https://nixos.org/).
 Screenshot
 </summary>
 <img src="https://codeberg.org/kiara/cfg/raw/branch/main/screenshot.png" alt="screenshot showing niri with neofetch and yazi in wezterm.">
-screenshot showing niri with neofetch and yazi in wezterm. thefuck plugin for zsh filled the JIT-install command for the missing app neofetch.
+screenshot showing niri with neofetch and yazi in wezterm.
+thefuck plugin for zsh filled the JIT-install command for the missing app neofetch.
+<a href="https://www.artstation.com/artwork/LyG3K">wallpaper</a> by Alena Aenami.
 </details>
 
 ## usage
