@@ -257,7 +257,7 @@
             "Mod+M" = "random-wallpaper.sh";
             "Shift+Mod+M" = term "pick-wallpaper.sh";
 
-            "Mod+W" = firefox;
+            "Mod+W" = "${firefox} --new-window about:newtab";
             "Mod+Shift+W" = tor-browser;
             "Mod+V" = codium;
             "Mod+Shift+E" = "${thunar} Downloads/";
