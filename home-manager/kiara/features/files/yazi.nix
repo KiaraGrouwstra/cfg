@@ -107,6 +107,17 @@
           }
         ];
       };
+      opener = {
+        shell = [ { run = ''''${SHELL:=bash} "$@"''; block = true; } ];
+        git = [ { run = ''${lazygit} "$1"''; block = true; } ];
+      };
+      open.rules = [
+        { mime = "inode/directory"; use = [
+          "edit"
+          "shell"
+          "git"
+        ]; }
+      ];
     };
   };
 }

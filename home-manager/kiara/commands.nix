@@ -51,6 +51,7 @@ let
           gnome.gnome-system-monitor
           swaynotificationcenter
           xfce.thunar
+          lazygit
         ] ++ lib.attrValues
           { inherit (nodePackages)
             webtorrent-cli
