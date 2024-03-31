@@ -3,8 +3,10 @@
 file="$1"
 
 # https://superuser.com/a/1526751/155548
-base="$(dirname $file)/$(b=${file##*/}; echo ${b%.*})"
+base="$(dirname $file)/$(
+  b=${file##*/}
+  echo ${b%.*}
+)"
 
-mkdir -p "$base" && \
-unar -o "$base" -f "$file" && \
-xdg-open "$base"
+unar -f "$file" &&
+  xdg-open "$base"

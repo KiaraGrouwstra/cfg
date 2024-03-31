@@ -11,10 +11,7 @@ with config.commands; {
 
   home.packages = with pkgs; [
     ## compression
-    zip
-    unzip
-    zlib
-    unrar-free
+    unar
 
     ## file sharing
     nextcloud-client
