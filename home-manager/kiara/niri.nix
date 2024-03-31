@@ -332,10 +332,10 @@
             Up = "window-up";
             Right = "column-right";
             # left hand
-            S = "column-left";
+            D = "column-left";
             X = "window-down";
             Z = "window-up";
-            D = "column-right";
+            F = "column-right";
           };
           substitutions = {
             monitor-column = "monitor";
@@ -365,7 +365,7 @@
             Page_Down = "down";
             # left hand
             A = "up";
-            F = "down";
+            S = "down";
           };
         })
         # You can refer to workspaces by index. However, keep in mind that
