@@ -26,7 +26,7 @@
         space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
-        space.x = ":buffer_close";
+        space.x = ":buffer-close";
         esc = [ "collapse_selection" "keep_primary_selection" ];
       };
     };
