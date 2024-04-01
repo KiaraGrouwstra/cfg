@@ -10,6 +10,7 @@
 
   home.sessionVariables = with config.commands; {
     PAGER = nvimpager;
+    MANPAGER = "$PAGER";
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
     EDITOR = "hx";
