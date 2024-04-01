@@ -73,16 +73,17 @@ the `flake.lock`ed nixpkgs is used for:
 
 | Component      | Software     |
 |----------------|--------------|
-| Compositor     | [Niri](https://github.com/YaLTeR/niri/) |
-| Bar            | [Waybar](https://github.com/Alexays/Waybar/) |
-| Notifications  | [Swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
-| Menu           | [Anyrun](https://github.com/Kirottu/anyrun) |
-| Web browser    | [Firefox](https://hg.mozilla.org/mozilla-central/) |
-| File browser   | [Yazi](https://yazi-rs.github.io/) |
-| Terminal       | [Wezterm](https://github.com/wez/wezterm) |
-| Text editor    | [VSCodium](https://github.com/vscodium/vscodium) |
-| Editor (shell) | [Helix](https://docs.helix-editor.com/keymap.html) |
-| Shell          | [Zsh](https://zsh.org/) |
+| [DM](https://codeberg.org/kiara/cfg/issues?labels=201797)             | [TUIgreet](https://github.com/apognu/tuigreet) |
+| [Compositor](https://codeberg.org/kiara/cfg/issues?labels=201796)     | [Niri](https://github.com/YaLTeR/niri/) |
+| [Bar](https://codeberg.org/kiara/cfg/issues?labels=201795)            | [Waybar](https://github.com/Alexays/Waybar/) |
+| [Notifications](https://codeberg.org/kiara/cfg/issues?labels=201793)  | [Swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
+| [Menu](https://codeberg.org/kiara/cfg/issues?labels=201794)           | [Anyrun](https://github.com/Kirottu/anyrun) |
+| [Web browser](https://codeberg.org/kiara/cfg/issues?labels=201788)    | [Firefox](https://hg.mozilla.org/mozilla-central/) |
+| [File browser](https://codeberg.org/kiara/cfg/issues?labels=201789)   | [Yazi](https://yazi-rs.github.io/) |
+| [Terminal](https://codeberg.org/kiara/cfg/issues?labels=201790)       | [Wezterm](https://github.com/wez/wezterm) |
+| [Text editor](https://codeberg.org/kiara/cfg/issues?labels=201792)    | [VSCodium](https://github.com/vscodium/vscodium) |
+| [Editor](https://codeberg.org/kiara/cfg/issues?labels=201792) (shell) | [Helix](https://docs.helix-editor.com/keymap.html) |
+| [Shell](https://codeberg.org/kiara/cfg/issues?labels=201791)          | [Zsh](https://zsh.org/) |
 | Fuzzy finder   | [Fzf](https://github.com/junegunn/fzf) |
 | Pager          | [Nvimpager](https://github.com/lucc/nvimpager) |
 
