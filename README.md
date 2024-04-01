@@ -24,9 +24,9 @@ thefuck plugin for zsh filled the JIT-install command for the missing app neofet
 
 - [install](https://nixos.org/manual/nixos/stable/#sec-installation) NixOS
 - [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
-- update `./hosts/<PROFILE>/hardware-configuration.nix`
+- update [`./hosts/<PROFILE>/hardware-configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/hardware-configuration.nix)
 - get a user password by either:
-  - [setting one](https://nixos.org/manual/nixos/stable/options#opt-users.users._name_.initialPassword) in `./hosts/<PROFILE>/configuration.nix`
+  - [setting one](https://nixos.org/manual/nixos/stable/options#opt-users.users._name_.initialPassword) in [`./hosts/<PROFILE>/configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/configuration.nix)
   - decoding secrets by adding the [`age`](https://github.com/FiloSottile/age) keys file to `/etc/nixos/keys.txt`
 
 ### commands
