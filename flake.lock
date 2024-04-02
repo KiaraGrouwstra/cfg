@@ -290,6 +290,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711934712,
+        "narHash": "sha256-sBDe+QmX/QohlnKeSEzrftcXyZL5FY09OMjZ59Rpyy4=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "611c9ea53250f7bb22286b3d26872280a0e608f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -518,6 +538,21 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1708968331,
+        "narHash": "sha256-VUXLaPusCBvwM3zhGbRIJVeYluh2uWuqtj4WirQ1L9Y=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "a33ef102a02ce77d3e39c25197664b7a636f9c30",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
         "type": "github"
       }
     },
@@ -870,6 +905,7 @@
         "catppuccin-vsc": "catppuccin-vsc",
         "crate2nix": "crate2nix",
         "devshell": "devshell",
+        "disko": "disko",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
         "flake-programs-sqlite": "flake-programs-sqlite",
@@ -877,6 +913,7 @@
         "flake-utils-plus": "flake-utils-plus",
         "flare": "flare",
         "home-manager": "home-manager",
+        "impermanence": "impermanence",
         "niri": "niri",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",

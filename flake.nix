@@ -4,6 +4,11 @@
 
   inputs = {
     # Flake inputs
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    impermanence.url = "github:nix-community/impermanence";
     flake-compat.url = "github:edolstra/flake-compat";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -186,6 +191,7 @@
           inherit system specialArgs;
           modules = with inputs; [
             ./cachix.nix
+            impermanence.nixosModule
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix
@@ -195,6 +201,7 @@
               home-manager = {
                 extraSpecialArgs = specialArgs;
                 users.kiara.imports = with inputs; [
+                  impermanence.nixosModules.home-manager.impermanence
                   nur.nixosModules.nur
                   inputs.sops-nix.homeManagerModules.sops
                   ./modules/home-manager

@@ -38,6 +38,45 @@ in {
     supportedFilesystems = ["ntfs"];
   };
 
+  # https://github.com/nix-community/impermanence/blob/master/README.org#nixos
+  environment.persistence."/persistent" = {
+    hideMounts = true;
+    directories = [
+      "/etc/nixos"  # not everyone seemed to do this - maybe i just need this for the age key?
+      "/var/db/sudo"
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      # "/var/lib/systemd"
+      "/var/lib/systemd/coredump"
+      "/etc/NetworkManager/system-connections"
+      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+    ];
+    files = [
+      "/etc/machine-id"
+      # not seeing stuff about explicitly persisting LUKS keys at e.g. bmcgee/foosteros
+      # { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+    ];
+    # reddit: 'DO NOT persist anything from home directory as it causes a race condition'?
+    users.kiara = {
+      directories = [
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Documents"
+        "Videos"
+        { directory = ".gnupg"; mode = "0700"; }
+        { directory = ".ssh"; mode = "0700"; }
+        { directory = ".local/share/keyrings"; mode = "0700"; }
+        # ".local/bin"
+        ".local/share/nix" # trusted settings and repl history
+        ".local/share/direnv"
+      ];
+      files = [
+        ".screenrc"
+      ];
+    };
+  };
+
   # # Setup keyfile
   # boot.initrd.secrets = {
   #   "/crypto_keyfile.bin" = null;
