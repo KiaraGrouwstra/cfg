@@ -140,7 +140,6 @@ Used keyboard layout: `en-us` with `Caps Lock` remapped to `Esc`.
   - on error hit `Esc` (2x) to trigger [`fuck`](https://github.com/nvbn/thefuck/) suggestion
   - [thru `fzf`](https://github.com/junegunn/fzf#key-bindings-for-command-line)
     - `CTRL-T` - Paste the selected files and directories onto the command-line
-    - `CTRL-R` - Paste the selected command from history onto the command-line
     - `ALT-C` - `cd` into the selected directory
 - [`gum`](https://github.com/charmbracelet/gum/blob/main/pager/pager.go)
 - [`zathura`](https://defkey.com/zathura-shortcuts)
