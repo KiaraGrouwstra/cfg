@@ -201,7 +201,7 @@
                   nix-index-database.hmModules.nix-index
                   stylix.homeManagerModules.stylix
                   ./home-manager/kiara/home.nix
-                  flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+                  # flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
                 ];
               };
             }
