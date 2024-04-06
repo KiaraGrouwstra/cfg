@@ -5,7 +5,9 @@ any-nix-shell zsh --info-right | source /dev/stdin
 
 # guix
 GUIX_PROFILE="$HOME/.config/guix/current"
-. "$GUIX_PROFILE/etc/profile"
+if [ -f "$GUIX_PROFILE/etc/profile" ]; then
+  . "$GUIX_PROFILE/etc/profile"
+fi
 
 # flatpak
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
