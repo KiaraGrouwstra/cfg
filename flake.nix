@@ -4,6 +4,10 @@
 
   inputs = {
     # Flake inputs
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-compat.url = "github:edolstra/flake-compat";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -173,6 +177,9 @@
     # Your custom packages and modifications, exported as overlays
     overlays = overlaysAttrs;
 
+    # Allow partioning with `disko -f .#hammer`
+    diskoConfigurations.hammer = import ./hosts/hammer/disks.nix;
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -186,6 +193,7 @@
           inherit system specialArgs;
           modules = with inputs; [
             ./cachix.nix
+            inputs.disko.nixosModules.disko
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix

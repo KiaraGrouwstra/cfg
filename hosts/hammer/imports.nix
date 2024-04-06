@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
+    ./disko-config.nix
     ./xserver.nix
     ./databases.nix
     ./fonts.nix

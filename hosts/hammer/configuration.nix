@@ -30,6 +30,7 @@ in {
   };
 
   boot = {
+    initrd.systemd.emergencyAccess = config.sops.secrets.user-password-root.path;
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # Bootloader
     loader.systemd-boot.enable = true;
@@ -52,6 +53,9 @@ in {
   hardware.bluetooth.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
+
+  # generate password hash by `mkpasswd -m sha-512 mySuperSecretPassword`
+  users.users.root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
 
   users.users.kiara = {
     isNormalUser = true;
@@ -132,6 +136,7 @@ in {
     defaultSopsFile = ../../secrets.enc.yml;
     secrets = {
       age-keys = {};
+      user-password-root.neededForUsers = true;
       user-password-kiara.neededForUsers = true;
     };
   };
