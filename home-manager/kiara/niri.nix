@@ -263,7 +263,7 @@
             "Mod+Shift+E" = "${thunar} Downloads/";
             "Mod+E" = term "yy.sh ${config.home.homeDirectory}/Downloads/";
             "Mod+Shift+Ctrl+Alt+Space" = term "pick-character.sh ${./scripts/emoji.txt}";
-            "Mod+N" = "${systemctl} hibernate";
+            "Mod+N" = "${systemctl} suspend-then-hibernate";
             "Mod+F3" = term "fontpreview.sh";
             "Mod+F9" = term "main-menu.sh";
             "Mod+I" = term "nmtui";
