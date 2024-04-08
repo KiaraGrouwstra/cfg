@@ -94,7 +94,6 @@ in {
     browserpass.enable = true;
     thunar.enable = true;
     plotinus.enable = true;
-    fzf.fuzzyCompletion = true; # enhancd
   };
 
   environment.shells = with pkgs; [zsh];
