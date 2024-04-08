@@ -266,7 +266,7 @@
             "Mod+N" = "${systemctl} suspend-then-hibernate";
             "Mod+F3" = term "fontpreview.sh";
             "Mod+F9" = term "main-menu.sh";
-            "Mod+I" = term "nmtui";
+            "Mod+I" = term nmtui;
             "Mod+Shift+I" = networkmanager_dmenu;
             "Mod+U" = term "power.sh";
             "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
