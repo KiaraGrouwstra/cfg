@@ -121,6 +121,7 @@
     systems = ["aarch64-linux" "i686-linux" "x86_64-linux"];
     x86 = {system = "x86_64-linux";};
     hammer = x86;
+    krost = x86;
     lib =
       nixpkgs.lib
       // home-manager.lib
@@ -154,6 +155,17 @@
     treefmtEval =
       forAllSystems
       (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
+
+    homeModules = with inputs; [
+      nur.nixosModules.nur
+      inputs.sops-nix.homeManagerModules.sops
+      ./modules/home-manager
+      nix-index-database.hmModules.nix-index
+      stylix.homeManagerModules.stylix
+      ./home-manager/kiara/home.nix
+      # flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+    ];
+
   in {
     inherit lib packages;
 
@@ -202,19 +214,22 @@
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;
-                users.kiara.imports = with inputs; [
-                  nur.nixosModules.nur
-                  inputs.sops-nix.homeManagerModules.sops
-                  ./modules/home-manager
-                  nix-index-database.hmModules.nix-index
-                  stylix.homeManagerModules.stylix
-                  ./home-manager/kiara/home.nix
-                  # flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
-                ];
+                users.kiara.imports = homeModules;
               };
             }
           ];
         };
     };
-  };
+
+    # `nix run .`: use home-manager
+    defaultPackage = lib.genAttrs systems (system: home-manager.defaultPackage.${system});
+
+    homeConfigurations = {
+      "krost" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs krost;
+          modules = homeModules;
+        };
+      };
+    };
+
 }
