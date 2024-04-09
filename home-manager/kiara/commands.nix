@@ -51,14 +51,17 @@ let
           gnome.gnome-system-monitor
           swaynotificationcenter
           xfce.thunar
-        ] ++ lib.attrValues
-          { inherit (nodePackages)
+        ]
+        ++ lib.attrValues
+        {
+          inherit
+            (nodePackages)
             webtorrent-cli
             vscode-css-languageserver-bin
             bash-language-server
             typescript-language-server
             ;
-          }
+        }
         ++ (with config.programs;
           lib.lists.map (lib.getAttr "package") [
             # programs.<name>.package
@@ -92,7 +95,8 @@ let
         wl-paste = wl-clipboard;
         wpctl = wireplumber;
         clangd = clang-tools;
-        inherit (nodePackages)
+        inherit
+          (nodePackages)
           typescript
           ;
       }

@@ -1,5 +1,8 @@
-{lib, config, ...}:
 {
+  lib,
+  config,
+  ...
+}: {
   home.sessionVariables.COLORTERM = "truecolor";
 
   programs.helix = {
@@ -27,36 +30,35 @@
         space.w = ":w";
         space.q = ":q";
         space.x = ":buffer-close";
-        esc = [ "collapse_selection" "keep_primary_selection" ];
+        esc = ["collapse_selection" "keep_primary_selection"];
       };
     };
     # https://docs.helix-editor.com/languages.html
     languages = with config.commands; {
       language-server = {
-
         bash-language-server = {
           command = bash-language-server;
-          args = [ "start" ];
+          args = ["start"];
         };
 
         clangd = {
           command = clangd;
-          clangd.fallbackFlags = [ "-std=c++2b" ];
+          clangd.fallbackFlags = ["-std=c++2b"];
         };
 
         nil = {
           command = nil;
-          config.nil.formatting.command = [ alejandra "-q" ];
+          config.nil.formatting.command = [alejandra "-q"];
         };
 
         vscode-css-language-server = {
           command = css-languageserver;
-          args = [ "--stdio" ];
+          args = ["--stdio"];
         };
 
         typescript-language-server = {
           command = typescript-language-server;
-          args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
+          args = ["--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"];
         };
       };
 
@@ -66,24 +68,23 @@
           auto-format = true;
           formatter = {
             command = shfmt;
-            args = [ "-i" "2" "-" ];
+            args = ["-i" "2" "-"];
           };
         }
         {
           name = "clojure";
           injection-regex = "(clojure|clj|edn|boot|yuck)";
-          file-types = [ "clj" "cljs" "cljc" "clje" "cljr" "cljx" "edn" "boot" "yuck" ];
+          file-types = ["clj" "cljs" "cljc" "clje" "cljr" "cljx" "edn" "boot" "yuck"];
         }
         {
           name = "nix";
-          language-servers = [ nixd ];
+          language-servers = [nixd];
         }
         {
           name = "rust";
           auto-format = false;
         }
       ];
-
     };
   };
 }

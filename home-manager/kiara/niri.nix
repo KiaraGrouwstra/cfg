@@ -434,28 +434,29 @@
 
       # general before specific
       window-rules = [
-
        {
          matches = [
-           { is-active = false; }
+            {is-active = false;}
          ];
          opacity = 0.8;
        }
 
        {
          matches = [
-           { app-id="wezterm|kitty"; }
+            {app-id = "wezterm|kitty";}
          ];
          opacity = 0.8;
        }
 
        {
          matches = [
-           { app-id="wezterm|kitty"; is-active = false; }
+            {
+              app-id = "wezterm|kitty";
+              is-active = false;
+            }
          ];
          opacity = 0.7;
        }
-
       ];
     };
 }

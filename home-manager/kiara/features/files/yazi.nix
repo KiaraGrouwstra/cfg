@@ -99,7 +99,7 @@
         append_keymap = [
           # skip confirm on delete
           {
-            on = [ "d" ];
+            on = ["d"];
             run = "remove --force";
             desc = "Move the files to the trash";
           }

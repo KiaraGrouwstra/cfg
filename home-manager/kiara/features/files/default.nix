@@ -19,5 +19,4 @@ with config.commands; {
     # security
     gnome.seahorse
   ];
-
 }
