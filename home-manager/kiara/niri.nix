@@ -1,10 +1,13 @@
 {
   pkgs,
   lib,
-  config,
   inputs,
+  config,
   ...
 }: {
+  imports = [
+    inputs.niri.homeModules.config
+  ];
   home.packages = with pkgs; [
     wayland
     qt6.qtwayland
@@ -434,29 +437,29 @@
 
       # general before specific
       window-rules = [
-       {
-         matches = [
+        {
+          matches = [
             {is-active = false;}
-         ];
-         opacity = 0.8;
-       }
+          ];
+          opacity = 0.8;
+        }
 
-       {
-         matches = [
+        {
+          matches = [
             {app-id = "wezterm|kitty";}
-         ];
-         opacity = 0.8;
-       }
+          ];
+          opacity = 0.8;
+        }
 
-       {
-         matches = [
+        {
+          matches = [
             {
               app-id = "wezterm|kitty";
               is-active = false;
             }
-         ];
-         opacity = 0.7;
-       }
+          ];
+          opacity = 0.7;
+        }
       ];
     };
 }

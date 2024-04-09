@@ -4,7 +4,11 @@ default:
 
 # Rebuild the system
 switch:
-  sudo nixos-rebuild switch --fast --flake .#hammer --show-trace
+  sudo nixos-rebuild switch --fast --flake .#x86_64-linux --show-trace
+
+# Rebuild the home config
+home:
+  home-manager switch --flake .#x86_64-linux switch
 
 # Format code
 fmt:
@@ -47,3 +51,4 @@ decode:
 # Check when inputs were last updated
 age:
   age.sh
+

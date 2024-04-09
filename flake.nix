@@ -102,6 +102,7 @@
       url = "github:DreamMaoMao/mime.yazi";
       flake = false;
     };
+    nixgl.url = "github:guibou/nixGL";
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -118,14 +119,12 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    systems = ["aarch64-linux" "i686-linux" "x86_64-linux"];
-    x86 = {system = "x86_64-linux";};
-    hammer = x86;
-    krost = x86;
+    name = "kiara";
     lib =
       nixpkgs.lib
       // home-manager.lib
       // (import ./lib {inherit (nixpkgs) lib;});
+    forSystem = lib.genAttrs ["aarch64-linux" "i686-linux" "x86_64-linux"];
     # { default: overlay }
     overlaysAttrs = import ./overlays.nix {inherit inputs lib;};
     # [ overlay ]
@@ -133,23 +132,32 @@
       builtins.attrValues overlaysAttrs
       ++ (with inputs; [
         nur.overlay
+        nixgl.overlay
         catppuccin-vsc.overlays.default
       ]);
     # for each system: nixpkgs
     pkgsFor =
-      lib.genAttrs systems
+      forSystem
       (system:
         import nixpkgs {
           inherit system overlays;
           # config.allowUnfree = true;
         });
     # for each system: apply pkgs to a function
-    forAllSystems = f: lib.genAttrs systems (system: f pkgsFor.${system});
+    forAllSystems = f: forSystem (system: f pkgsFor.${system});
     # Your custom packages, acessible through 'nix build', 'nix shell', etc
     # for each system: packages including overlays
     packages =
       forAllSystems
       (pkgs: import ./packages.nix {inherit inputs lib pkgs;});
+    specialFor = forSystem (system: {
+      inherit system lib inputs outputs;
+      unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+      userConfig = {
+        inherit name;
+        home = "/home/${name}";
+      };
+    });
 
     # Eval the treefmt modules from ./treefmt.nix
     treefmtEval =
@@ -158,9 +166,12 @@
 
     homeModules = with inputs; [
       nur.nixosModules.nur
-      inputs.sops-nix.homeManagerModules.sops
+      sops-nix.homeManagerModules.sops
       ./modules/home-manager
       nix-index-database.hmModules.nix-index
+      # niri.homeModules.config
+      # anyrun.homeManagerModules.default
+      # nix-colors.homeManagerModules.default
       stylix.homeManagerModules.stylix
       ./home-manager/kiara/home.nix
       # flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
@@ -193,19 +204,16 @@
     diskoConfigurations.hammer = import ./hosts/hammer/disks.nix;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      hammer = with hammer; let
-        specialArgs = {
-          inherit lib inputs outputs;
-          unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
-        };
+    # Available through 'nixos-rebuild --flake .#x86_64-linux'
+    nixosConfigurations = forSystem (
+      system: let
+        specialArgs = specialFor.${system};
       in
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = with inputs; [
             ./cachix.nix
-            inputs.disko.nixosModules.disko
+            disko.nixosModules.disko
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix
@@ -214,22 +222,23 @@
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;
-                users.kiara.imports = homeModules;
+                users.${name}.imports = homeModules;
               };
             }
           ];
-        };
-    };
+        }
+    );
 
-    # `nix run .`: use home-manager
-    defaultPackage = lib.genAttrs systems (system: home-manager.defaultPackage.${system});
+    # `nix run .`
+    defaultPackage = forSystem (system: nixpkgs.legacyPackages.${system}.just);
+    # defaultPackage = forSystem (system: home-manager.defaultPackage.${system});
 
-    homeConfigurations = {
-      "krost" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs krost;
-          modules = homeModules;
-        };
-      };
-    };
+    homeConfigurations = forSystem (system:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgsFor.${system};
+        extraSpecialArgs = specialFor.${system};
+        modules = homeModules;
+      });
 
+  };
 }
