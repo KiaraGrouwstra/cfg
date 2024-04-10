@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "jnoortheen.nix-ide",
+        "kamadorueda.alejandra",
+        "kokakiwi.vscode-just",
+        "mkhl.direnv",
+        "editorconfig.editorconfig"
+    ]
+}

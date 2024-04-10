@@ -60,10 +60,6 @@ _: {
       "ehthumbs.db"
       "Icon?"
       "Thumbs.db"
-
-      # Editor files #
-      ################
-      ".vscode"
     ];
   };
 }
