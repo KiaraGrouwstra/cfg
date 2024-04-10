@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{lib, pkgs, ...}: {
   programs.neovim.plugins = with pkgs.vimPlugins; [
     coc-markdownlint
   ];
   programs.vscode.extensions = let
-    exts = (import ../../vscode-extensions) {inherit pkgs;};
+    exts = (import ../../vscode-extensions) {inherit lib pkgs;};
   in
     with exts; [
       davidanson.vscode-markdownlint

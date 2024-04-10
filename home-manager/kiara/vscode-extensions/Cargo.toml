@@ -1,5 +1,5 @@
 # run from https://github.com/nix-community/nix4vscode
-# cargo run -- <PATH>/Cargo.toml > <PATH>/default.nix
+# nix shell nixpkgs#cargo nixpkgs#gcc --command cargo run -- <PATH>/Cargo.toml > <PATH>/default.nix
 
 # codium --version
 vscode_version = "1.85.2"
@@ -105,6 +105,12 @@ extension_name = "esbonio"
 [[extensions]]
 publisher_name = "ms-python"
 extension_name = "python"
+
+# formatting
+
+[[extensions]]
+publisher_name = "kamadorueda"
+extension_name = "alejandra"
 
 # linting
 

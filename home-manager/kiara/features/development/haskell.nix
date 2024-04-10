@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{lib, pkgs, ...}: {
   home.packages = with pkgs; [
     haskellPackages.haskell-language-server
   ];
   programs.vscode.extensions = let
-    exts = (import ../../vscode-extensions) {inherit pkgs;};
+    exts = (import ../../vscode-extensions) {inherit lib pkgs;};
   in
     with exts; [
       justusadam.language-haskell

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{lib, pkgs, ...}: {
   imports = [
     # ./ansible.nix
     ./bash.nix
