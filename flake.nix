@@ -222,7 +222,9 @@
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;
-                users.${name}.imports = homeModules;
+                users.${name}.imports = homeModules ++ [
+                  ./home-manager/kiara/niri.nix
+                ];
               };
             }
           ];

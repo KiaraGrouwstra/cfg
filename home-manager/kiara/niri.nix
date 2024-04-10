@@ -5,9 +5,6 @@
   config,
   ...
 }: {
-  imports = [
-    inputs.niri.homeModules.config
-  ];
   home.packages = with pkgs; [
     wayland
     qt6.qtwayland

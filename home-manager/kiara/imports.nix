@@ -19,7 +19,6 @@
     ./neomutt.nix
     ./neovim.nix
     ./news.nix
-    ./niri.nix
     ./rofi.nix
     ./scripts.nix
     ./swaylock.nix
