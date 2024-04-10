@@ -102,7 +102,10 @@
       url = "github:DreamMaoMao/mime.yazi";
       flake = false;
     };
-    nixgl.url = "github:guibou/nixGL";
+    nixgl = {
+      url = "github:guibou/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -174,9 +177,6 @@
       sops-nix.homeManagerModules.sops
       ./modules/home-manager
       nix-index-database.hmModules.nix-index
-      # niri.homeModules.config
-      # anyrun.homeManagerModules.default
-      # nix-colors.homeManagerModules.default
       stylix.homeManagerModules.stylix
       ./home-manager/kiara/home.nix
       # flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
