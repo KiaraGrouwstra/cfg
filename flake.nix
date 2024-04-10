@@ -124,7 +124,12 @@
       nixpkgs.lib
       // home-manager.lib
       // (import ./lib {inherit (nixpkgs) lib;});
-    forSystem = lib.genAttrs ["aarch64-linux" "i686-linux" "x86_64-linux"];
+    forSystem = f: let
+        o = lib.genAttrs ["aarch64-linux" "i686-linux" "x86_64-linux"] f;
+      in o 
+      // {
+        default = o.x86_64-linux;
+      };
     # { default: overlay }
     overlaysAttrs = import ./overlays.nix {inherit inputs lib;};
     # [ overlay ]
@@ -204,7 +209,7 @@
     diskoConfigurations.hammer = import ./hosts/hammer/disks.nix;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#x86_64-linux'
+    # Available through 'nixos-rebuild --flake .'
     nixosConfigurations = forSystem (
       system: let
         specialArgs = specialFor.${system};

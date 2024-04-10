@@ -4,11 +4,11 @@ default:
 
 # Rebuild the system
 switch:
-  sudo nixos-rebuild switch --fast --flake .#x86_64-linux --show-trace
+  sudo nixos-rebuild switch --fast --flake .#default --show-trace
 
 # Rebuild the home config
 home:
-  home-manager switch --flake .#x86_64-linux switch
+  home-manager switch --flake .#default switch --show-trace
 
 # Format code
 fmt:
