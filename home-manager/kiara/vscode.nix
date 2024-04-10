@@ -20,7 +20,7 @@
       mkhl.direnv
       mikestead.dotenv
       arrterian.nix-env-selector
-      asvetliakov.vscode-neovim
+      # asvetliakov.vscode-neovim
       kahole.magit
       foam.foam-vscode
       editorconfig.editorconfig

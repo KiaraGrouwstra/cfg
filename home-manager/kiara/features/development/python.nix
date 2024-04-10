@@ -8,5 +8,8 @@
   in
     with exts; [
       ms-python.python
+      ms-python.black-formatter
+      ms-python.mypy-type-checker
+      charliermarsh.ruff
     ];
 }

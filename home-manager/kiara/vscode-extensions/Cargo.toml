@@ -47,6 +47,10 @@ publisher_name = "tamasfe"
 extension_name = "even-better-toml"
 
 [[extensions]]
+publisher_name = "ms-azuretools"
+extension_name = "vscode-docker"
+
+[[extensions]]
 publisher_name = "hashicorp"
 extension_name = "hcl"
 
@@ -109,8 +113,16 @@ extension_name = "python"
 # formatting
 
 [[extensions]]
+publisher_name = "esbenp"
+extension_name = "prettier-vscode"
+
+[[extensions]]
 publisher_name = "kamadorueda"
 extension_name = "alejandra"
+
+[[extensions]]
+publisher_name = "ms-python"
+extension_name = "black-formatter"
 
 # linting
 
@@ -121,3 +133,11 @@ extension_name = "editorconfig"
 [[extensions]]
 publisher_name = "davidanson"
 extension_name = "vscode-markdownlint"
+
+[[extensions]]
+publisher_name = "ms-python"
+extension_name = "mypy-type-checker"
+
+[[extensions]]
+publisher_name = "charliermarsh"
+extension_name = "ruff"

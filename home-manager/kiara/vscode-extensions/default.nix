@@ -16,7 +16,18 @@ merge
     version = "2024.3.10742127";
     sha256 = "187x6j7300wgvcxh2lcic6ivvavsllzhq0cayqiji943pw3z3k2r";
   };
-
+        "esbenp"."prettier-vscode" = vscode-utils.extensionFromVscodeMarketplace {
+          name = "prettier-vscode";
+          publisher = "esbenp";
+          version = "10.4.0";
+          sha256 = "1iy7i0yxnhizz40llnc1dk9q8kk98rz6ki830sq7zj3ak9qp9vzk";
+        };
+        "ms-azuretools"."vscode-docker" = vscode-utils.extensionFromVscodeMarketplace {
+          name = "vscode-docker";
+          publisher = "ms-azuretools";
+          version = "1.29.0";
+          sha256 = "0rz32qwdf7a5hn3nnhxviaf8spwsszfrxmhnbbskspi5r9b6qm4r";
+        };
   "pkief"."material-icon-theme" = vscode-utils.extensionFromVscodeMarketplace {
     name = "material-icon-theme";
     publisher = "pkief";
@@ -49,6 +60,12 @@ merge
     version = "1.0.1";
     sha256 = "0rs57csczwx6wrs99c442qpf6vllv2fby37f3a9rhwc8sg6849vn";
   };
+        "ms-python"."black-formatter" = vscode-utils.extensionFromVscodeMarketplace {
+          name = "black-formatter";
+          publisher = "ms-python";
+          version = "2024.2.0";
+          sha256 = "14w1ix8pm924piyw0dx2rq27cm5kmps9q99mkwrhi3ypliibx0x8";
+        };
   "tamasfe"."even-better-toml" = vscode-utils.extensionFromVscodeMarketplace {
     name = "even-better-toml";
     publisher = "tamasfe";
@@ -97,6 +114,12 @@ merge
     version = "1.5.4";
     sha256 = "1js1489nd9fycvpgh39mwzpbqm28qi4gzi68443v3vhw3dsg4wjv";
   };
+        "ms-python"."mypy-type-checker" = vscode-utils.extensionFromVscodeMarketplace {
+          name = "mypy-type-checker";
+          publisher = "ms-python";
+          version = "2023.9.10961015";
+          sha256 = "0ndpgshv22f8cm5j741mqrlw6iksc6ny2qsb469v3wg4ga5dw5c3";
+        };
   "foam"."foam-vscode" = vscode-utils.extensionFromVscodeMarketplace {
     name = "foam-vscode";
     publisher = "foam";
@@ -178,6 +201,13 @@ merge
             sha256 = "07par64zgifsfx7j9d5kp3rck2akny7908zw81286f2kajzmdsjy";
             arch = "linux-x64";
           };
+          "charliermarsh"."ruff" = vscode-utils.extensionFromVscodeMarketplace {
+            name = "ruff";
+            publisher = "charliermarsh";
+            version = "2024.17.10852054";
+            sha256 = "188xy4jzwjx7l19zd40lbdwsbgjip0q33wqyakgrj0rfsgz0qf4r";
+            arch = "linux-x64";
+          };
         }))
       (lib.attrsets.optionalAttrs (isLinux && (isAarch32 || isAarch64)) {
         "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
@@ -185,6 +215,13 @@ merge
           publisher = "rust-lang";
           version = "0.4.1918";
           sha256 = "137x9463hr0c8xpn27pf3s55szafid7yg4lnri0wr631h75y2a23";
+          arch = "linux-arm64";
+        };
+        "charliermarsh"."ruff" = vscode-utils.extensionFromVscodeMarketplace {
+          name = "ruff";
+          publisher = "charliermarsh";
+          version = "2024.17.10852054";
+          sha256 = "0y19xf2ych16vy6q7ff1saxv45r22a4mhbr2d1386yp4vk5fg909";
           arch = "linux-arm64";
         };
       }))
@@ -196,6 +233,13 @@ merge
         sha256 = "12sa0bk88bdvm07fqi91j5869hjp2gk6pg3h5d48va1z8y3mzmai";
         arch = "darwin-x64";
       };
+      "charliermarsh"."ruff" = vscode-utils.extensionFromVscodeMarketplace {
+        name = "ruff";
+        publisher = "charliermarsh";
+        version = "2024.17.10852054";
+        sha256 = "0nwjmlxj5f24lcx8byp4yha8cir7pyzrj4xdn1qqa80049xan6qc";
+        arch = "darwin-x64";
+      };
     }))
   (lib.attrsets.optionalAttrs (isDarwin && (isAarch32 || isAarch64)) {
     "rust-lang"."rust-analyzer" = vscode-utils.extensionFromVscodeMarketplace {
@@ -203,6 +247,13 @@ merge
       publisher = "rust-lang";
       version = "0.4.1918";
       sha256 = "05ix00za6vbh64abd3sgnr88p4aihamaps1ab2fjg7pi6qs4jz15";
+      arch = "darwin-arm64";
+    };
+    "charliermarsh"."ruff" = vscode-utils.extensionFromVscodeMarketplace {
+      name = "ruff";
+      publisher = "charliermarsh";
+      version = "2024.17.10852054";
+      sha256 = "0mw0szk7817irr98ccqwc5a1drz2ibqvcask9964312q7smhmkqa";
       arch = "darwin-arm64";
     };
   })
