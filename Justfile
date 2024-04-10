@@ -1,3 +1,7 @@
+# default action: list actions
+default:
+  @just --list
+
 # Rebuild the system
 switch:
   sudo nixos-rebuild switch --fast --flake .#hammer --show-trace
