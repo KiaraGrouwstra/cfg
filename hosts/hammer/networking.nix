@@ -19,6 +19,7 @@
   };
 
   networking.wireless.enable = true;
+  # sudo su -c "cd /etc/NetworkManager/system-connections && nix --extra-experimental-features 'nix-command flakes' run github:Janik-Haag/nm2nix"
   networking.wireless.networks = {
     "wifi 50" = {psk = config.sops.secrets.wifi-password-home.path;};
     "H369A15D3AE" = {psk = config.sops.secrets.wifi-password-woerden.path;};
