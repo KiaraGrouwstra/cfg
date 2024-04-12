@@ -24,15 +24,11 @@
             content = {
               type = "luks";
               name = "crypted";
-              # disable settings.keyFile if you want to use interactive password entry
               settings = {
                 allowDiscards = true;
                 bypassWorkqueues = true;
-                keyFile = "/tmp/secret.key";
-                # keyFileTimeout = 1;
                 fallbackToPassword = true;
               };
-              additionalKeyFiles = ["/tmp/additionalSecret.key"];
               content = {
                 type = "btrfs";
                 extraArgs = ["-f"];
