@@ -1,7 +1,8 @@
-{...}: {
+{
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
+    ./ephemeral.nix
     ./xserver.nix
     ./databases.nix
     ./fonts.nix
@@ -9,6 +10,7 @@
     ./guix.nix
     ./niri.nix
     ./locale.nix
+    ./persistence.nix
     ./power.nix
     ./networking.nix
     ./sound.nix

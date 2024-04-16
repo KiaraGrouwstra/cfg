@@ -27,7 +27,6 @@
               settings = {
                 allowDiscards = true;
                 bypassWorkqueues = true;
-                fallbackToPassword = true;
               };
               content = {
                 type = "btrfs";
@@ -48,6 +47,10 @@
                   };
                   "/nix" = {
                     mountpoint = "/nix";
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
+                  "/guix" = {
+                    mountpoint = "/gnu";
                     mountOptions = ["compress=zstd" "noatime"];
                   };
                   "/swap" = {

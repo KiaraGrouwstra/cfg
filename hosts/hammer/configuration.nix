@@ -1,24 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# and in the NixOS manual (accessible by running `nixos-help`).
 {
   config,
   pkgs,
-  lib,
-  inputs,
-  outputs,
   ...
 }: let
   nixPath = "/run/current-system/nixpkgs";
 in {
-  imports =
-    [
-      ./imports.nix
-      inputs.home-manager.nixosModules.home-manager
-      inputs.sops-nix.nixosModules.sops
-    ]
-    ++ (lib.attrValues outputs.nixosModules);
-
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
@@ -26,11 +15,12 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs outputs;};
   };
 
   boot = {
-    initrd.systemd.emergencyAccess = config.sops.secrets.user-password-root.path;
+    initrd.systemd = {
+      emergencyAccess = config.users.users.root.hashedPassword;
+    };
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # Bootloader
     loader.systemd-boot.enable = true;
@@ -38,6 +28,8 @@ in {
     # Windows disks
     supportedFilesystems = ["ntfs"];
   };
+
+  environment.etc."machine-id".text = "26aa8d2d944441d7b2944058d4e69fb0";
 
   # # Setup keyfile
   # boot.initrd.secrets = {
@@ -54,23 +46,27 @@ in {
 
   security.sudo.wheelNeedsPassword = false;
 
-  # generate password hash by `mkpasswd -m sha-512 mySuperSecretPassword`
-  users.users.root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
+  users = {
+    # generate password hash by `mkpasswd -m sha-512 mySuperSecretPassword`
+    users = {
+      root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
 
-  users.users.kiara = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.user-password-kiara.path;
-    description = "輝愛来 (kiara)";
-    extraGroups = [
-      "input"
-      "video"
-      "networkmanager"
-      "wheel"
-      "adbusers"
-      "docker"
-      "libvirtd"
-    ];
-    shell = pkgs.zsh;
+      kiara = {
+        isNormalUser = true;
+        hashedPasswordFile = config.sops.secrets.user-password-kiara.path;
+        description = "輝愛来 (kiara)";
+        extraGroups = [
+          "input"
+          "video"
+          "networkmanager"
+          "wheel"
+          "adbusers"
+          "docker"
+          "libvirtd"
+        ];
+        shell = pkgs.zsh;
+      };
+    };
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -129,7 +125,7 @@ in {
   nixpkgs.config.firefox.speechSynthesisSupport = true;
 
   sops = {
-    age.keyFile = "/etc/nixos/keys.txt"; # must have no password!
+    age.keyFile = "/persist/etc/nixos/keys.txt"; # must have no password!
     # It's also possible to use a ssh key, but only when it has no password:
     #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
     defaultSopsFile = ../../secrets.enc.yml;
@@ -140,9 +136,10 @@ in {
     };
   };
 
-  services.gnome.at-spi2-core.enable = true; # orca
-
-  services.gnome.gnome-keyring.enable = true; # flare-signal
+  services.gnome = {
+    at-spi2-core.enable = true; # orca
+    gnome-keyring.enable = true; # flare-signal
+  };
 
   # environment.sessionVariables = {
   #   # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8

@@ -8,6 +8,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
     flake-compat.url = "github:edolstra/flake-compat";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -128,8 +129,9 @@
       // home-manager.lib
       // (import ./lib {inherit (nixpkgs) lib;});
     forSystem = f: let
-        o = lib.genAttrs ["aarch64-linux" "i686-linux" "x86_64-linux"] f;
-      in o 
+      o = lib.genAttrs ["aarch64-linux" "i686-linux" "x86_64-linux"] f;
+    in
+      o
       // {
         default = o.x86_64-linux;
       };
@@ -172,7 +174,10 @@
       forAllSystems
       (pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
+    nixosModules = import ./modules/nixos;
+
     homeModules = with inputs; [
+      impermanence.nixosModules.home-manager.impermanence
       nur.nixosModules.nur
       sops-nix.homeManagerModules.sops
       ./modules/home-manager
@@ -181,9 +186,12 @@
       ./home-manager/kiara/home.nix
       # flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
     ];
-
   in {
     inherit lib packages;
+
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = lib.mapVals import nixosModules;
 
     # for `nix fmt`
     formatter =
@@ -194,10 +202,6 @@
       formatting = treefmtEval.${pkgs.system}.config.build.check self;
     });
 
-    # Reusable nixos modules you might want to export
-    # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
-
     # Devshell for bootstrapping
     # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
     devShells = forAllSystems (pkgs: import ./shell.nix {inherit pkgs;});
@@ -206,7 +210,7 @@
     overlays = overlaysAttrs;
 
     # Allow partioning with `disko -f .#hammer`
-    diskoConfigurations.hammer = import ./hosts/hammer/disks.nix;
+    diskoConfigurations.hammer = import ./hosts/hammer/disko-config.nix;
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .'
@@ -218,18 +222,25 @@
           inherit system specialArgs;
           modules = with inputs; [
             ./cachix.nix
+            {imports = lib.attrValues nixosModules;}
             disko.nixosModules.disko
+            impermanence.nixosModule
             nur.nixosModules.nur
             {nixpkgs = {inherit overlays;};}
             ./hosts/hammer/configuration.nix
+            ./hosts/hammer/imports.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
             niri.nixosModules.niri
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;
-                users.${name}.imports = homeModules ++ [
-                  ./home-manager/kiara/niri.nix
-                ];
+                users.${name}.imports =
+                  homeModules
+                  ++ [
+                    ./home-manager/kiara/niri.nix
+                  ];
               };
             }
           ];
@@ -246,6 +257,5 @@
         extraSpecialArgs = specialFor.${system};
         modules = homeModules;
       });
-
   };
 }
