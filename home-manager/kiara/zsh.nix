@@ -2,6 +2,7 @@
   home.persistence."/persist/home/kiara" = {
     directories = [
       ".zplug"
+      ".cache/oh-my-zsh"
     ];
     files = [
       ".zsh_history"

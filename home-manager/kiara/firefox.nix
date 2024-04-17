@@ -5,6 +5,7 @@
 }: {
   home.persistence."/persist/home/kiara".directories = [
     ".mozilla"
+    ".cache/mozilla"
   ];
 
   home.packages = with pkgs; [

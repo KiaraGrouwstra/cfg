@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.persistence."/persist/home/kiara".directories = [
     ".thunderbird"
+    ".cache/thunderbird"
     ".local/share/flare"
     ".local/share/TelegramDesktop"
   ];

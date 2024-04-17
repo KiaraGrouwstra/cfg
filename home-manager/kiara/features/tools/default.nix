@@ -2,6 +2,7 @@
   home.persistence."/persist/home/kiara".directories = [
     ".config/keepassxc"
     ".config/thefuck"
+    ".cache/keepassxc"
     ".local/share/zoxide"
   ];
 

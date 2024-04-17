@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".local/helix"
+  ];
+
   home.sessionVariables.COLORTERM = "truecolor";
 
   programs.helix = {
