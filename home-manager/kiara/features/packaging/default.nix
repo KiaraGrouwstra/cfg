@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     ## nix
     any-nix-shell
-    nix-direnv
 
     ## packaging
     appimage-run

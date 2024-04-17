@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/swaylock"
+  ];
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;

@@ -1,4 +1,8 @@
 _: {
+  home.persistence."/persist/home/kiara".directories = [
+    # ".config/neomutt"
+  ];
+
   programs.neomutt.enable = true;
   accounts.email.accounts = let
     transipMail = {

@@ -9,6 +9,11 @@ with config.commands; {
     ./pistol.nix
   ];
 
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/Thunar"
+    ".local/share/Nextcloud"
+  ];
+
   home.packages = with pkgs; [
     ## compression
     unar

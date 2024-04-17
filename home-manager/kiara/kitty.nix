@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/kitty"
+  ];
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;

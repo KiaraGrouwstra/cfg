@@ -1,4 +1,12 @@
 {lib, ...}: {
+  home.persistence."/persist/home/kiara" = {
+    directories = [
+      ".zplug"
+    ];
+    files = [
+      ".zsh_history"
+    ];
+  };
   programs.zsh = {
     enable = true;
     autocd = true;

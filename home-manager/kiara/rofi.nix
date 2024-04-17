@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".local/share/rofi"
+    ".local/share/rofimoji"
+  ];
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;

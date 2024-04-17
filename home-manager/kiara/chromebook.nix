@@ -1,6 +1,5 @@
 # https://nixos.wiki/wiki/Installing_Nix_on_Crostini
 {pkgs, ...}: {
-
   # register desktop applications
   xdg.configFile."systemd/user/cros-garcon.service.d/override.conf".text = ''
     [Service]
@@ -9,6 +8,5 @@
   '';
 
   # call graphical programs with: `nixGLMesa my-program`
-  home.packages = with pkgs; [ nixgl.nixGLMesa ];
-
+  home.packages = with pkgs; [nixgl.nixGLMesa];
 }

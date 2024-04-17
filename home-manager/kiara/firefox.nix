@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".mozilla"
+  ];
+
   home.packages = with pkgs; [
     firefoxpwa
   ];

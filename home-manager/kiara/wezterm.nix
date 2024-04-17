@@ -1,4 +1,7 @@
 _: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/wezterm"
+  ];
   programs.wezterm = {
     enable = true;
     extraConfig =

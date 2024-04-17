@@ -11,6 +11,9 @@
     local-ai
   ];
 
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/kdeconnect"
+  ];
   services.kdeconnect = {
     enable = true;
     indicator = true;

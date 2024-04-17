@@ -1,4 +1,7 @@
 _: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/git"
+  ];
   programs.git = {
     enable = true;
     userName = "Kiara Grouwstra";

@@ -1,4 +1,4 @@
-{lib, pkgs, ...}: {
+{pkgs, ...}: {
   imports = [
     # ./ansible.nix
     ./bash.nix
@@ -31,7 +31,6 @@
   ];
   home.packages = with pkgs; [
     ## development
-    direnv
     treefmt
     editorconfig-checker
 
@@ -59,6 +58,10 @@
     };
   };
 
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/gh"
+    ".local/share/direnv"
+  ];
   programs = {
     direnv = {
       enable = true;

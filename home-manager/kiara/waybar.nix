@@ -1,4 +1,8 @@
 {config, ...}: {
+  home.persistence."/persist/home/kiara".directories = [
+    # ".config/waybar"
+  ];
+
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;

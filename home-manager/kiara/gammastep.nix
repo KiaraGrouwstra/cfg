@@ -1,4 +1,7 @@
 {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/gammastep"
+  ];
   services.gammastep = {
     enable = true;
     provider = "manual";

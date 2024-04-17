@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/yazi"
+  ];
+
   home.packages = with pkgs; [
     exiftool
   ];

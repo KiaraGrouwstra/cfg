@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".local/share/nvim"
+  ];
+
   home.packages = with pkgs; [
     nodejs # for coc
   ];

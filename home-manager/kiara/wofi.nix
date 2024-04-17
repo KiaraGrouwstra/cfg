@@ -3,6 +3,9 @@
   pkgs,
   ...
 }: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/wofi"
+  ];
   programs.wofi = {
     enable = true;
 

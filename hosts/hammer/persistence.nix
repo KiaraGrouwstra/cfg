@@ -41,7 +41,6 @@
           mode = "0700";
         }
         ".local/share/nix" # trusted settings and repl history
-        ".local/share/direnv"
       ];
     };
   };
