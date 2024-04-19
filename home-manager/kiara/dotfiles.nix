@@ -16,10 +16,10 @@ in {
     # vals: ls ~/.nix-profile/bin/
     // autoStartLinks (with pkgs; {
       "org.keepassxc.KeePassXC" = keepassxc;
-      "codium" = config.programs.vscode.package;
+      # "codium" = config.programs.vscode.package;
       "firefox" = config.programs.firefox.package;
-      "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
-      # "org.wezfurlong.wezterm" = config.programs.wezterm.package;
+      # "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
+      "org.wezfurlong.wezterm" = config.programs.wezterm.package;
     })
     // {
       # must `git add .` or new files won't be found
