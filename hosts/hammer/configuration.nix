@@ -34,7 +34,7 @@ in {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # Bootloader
     loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader.efi.canTouchEfiVariables = false;
     # Windows disks
     supportedFilesystems = ["ntfs"];
   };
