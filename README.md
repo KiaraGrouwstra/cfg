@@ -82,7 +82,7 @@ the `flake.lock`ed nixpkgs is used for:
 | [File browser](https://codeberg.org/kiara/cfg/issues?labels=201789)   | [Yazi](https://yazi-rs.github.io/) |
 | [Terminal](https://codeberg.org/kiara/cfg/issues?labels=201790)       | [Wezterm](https://github.com/wez/wezterm) |
 | [Text editor](https://codeberg.org/kiara/cfg/issues?labels=201792)    | [VSCodium](https://github.com/vscodium/vscodium) |
-| [Editor](https://codeberg.org/kiara/cfg/issues?labels=201792) (shell) | [Helix](https://docs.helix-editor.com/keymap.html) |
+| [Editor](https://codeberg.org/kiara/cfg/issues?labels=201792) (shell) | [Helix](https://helix-editor.com) |
 | [Shell](https://codeberg.org/kiara/cfg/issues?labels=201791)          | [Zsh](https://zsh.org/) |
 | Fuzzy finder   | [Fzf](https://github.com/junegunn/fzf) |
 | Pager          | [Nvimpager](https://github.com/lucc/nvimpager) |
