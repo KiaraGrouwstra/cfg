@@ -27,17 +27,6 @@
 
       # styling
       pkief.material-icon-theme
-      (pkgs.catppuccin-vsc.override {
-        accent = "mauve";
-        boldKeywords = true;
-        italicComments = true;
-        italicKeywords = true;
-        extraBordersEnabled = false;
-        workbenchMode = "default";
-        bracketMode = "rainbow";
-        colorOverrides = {};
-        customUIColors = {};
-      })
     ];
     userSettings = let
       # "b" -> { a = 1; } -> { b_a = 1; }

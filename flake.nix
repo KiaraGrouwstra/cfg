@@ -59,10 +59,6 @@
       inputs.nixpkgs.follows = "nixos";
       inputs.utils.follows = "flake-utils";
     };
-    catppuccin-vsc = {
-      url = "github:catppuccin/vscode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -76,16 +72,16 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.crate2nix.follows = "crate2nix";
+      # inputs.crate2nix.follows = "crate2nix";
     };
-    crate2nix = {
-      url = "github:nix-community/crate2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.devshell.follows = "devshell";
-      inputs.crate2nix_stable.follows = "crate2nix";
-    };
+    # crate2nix = {
+    #   url = "github:nix-community/crate2nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-parts.follows = "flake-parts";
+    #   inputs.flake-compat.follows = "flake-compat";
+    #   inputs.devshell.follows = "devshell";
+    #   inputs.crate2nix_stable.follows = "crate2nix";
+    # };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -113,7 +109,8 @@
     };
     nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:KiaraGrouwstra/nixpkgs/no-efivarfs";
   };
 
   outputs = {
@@ -143,7 +140,6 @@
       ++ (with inputs; [
         nur.overlay
         nixgl.overlay
-        catppuccin-vsc.overlays.default
       ]);
     # for each system: nixpkgs
     pkgsFor =

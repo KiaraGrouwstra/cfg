@@ -1,15 +1,15 @@
 _: {
+  services.displayManager = {
+    # session = [ ];
+    autoLogin = {
+      enable = true;
+      user = "kiara";
+    };
+  };
+
   # seems still used in DMs
   services.xserver = {
     enable = true;
-
-    displayManager = {
-      # session = [ ];
-      autoLogin = {
-        enable = true;
-        user = "kiara";
-      };
-    };
 
     # keymap in X11
     xkb = {
