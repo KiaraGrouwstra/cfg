@@ -18,6 +18,8 @@
     BROWSER = "firefox";
   };
 
+  home.persistence."/persist/home/kiara".allowOther = false;
+
   sops = {
     age.keyFile = "/etc/nixos/keys.txt";
     defaultSopsFile = ../../secrets.enc.yml;
