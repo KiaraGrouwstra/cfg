@@ -20,10 +20,29 @@ thefuck plugin for zsh filled the JIT-install command for the missing app neofet
 
 ## usage
 
+<details>
+<summary>clean install from NixOS USB</summary>
+<div class="sourceCode">
+<pre class="sourceCode sh">
+<code class="sourceCode bash">cd Downloads
+git clone https://codeberg.org/kiara/cfg.git
+cd cfg
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko -f .#hammer
+dest=/mnt/persist/etc/nixos/
+sudo mkdir -p $dest
+sudo cp -r ./. $dest
+sudo cp ~/Downloads/keys.txt $dest  # import/create
+sudo nixos-install --no-root-passwd --flake .#default
+sudo nixos-enter --root /mnt
+cp /etc/{machine-id,group,passwd,shadow} /persist/etc
+</code>
+</pre>
+</div>
+</details>
+
 ### prerequisites
 
 - [install](https://nixos.org/manual/nixos/stable/#sec-installation) NixOS
-- [enable flakes](https://nixos.wiki/wiki/Flakes#NixOS)
 - update [`./hosts/<PROFILE>/hardware-configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/hardware-configuration.nix)
 - get a user password by either:
   - [setting one](https://nixos.org/manual/nixos/stable/options#opt-users.users._name_.initialPassword) in [`./hosts/<PROFILE>/configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/configuration.nix)
