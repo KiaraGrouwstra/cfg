@@ -54,11 +54,14 @@ cp /etc/{machine-id,group,passwd,shadow} /persist/etc
 $ just -l
 Available recipes:
     age       # Check when inputs were last updated
+    boot      # Build a new configuration
     clean     # Remove all generations older than 7 days
     decode    # Decode secrets
+    default   # default action: list actions
     encode    # Encode secrets
     fmt       # Format code
     gc        # Garbage collect all unused nix store entries
+    home      # Rebuild the home config
     repl      # Open a Nix REPL - run manually to load flake: `:lf .`
     switch    # Rebuild the system
     test      # Run tests
