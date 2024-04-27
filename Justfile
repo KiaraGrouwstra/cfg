@@ -4,11 +4,11 @@ default:
 
 # Rebuild the system
 switch:
-  sudo nixos-rebuild switch --fast --flake .#default --show-trace
+  NIXOS_LABEL="$(cat .git/COMMIT_EDITMSG)" sudo nixos-rebuild switch --fast --flake .#default --show-trace
 
 # Build a new configuration
 boot:
-  sudo nixos-rebuild boot --fast --flake .#default --show-trace
+  NIXOS_LABEL="$(cat .git/COMMIT_EDITMSG)" sudo nixos-rebuild boot --fast --flake .#default --show-trace
 
 # Rebuild the home config
 home:
