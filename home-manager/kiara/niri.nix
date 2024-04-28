@@ -249,8 +249,8 @@
             XF86AudioPrev = "${playerctl} previous";
             XF86AudioNext = "${playerctl} next";
             # screen brightness
-            XF86MonBrightnessDown = "${light} -U 1";
-            XF86MonBrightnessUp = "${light} -A 1";
+            XF86MonBrightnessDown = "${light} -U 5";
+            XF86MonBrightnessUp = "${light} -A 5";
 
             # switch wallpaper
             "Mod+M" = "random-wallpaper.sh";
