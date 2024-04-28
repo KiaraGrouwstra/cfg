@@ -14,7 +14,6 @@
       "/etc/NetworkManager/system-connections"
     ];
     files = [
-      "/etc/machine-id" # needed for systemd logs and possibly other stuff
       "/etc/shadow" # passwords
       "/etc/passwd" # sudo rights
       "/etc/group" # user groups
