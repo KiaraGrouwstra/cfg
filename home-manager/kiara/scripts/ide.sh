@@ -7,7 +7,7 @@ export pane_id=$WEZTERM_PANE
 export window_id=$(wezterm cli list --format json | jaq "map(select(.pane_id == $pane_id)) | .[].window_id")
 wezterm cli spawn --window-id $window_id --cwd $dir -- lazygit
 wezterm cli spawn --window-id $window_id --cwd $dir -- $EDITOR
-wezterm cli spawn --window-id $window_id --cwd $dir -- just -l
+wezterm cli spawn --window-id $window_id --cwd $dir -- zsh -l
 wezterm cli spawn --window-id $window_id --cwd $dir -- yazi
 wezterm cli activate-tab --pane-id $pane_id --tab-index 0
 wezterm cli kill-pane --pane-id $pane_id
