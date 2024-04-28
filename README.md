@@ -32,7 +32,7 @@ dest=/mnt/persist/etc/nixos/
 sudo mkdir -p $dest
 sudo cp -r ./. $dest
 sudo cp ~/Downloads/keys.txt $dest  # import/create
-sudo nixos-install --no-root-passwd --flake .#default
+sudo nixos-install --no-root-passwd --flake .#default --no-root-passwd
 sudo nixos-enter --root /mnt
 cp /etc/{machine-id,group,passwd,shadow} /persist/etc
 </code>
