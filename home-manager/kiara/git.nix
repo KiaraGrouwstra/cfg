@@ -22,7 +22,8 @@ _: {
       advice.objectNameWarning = false;
       pull.rebase = true;
       push.autoSetupRemote = true;
-      branch.autoSetupMerge = "simple";
+      branch.autoSetupRebase = "always";
+      branch.autoSetupMerge = "always";
       checkout.defaultRemote = "origin";
       safe.directory = "/tmp"; # needed for ago.sh
     };
