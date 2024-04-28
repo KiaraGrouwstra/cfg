@@ -295,8 +295,8 @@
           "Mod+BracketRight" = "consume-or-expel-window-right";
 
           "Mod+R" = "switch-preset-column-width";
-          "Mod+G" = "maximize-column";
-          "Mod+Shift+G" = "fullscreen-window";
+          "Mod+A" = "maximize-column";
+          "Mod+Shift+A" = "fullscreen-window";
           "Mod+C" = "center-column";
 
           # screenshots
@@ -363,8 +363,8 @@
             Page_Up = "up";
             Page_Down = "down";
             # left hand
-            A = "up";
-            S = "down";
+            S = "up";
+            G = "down";
           };
         })
         # You can refer to workspaces by index. However, keep in mind that
