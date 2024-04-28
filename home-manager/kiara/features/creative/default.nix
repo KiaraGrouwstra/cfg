@@ -1,9 +1,13 @@
 {pkgs, ...}: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".local/share/castero"
+  ];
   home.packages = with pkgs; [
     ## graphics
     imv
 
     ## audio
+    castero
     cava
 
     ## video
