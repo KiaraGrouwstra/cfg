@@ -19,7 +19,7 @@ in {
 
   boot = {
     initrd.systemd = {
-      emergencyAccess = config.users.users.root.hashedPassword;
+      emergencyAccess = false; # config.users.users.root.hashedPassword;
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # Bootloader
@@ -49,7 +49,7 @@ in {
   users = {
     # generate password hash by `mkpasswd -m sha-512 mySuperSecretPassword`
     users = {
-      root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
+      # root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
 
       kiara = {
         isNormalUser = true;
