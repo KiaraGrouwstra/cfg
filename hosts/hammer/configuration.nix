@@ -25,6 +25,7 @@ in {
     # Bootloader
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = false;
+    loader.grub.theme = pkgs.sleek-grub-theme;
     # Windows disks
     supportedFilesystems = ["ntfs"];
   };
