@@ -115,6 +115,7 @@ in {
   services.pipewire.wireplumber.enable = true;
 
   environment.variables = {
+    XDG_RUNTIME_DIR = "/run/user/$UID"; # set the runtime directory: https://discourse.nixos.org/t/login-keyring-did-not-get-unlocked-hyprland/40869
     XDG_CONFIG_HOME = "$HOME/.config";
     NIXOS_OZONE_WL = "1"; # electron
     QT_STYLE_OVERRIDE = "kvantum";
