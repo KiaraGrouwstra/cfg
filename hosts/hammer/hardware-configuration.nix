@@ -11,6 +11,9 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  # manual override: https://github.com/NixOS/nixpkgs/issues/306645
+  boot.blacklistedKernelModules = ["efivarfs"];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
