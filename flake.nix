@@ -109,8 +109,7 @@
     };
     nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:KiaraGrouwstra/nixpkgs/no-efivarfs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
   outputs = {
