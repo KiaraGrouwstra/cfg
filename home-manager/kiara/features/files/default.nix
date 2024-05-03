@@ -24,6 +24,8 @@ with config.commands; {
     nextcloud-client
 
     # security
+    rage
+    sops
     gnome.seahorse
   ];
 }
