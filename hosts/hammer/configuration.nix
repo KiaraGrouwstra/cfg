@@ -81,6 +81,10 @@ in {
     browserpass.enable = true;
     thunar.enable = true;
     plotinus.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 
   environment.shells = with pkgs; [zsh];
