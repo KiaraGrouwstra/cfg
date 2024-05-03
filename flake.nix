@@ -216,7 +216,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = with inputs; [
-            ./cachix.nix
+            ./cache.nix
             {imports = lib.attrValues nixosModules;}
             disko.nixosModules.disko
             impermanence.nixosModule
