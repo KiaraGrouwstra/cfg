@@ -75,14 +75,24 @@ Available recipes:
 nix run nixpkgs#just -- -l
 ```
 
+### impermanence
+
+to ensure you can persist useful state on an ephemeral system, you can find say:
+
+- newly created (5 mins) files: `find ~ -cmin -5`
+- files now on root: `tree -x /`
+- diffs from last backup: [`rsync --dry-run`](https://willbush.dev/blog/impermanent-nixos/#finding-what-to-persist)
+
 ## features
 
-- secrets: [sops](https://github.com/getsops/sops/)
-- formatter: [treefmt](https://github.com/numtide/treefmt) + [editorconfig](https://editorconfig.org/)
+- secrets: [sops](https://github.com/getsops/sops)
+- formatter: [treefmt](https://github.com/numtide/treefmt)
 - commands: [just](https://just.systems/)
 - CI: [garnix](https://garnix.io/)
 - cache: [`./cachix/`](https://codeberg.org/kiara/cfg/src/branch/main/cachix)
 - environment loader: [direnv](https://direnv.net/)
+- declarative partitioning: [disko](https://github.com/nix-community/disko)
+- [ephemeral root](https://wiki.nixos.org/wiki/Impermanence): [impermanence](https://github.com/nix-community/impermanence)
 
 ### fixes for flake
 
@@ -207,3 +217,4 @@ niri supports three-finger swipes between:
 | [MIME types](https://www.digipres.org/formats/mime-types/) | [`./home-manager/kiara/mime.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/mime.nix) |
 | [file templates](https://fedoramagazine.org/creating-using-nautilus-templates/) | [`./home-manager/kiara/dotfiles/Templates/`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/dotfiles/Templates/) |
 | keybinds | [`./home-manager/kiara/niri.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/niri.nix) |
+| persisted state | [`./hosts/hammer/persistence.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/persistence.nix) |
