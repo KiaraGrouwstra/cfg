@@ -11,6 +11,8 @@ with config.commands; {
 
   home.persistence."/persist/home/kiara".directories = [
     ".config/Thunar"
+    ".config/Nextcloud"
+    ".local/share/keyrings"
     ".local/share/Nextcloud"
   ];
 
