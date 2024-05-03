@@ -9,10 +9,6 @@
 }: let
   nixPath = "/run/current-system/nixpkgs";
 in {
-  nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.16.2"
-  ];
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
