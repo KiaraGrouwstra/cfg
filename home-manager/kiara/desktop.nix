@@ -15,6 +15,11 @@ with config.commands; {
       icon = "utilities-terminal";
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
     });
+    genericDesktop = name: attrs: (pkgs.makeDesktopItem ({
+      inherit name;
+      desktopName = name;
+      genericName = name;
+    } // attrs));
   in [
     # TODO: populate as per lesspipe
     # https://github.com/wofr06/lesspipe?tab=readme-ov-file#41-supported-compression-methods-and-archive-formats
@@ -64,5 +69,35 @@ with config.commands; {
       # grab associations from programs.pistol
       (lib.lists.map (x: x.mime) config.programs.pistol.associations)
     )
+
+    (genericDesktop "Shut down" {
+      exec = "systemctl poweroff -i";
+      icon = "system-shutdown";
+    })
+
+    (genericDesktop "Restart" {
+      exec = "systemctl reboot";
+      icon = "system-reboot";
+    })
+
+    (genericDesktop "Log out" {
+      exec = "niri msg action quit";
+      icon = "system-logout";
+    })
+
+    (genericDesktop "Suspend" {
+      exec = "systemctl suspend-then-hibernate";
+      icon = "suspend";
+    })
+
+    (genericDesktop "Hibernate" {
+      exec = "systemctl hibernate";
+      icon = "hibernate";
+    })
+
+    (genericDesktop "Lock" {
+      exec = "swaylock";
+      icon = "autokey";
+    })
   ];
 }
