@@ -278,11 +278,9 @@
             "Mod+Grave" = "${swaync-client} --toggle-panel";
             "Mod+Space" = "anyrun.sh";
             "Shift+Mod+Space" = term "jit.sh";
-            "Ctrl+Mod+Space" = "wofi.sh";
             "Alt+Mod+Space" = "rofi.sh";
             "Mod+J" = "anyrun.sh";
             "Shift+Mod+J" = term "jit.sh";
-            "Ctrl+Mod+J" = "wofi.sh";
             "Alt+Mod+J" = "rofi.sh";
           }
         )

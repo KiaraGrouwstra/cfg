@@ -69,7 +69,6 @@ let
             waybar
             kitty
             wezterm
-            wofi
             yazi
             swaylock
             firefox
