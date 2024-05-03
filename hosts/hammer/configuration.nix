@@ -19,7 +19,8 @@ in {
 
   boot = {
     initrd.systemd = {
-      emergencyAccess = false; # config.users.users.root.hashedPassword;
+      enable = true;
+      emergencyAccess = false; # config.users.users.kiara.hashedPassword;
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     # Bootloader
@@ -48,6 +49,8 @@ in {
   security.sudo.wheelNeedsPassword = false;
 
   users = {
+    mutableUsers = false;
+
     # generate password hash by `mkpasswd -m sha-512 mySuperSecretPassword`
     users = {
       # root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
@@ -133,7 +136,6 @@ in {
     defaultSopsFile = ../../secrets.enc.yml;
     secrets = {
       age-keys = {};
-      user-password-root.neededForUsers = true;
       user-password-kiara.neededForUsers = true;
     };
   };

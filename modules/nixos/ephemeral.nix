@@ -1,5 +1,7 @@
 {
   lib,
+  inputs,
+  pkgs,
   config,
   ...
 }: {
@@ -35,17 +37,22 @@
   in
     lib.mkIf cfg.enable {
 
-      # https://github.com/nix-community/impermanence/blob/cd13c2917eaa68e4c49fea0ff9cada45440d7045/README.org?plain=1#L91-L157
-      boot.initrd.postDeviceCommands =
-        lib.mkIf
-        cfg.btrfsSubvolumes.enable
-        (lib.mkAfter ''
+      # https://discourse.nixos.org/t/impermanence-vs-systemd-initrd-w-tpm-unlocking/25167/3
+      boot.initrd.systemd.services.wipe-root = lib.mkIf cfg.btrfsSubvolumes.enable {
+        description = "Rollback BTRFS root subvolume to a pristine state";
+        wantedBy = ["initrd.target"];
+        after = ["dev-mapper-crypted.device"]; # LUKS process
+        requires = ["dev-mapper-crypted.device"];
+        before = ["sysroot.mount"];
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = ''
           (
-            set -e
+            set -xe
 
             btrfs_subvolume_delete_recursive() {
               btrfs subvolume list -o "$1" |
-                awk '{ print $NF }' |
+                cut -f 9- -d ' ' |
                 while read -r subvolume; do
                   btrfs_subvolume_delete_recursive "$mount_point/$subvolume"
                 done
@@ -53,7 +60,8 @@
               btrfs subvolume delete "$1"
             }
 
-            mount_point="$(mktemp --directory)"
+            mount_point=/mnt
+            mkdir -p "$mount_point"
             mount -t btrfs "${cfg.btrfsSubvolumes.rootFilesystem}" "$mount_point"
 
             trap 'umount "$mount_point" && rmdir "$mount_point"' EXIT
@@ -61,15 +69,13 @@
             btrfs_subvolume_delete_recursive \
               "$mount_point/${cfg.btrfsSubvolumes.rootSubvolume}"
 
-            btrfs \
-              subvolume \
-              create \
-              "$mount_point/${cfg.btrfsSubvolumes.rootSubvolume}"
+            btrfs subvolume create "$mount_point/${cfg.btrfsSubvolumes.rootSubvolume}"
           )
-        '');
+        '';
+      };
 
       fileSystems = {
-        # https://github.com/ryantm/agenix/issues/45
+        # https://github.com/ryantm/agenix/issues/45#issuecomment-957865406
         "/etc/ssh" = {
           depends = [cfg.path];
           neededForBoot = true;

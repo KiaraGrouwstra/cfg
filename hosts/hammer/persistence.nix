@@ -14,9 +14,6 @@
       "/etc/NetworkManager/system-connections"
     ];
     files = [
-      "/etc/shadow" # passwords
-      "/etc/passwd" # sudo rights
-      "/etc/group" # user groups
       "/etc/adjtime" # hardware clock offset
     ];
     users.kiara = {
