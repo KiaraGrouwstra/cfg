@@ -123,6 +123,9 @@ in {
     XDG_CONFIG_HOME = "$HOME/.config";
     NIXOS_OZONE_WL = "1"; # electron
     QT_STYLE_OVERRIDE = "kvantum";
+    # # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
+    # QT_QPA_PLATFORM = "wayland";
+    # QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
   services.flatpak.enable = true;
@@ -145,12 +148,6 @@ in {
     at-spi2-core.enable = true; # orca
     gnome-keyring.enable = true; # flare-signal
   };
-
-  # environment.sessionVariables = {
-  #   # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
-  #   QT_QPA_PLATFORM = "wayland";
-  #   QT_QPA_PLATFORMTHEME = "qt5ct";
-  # };
 
   # let file managers access trash and remotes
   services.gvfs.enable = true;
