@@ -142,8 +142,6 @@ in {
   # let file managers access trash and remotes
   services.gvfs.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
