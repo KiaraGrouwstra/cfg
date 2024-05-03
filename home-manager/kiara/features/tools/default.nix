@@ -52,6 +52,7 @@
         "jobs"
         "exit"
         "root"
+        "vi-mode"
       ];
     };
 
