@@ -124,7 +124,7 @@ in {
   nixpkgs.config.firefox.speechSynthesisSupport = true;
 
   sops = {
-    age.keyFile = "/persist{userConfig.home}/sops/age/keys.txt"; # must have no password!
+    age.keyFile = "/persist${userConfig.home}/.config/sops/age/keys.txt"; # must have no password!
     # It's also possible to use a ssh key, but only when it has no password:
     #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
     defaultSopsFile = ../../secrets.enc.yml;

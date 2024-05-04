@@ -28,7 +28,7 @@ thefuck plugin for zsh filled the JIT-install command for the missing app neofet
 git clone https://codeberg.org/kiara/cfg.git
 cd cfg
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko -f .#hammer
-dest=/mnt/persist/etc/nixos/
+dest=/mnt/persist/home/kiara/.config/sops/age/
 sudo mkdir -p $dest
 sudo cp -r ./. $dest
 sudo cp ~/Downloads/keys.txt $dest  # import/create
