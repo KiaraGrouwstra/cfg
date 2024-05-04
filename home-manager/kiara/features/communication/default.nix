@@ -4,6 +4,8 @@
     ".cache/thunderbird"
     ".local/share/flare"
     ".local/share/TelegramDesktop"
+    ".config/nyxt"
+    ".local/share/nyxt"
   ];
 
   home.packages = with pkgs; [
@@ -19,5 +21,6 @@
     ## web browsers
     wget
     curl
+    nyxt
   ];
 }
