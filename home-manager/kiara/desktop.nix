@@ -16,10 +16,11 @@ with config.commands; {
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
     });
     genericDesktop = name: attrs: (pkgs.makeDesktopItem ({
-      inherit name;
-      desktopName = name;
-      genericName = name;
-    } // attrs));
+        inherit name;
+        desktopName = name;
+        genericName = name;
+      }
+      // attrs));
   in [
     # TODO: populate as per lesspipe
     # https://github.com/wofr06/lesspipe?tab=readme-ov-file#41-supported-compression-methods-and-archive-formats

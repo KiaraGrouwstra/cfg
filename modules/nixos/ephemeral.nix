@@ -1,7 +1,5 @@
 {
   lib,
-  inputs,
-  pkgs,
   config,
   ...
 }: {
@@ -36,7 +34,6 @@
     cfg = config.modules.impermanence.nixos;
   in
     lib.mkIf cfg.enable {
-
       # https://discourse.nixos.org/t/impermanence-vs-systemd-initrd-w-tpm-unlocking/25167/3
       boot.initrd.systemd.services.wipe-root = lib.mkIf cfg.btrfsSubvolumes.enable {
         description = "Rollback BTRFS root subvolume to a pristine state";

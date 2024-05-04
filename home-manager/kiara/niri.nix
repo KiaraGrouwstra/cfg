@@ -277,10 +277,10 @@
             "Mod+Escape" = "${swaync-client} --close-all";
             "Mod+Grave" = "${swaync-client} --toggle-panel";
             "Mod+Space" = "${toggle anyrun} --plugins libapplications.so";
-            "Mod+J"     = "${toggle anyrun} --plugins libapplications.so";
+            "Mod+J" = "${toggle anyrun} --plugins libapplications.so";
             "Shift+Mod+Space" = term "jit.sh";
             "Alt+Mod+Space" = "${toggle rofi} -show drun -show-icons";
-            "Alt+Mod+J"     = "${toggle rofi} -show drun -show-icons";
+            "Alt+Mod+J" = "${toggle rofi} -show drun -show-icons";
             "Shift+Mod+J" = term "jit.sh";
           }
         )

@@ -112,5 +112,8 @@ in {
   dryCommands = lib.mapAttrs (binaryName: package: "${package}/bin/${binaryName}");
 
   # { "my-key": [url] } -> { substituters = [url]; trusted-public-keys = ["my-key"]; };
-  dryCache = attrs: { substituters = lib.flatten (lib.attrValues attrs); trusted-public-keys = lib.attrNames attrs; };
+  dryCache = attrs: {
+    substituters = lib.flatten (lib.attrValues attrs);
+    trusted-public-keys = lib.attrNames attrs;
+  };
 }
