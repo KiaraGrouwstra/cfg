@@ -34,6 +34,10 @@ up:
 upp input:
   nix flake lock --update-input {{input}}
 
+# Show what has yet to be persisted in a folder. Usage: just ephemeral $PWD | $PAGER
+ephemeral dir="$HOME":
+  ephemeral.sh {{dir}}
+
 # Open a Nix REPL - run manually to load flake: `:lf .`
 repl:
   nix repl

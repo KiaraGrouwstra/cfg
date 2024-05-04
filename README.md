@@ -53,20 +53,22 @@ cp /etc/{machine-id,group,passwd,shadow} /persist/etc
 ```sh
 $ just -l
 Available recipes:
-    age       # Check when inputs were last updated
-    boot      # Build a new configuration
-    clean     # Remove all generations older than 7 days
-    decode    # Decode secrets
-    default   # default action: list actions
-    encode    # Encode secrets
-    fmt       # Format code
-    gc        # Garbage collect all unused nix store entries
-    home      # Rebuild the home config
-    repl      # Open a Nix REPL - run manually to load flake: `:lf .`
-    switch    # Rebuild the system
-    test      # Run tests
-    up        # Update all inputs
-    upp input # Update specific input. Usage: just upp nixpkgs
+    age                   # Check when inputs were last updated
+    boot                  # Build a new configuration
+    clean                 # Remove all generations older than 7 days
+    decode                # Decode secrets
+    default               # default action: list actions
+    dry                   # Dry-build a new configuration
+    encode                # Encode secrets
+    ephemeral dir="$HOME" # Show what has yet to be persisted in a folder. Usage: just ephemeral $PWD | $PAGER
+    fmt                   # Format code
+    gc                    # Garbage collect all unused nix store entries
+    home                  # Rebuild the home config
+    repl                  # Open a Nix REPL - run manually to load flake: `:lf .`
+    switch                # Rebuild the system
+    test                  # Run tests
+    up                    # Update all inputs
+    upp input             # Update specific input. Usage: just upp nixpkgs
 ```
 
 ... or if `just` isn't available yet:
