@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -20,7 +21,7 @@
           xkb = {
             # You can set rules, model, layout, variant and options.
             # For more information, see xkeyboard-config(7).
-            layout = "us";
+            layout = "us,workman-p";
             options = "caps:escape";
             # model = "";
             # rules = "";
@@ -404,8 +405,8 @@
           # a matching layout switch hotkey configured in xkb options above.
           # Having both at once on the same hotkey will break the switching,
           # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-          # "Mod+Space"       = { switch-layout = "next"; };
-          # "Mod+Shift+Space" = { switch-layout = "prev"; };
+          "Mod+Apostrophe"       = { switch-layout = "next"; };
+          "Mod+Shift+Apostrophe" = { switch-layout = "prev"; };
         });
 
       # Add lines like this to spawn processes at startup.

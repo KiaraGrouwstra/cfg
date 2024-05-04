@@ -1051,6 +1051,7 @@
         "stylix": "stylix",
         "systems": "systems_4",
         "treefmt-nix": "treefmt-nix",
+        "workman": "workman",
         "yazi-mime": "yazi-mime"
       }
     },
@@ -1214,6 +1215,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "workman": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1639244827,
+        "narHash": "sha256-0SzjXqbJjJO5/F2nURTgj4MreTubkqQgIrQJPSAQvxc=",
+        "owner": "workman-layout",
+        "repo": "Workman",
+        "rev": "ec91fc378978d7322db5c3910d51ef079cd72e69",
+        "type": "github"
+      },
+      "original": {
+        "owner": "workman-layout",
+        "repo": "Workman",
         "type": "github"
       }
     },
