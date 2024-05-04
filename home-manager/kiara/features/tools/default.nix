@@ -1,12 +1,16 @@
 {pkgs, ...}: {
-  home.persistence."/persist/home/kiara".directories = [
-    ".config/keepassxc"
-    ".config/thefuck"
-    ".cache/keepassxc"
-    ".cache/tealdeer"
-    ".local/share/zoxide"
-    ".local/state/lazygit/state.yml"
-  ];
+  home.persistence."/persist/home/kiara" = {
+    directories = [
+      ".config/keepassxc"
+      ".config/thefuck"
+      ".cache/keepassxc"
+      ".cache/tealdeer"
+      ".local/share/zoxide"
+    ];
+    files = [
+      ".local/state/lazygit/state.yml"
+    ];
+  };
 
   home.packages = with pkgs; [
     ## terminals
