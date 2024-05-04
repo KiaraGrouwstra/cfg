@@ -4,11 +4,15 @@ default:
 
 # Rebuild the system
 switch:
-  sudo NIXOS_LABEL="$(head -n 1 .git/COMMIT_EDITMSG | sed 's/ /_/g' | sed 's/[^a-zA-Z0-9:_\.-]//g')" nixos-rebuild switch --fast --impure --flake .#default --show-trace
+  sudo NIXOS_LABEL="$(label.sh)" nixos-rebuild switch --fast --impure --flake .#default --show-trace
 
 # Build a new configuration
 boot:
-  sudo NIXOS_LABEL="$(head -n 1 .git/COMMIT_EDITMSG | sed 's/ /_/g' | sed 's/[^a-zA-Z0-9:_\.-]//g')" nixos-rebuild boot --fast --impure --flake .#default --show-trace
+  sudo NIXOS_LABEL="$(label.sh)" nixos-rebuild boot --fast --impure --flake .#default --show-trace
+
+# Dry-build a new configuration
+dry:
+  sudo NIXOS_LABEL="$(label.sh)" nixos-rebuild dry-activate --fast --impure --flake .#default --show-trace
 
 # Rebuild the home config
 home:
