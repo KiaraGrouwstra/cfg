@@ -135,7 +135,7 @@ in {
           # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui'; $SHELL"
           hold = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}; $SHELL'";
           # "/bin/wofi" -> "(pidof wofi && kill -9 $(pidof wofi)) || wofi"
-          toggle = program: "(pidof ${lib.baseNameOf program} && kill -9 $(pidof ${lib.baseNameOf program})) || ${program}";
+          toggle = program: "(pidof ${builtins.baseNameOf program} && kill -9 $(pidof ${builtins.baseNameOf program})) || ${program}";
         }
         # JIT: binary name != package name
         # "du-dust" -> "dust" -> "nix shell nixpkgs#du-dust --command dust"

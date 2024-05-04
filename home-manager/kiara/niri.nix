@@ -276,12 +276,12 @@
             "Alt+Space" = "${swaync-client} --close-latest";
             "Mod+Escape" = "${swaync-client} --close-all";
             "Mod+Grave" = "${swaync-client} --toggle-panel";
-            "Mod+Space" = "anyrun.sh";
+            "Mod+Space" = "${toggle anyrun} --plugins libapplications.so";
+            "Mod+J"     = "${toggle anyrun} --plugins libapplications.so";
             "Shift+Mod+Space" = term "jit.sh";
-            "Alt+Mod+Space" = "rofi.sh";
-            "Mod+J" = "anyrun.sh";
+            "Alt+Mod+Space" = "${toggle rofi} -show drun -show-icons";
+            "Alt+Mod+J"     = "${toggle rofi} -show drun -show-icons";
             "Shift+Mod+J" = term "jit.sh";
-            "Alt+Mod+J" = "rofi.sh";
           }
         )
         // (lib.mapVals (str: {action."${str}" = [];}) {
