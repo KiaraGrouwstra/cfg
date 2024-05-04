@@ -3,7 +3,9 @@
     ".config/keepassxc"
     ".config/thefuck"
     ".cache/keepassxc"
+    ".cache/tealdeer"
     ".local/share/zoxide"
+    ".local/state/lazygit/state.yml"
   ];
 
   home.packages = with pkgs; [
