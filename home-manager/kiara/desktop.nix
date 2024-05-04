@@ -82,22 +82,22 @@ with config.commands; {
 
     (genericDesktop "Log out" {
       exec = "niri msg action quit";
-      icon = "system-logout";
+      icon = "system-log-out";
     })
 
     (genericDesktop "Suspend" {
       exec = "systemctl suspend-then-hibernate";
-      icon = "suspend";
+      icon = "system-suspend";
     })
 
     (genericDesktop "Hibernate" {
       exec = "systemctl hibernate";
-      icon = "hibernate";
+      icon = "system-hibernate";
     })
 
     (genericDesktop "Lock" {
       exec = "swaylock";
-      icon = "autokey";
+      icon = "system-lock-screen";
     })
   ];
 }
