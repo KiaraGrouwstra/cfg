@@ -12,19 +12,22 @@ This is my setup for [NixOS](https://nixos.org/).
 <summary>
 Screenshot
 </summary>
-<img src="https://codeberg.org/kiara/cfg/raw/branch/main/screenshot.png" alt="screenshot showing niri with neofetch and yazi in wezterm.">
+
+![screenshot showing niri with neofetch and yazi in wezterm.](https://codeberg.org/kiara/cfg/raw/branch/main/screenshot.png)
+
 screenshot showing niri with neofetch and yazi in wezterm.
 thefuck plugin for zsh filled the JIT-install command for the missing app neofetch.
-<a href="https://www.artstation.com/artwork/LyG3K">wallpaper</a> by Alena Aenami.
+[wallpaper](https://www.artstation.com/artwork/LyG3K) by Alena Aenami.
+
 </details>
 
 ## usage
 
 <details>
 <summary>clean install from NixOS USB</summary>
-<div class="sourceCode">
-<pre class="sourceCode sh">
-<code class="sourceCode bash">cd Downloads
+
+```sh
+cd Downloads
 git clone https://codeberg.org/kiara/cfg.git
 cd cfg
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko -f .#hammer
@@ -35,9 +38,8 @@ sudo cp ~/Downloads/keys.txt $dest  # import/create
 sudo nixos-install --no-root-passwd --flake .#default --no-root-passwd
 sudo nixos-enter --root /mnt
 cp /etc/{machine-id,group,passwd,shadow} /persist/etc
-</code>
-</pre>
-</div>
+```
+
 </details>
 
 ### prerequisites
