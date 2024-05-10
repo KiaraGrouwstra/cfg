@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}: {
   imports = [
     ./helix.nix
   ];
@@ -17,6 +23,11 @@
     calibre
     libreoffice-fresh
   ];
+
+  programs.less.keys =
+    if config.keyboard.active == "workman"
+    then lib.readFile "${inputs.workman-vim}/lesskey"
+    else "";
 
   programs.lesspipe.enable = true;
 }

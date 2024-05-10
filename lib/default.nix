@@ -1,6 +1,5 @@
 {lib, ...}:
 with lib; let
-  # (v: 2 * v) -> { a = 1; } -> { a = 2; }
   mapVals = f: mapAttrs (_: f);
 
   # get an object of files in a directory with a given suffix
@@ -20,8 +19,6 @@ with lib; let
       mapAttrs' (name: _: fileAttrInPath suffix path name)
       (filterAttrs (name: type: hasSuffix suffix name && type == "regular")
         (builtins.readDir path));
-in {
-  inherit mapVals dirAttrs;
 
   # (a -> b -> c) -> b -> a -> c
   flip = f: x: y: f y x;
@@ -62,22 +59,21 @@ in {
         }))
     deps));
 
+  prioritize = lower: higher:
+    foldl' (o: k:
+      o
+      // {
+        "${k}" = let
+          v = getAttr k lower;
+        in
+          if hasAttr k o
+          then (getAttr k o) ++ v
+          else v;
+      })
+    higher (attrNames lower);
+
   # dry mime list
-  prioritizeList = let
-    prioritize = lower: higher:
-      foldl' (o: k:
-        o
-        // {
-          "${k}" = let
-            v = getAttr k lower;
-          in
-            if hasAttr k o
-            then (getAttr k o) ++ v
-            else v;
-        })
-      higher (attrNames lower);
-  in
-    foldl' prioritize {};
+  prioritizeList = foldl' prioritize {};
 
   # recursively symlink any files in a directory from $HOME
   homeFolder = baseDir: let
@@ -116,4 +112,22 @@ in {
     substituters = lib.flatten (lib.attrValues attrs);
     trusted-public-keys = lib.attrNames attrs;
   };
-}
+in
+  assert mapVals (v: 2 * v) {a = 1;} == {a = 2;}; {
+    inherit
+      mapVals
+      dirAttrs
+      flip
+      mapKeys
+      default
+      dirContents
+      importRest
+      dryFlakes
+      prioritize
+      prioritizeList
+      homeFolder
+      attrsFromPackage
+      dryCommands
+      dryCache
+      ;
+  }

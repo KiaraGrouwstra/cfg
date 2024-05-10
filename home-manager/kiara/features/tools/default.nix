@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  imports = [
+    ./lazygit.nix
+  ];
   home.persistence."/persist/home/kiara" = {
     directories = [
       ".config/keepassxc"
@@ -6,9 +9,6 @@
       ".cache/keepassxc"
       ".cache/tealdeer"
       ".local/share/zoxide"
-    ];
-    files = [
-      ".local/state/lazygit/state.yml"
     ];
   };
 
@@ -21,7 +21,7 @@
     zsh
     thefuck
     pandoc # lesspipe
-    lazygit
+    soft-serve
 
     ## command-line dropins (ish)
     xxh

@@ -1051,7 +1051,7 @@
         "stylix": "stylix",
         "systems": "systems_4",
         "treefmt-nix": "treefmt-nix",
-        "workman": "workman",
+        "workman-vim": "workman-vim",
         "yazi-mime": "yazi-mime"
       }
     },
@@ -1218,20 +1218,20 @@
         "type": "github"
       }
     },
-    "workman": {
+    "workman-vim": {
       "flake": false,
       "locked": {
-        "lastModified": 1639244827,
-        "narHash": "sha256-0SzjXqbJjJO5/F2nURTgj4MreTubkqQgIrQJPSAQvxc=",
-        "owner": "workman-layout",
-        "repo": "Workman",
-        "rev": "ec91fc378978d7322db5c3910d51ef079cd72e69",
-        "type": "github"
+        "lastModified": 1588449263,
+        "narHash": "sha256-9h4PX2r05EluiBz1gnaINaDN+6oTDFY2As+cdGf1QeY=",
+        "owner": "ajgrf",
+        "repo": "workman-vim-bindings",
+        "rev": "ae60f3929cc04047bb1617778525fec176b9b42b",
+        "type": "gitlab"
       },
       "original": {
-        "owner": "workman-layout",
-        "repo": "Workman",
-        "type": "github"
+        "owner": "ajgrf",
+        "repo": "workman-vim-bindings",
+        "type": "gitlab"
       }
     },
     "yazi-mime": {

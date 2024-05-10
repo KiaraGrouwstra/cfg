@@ -110,8 +110,12 @@
     nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    workman = {
-      url = "github:workman-layout/Workman";
+    # workman = {
+    #   url = "github:workman-layout/Workman";
+    #   flake = false;
+    # };
+    workman-vim = {
+      url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
     };
   };

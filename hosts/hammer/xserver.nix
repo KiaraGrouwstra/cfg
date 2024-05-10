@@ -1,4 +1,4 @@
-{inputs, ...}: {
+_: {
   services.displayManager = {
     # session = [ ];
     autoLogin = {
@@ -18,7 +18,8 @@
         workman-p = {
           description = "https://workmanlayout.org/#introducing-the-workman-keyboard-layout";
           languages = ["eng"];
-          symbolsFile = "${inputs.workman}/xorg/workman-p";
+          # symbolsFile = "${inputs.workman}/xorg/workman-p";
+          symbolsFile = ./workman-p;
         };
       };
       variant = "";

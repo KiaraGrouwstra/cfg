@@ -4,5 +4,6 @@
   # List your module files here
   imports = [
     ./fonts.nix
+    ./keyboard.nix
   ];
 }

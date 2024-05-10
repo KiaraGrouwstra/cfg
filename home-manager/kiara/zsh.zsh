@@ -1,4 +1,14 @@
+# vi mode
 set -o vi
+
+# keybinds: list key sequences by `cat > /dev/null`
+bindkey -s "^[h" ".. \C-j"
+bindkey -s "^[k" "ide.sh \C-j"
+
+# keybinds: list actions by `stty -a`
+# have ctrl sequences retain their qwerty positions in workman
+stty eof '^h'
+# stty intr '^m'  # breaks zsh, making it error SIGINT
 
 # nix-shell
 any-nix-shell zsh --info-right | source /dev/stdin

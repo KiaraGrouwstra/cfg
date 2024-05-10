@@ -1,4 +1,9 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  inputs,
+  ...
+}: {
   home.persistence."/persist/home/kiara" = {
     directories = [
       ".zplug"
@@ -40,6 +45,12 @@
       f = "fuck"; # in case zsh plugin's #1 suggestion won't do
       # ssh = "kitten ssh";  # for kitty
     };
-    initExtra = lib.readFile ./zsh.zsh;
+    initExtra =
+      lib.readFile ./zsh.zsh
+      + (
+        if config.keyboard.active == "workman"
+        then lib.readFile "${inputs.workman-vim}/zshrc"
+        else ""
+      );
   };
 }

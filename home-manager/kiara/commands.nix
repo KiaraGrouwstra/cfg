@@ -14,6 +14,7 @@ let
       lib.lists.map
       # key = binary name = package name
       lib.attrsFromPackage ([
+          git
           nix
           tree
           bat
@@ -132,7 +133,7 @@ in {
           # command wrappers
           # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui'"
           term = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}'";
-          # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui'; $SHELL"
+          # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui; $SHELL'"
           hold = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}; $SHELL'";
           # "/bin/wofi" -> "(pidof wofi && kill -9 $(pidof wofi)) || wofi"
           toggle = program: "(pidof ${builtins.baseNameOf program} && kill -9 $(pidof ${builtins.baseNameOf program})) || ${program}";

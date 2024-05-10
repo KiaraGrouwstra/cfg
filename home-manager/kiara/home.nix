@@ -8,6 +8,8 @@
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
 
+  keyboard.active = "workman";
+
   home.sessionVariables = with config.commands; {
     PAGER = nvimpager;
     MANPAGER = "$PAGER";

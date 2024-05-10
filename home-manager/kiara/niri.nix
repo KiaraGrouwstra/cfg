@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -187,7 +186,7 @@
         DISPLAY = "null";
       };
 
-      binds = let
+      binds = with config.keyboard.vi; let
         # { prefixes.Mod = "focus"; suffixes.Up = "window-up"; } -> { "Mod+Up" = "focus-window-up"; }
         binds = {
           suffixes,
@@ -240,7 +239,8 @@
             # You can also use a shell:
             # "Mod+T" = ["bash" "-c" "notify-send hello && exec alacritty"];
 
-            "Mod+T" = wezterm;
+            # "Mod+T" = wezterm; # qwerty
+            "Mod+D" = wezterm; # workman
             # audio
             XF86AudioRaiseVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
             XF86AudioLowerVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
@@ -263,7 +263,7 @@
             "Mod+Shift+E" = "${thunar} Downloads/";
             "Mod+E" = term "yy.sh ${config.home.homeDirectory}/Downloads/";
             "Mod+Shift+Ctrl+Alt+Space" = term "pick-character.sh ${./scripts/emoji.txt}";
-            "Mod+N" = "${systemctl} suspend-then-hibernate";
+            # "Mod+N" = "${systemctl} suspend-then-hibernate";
             "Mod+F3" = term "fontpreview.sh";
             "Mod+F9" = term "main-menu.sh";
             "Mod+I" = term nmtui;
@@ -274,7 +274,7 @@
             "Ctrl+Alt+Delete" = gnome-system-monitor;
             "Ctrl+Shift+Escape" = "${alacritty} -e ${zfxtop}";
             "Mod+L" = swaylock;
-            "Alt+Space" = "${swaync-client} --close-latest";
+            # "Alt+Space" = "${swaync-client} --close-latest";
             "Mod+Escape" = "${swaync-client} --close-all";
             "Mod+Grave" = "${swaync-client} --toggle-panel";
             "Mod+Space" = "${toggle anyrun} --plugins libapplications.so";
@@ -308,7 +308,7 @@
           # This debug bind will tint all surfaces green, unless they are being
           # directly scanned out. It's therefore useful to check if direct scanout
           # is working.
-          "Mod+Shift+Ctrl+T" = "toggle-debug-tint";
+          # "Mod+Shift+Ctrl+T" = "toggle-debug-tint";
 
           "Mod+K" = "quit";
           # Mod-/, kinda like Mod-?, shows a list of important hotkeys.
@@ -330,10 +330,11 @@
             Up = "window-up";
             Right = "column-right";
             # left hand
-            D = "column-left";
             X = "window-down";
             Z = "window-up";
-            F = "column-right";
+            # left hand
+            "${if config.keyboard.active == "workman" then "H" else "D"}" = "column-left";
+            "${if config.keyboard.active == "workman" then "T" else "F"}" = "column-right";
           };
           substitutions = {
             monitor-column = "monitor";
@@ -405,8 +406,8 @@
           # a matching layout switch hotkey configured in xkb options above.
           # Having both at once on the same hotkey will break the switching,
           # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-          "Mod+Apostrophe"       = { switch-layout = "next"; };
-          "Mod+Shift+Apostrophe" = { switch-layout = "prev"; };
+          "Mod+Apostrophe" = {switch-layout = "next";};
+          "Mod+Shift+Apostrophe" = {switch-layout = "prev";};
         });
 
       # Add lines like this to spawn processes at startup.
