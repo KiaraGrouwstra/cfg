@@ -333,8 +333,8 @@
             X = "window-down";
             Z = "window-up";
             # left hand
-            "${if config.keyboard.active == "workman" then "H" else "D"}" = "column-left";
-            "${if config.keyboard.active == "workman" then "T" else "F"}" = "column-right";
+            "${config.keyboard.keys.D}" = "column-left";
+            "${config.keyboard.keys.F}" = "column-right";
           };
           substitutions = {
             monitor-column = "monitor";
