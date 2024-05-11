@@ -93,7 +93,7 @@
             "${K}" = "swap_view_up";
             "${H}" = "swap_view_left";
             "${J}" = "swap_view_down";
-            "k" = {
+            "${w}" = {
               "s" = "hsplit_new";
               "v" = "vsplit_new";
               "C-s" = "hsplit_new";
