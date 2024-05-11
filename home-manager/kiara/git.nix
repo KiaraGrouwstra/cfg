@@ -23,7 +23,7 @@ _: {
       pull.rebase = true;
       push.autoSetupRemote = true;
       branch.autoSetupRebase = "always";
-      branch.autoSetupMerge = "always";
+      branch.autoSetupMerge = "simple";
       checkout.defaultRemote = "origin";
       safe.directory = "/tmp"; # needed for ago.sh
     };
