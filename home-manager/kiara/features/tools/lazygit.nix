@@ -177,7 +177,7 @@
           "openRecentRepos" = "<c-r>";
           "confirm" = "<enter>";
           "remove" = "d";
-          "new" = "n";
+          "new" = n;
           "edit" = e;
           "openFile" = o;
           "scrollUpMain" = "<pgup>";
