@@ -245,6 +245,11 @@
           run = "plugin --sync smart-enter";
           desc = "Enter the child directory, or open the file";
         }
+        {
+          on = ["<Right>"];
+          run = "plugin --sync smart-enter";
+          desc = "Enter the child directory, or open the file";
+        }
         # https://yazi-rs.github.io/docs/tips/#selected-files-to-clipboard
         {
           on = [y];
@@ -261,7 +266,15 @@
           run = "plugin --sync arrow --args=-1";
         }
         {
+          on = ["<Up"];
+          run = "plugin --sync arrow --args=-1";
+        }
+        {
           on = [j];
+          run = "plugin --sync arrow --args=1";
+        }
+        {
+          on = ["<Down"];
           run = "plugin --sync arrow --args=1";
         }
         {
@@ -293,6 +306,11 @@
         # { on = [ J ]; run = "arrow 5";  desc = "Move cursor down 5 lines"; }
         {
           on = [h];
+          run = "leave";
+          desc = "Go back to the parent directory";
+        }
+        {
+          on = ["<Left>"];
           run = "leave";
           desc = "Go back to the parent directory";
         }
@@ -343,7 +361,16 @@
           run = "search none";
           desc = "Cancel the ongoing search";
         }
-
+      	{
+          on = [ "<PageUp>" ];
+          run = "arrow -100%";
+          desc = "Move cursor up one page";
+        }
+      	{
+          on = [ "<PageDown>" ];
+          run = "arrow 100%";
+          desc = "Move cursor down one page";
+        }
         # Linemode
         {
           on = ["m" "n"];
