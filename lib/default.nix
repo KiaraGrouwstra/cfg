@@ -48,7 +48,7 @@ with lib; let
         value = let
           packages = inputs."${dep}".packages.${pkgs.system};
         in
-          if hasAttr dep packages
+          if packages ? dep
           then packages."${dep}"
           else packages.default;
       }
@@ -66,7 +66,7 @@ with lib; let
         "${k}" = let
           v = getAttr k lower;
         in
-          if hasAttr k o
+          if o ? k
           then (getAttr k o) ++ v
           else v;
       })
