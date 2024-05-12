@@ -383,6 +383,7 @@
       "inode/directory" = [
         "yazi"
         "thunar"
+        "helix"
         "codium"
         "lapce"
         "less"
