@@ -103,6 +103,7 @@
       #   };
 
       #   variable-refresh-rate = true;
+
       #   # Position of the output in the global coordinate space.
       #   # This affects directional monitor actions like "focus-monitor-left", and cursor movement.
       #   # The cursor can only move between directly adjacent outputs.
@@ -225,6 +226,29 @@
               }) (lib.attrNames attrs);
         in
           lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
+        substitutions = {
+          monitor-column = "monitor";
+          monitor-window = "monitor";
+        };
+        horizontal = {
+          # right hand
+          Left = "left";
+          Right = "right";
+          # left hand
+          "${config.keyboard.keys.D}" = "left";
+          "${config.keyboard.keys.F}" = "right";
+        };
+        vertical = {
+          # right hand
+          Up = "up";
+          Down = "down";
+          # left hand
+          S = "up";
+          G = "down";
+        };
+        columns = lib.mapVals (x: "column-${x}") horizontal;
+        workspaces = lib.mapVals (x: "workspace-${x}") vertical;
+        windows = lib.mapVals (x: "window-${x}") vertical;
       in
         with config.commands;
         lib.mapVals (str: {action.spawn = sh str;}) (
@@ -333,47 +357,8 @@
         })
         // (binds {
           prefixes = {
-            "Mod" = "focus";
-            "Mod+Shift" = "move";
-            "Mod+Alt" = "move";
-            "Mod+Ctrl" = "focus-monitor";
-            "Mod+Shift+Ctrl" = "move-column-to-monitor";
-            "Mod+Shift+Ctrl+Alt" = "move-workspace-to-monitor";
-          };
-          suffixes = {
-            # right hand
-            Left = "column-left";
-            Down = "window-down";
-            Up = "window-up";
-            Right = "column-right";
-            # left hand
-            X = "window-down";
-            Z = "window-up";
-            # left hand
-            "${config.keyboard.keys.D}" = "column-left";
-            "${config.keyboard.keys.F}" = "column-right";
-          };
-          substitutions = {
-            monitor-column = "monitor";
-            monitor-window = "monitor";
-          };
-        })
-        // (binds {
-          prefixes = {
-            Mod = "focus-column";
-            "Mod+Shift" = "move-column-to";
-          };
-          suffixes = {
-            Home = "first";
-            End = "last";
-          };
-        })
-        // (binds {
-          prefixes = {
             Mod = "focus-workspace";
             "Mod+Shift" = "move-column-to-workspace";
-            "Mod+Alt" = "move-column-to-workspace";
-            "Mod+Ctrl" = "move-workspace";
           };
           suffixes = {
             # right hand
@@ -382,6 +367,65 @@
             # left hand
             S = "up";
             G = "down";
+          };
+        })
+        // (binds {
+          inherit substitutions;
+          prefixes = {
+            Mod = "focus";
+            "Mod+Shift" = "move";
+          };
+          suffixes = columns // {
+            # right hand
+            Up = "window-up";
+            Down = "window-down";
+            # left hand
+            X = "window-down";
+            Z = "window-up";
+          };
+        })
+        // (binds {
+          prefixes = {
+            "Mod+Alt" = "focus-monitor";
+            "Mod+Shift+Alt" = "move-workspace-to-monitor";
+          };
+          suffixes = horizontal;
+        })
+        // (binds {
+          prefixes = {
+            "Mod+Shift+Alt" = "move-workspace";
+          };
+          suffixes = {
+            # right hand
+            Left = "up";
+            Right = "down";
+            # left hand
+            S = "up";
+            G = "down";
+          };
+        })
+        // (binds {
+          prefixes = {
+            "Mod+Alt" = "move-column-to-monitor";
+          };
+          suffixes = {
+            # right hand
+            Up = "left";
+            Down = "right";
+            # left hand
+            S = "left";
+            G = "right";
+          };
+        })
+        // (binds {
+          prefixes = {
+            Mod = "focus-column";
+            "Mod+Shift" = "move-column-to";
+            "Mod+Alt" = "move-column-to";
+          };
+          suffixes = {
+            Home = "first";
+            End = "last";
           };
         })
         # You can refer to workspaces by index. However, keep in mind that
