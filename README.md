@@ -100,10 +100,10 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 
 ### fixes for flake
 
-the `flake.lock`ed nixpkgs is used for:
-
-- nix commands
-- 'command not found' errors
+- the `flake.lock`ed nixpkgs is used for:
+  - nix commands
+  - 'command not found' errors
+- `nix flake show` is fixed using [Flake Schemas](https://github.com/NixOS/nix/pull/8892)
 
 ## used software
 
@@ -166,7 +166,7 @@ Used keyboard layouts, with `Caps Lock` remapped to `Esc`:
 - [workman-programmer](https://workmanlayout.org/#introducing-the-workman-keyboard-layout), with application keymaps [modified](https://gitlab.com/ajgrf/workman-vim-bindings) to keep arrow actions `h`/`j`/`k`/`l` (+ actions 'y'/'n') in their ergonomic qwerty positions (at the cost of moving actions `e`/`o` to keys `h`/`l`)
 - `en-us` (qwerty)
 
-Application keybinds:
+Application keybinds, tweaked to layout by setting `config.keyboard.active`:
 
 - `niri`: see [`./home-manager/kiara/niri.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/niri.nix) (TODO)
 - [`swaynotificationcenter`](https://github.com/ErikReider/SwayNotificationCenter#control-center-shortcuts)
