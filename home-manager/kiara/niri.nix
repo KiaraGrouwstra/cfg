@@ -45,6 +45,7 @@
           dwt = false;
           dwtp = false;
           tap-button-map = "left-middle-right";
+          click-method = "button-areas";
         };
         mouse = {
           natural-scroll = false;
@@ -62,6 +63,9 @@
           # existing outputs.
           map-to-output = "eDP-1";
         };
+        warp-mouse-to-focus = true;
+        focus-follows-mouse = true;
+        workspace-auto-back-and-forth = true;
 
         # By default, niri will take over the power button to make it sleep
         # instead of power off.
@@ -98,6 +102,7 @@
       #     refresh = 120.030;
       #   };
 
+      #   variable-refresh-rate = true;
       #   # Position of the output in the global coordinate space.
       #   # This affects directional monitor actions like "focus-monitor-left", and cursor movement.
       #   # The cursor can only move between directly adjacent outputs.
@@ -221,8 +226,9 @@
         in
           lib.listToAttrs (pairs prefixes (prefix: pairs suffixes (suffix: [(format prefix suffix)])));
       in
+        with config.commands;
         lib.mapVals (str: {action.spawn = sh str;}) (
-          with config.commands; {
+          {
             # Keys consist of modifiers separated by + signs, followed by an XKB key name
             # in the end. To find an XKB name for a particular key, you may use a program
             # like wev.
@@ -241,17 +247,6 @@
 
             # "Mod+T" = wezterm; # qwerty
             "Mod+D" = wezterm; # workman
-            # audio
-            XF86AudioRaiseVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
-            XF86AudioLowerVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
-            XF86AudioMute = "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
-            XF86AudioPlay = "${playerctl} play-pause";
-            XF86AudioStop = "${playerctl} stop";
-            XF86AudioPrev = "${playerctl} previous";
-            XF86AudioNext = "${playerctl} next";
-            # screen brightness
-            XF86MonBrightnessDown = "${light} -U 5";
-            XF86MonBrightnessUp = "${light} -A 5";
 
             # switch wallpaper
             "Mod+M" = "random-wallpaper.sh";
@@ -283,6 +278,28 @@
             "Alt+Mod+Space" = "${toggle rofi} -show drun -show-icons";
             "Alt+Mod+J" = "${toggle rofi} -show drun -show-icons";
             "Shift+Mod+J" = term "jit.sh";
+          }
+        )
+        //
+        lib.mapVals (str: {
+          allow-when-locked = true;
+          action.spawn = sh str;
+        }) (
+          {
+            # audio
+            "Mod+TouchpadScrollDown" = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0.02+";
+            "Mod+TouchpadScrollUp"   = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0.02-";
+            XF86AudioRaiseVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
+            XF86AudioLowerVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
+            XF86AudioMute = "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            XF86AudioMicMute = "${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+            XF86AudioPlay = "${playerctl} play-pause";
+            XF86AudioStop = "${playerctl} stop";
+            XF86AudioPrev = "${playerctl} previous";
+            XF86AudioNext = "${playerctl} next";
+            # screen brightness
+            XF86MonBrightnessDown = "${light} -U 5";
+            XF86MonBrightnessUp = "${light} -A 5";
           }
         )
         // (lib.mapVals (str: {action."${str}" = [];}) {
@@ -408,7 +425,12 @@
           # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
           "Mod+Apostrophe" = {switch-layout = "next";};
           "Mod+Shift+Apostrophe" = {switch-layout = "prev";};
-        });
+        })
+        // (lib.mapVals (attrs: let tpl = builtins.elemAt (lib.attrsets.attrsToList attrs) 0; in {action."${tpl.name}" = [];} // tpl.value) {
+          "Mod+WheelScrollDown".focus-workspace-down.cooldown-ms = 150;
+          "Mod+WheelScrollUp".focus-workspace-up.cooldown-ms = 150;
+        })
+        ;
 
       # Add lines like this to spawn processes at startup.
       # Note that running niri as a session supports xdg-desktop-autostart,
