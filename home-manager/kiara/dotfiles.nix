@@ -25,6 +25,12 @@ in {
       # must `git add .` or new files won't be found
       ".config/swaync/configSchema.json".source = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
       ".config/yazi/plugins/mime.yazi".source = "${inputs.yazi-mime}/init.lua";
+      ".config/piper/voices".source = "${pkgs.fetchgit {
+        url = "https://huggingface.co/rhasspy/piper-voices";
+        rev = "c3bf31a7c50ea738281519ca86ba2ee0f50a1882";
+        hash = "sha256-8f0CkrML8PgJA04HC+KFJTqdA04mfCM1quEywhXP09M=";
+        fetchLFS = true;
+      }}";
       # https://github.com/nix-community/home-manager/issues/322#issuecomment-1856128020
       ".ssh/config" = {
         source = ./dotfiles/.ssh/config;
