@@ -285,25 +285,12 @@
           on = [J];
           run = "plugin --sync arrow --args=5";
         }
-        # # https://yazi-rs.github.io/docs/tips/#parent-arrow
-        # {
-        #   on = [ K ];
-        #   run = "plugin --sync parent-arrow --args=-1";
-        # }
-        # {
-        #   on = [ J ];
-        #   run = "plugin --sync parent-arrow --args=1";
-        # }
         # skip confirm on delete
         {
           on = ["d"];
           run = "remove --force";
           desc = "Move the files to the trash";
         }
-        # { on = [ k ]; run = "arrow -1"; desc = "Move cursor up"; }
-        # { on = [ j ]; run = "arrow 1";  desc = "Move cursor down"; }
-        # { on = [ K ]; run = "arrow -5"; desc = "Move cursor up 5 lines"; }
-        # { on = [ J ]; run = "arrow 5";  desc = "Move cursor down 5 lines"; }
         {
           on = [h];
           run = "leave";
