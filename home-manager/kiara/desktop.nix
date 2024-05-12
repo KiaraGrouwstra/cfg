@@ -71,6 +71,12 @@ with config.commands; {
       (lib.lists.map (x: x.mime) config.programs.pistol.associations)
     )
 
+    # fallback option allowing to pick an application to open the file with
+    (
+      commandDesktop "open-with" "open-with.sh"
+      (lib.attrNames config.xdg.mimeApps.defaultApplications)
+    )
+
     (genericDesktop "Shut down" {
       exec = "systemctl poweroff -i";
       icon = "system-shutdown";
