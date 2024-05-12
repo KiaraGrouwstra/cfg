@@ -179,22 +179,22 @@
             -- },
             -- {
             --    key = -- 'DownArrow',
-            --    mods =--  'ALT-SHIFT',
+            --    mods =--  'ALT|SHIFT',
             --    action--  = wezterm.action{AdjustPaneSize = { "Down", 1 }},
             -- },
             -- {
             --    key = -- 'LeftArrow',
-            --    mods =--  'ALT-SHIFT',
+            --    mods =--  'ALT|SHIFT',
             --    action--  = wezterm.action{AdjustPaneSize = {"Left",1}},
             -- },
             -- {
             --    key = -- 'RightArrow',
-            --    mods =--  'ALT-SHIFT',
+            --    mods =--  'ALT|SHIFT',
             --    action--  = wezterm.action{AdjustPaneSize = {"Right",1}},
             -- },
             -- {
             --    key = -- 'UpArrow',
-            --    mods =--  'ALT-SHIFT',
+            --    mods =--  'ALT|SHIFT',
             --    action--  = wezterm.action{AdjustPaneSize = {"Up",1}},
             -- },
             {
@@ -212,11 +212,11 @@
                mods = 'CTRL',
                action = wezterm.action{ScrollByPage = 1 },
             },
-            -- {
-            --    key = '${j}',
-            --    mods = 'ALT-SHIFT',
-            --    action = wezterm.action{MoveTabRelative = 1 },
-            -- },
+            {
+               key = '${j}',
+               mods = 'ALT|SHIFT',
+               action = wezterm.action{MoveTabRelative = 1 },
+            },
             {
                key = '${k}',
                mods = 'ALT',
@@ -227,11 +227,11 @@
                mods = 'CTRL',
                action = wezterm.action{ScrollByPage = -1 },
             },
-            -- {
-            --    key = '${k}',
-            --    mods = 'ALT-SHIFT',
-            --    action = wezterm.action{MoveTabRelative = -1 },
-            -- },
+            {
+               key = '${k}',
+               mods = 'ALT|SHIFT',
+               action = wezterm.action{MoveTabRelative = -1 },
+            },
             -- {
             --    key = 'l',
             --    mods = 'ALT',
@@ -281,7 +281,7 @@
           then "d"
           else "t"
         }',
-            --    mods = 'ALT-SHIFT',
+            --    mods = 'ALT|SHIFT',
             --    action = wezterm.action{SpawnTab = "DefaultDomain"},
             -- },
             {
