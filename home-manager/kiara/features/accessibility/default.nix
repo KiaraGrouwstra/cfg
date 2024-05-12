@@ -8,6 +8,7 @@
     orca
 
     # AI
+    local-ai
     mods
   ];
 
