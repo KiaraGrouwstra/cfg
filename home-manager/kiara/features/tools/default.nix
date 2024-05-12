@@ -21,7 +21,6 @@
     zsh
     thefuck
     pandoc # lesspipe
-    soft-serve
 
     ## command-line dropins (ish)
     xxh
