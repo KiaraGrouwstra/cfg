@@ -269,8 +269,7 @@
             # You can also use a shell:
             # "Mod+T" = ["bash" "-c" "notify-send hello && exec alacritty"];
 
-            # "Mod+T" = wezterm; # qwerty
-            "Mod+D" = wezterm; # workman
+            "Mod+${if config.keyboard.active == "workman" then "D" else "T"}" = wezterm;
 
             # switch wallpaper
             "Mod+M" = "random-wallpaper.sh";
