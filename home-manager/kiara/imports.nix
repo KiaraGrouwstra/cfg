@@ -11,7 +11,6 @@
     ./firefox.nix
     ./font.nix
     ./fzf.nix
-    ./gammastep.nix
     ./git.nix
     ./gtk.nix
     ./kitty.nix
@@ -26,6 +25,7 @@
     ./vscode.nix
     ./waybar.nix
     ./wezterm.nix
+    ./wlsunset.nix
     ./zathura.nix
     ./zsh.nix
   ];
