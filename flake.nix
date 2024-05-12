@@ -123,6 +123,12 @@
       inputs.lix.follows = "lix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-schemas.url = "github:gvolpe/flake-schemas";
+    ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
+    nix-schema = {
+      inputs.flake-schemas.follows = "flake-schemas";
+      url = "github:DeterminateSystems/nix-src/flake-schemas";
+    };
   };
 
   outputs = {
@@ -217,6 +223,10 @@
     # Your custom packages and modifications, exported as overlays
     overlays = overlaysAttrs;
 
+    schemas =
+      inputs.flake-schemas.schemas //
+      import ./lib/schemas.nix { inherit (inputs) flake-schemas; };
+
     # Allow partioning with `disko -f .#hammer`
     diskoConfigurations.hammer = import ./hosts/hammer/disko-config.nix;
 
@@ -266,5 +276,15 @@
         extraSpecialArgs = specialFor.${system};
         modules = homeModules;
       });
+
+    apps = forSystem (system: let
+      pkgs = pkgsFor.${system};
+    in {
+      nix = {
+        type = "app";
+        program = "${pkgs.nix-schema}/bin/nix-schema";
+      };
+    });
+    
   };
 }

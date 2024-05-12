@@ -87,6 +87,10 @@ in {
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    nix-schema
+  ];
+
   environment.shells = with pkgs; [zsh];
 
   # List services that you want to enable:

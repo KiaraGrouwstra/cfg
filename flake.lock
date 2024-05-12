@@ -321,6 +321,22 @@
         "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
       }
     },
+    "flake-compat_3": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673956053,
+        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -402,6 +418,21 @@
       "original": {
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
+    "flake-schemas": {
+      "locked": {
+        "lastModified": 1713165510,
+        "narHash": "sha256-pR0sT1MGGTi1+u74gssJcq83TpUfcJbbsP69qhFg1O4=",
+        "owner": "gvolpe",
+        "repo": "flake-schemas",
+        "rev": "e72d8de98fab07bd852204141d2e8b731e3f2039",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gvolpe",
+        "repo": "flake-schemas",
         "type": "github"
       }
     },
@@ -659,6 +690,22 @@
         "type": "github"
       }
     },
+    "libgit2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697646580,
+        "narHash": "sha256-oX4Z3S9WtJlwvj0uH9HlYcWv+x1hqp8mhXl7HsLu2f0=",
+        "owner": "libgit2",
+        "repo": "libgit2",
+        "rev": "45fd9ed7ae1a9b74b957ef4f337bc3c8b3df01b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "libgit2",
+        "repo": "libgit2",
+        "type": "github"
+      }
+    },
     "lix": {
       "flake": false,
       "locked": {
@@ -798,6 +845,31 @@
       "original": {
         "owner": "Mic92",
         "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nix-schema": {
+      "inputs": {
+        "flake-compat": "flake-compat_3",
+        "flake-schemas": [
+          "flake-schemas"
+        ],
+        "libgit2": "libgit2",
+        "nixpkgs": "nixpkgs_4",
+        "nixpkgs-regression": "nixpkgs-regression"
+      },
+      "locked": {
+        "lastModified": 1710167931,
+        "narHash": "sha256-MFW7NoTvbT2ckIPJQTHhMnRn1s3Ay+aAUVkL1GJPsuY=",
+        "owner": "DeterminateSystems",
+        "repo": "nix-src",
+        "rev": "d76e5fb297eec5163dacf1346b2fc07562526386",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DeterminateSystems",
+        "ref": "flake-schemas",
+        "repo": "nix-src",
         "type": "github"
       }
     },
@@ -967,6 +1039,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-regression": {
+      "locked": {
+        "lastModified": 1643052045,
+        "narHash": "sha256-uGJ0VXIhWKGXxkeNnq4TvV3CIOkUJ3PAoLZ3HMzNVMw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1713995372,
@@ -1034,6 +1122,22 @@
       }
     },
     "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1709083642,
+        "narHash": "sha256-7kkJQd4rZ+vFrzWu8sTRtta5D1kBG0LSRYAfhtmMlSo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b550fe4b4776908ac2a861124307045f8e717c8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1714314149,
         "narHash": "sha256-yNAevSKF4krRWacmLUsLK7D7PlfuY3zF0lYnGYNi9vQ=",
@@ -1106,6 +1210,7 @@
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
         "flake-programs-sqlite": "flake-programs-sqlite",
+        "flake-schemas": "flake-schemas",
         "flake-utils": "flake-utils",
         "flake-utils-plus": "flake-utils-plus",
         "flare": "flare",
@@ -1116,12 +1221,13 @@
         "niri": "niri",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
+        "nix-schema": "nix-schema",
         "nix-software-center": "nix-software-center",
         "nixgl": "nixgl",
         "nixos": "nixos",
         "nixos-conf-editor": "nixos-conf-editor",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "snowfall-lib": "snowfall-lib",
