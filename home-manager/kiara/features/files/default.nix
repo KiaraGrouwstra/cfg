@@ -19,12 +19,15 @@ with config.commands; {
     ## compression
     unar
 
-    ## file sharing
-    nextcloud-client
-
     # security
     rage
     sops
     gnome.seahorse
   ];
+
+  services.nextcloud-client = {
+    enable = true;
+    startInBackground = true;
+  };
+
 }
