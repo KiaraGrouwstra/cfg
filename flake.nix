@@ -114,6 +114,15 @@
       url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
     };
+    lix = {
+      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
+      flake = false;
+    };
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=refs/heads/nogit-urls";
+      inputs.lix.follows = "lix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -221,6 +230,7 @@
           inherit system specialArgs;
           modules = with inputs; [
             ./cache.nix
+            lix-module.nixosModules.default
             {imports = lib.attrValues nixosModules;}
             disko.nixosModules.disko
             impermanence.nixosModule
