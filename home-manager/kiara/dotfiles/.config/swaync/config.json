@@ -35,10 +35,10 @@
   },
   */
   "notification-visibility": {
-    "example-name": {
-      "state": "muted",
-      "urgency": "Low",
-      "app-name": "Spotify"
+    "ignore-helix": {
+      "summary": "^#",
+      "body": "^hx",
+      "state": "ignored"
     }
   },
   "widgets": [
