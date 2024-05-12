@@ -64,6 +64,9 @@ with config.commands; {
     (commandDesktop "webtorrent" "${webtorrent} download"
       ["x-scheme-handler/magnet"])
 
+    (commandDesktop "ide" "ide.sh"
+      ["inode/directory"])
+
     # fallback option delegating MIME handling to pistol
     (
       commandDesktop "pistol" pistol
