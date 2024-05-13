@@ -21,6 +21,15 @@ thefuck plugin for zsh filled the JIT-install command for the missing app neofet
 
 </details>
 
+## devices
+
+This configuration was made with the following devices in mind:
+
+| Name | Use | Model | Config |
+|------|-----|-------|--------|
+| `hammer` | home laptop | [Lenovo IdeaPad Slim 5 16ABR8](https://psref.lenovo.com/Product/IdeaPad/IdeaPad_Slim_5_16ABR8) | `nixosConfigurations` |
+| `krost` | work laptop | [Dell Latitude 5430 Google Chromebook](https://www.dell.com/en-us/shop/dell-laptops/latitude-5430-chromebook/spd/latitude-14-5430-chrome-laptop/) | `homeConfigurations` |
+
 ## usage
 
 <details>
