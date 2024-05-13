@@ -123,6 +123,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 | [Shell](https://codeberg.org/kiara/cfg/issues?labels=201791)          | [Zsh](https://zsh.org/) |
 | Fuzzy finder   | [Fzf](https://github.com/junegunn/fzf) |
 | Pager          | [Nvimpager](https://github.com/lucc/nvimpager) |
+| Text-to-speech | [Piper](https://rhasspy.github.io/piper-samples/) thru [LocalAI](https://localai.io/)
 
 ## style
 
