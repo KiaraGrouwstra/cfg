@@ -201,6 +201,7 @@
       flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
     ];
   in {
+    # This facilitates consuming my custom packages thru the flake
     inherit lib packages;
 
     # Reusable nixos modules you might want to export
@@ -277,6 +278,7 @@
         modules = homeModules;
       });
 
+    # Apps make it easy to run my scripts from the flake
     apps = forSystem (system: let
       pkgs = pkgsFor.${system};
     in {
