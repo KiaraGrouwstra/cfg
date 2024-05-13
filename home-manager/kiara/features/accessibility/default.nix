@@ -8,6 +8,7 @@
     orca
 
     # AI
+    zluda
     local-ai
     mods
   ];
