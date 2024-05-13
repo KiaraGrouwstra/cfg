@@ -10,7 +10,6 @@
     openai-whisper-cpp
 
     # AI
-    zluda
     local-ai
     mods
   ];
