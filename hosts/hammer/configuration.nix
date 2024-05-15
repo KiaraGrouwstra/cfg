@@ -150,7 +150,7 @@ in {
     port = "8080";
   in {
     wantedBy = [ "multi-user.target" ];
-    serviceConfig.ExecStart = "${pkgs.local-ai}/bin/local-ai --address :${port} --models-path ${userConfig.home}/.config/piper/voices/";
+    serviceConfig.ExecStart = "${pkgs.local-ai}/bin/local-ai --address :${port} --models-path /persist${userConfig.home}/.config/piper/voices/";
   };
 
   nix.settings.auto-optimise-store = true;
