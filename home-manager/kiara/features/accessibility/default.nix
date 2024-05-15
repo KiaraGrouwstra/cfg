@@ -6,6 +6,8 @@
     ## speech / TTS
     speechd
     orca
+    ffmpeg
+    openai-whisper-cpp
 
     # AI
     zluda

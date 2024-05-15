@@ -31,6 +31,12 @@ in {
         hash = "sha256-8f0CkrML8PgJA04HC+KFJTqdA04mfCM1quEywhXP09M=";
         fetchLFS = true;
       }}";
+      ".config/whisper/models".source = "${pkgs.fetchgit {
+        url = "https://huggingface.co/ggerganov/whisper.cpp";
+        rev = "d15393806e24a74f60827e23e986f0c10750b358";
+        hash = "sha256-j1rQXuBMFrNsC3CQ+LFPJf1A/UtHi5pSC8fq4/ted/0=";
+        fetchLFS = true;
+      }}";
       # https://github.com/nix-community/home-manager/issues/322#issuecomment-1856128020
       ".ssh/config" = {
         source = ./dotfiles/.ssh/config;
