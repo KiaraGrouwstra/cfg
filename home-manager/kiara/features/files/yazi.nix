@@ -348,13 +348,13 @@
           run = "search none";
           desc = "Cancel the ongoing search";
         }
-      	{
-          on = [ "<PageUp>" ];
+        {
+          on = ["<PageUp>"];
           run = "arrow -100%";
           desc = "Move cursor up one page";
         }
-      	{
-          on = [ "<PageDown>" ];
+        {
+          on = ["<PageDown>"];
           run = "arrow 100%";
           desc = "Move cursor down one page";
         }

@@ -251,8 +251,7 @@
         windows = lib.mapVals (x: "window-${x}") vertical;
       in
         with config.commands;
-        lib.mapVals (str: {action.spawn = sh str;}) (
-          {
+          lib.mapVals (str: {action.spawn = sh str;}) {
             # Keys consist of modifiers separated by + signs, followed by an XKB key name
             # in the end. To find an XKB name for a particular key, you may use a program
             # like wev.
@@ -269,7 +268,12 @@
             # You can also use a shell:
             # "Mod+T" = ["bash" "-c" "notify-send hello && exec alacritty"];
 
-            "Mod+${if config.keyboard.active == "workman" then "D" else "T"}" = wezterm;
+            "Mod+${
+              if config.keyboard.active == "workman"
+              then "D"
+              else "T"
+            }" =
+              wezterm;
 
             # switch wallpaper
             "Mod+M" = "random-wallpaper.sh";
@@ -302,16 +306,13 @@
             "Alt+Mod+J" = "${toggle rofi} -show drun -show-icons";
             "Shift+Mod+J" = term "jit.sh";
           }
-        )
-        //
-        lib.mapVals (str: {
-          allow-when-locked = true;
-          action.spawn = sh str;
-        }) (
-          {
+          // lib.mapVals (str: {
+            allow-when-locked = true;
+            action.spawn = sh str;
+          }) {
             # audio
             "Mod+TouchpadScrollDown" = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0.02+";
-            "Mod+TouchpadScrollUp"   = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0.02-";
+            "Mod+TouchpadScrollUp" = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0.02-";
             XF86AudioRaiseVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+";
             XF86AudioLowerVolume = "${wpctl} set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-";
             XF86AudioMute = "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
@@ -324,156 +325,156 @@
             XF86MonBrightnessDown = "${light} -U 5";
             XF86MonBrightnessUp = "${light} -A 5";
           }
-        )
-        // (lib.mapVals (str: {action."${str}" = [];}) {
-          "Mod+Q" = "close-window";
-          "Alt+F4" = "close-window";
-          "Mod+Comma" = "consume-window-into-column";
-          "Mod+Period" = "expel-window-from-column";
-          "Mod+BracketLeft" = "consume-or-expel-window-left";
-          "Mod+BracketRight" = "consume-or-expel-window-right";
+          // (lib.mapVals (str: {action."${str}" = [];}) {
+            "Mod+Q" = "close-window";
+            "Alt+F4" = "close-window";
+            "Mod+Comma" = "consume-window-into-column";
+            "Mod+Period" = "expel-window-from-column";
+            "Mod+BracketLeft" = "consume-or-expel-window-left";
+            "Mod+BracketRight" = "consume-or-expel-window-right";
 
-          "Mod+R" = "switch-preset-column-width";
-          "Mod+A" = "maximize-column";
-          "Mod+Shift+A" = "fullscreen-window";
-          "Mod+C" = "center-column";
+            "Mod+R" = "switch-preset-column-width";
+            "Mod+A" = "maximize-column";
+            "Mod+Shift+A" = "fullscreen-window";
+            "Mod+C" = "center-column";
 
-          # screenshots
-          "Print" = "screenshot";
-          "Ctrl+Print" = "screenshot-screen";
-          "Alt+Print" = "screenshot-window";
+            # screenshots
+            "Print" = "screenshot";
+            "Ctrl+Print" = "screenshot-screen";
+            "Alt+Print" = "screenshot-window";
 
-          "Mod+Shift+H" = "power-off-monitors";
+            "Mod+Shift+H" = "power-off-monitors";
 
-          # This debug bind will tint all surfaces green, unless they are being
-          # directly scanned out. It's therefore useful to check if direct scanout
-          # is working.
-          # "Mod+Shift+Ctrl+T" = "toggle-debug-tint";
+            # This debug bind will tint all surfaces green, unless they are being
+            # directly scanned out. It's therefore useful to check if direct scanout
+            # is working.
+            # "Mod+Shift+Ctrl+T" = "toggle-debug-tint";
 
-          "Mod+K" = "quit";
-          # Mod-/, kinda like Mod-?, shows a list of important hotkeys.
-          "Mod+Slash" = "show-hotkey-overlay";
-        })
-        // (binds {
-          prefixes = {
-            Mod = "focus-workspace";
-            "Mod+Shift" = "move-column-to-workspace";
-          };
-          suffixes = {
-            # right hand
-            Page_Up = "up";
-            Page_Down = "down";
-            # left hand
-            S = "up";
-            G = "down";
-          };
-        })
-        // (binds {
-          inherit substitutions;
-          prefixes = {
-            Mod = "focus";
-            "Mod+Shift" = "move";
-          };
-          suffixes = columns // {
-            # right hand
-            Up = "window-up";
-            Down = "window-down";
-            # left hand
-            X = "window-down";
-            Z = "window-up";
-          };
-        })
-        // (binds {
-          prefixes = {
-            "Mod+Alt" = "focus-monitor";
-            "Mod+Shift+Alt" = "move-workspace-to-monitor";
-          };
-          suffixes = horizontal;
-        })
-        // (binds {
-          prefixes = {
-            "Mod+Shift+Alt" = "move-workspace";
-          };
-          suffixes = {
-            # right hand
-            Left = "up";
-            Right = "down";
-            # left hand
-            S = "up";
-            G = "down";
-          };
-        })
-        // (binds {
-          prefixes = {
-            "Mod+Alt" = "move-column-to-monitor";
-          };
-          suffixes = {
-            # right hand
-            Up = "left";
-            Down = "right";
-            # left hand
-            S = "left";
-            G = "right";
-          };
-        })
-        // (binds {
-          prefixes = {
-            Mod = "focus-column";
-            "Mod+Shift" = "move-column-to";
-            "Mod+Alt" = "move-column-to";
-          };
-          suffixes = {
-            Home = "first";
-            End = "last";
-          };
-        })
-        # You can refer to workspaces by index. However, keep in mind that
-        # niri is a dynamic workspace system, so these commands are kind of
-        # "best effort". Trying to refer to a workspace index bigger than
-        # the current workspace count will instead refer to the bottommost
-        # (empty) workspace.
-        #
-        # For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-        # will all refer to the 3rd workspace.
-        // (binds {
-          suffixes = lib.listToAttrs (lib.lists.map (n: {
-            name = toString n;
-            value = ["workspace" n];
-          }) (lib.range 1 9));
-          prefixes = {
-            "Mod" = "focus";
-            "Mod+Shift" = "move-column-to";
-          };
-        })
-        // (lib.mapVals (cmd: {action = cmd;}) {
-          # Finer width adjustments.
-          # This command can also:
-          # * set width in pixels: "1000"
-          # * adjust width in pixels: "-5" or "+5"
-          # * set width as a percentage of screen width: "25%"
-          # * adjust width as a percentage of screen width: "-10%" or "+10%"
-          # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-          # set-column-width "100" will make the column occupy 200 physical screen pixels.
-          "Mod+Minus" = {set-column-width = "-10%";};
-          "Mod+Equal" = {set-column-width = "+10%";};
+            "Mod+K" = "quit";
+            # Mod-/, kinda like Mod-?, shows a list of important hotkeys.
+            "Mod+Slash" = "show-hotkey-overlay";
+          })
+          // (binds {
+            prefixes = {
+              Mod = "focus-workspace";
+              "Mod+Shift" = "move-column-to-workspace";
+            };
+            suffixes = {
+              # right hand
+              Page_Up = "up";
+              Page_Down = "down";
+              # left hand
+              S = "up";
+              G = "down";
+            };
+          })
+          // (binds {
+            inherit substitutions;
+            prefixes = {
+              Mod = "focus";
+              "Mod+Shift" = "move";
+            };
+            suffixes =
+              columns
+              // {
+                # right hand
+                Up = "window-up";
+                Down = "window-down";
+                # left hand
+                X = "window-down";
+                Z = "window-up";
+              };
+          })
+          // (binds {
+            prefixes = {
+              "Mod+Alt" = "focus-monitor";
+              "Mod+Shift+Alt" = "move-workspace-to-monitor";
+            };
+            suffixes = horizontal;
+          })
+          // (binds {
+            prefixes = {
+              "Mod+Shift+Alt" = "move-workspace";
+            };
+            suffixes = {
+              # right hand
+              Left = "up";
+              Right = "down";
+              # left hand
+              S = "up";
+              G = "down";
+            };
+          })
+          // (binds {
+            prefixes = {
+              "Mod+Alt" = "move-column-to-monitor";
+            };
+            suffixes = {
+              # right hand
+              Up = "left";
+              Down = "right";
+              # left hand
+              S = "left";
+              G = "right";
+            };
+          })
+          // (binds {
+            prefixes = {
+              Mod = "focus-column";
+              "Mod+Shift" = "move-column-to";
+              "Mod+Alt" = "move-column-to";
+            };
+            suffixes = {
+              Home = "first";
+              End = "last";
+            };
+          })
+          # You can refer to workspaces by index. However, keep in mind that
+          # niri is a dynamic workspace system, so these commands are kind of
+          # "best effort". Trying to refer to a workspace index bigger than
+          # the current workspace count will instead refer to the bottommost
+          # (empty) workspace.
+          #
+          # For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
+          # will all refer to the 3rd workspace.
+          // (binds {
+            suffixes = lib.listToAttrs (lib.lists.map (n: {
+              name = toString n;
+              value = ["workspace" n];
+            }) (lib.range 1 9));
+            prefixes = {
+              "Mod" = "focus";
+              "Mod+Shift" = "move-column-to";
+            };
+          })
+          // (lib.mapVals (cmd: {action = cmd;}) {
+            # Finer width adjustments.
+            # This command can also:
+            # * set width in pixels: "1000"
+            # * adjust width in pixels: "-5" or "+5"
+            # * set width as a percentage of screen width: "25%"
+            # * adjust width as a percentage of screen width: "-10%" or "+10%"
+            # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
+            # set-column-width "100" will make the column occupy 200 physical screen pixels.
+            "Mod+Minus" = {set-column-width = "-10%";};
+            "Mod+Equal" = {set-column-width = "+10%";};
 
-          # Finer height adjustments when in column with other windows.
-          "Mod+Shift+Minus" = {set-window-height = "-10%";};
-          "Mod+Shift+Equal" = {set-window-height = "+10%";};
+            # Finer height adjustments when in column with other windows.
+            "Mod+Shift+Minus" = {set-window-height = "-10%";};
+            "Mod+Shift+Equal" = {set-window-height = "+10%";};
 
-          # Actions to switch layouts.
-          # Note: if you uncomment these, make sure you do NOT have
-          # a matching layout switch hotkey configured in xkb options above.
-          # Having both at once on the same hotkey will break the switching,
-          # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-          "Mod+Apostrophe" = {switch-layout = "next";};
-          "Mod+Shift+Apostrophe" = {switch-layout = "prev";};
-        })
-        // (lib.mapVals (attrs: let tpl = builtins.elemAt (lib.attrsets.attrsToList attrs) 0; in {action."${tpl.name}" = [];} // tpl.value) {
-          "Mod+WheelScrollDown".focus-workspace-down.cooldown-ms = 150;
-          "Mod+WheelScrollUp".focus-workspace-up.cooldown-ms = 150;
-        })
-        ;
+            # Actions to switch layouts.
+            # Note: if you uncomment these, make sure you do NOT have
+            # a matching layout switch hotkey configured in xkb options above.
+            # Having both at once on the same hotkey will break the switching,
+            # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+            "Mod+Apostrophe" = {switch-layout = "next";};
+            "Mod+Shift+Apostrophe" = {switch-layout = "prev";};
+          })
+          // (lib.mapVals (attrs: let tpl = builtins.elemAt (lib.attrsets.attrsToList attrs) 0; in {action."${tpl.name}" = [];} // tpl.value) {
+            "Mod+WheelScrollDown".focus-workspace-down.cooldown-ms = 150;
+            "Mod+WheelScrollUp".focus-workspace-up.cooldown-ms = 150;
+          });
 
       # Add lines like this to spawn processes at startup.
       # Note that running niri as a session supports xdg-desktop-autostart,

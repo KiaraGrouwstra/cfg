@@ -29,5 +29,4 @@ with config.commands; {
     enable = true;
     startInBackground = true;
   };
-
 }

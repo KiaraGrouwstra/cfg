@@ -1,6 +1,4 @@
-{ flake-schemas }:
-
-{
+{flake-schemas}: {
   out = {
     version = 1;
     doc = "Exports custom attrsets...";
