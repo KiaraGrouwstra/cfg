@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env -S nix shell nixpkgs#aplay nixpkgs#curl nixpkgs#gnused --command sh
 # run TTS on input text
 # usage: speak.sh "hi"
 # set -xe
