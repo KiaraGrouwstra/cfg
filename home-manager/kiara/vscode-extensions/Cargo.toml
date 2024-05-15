@@ -30,6 +30,10 @@ extension_name = "magit"
 publisher_name = "foam"
 extension_name = "foam-vscode"
 
+[[extensions]]
+publisher_name = "continue"
+extension_name = "continue"
+
 # styling
 
 [[extensions]]

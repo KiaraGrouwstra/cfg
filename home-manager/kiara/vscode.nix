@@ -24,6 +24,7 @@
       kahole.magit
       foam.foam-vscode
       editorconfig.editorconfig
+      continue.continue
 
       # styling
       pkief.material-icon-theme
