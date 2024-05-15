@@ -4,6 +4,7 @@
     ".cache/thunderbird"
     ".local/share/TelegramDesktop"
     ".config/nyxt"
+    ".config/Signal"
     ".local/share/nyxt"
   ];
 
