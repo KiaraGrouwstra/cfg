@@ -90,11 +90,6 @@
       url = "github:Kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flare = {
-      url = "gitlab:schmiddi-on-mobile/flare";
-      # inputs.nixpkgs.follows = "nixpkgs"; # https://gitlab.com/schmiddi-on-mobile/flare/-/issues/196
-      inputs.flake-utils.follows = "flake-utils";
-    };
     yazi-mime = {
       url = "github:DreamMaoMao/mime.yazi";
       flake = false;

@@ -2,7 +2,6 @@
   home.persistence."/persist/home/kiara".directories = [
     ".thunderbird"
     ".cache/thunderbird"
-    ".local/share/flare"
     ".local/share/TelegramDesktop"
     ".config/nyxt"
     ".local/share/nyxt"
@@ -16,7 +15,6 @@
 
     ## chat / communications
     telegram-desktop
-    flare
     signal-desktop
 
     ## web browsers

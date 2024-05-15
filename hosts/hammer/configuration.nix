@@ -140,7 +140,6 @@ in {
 
   services.gnome = {
     at-spi2-core.enable = true; # orca
-    gnome-keyring.enable = true; # flare-signal
   };
 
   # let file managers access trash and remotes
