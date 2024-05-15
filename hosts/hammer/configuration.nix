@@ -148,7 +148,7 @@ in {
   systemd.services.local-ai = let
     port = "8080";
   in {
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     serviceConfig.ExecStart = "${pkgs.local-ai}/bin/local-ai --address :${port} --models-path /persist${userConfig.home}/.config/piper/voices/";
   };
 
