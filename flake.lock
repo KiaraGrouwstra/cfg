@@ -1091,6 +1091,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-zluda": {
+      "locked": {
+        "lastModified": 1713052613,
+        "narHash": "sha256-iw3O6mVc+Jx7UZMnIWyzuIc0x7xN5RY0oxZ4gbFY5wU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1b691969594504eabec53a11a366acf1c75387d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1b691969594504eabec53a11a366acf1c75387d1",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1712026416,
@@ -1212,6 +1228,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unfree": "nixpkgs-unfree",
+        "nixpkgs-zluda": "nixpkgs-zluda",
         "nur": "nur",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
