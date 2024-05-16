@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     ## nix
     any-nix-shell
+    cachix
   ];
 
   programs = {

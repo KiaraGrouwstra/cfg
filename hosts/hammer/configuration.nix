@@ -44,6 +44,8 @@ in {
 
   hardware.bluetooth.enable = true;
 
+  hardware.opengl.extraPackages = with pkgs; [ zluda ];
+
   security.sudo.wheelNeedsPassword = false;
 
   users = {
@@ -53,7 +55,7 @@ in {
     users = {
       # root.hashedPasswordFile = config.sops.secrets.user-password-root.path;
 
-      kiara = {
+      "${userConfig.name}" = {
         isNormalUser = true;
         hashedPasswordFile = config.sops.secrets.user-password-kiara.path;
         description = "輝愛来 (kiara)";
@@ -70,8 +72,6 @@ in {
       };
     };
   };
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs = {
     light.enable = true;
@@ -134,7 +134,7 @@ in {
     defaultSopsFile = ../../secrets.enc.yml;
     secrets = {
       age-keys = {};
-      user-password-kiara.neededForUsers = true;
+      "user-password-${userConfig.name}".neededForUsers = true;
     };
   };
 
@@ -152,28 +152,37 @@ in {
     serviceConfig.ExecStart = "${pkgs.local-ai}/bin/local-ai --address :${port} --models-path /persist${userConfig.home}/.config/piper/voices/";
   };
 
-  nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    # If true, the time when the service unit was last triggered is stored on disk.
-    # When the timer is activated, the service unit is triggered immediately if it would
-    # have been triggered at least once during the time when the timer was inactive.
-    # Such triggering is nonetheless subject to the delay imposed by RandomizedDelaySec=.
-    # This is useful to catch up on missed runs of the service when the system was powered down.
-    persistent = true;
-    # not too frequent to prevent wiping progress from failed builds.
-    dates = "weekly";
-    # delete old builds
-    options = "--delete-older-than 7d";
+  nix = {
+    settings = {
+      trusted-users = [
+        "root"
+        userConfig.name
+      ];
+      experimental-features = ["nix-command" "flakes"];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      # If true, the time when the service unit was last triggered is stored on disk.
+      # When the timer is activated, the service unit is triggered immediately if it would
+      # have been triggered at least once during the time when the timer was inactive.
+      # Such triggering is nonetheless subject to the delay imposed by RandomizedDelaySec=.
+      # This is useful to catch up on missed runs of the service when the system was powered down.
+      persistent = true;
+      # not too frequent to prevent wiping progress from failed builds.
+      dates = "weekly";
+      # delete old builds
+      options = "--delete-older-than 7d";
+    };
+    # keep the system responsive, good for devices in use
+    daemonCPUSchedPolicy = "idle";
+    nixPath = ["nixpkgs=${nixPath}"];
   };
-  # keep the system responsive, good for devices in use
-  nix.daemonCPUSchedPolicy = "idle";
 
   # use flake's nixpkgs over channels
   system.extraSystemBuilderCmds = ''
     ln -sv ${pkgs.path} $out/nixpkgs
   '';
-  nix.nixPath = ["nixpkgs=${nixPath}"];
   systemd.tmpfiles.rules = [
     "L+ ${nixPath} - - - - ${pkgs.path}"
   ];
