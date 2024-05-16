@@ -44,8 +44,6 @@ in {
 
   hardware.bluetooth.enable = true;
 
-  hardware.opengl.extraPackages = with pkgs; [ zluda ];
-
   security.sudo.wheelNeedsPassword = false;
 
   users = {

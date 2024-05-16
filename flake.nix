@@ -124,7 +124,6 @@
       inputs.flake-schemas.follows = "flake-schemas";
       url = "github:DeterminateSystems/nix-src/flake-schemas";
     };
-    nixpkgs-zluda.url = "github:nixos/nixpkgs/1b691969594504eabec53a11a366acf1c75387d1";
     cachix.url = "github:cachix/cachix";
   };
 
