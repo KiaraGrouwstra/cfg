@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [taplo];
   programs.neovim.plugins = with pkgs.vimPlugins; [
     coc-toml
   ];
