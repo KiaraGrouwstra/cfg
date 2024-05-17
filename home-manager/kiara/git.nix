@@ -18,6 +18,7 @@ _: {
     };
 
     extraConfig = {
+      core.editor = "$EDITOR";
       init.defaultBranch = "main";
       advice.objectNameWarning = false;
       pull.rebase = true;
