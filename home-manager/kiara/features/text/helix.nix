@@ -183,32 +183,16 @@
     # https://docs.helix-editor.com/languages.html
     languages = with config.commands; {
       language-server = {
-        bash-language-server = {
-          command = bash-language-server;
-          args = ["start"];
-        };
-
-        clangd = {
-          command = clangd;
-          clangd.fallbackFlags = ["-std=c++2b"];
-        };
-
-        nil = {
-          command = nil;
-          config.nil.formatting.command = [alejandra "-q"];
-        };
-
         vscode-css-language-server = {
           command = css-languageserver;
           args = ["--stdio"];
         };
 
-        typescript-language-server = {
-          command = typescript-language-server;
-          args = ["--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"];
-        };
+        nil.command = nil;
+        nixd.command = nixd;
       };
 
+      # https://github.com/helix-editor/helix/blob/master/book/src/languages.md#language-configuration
       language = [
         {
           name = "bash";
@@ -225,7 +209,16 @@
         }
         {
           name = "nix";
-          language-servers = [nixd];
+          roots = ["flake.nix" "flake.lock"];
+          language-servers = [
+            "nixd"
+            # "nil"
+          ];
+          auto-format = true;
+          formatter = {
+            command = alejandra;
+            args = ["-q"];
+          };
         }
         {
           name = "rust";
