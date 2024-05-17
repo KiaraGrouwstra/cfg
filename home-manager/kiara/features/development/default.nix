@@ -39,6 +39,9 @@
     git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
     git-interactive-rebase-tool
     gitg
+
+    ## debugging
+    lldb
   ];
 
   editorconfig = {
