@@ -3,6 +3,9 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    marksman
+  ];
   programs.neovim.plugins = with pkgs.vimPlugins; [
     coc-markdownlint
   ];
