@@ -189,7 +189,18 @@
         };
 
         nil.command = nil;
-        nixd.command = nixd;
+
+        nixd = {
+          command = nixd;
+          config = {
+            nixpkgs.expr = "import <nixpkgs> { }";
+            formatting.command = [alejandra "-q"];
+            options = {
+              nixos.expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.default.options";
+              home-manager.expr = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.default.options";
+            };
+          };
+        };
       };
 
       # https://github.com/helix-editor/helix/blob/master/book/src/languages.md#language-configuration
@@ -210,10 +221,7 @@
         {
           name = "nix";
           roots = ["flake.nix" "flake.lock"];
-          language-servers = [
-            "nixd"
-            # "nil"
-          ];
+          language-servers = ["nixd"];
           auto-format = true;
           formatter = {
             command = alejandra;
