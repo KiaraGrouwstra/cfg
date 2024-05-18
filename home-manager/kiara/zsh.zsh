@@ -1,5 +1,5 @@
 # vi mode
-set -o vi
+# set -o vi
 
 # keybinds: list key sequences by `cat > /dev/null`
 bindkey -s "^[h" ".. \C-j"
