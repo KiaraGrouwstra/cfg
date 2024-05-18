@@ -8,8 +8,9 @@
     ./fonts.nix
     ./greetd.nix
     ./guix.nix
-    ./niri.nix
     ./locale.nix
+    ./niri.nix
+    ./ollama.nix
     ./persistence.nix
     ./power.nix
     ./networking.nix

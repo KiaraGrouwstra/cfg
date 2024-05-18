@@ -16,6 +16,7 @@
 
   home.persistence."/persist/home/kiara".directories = [
     ".config/kdeconnect"
+    ".ollama"
   ];
   services.kdeconnect = {
     enable = true;
