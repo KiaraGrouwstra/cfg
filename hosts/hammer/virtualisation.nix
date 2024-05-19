@@ -1,16 +1,17 @@
 {
+  lib,
   config,
   pkgs,
   ...
-}: {
+}: let
+  dockerEnabled = config.virtualisation.docker.enable;
+in {
   programs.extra-container.enable = true;
 
   virtualisation = {
     # to use podman with ports as low as 80 run:
     # sudo sysctl net.ipv4.ip_unprivileged_port_start=80
-    podman = let
-      dockerEnabled = config.virtualisation.docker.enable;
-    in {
+    podman = {
       enable = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement
       # NOTE: this doesn't replace Docker Swarm
@@ -29,6 +30,9 @@
       };
     };
   };
+
+  #arion: https://github.com/hercules-ci/arion/issues/122#issuecomment-908413975
+  systemd.enableUnifiedCgroupHierarchy = false;
 
   programs.singularity = {
     enable = true;

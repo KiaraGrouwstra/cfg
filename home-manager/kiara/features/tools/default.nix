@@ -21,6 +21,8 @@
     zsh
     thefuck
     pandoc # lesspipe
+    docker-client
+    arion
 
     ## command-line dropins (ish)
     xxh

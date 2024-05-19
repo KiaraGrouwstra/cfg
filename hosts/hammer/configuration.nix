@@ -63,6 +63,7 @@ in {
           "networkmanager"
           "wheel"
           "adbusers"
+          "podman"
           "docker"
           "libvirtd"
         ];
