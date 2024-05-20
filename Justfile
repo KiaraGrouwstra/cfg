@@ -12,7 +12,7 @@ boot:
 
 # Dry-build a new configuration
 dry:
-  sudo NIXOS_LABEL="$(label.sh)" nixos-rebuild dry-activate --fast --impure --flake .#default --show-trace
+  sudo nixos-rebuild dry-activate --fast --flake .#default --show-trace
 
 # Rebuild the home config
 home:
