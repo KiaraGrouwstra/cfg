@@ -196,14 +196,7 @@ Application keybinds, tweaked to layout by setting `config.keyboard.active`:
 - [`gum`](https://github.com/charmbracelet/gum/blob/main/pager/pager.go)
 - [`zathura`](https://defkey.com/zathura-shortcuts)
 
-## mouse
-
-### touchpad
-
-niri supports three-finger swipes between:
-
-- windows (left/right)
-- workspaces (up/down)
+## [mouse](https://github.com/YaLTeR/niri/wiki/Gestures)
 
 ### bottom bar
 
