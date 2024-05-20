@@ -17,7 +17,6 @@
 
   home.persistence."/persist/home/kiara".directories = [
     ".config/kdeconnect"
-    ".ollama"
     ".local/share/nomic.ai/GPT4All"
   ];
   services.kdeconnect = {
