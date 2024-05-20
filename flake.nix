@@ -105,6 +105,7 @@
     nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    regression.url = "github:nixos/nixpkgs/23.11";
     workman-vim = {
       url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
@@ -173,6 +174,7 @@
     specialFor = forSystem (system: {
       inherit system lib inputs outputs;
       unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
+      regression = inputs.regression.legacyPackages.${system};
       userConfig = {
         inherit name;
         home = "/home/${name}";

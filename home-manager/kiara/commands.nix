@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  regression,
   inputs,
   config,
   ...
@@ -29,7 +30,7 @@ let
           swaybg
           tor-browser
           gum
-          nvimpager
+          regression.nvimpager
           ripdrag
           just
           wallust
