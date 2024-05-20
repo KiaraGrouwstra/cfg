@@ -1,0 +1,133 @@
+{
+  "allowAnonymousTelemetry": false,
+  "models": [
+    {
+      "title": "Ollama",
+      "provider": "ollama",
+      "model": "deepseek-coder:6.7b",
+      "completionOptions": {},
+      "apiBase": "http://localhost:11434"
+    }
+  ],
+  "completionOptions": {
+    "temperature": 0.8,
+    "topP": 0.9,
+    "topK": 40,
+    "presencePenalty": 0.5,
+    "frequencyPenalty": null,
+    "stop": null,
+    "maxTokens": 600,
+    "frequencePenalty": 0.5,
+    "mirostat": 2,
+    "numThreads": 8,
+    "keepAlive": 1800
+  },
+  "slashCommands": [],
+  "customCommands": [
+    {
+      "name": "test",
+      "prompt": "{{{ input }}}\n\nWrite a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file.",
+      "description": "Write unit tests for highlighted code"
+    }
+  ],
+  "contextProviders": [
+    {
+       "name":"code"
+    },
+    {
+       "name":"diff"
+    },
+    {
+       "name":"terminal"
+    },
+    {
+       "name":"docs"
+    },
+    {
+       "name":"codebase"
+    },
+    {
+       "name":"folder"
+    },
+    {
+       "name":"search"
+    },
+    {
+       "name":"search"
+    },
+    {
+       "name":"tree"
+    },
+    {
+       "name":"outline"
+    },
+    {
+       "name":"highlights"
+    }
+  ],
+  "disableSummaries": false,
+  "disableIndexing": false,
+  "disableSessionTitles": false,
+  "embeddingsProvider": {
+    "requestOptions": {
+      "timeout": 7200
+    },
+    "provider": "ollama",
+    "model": "foo"
+  },
+  "tabAutocompleteModel": {
+    "title": "Tab Autocomplete Model",
+    "provider": "ollama",
+    "model": "deepseek-coder:1.3b-base",
+    "contextLength": 2048,
+    "completionOptions": {
+      "temperature": 0.8,
+      "topP": 0.9,
+      "topK": 40,
+      "presencePenalty": 0.5,
+      "frequencyPenalty": null,
+      "stop": null,
+      "maxTokens": 600,
+      "keepAlive": 1800,
+      "numThreads": 8,
+      "mirostat": 2,
+      "stream": true,
+      "frequencePenalty": 0.5
+    },
+    "requestOptions": {
+      "timeout": 7200,
+      "verifySsl": null,
+      "caBundlePath": null,
+      "proxy": null,
+      "headers": null,
+      "extraBodyProperties": null
+    }
+  },
+  "tabAutocompleteOptions": {
+    "disable": false,
+    "disableInFiles": [],
+    "onlyMyCode": true,
+    "multilineCompletions": "auto",
+    "useSuffix": true,
+    "useCopyBuffer": true
+  },
+  "ui": {
+    "codeBlockToolbarPosition": "top"
+  },
+  "experimental": {
+    "defaultContext": [],
+    "contextMenuPrompts": {
+      "comment": "Write comments for this code. Do not change anything about the code itself.",
+      "docstring": "Write a docstring for this code. Do not change anything about the code itself.",
+      "fix": "Fix this code",
+      "optimize": "Optimize this code",
+      "fixGrammar": "If there are any grammar or spelling mistakes in this writing, fix them. Do not make other large changes to the writing."
+    }
+  },
+  "requestOptions": {
+    "timeout": 1800
+  },
+  "reranker": {
+    "name": "llm"
+  }
+}
