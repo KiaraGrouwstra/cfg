@@ -6,5 +6,6 @@
     "bknix.cachix.org-1:+Lk3ufMR5Yn0vcd9Offl6xC+aYLNULY60TjQVTzbls4=" = ["https://bknix.cachix.org"];
     "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s=" = ["https://anyrun.cachix.org"];
     "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE=" = ["https://numtide.cachix.org"];
+    "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc=" = ["https://ai.cachix.org"];
   };
 }
