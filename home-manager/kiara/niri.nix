@@ -500,6 +500,19 @@
       # general before specific
       window-rules = [
         {
+          matches = [];
+          clip-to-geometry = true;
+          geometry-corner-radius = let
+            radius = 50.0;
+          in {
+            top-left = radius;
+            top-right = radius;
+            bottom-right = radius;
+            bottom-left = radius;
+          };
+        }
+
+        {
           matches = [
             {is-active = false;}
           ];
