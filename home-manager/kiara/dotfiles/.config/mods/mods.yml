@@ -35,6 +35,12 @@ apis:
     base-url: http://localhost:8080
     models:
       ggml-gpt4all-j:
-        aliases: ["local", "4all"]
+        aliases: ["4all"]
         max-input-chars: 12250
         fallback:
+  ollama:
+    base-url: http://localhost:11434/api
+    models:
+      "deepseek-coder:1.3b-base":
+        aliases: ["local"]
+        max-input-chars: 650000
