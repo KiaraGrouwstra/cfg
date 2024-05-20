@@ -127,6 +127,7 @@
         # If you don't like that, you should uncomment `prefer-no-csd` below.
         # Niri will draw focus ring and border *around* windows that agree to omit their
         # client-side decorations.
+        focus-ring.enable = false;
 
         # How many logical pixels the border extends. It's similar to the focus ring, but always visible.
         border.width = 4;
