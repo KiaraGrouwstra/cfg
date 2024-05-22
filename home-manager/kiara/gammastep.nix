@@ -5,8 +5,8 @@
     latitude = 52.0;
     longitude = 5.0;
     temperature = {
-      day = 6000;
-      night = 4600;
+      day = 5000;
+      night = 4000;
     };
     settings = {general.adjustment-method = "wayland";};
   };
