@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  userConfig,
+  ...
+}: {
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [./imports.nix];
@@ -20,10 +24,10 @@
     BROWSER = "firefox";
   };
 
-  home.persistence."/persist/home/kiara".allowOther = false;
+  home.persistence."/persist${userConfig.home}".allowOther = false;
 
   sops = {
-    age.keyFile = "/etc/nixos/keys.txt";
+    age.keyFile = "/persist${userConfig.home}/.config/sops/age/keys.txt";
     defaultSopsFile = ../../secrets.enc.yml;
   };
 
