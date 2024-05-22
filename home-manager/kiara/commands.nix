@@ -8,6 +8,9 @@
 }:
 # TODO: JIT'ify? (#152)
 let
+  wrapSecrets = vars: pkg: (pkgs.writeShellScriptBin pkg.pname
+    (lib.concatLines ((lib.mapAttrsToList (k: v: ''export ${k}="$(cat ${config.sops.secrets."${v}".path})"'') vars)
+        ++ ["${lib.getExe pkg} $@"])));
   inherit (pkgs) system;
   binaries = with pkgs; (
     lib.listToAttrs
@@ -53,6 +56,7 @@ let
           gnome.gnome-system-monitor
           swaynotificationcenter
           xfce.thunar
+          (wrapSecrets {GITHUB_TOKEN = "github-pat";} nixpkgs-review)
         ]
         ++ lib.attrValues
         {

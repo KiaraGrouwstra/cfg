@@ -29,6 +29,9 @@
   sops = {
     age.keyFile = "/persist${userConfig.home}/.config/sops/age/keys.txt";
     defaultSopsFile = ../../secrets.enc.yml;
+    secrets = {
+      github-pat = {};
+    };
   };
 
   # https://github.com/NixOS/nixpkgs/issues/245772#issuecomment-1675034089
