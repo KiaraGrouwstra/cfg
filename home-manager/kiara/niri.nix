@@ -517,14 +517,14 @@
           matches = [
             {is-active = true;}
           ];
-          opacity = 0.9;
+          opacity = 0.85;
         }
 
         {
           matches = [
             {is-active = false;}
           ];
-          opacity = 0.8;
+          opacity = 0.7;
         }
 
         {
@@ -541,7 +541,7 @@
               is-active = false;
             }
           ];
-          opacity = 0.7;
+          opacity = 0.65;
         }
       ];
     };
