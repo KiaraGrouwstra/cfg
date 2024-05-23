@@ -160,9 +160,12 @@
     pkgsFor =
       forSystem
       (system:
-        import nixpkgs {
-          inherit system overlays;
-          # config.allowUnfree = true;
+        import ./packages.nix {
+          inherit inputs lib;
+          pkgs = import nixpkgs {
+            inherit system overlays;
+            # config.allowUnfree = true;
+          };
         });
     # for each system: apply pkgs to a function
     forAllSystems = f: forSystem (system: f pkgsFor.${system});
@@ -170,9 +173,10 @@
     # for each system: packages including overlays
     packages =
       forAllSystems
-      (pkgs: import ./packages.nix {inherit inputs lib pkgs;});
+      (pkgs: forSystem (system: pkgsFor.${system}));
     specialFor = forSystem (system: {
       inherit system lib inputs outputs;
+      # pkgs = pkgsFor.${system};
       unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
       regression = inputs.regression.legacyPackages.${system};
       userConfig = {
@@ -234,9 +238,10 @@
     nixosConfigurations = forSystem (
       system: let
         specialArgs = specialFor.${system};
+        pkgs = pkgsFor.${system};
       in
         nixpkgs.lib.nixosSystem {
-          inherit system specialArgs;
+          inherit system specialArgs; # pkgs
           modules = with inputs; [
             ./cache.nix
             lix-module.nixosModules.default
@@ -271,6 +276,7 @@
 
     homeConfigurations = forSystem (system:
       home-manager.lib.homeManagerConfiguration {
+        # inherit overlays;
         pkgs = pkgsFor.${system};
         extraSpecialArgs = specialFor.${system};
         modules = homeModules;

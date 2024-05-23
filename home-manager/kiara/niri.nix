@@ -277,21 +277,21 @@
               wezterm;
 
             # switch wallpaper
-            "Mod+M" = "random-wallpaper.sh";
-            "Shift+Mod+M" = term "pick-wallpaper.sh";
+            "Mod+M" = random-wallpaper;
+            "Shift+Mod+M" = term pick-wallpaper;
 
             "Mod+W" = "${firefox} --new-window about:newtab";
             "Mod+Shift+W" = tor-browser;
             "Mod+V" = codium;
             "Mod+Shift+E" = "${thunar} Downloads/";
             "Mod+E" = term "yy.sh ${config.home.homeDirectory}/Downloads/";
-            "Mod+Shift+Ctrl+Alt+Space" = term "pick-character.sh ${./scripts/emoji.txt}";
+            "Mod+Shift+Ctrl+Alt+Space" = term "${pick-character} ${./emoji.txt}";
             # "Mod+N" = "${systemctl} suspend-then-hibernate";
-            "Mod+F3" = term "fontpreview.sh";
-            "Mod+F9" = term "main-menu.sh";
+            "Mod+F3" = term font-preview;
+            "Mod+F9" = term main-menu;
             "Mod+I" = term nmtui;
             "Mod+Shift+I" = networkmanager_dmenu;
-            "Mod+U" = term "power.sh";
+            "Mod+U" = term power;
             "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
             "Mod+B" = "${anyrun} --plugins libsymbols.so";
             "Ctrl+Alt+Delete" = gnome-system-monitor;
@@ -302,10 +302,10 @@
             "Mod+Grave" = "${swaync-client} --toggle-panel";
             "Mod+Space" = "${toggle anyrun} --plugins libapplications.so";
             "Mod+J" = "${toggle anyrun} --plugins libapplications.so";
-            "Shift+Mod+Space" = term "jit.sh";
+            "Shift+Mod+Space" = term jit;
             "Alt+Mod+Space" = "${toggle rofi} -show drun -show-icons";
             "Alt+Mod+J" = "${toggle rofi} -show drun -show-icons";
-            "Shift+Mod+J" = term "jit.sh";
+            "Shift+Mod+J" = term jit;
           }
           // lib.mapVals (str: {
             allow-when-locked = true;

@@ -4,11 +4,11 @@ default:
 
 # Rebuild the system
 switch:
-  sudo NIXOS_LABEL="$(label.sh)" nixos-rebuild switch --fast --impure --flake .#default --show-trace
+  sudo NIXOS_LABEL="$(label)" nixos-rebuild switch --fast --impure --flake .#default --show-trace
 
 # Build a new configuration
 boot:
-  sudo NIXOS_LABEL="$(label.sh)" nixos-rebuild boot --fast --impure --flake .#default --show-trace
+  sudo NIXOS_LABEL="$(label)" nixos-rebuild boot --fast --impure --flake .#default --show-trace
 
 # Dry-build a new configuration
 dry:
@@ -36,7 +36,7 @@ upp input:
 
 # Show what has yet to be persisted in a folder. Usage: just ephemeral $HOME | $PAGER
 ephemeral dir="$HOME":
-  ephemeral.sh {{dir}}
+  list-ephemeral {{dir}}
 
 # Open a Nix REPL - run manually to load flake: `:lf .`
 repl:
@@ -62,5 +62,5 @@ decode:
 
 # Check when inputs were last updated
 age:
-  age.sh
+  check-age
 

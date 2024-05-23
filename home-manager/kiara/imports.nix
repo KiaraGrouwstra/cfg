@@ -20,7 +20,6 @@
     ./neovim.nix
     ./news.nix
     ./rofi.nix
-    ./scripts.nix
     ./swaylock.nix
     ./stylix.nix
     ./vscode.nix

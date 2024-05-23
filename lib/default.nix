@@ -100,20 +100,47 @@ with lib; let
   # pkgs.bat -> { name = "bat"; value = pkgs.bat; }
   attrsFromPackage = pkg: {
     # work around error: the string 'nix' is not allowed to refer to a store path
-    name = lib.strings.unsafeDiscardStringContext (lib.last (lib.splitString "/" (lib.getExe pkg)));
+    name = strings.unsafeDiscardStringContext (last (splitString "/" (getExe pkg)));
     value = pkg;
   };
 
   # { rofi = pkgs.rofi-wayland; } -> { rofi = "${pkgs.rofi-wayland}/bin/rofi"; }
-  dryCommands = lib.mapAttrs (binaryName: package: "${package}/bin/${binaryName}");
+  dryCommands = mapAttrs (binaryName: package: "${package}/bin/${binaryName}");
 
   # { "my-key": [url] } -> { substituters = [url]; trusted-public-keys = ["my-key"]; };
   dryCache = attrs: {
-    substituters = lib.flatten (lib.attrValues attrs);
-    trusted-public-keys = lib.attrNames attrs;
+    substituters = flatten (attrValues attrs);
+    trusted-public-keys = attrNames attrs;
   };
+
+  invert = obj:
+    foldl' (acc: pair: let
+      inherit (pair) name value;
+    in
+      acc
+      // {
+        "${value}" =
+          (
+            if hasAttr value acc
+            then acc."${value}"
+            else []
+          )
+          ++ [name];
+      }) {} (attrsToList obj);
+
+  # { "sh" = ["ago" ...]; "py" = [...]; }
+  scripts = invert (listToAttrs (lists.map (fname: let frag = elemAt (splitString "." fname); in nameValuePair (frag 0) (frag 1)) (attrNames (builtins.readDir ../scripts))));
 in
-  assert mapVals (v: 2 * v) {a = 1;} == {a = 2;}; {
+  assert mapVals (v: 2 * v) {a = 1;} == {a = 2;};
+  assert invert {
+    a = "x";
+    b = "x";
+    c = "y";
+  }
+  == {
+    x = ["a" "b"];
+    y = ["c"];
+  }; {
     inherit
       mapVals
       dirAttrs
@@ -129,5 +156,7 @@ in
       attrsFromPackage
       dryCommands
       dryCache
+      invert
+      scripts
       ;
   }
