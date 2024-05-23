@@ -515,6 +515,13 @@
 
         {
           matches = [
+            {is-active = true;}
+          ];
+          opacity = 0.9;
+        }
+
+        {
+          matches = [
             {is-active = false;}
           ];
           opacity = 0.8;
