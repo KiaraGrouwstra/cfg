@@ -5,13 +5,18 @@
   ...
 }:
 with config.commands; {
+  # desktop entries will show up in `share/applications/` of either:
+  # - nixos system: /run/current-system/sw/
+  # - nixos user: /etc/profiles/per-user/USER/
+  # - home-manager: ~/.nix-profile/
   home.packages = let
     # redundant with mime associations / `programs.pistol` / `dmenu run`?
     commandDesktop = name: command: mimeTypes: (pkgs.makeDesktopItem {
       inherit name mimeTypes;
       desktopName = name;
       genericName = name;
-      exec = "${terminal} ${command}";
+      tryExec = command;
+      exec = term' "${command} %f";
       icon = "utilities-terminal";
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
     });
@@ -44,7 +49,7 @@ with config.commands; {
     ])
 
     # https://code.google.com/archive/p/theunarchiver/wikis/SupportedFormats.wiki
-    (commandDesktop "unar" "unar.sh" [
+    (commandDesktop "decompress" decompress [
       "application/x-zip"
       "application/x-gzip"
       "application/x-gzip-compressed"
@@ -64,19 +69,19 @@ with config.commands; {
     (commandDesktop "webtorrent" "${webtorrent} download"
       ["x-scheme-handler/magnet"])
 
-    (commandDesktop "ide" "ide.sh"
-      ["inode/directory"])
+    (commandDesktop "ide" ide
+      ["inode/directory" "inode/mount-point"])
 
     # fallback option delegating MIME handling to pistol
     (
       commandDesktop "pistol" pistol
       # grab associations from programs.pistol
-      (lib.lists.map (x: x.mime) config.programs.pistol.associations)
+      (lib.catAttrs "mime" config.programs.pistol.associations)
     )
 
     # fallback option allowing to pick an application to open the file with
     (
-      commandDesktop "open-with" "open-with.sh"
+      commandDesktop "open-with" open-with
       (lib.attrNames config.xdg.mimeApps.defaultApplications)
     )
 

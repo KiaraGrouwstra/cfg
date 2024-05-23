@@ -39,7 +39,7 @@ with config.commands; {
           command = timg;
         }
         {
-          mime = "inode/directory";
+          mime = "inode/*";
           command = "${eza} --icons --color=always --tree --level 1 --group-directories-first -a --git-ignore --header --git";
         }
       ];

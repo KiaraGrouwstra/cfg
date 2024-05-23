@@ -350,6 +350,10 @@
     "text/x-c++"
     "text/*"
   ];
+  directories = [
+    "inode/directory"
+    "inode/mount-point"
+  ];
 
   # .desktop names: ~/.local/share/applications/
   browsers = ["firefox"];
@@ -362,7 +366,7 @@
     # use pistol as fallback for terminal-based read-only previews
     (
       lib.genAttrs
-      (lib.lists.map (x: x.mime) config.programs.pistol.associations)
+      (lib.catAttrs "mime" config.programs.pistol.associations)
       (_: ["pistol"])
     )
     (lib.genAttrs code (_: editors))
@@ -379,15 +383,15 @@
     (lib.genAttrs models (_: ["PrusaSlicer"]))
     (lib.genAttrs ["text/x-gcode"] (_: ["PrusaGcodeviewer"]))
     (lib.genAttrs cad (_: ["org.freecadweb.FreeCAD"]))
+    (lib.genAttrs directories (_: [
+      "yazi"
+      "thunar"
+      "helix"
+      "codium"
+      "lapce"
+      "less"
+    ])) # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
     {
-      "inode/directory" = [
-        "yazi"
-        "thunar"
-        "helix"
-        "codium"
-        "lapce"
-        "less"
-      ]; # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
       "x-scheme-handler/mailto" = ["betterbird"];
       "text/calendar" = ["org.gnome.Calendar"];
       "application/pdf" = ["org.pwmt.zathura" "less"];
