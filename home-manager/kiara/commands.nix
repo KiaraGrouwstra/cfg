@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  regression,
   inputs,
   config,
   ...
@@ -30,6 +29,7 @@ let
             viu
             timg
             jaq
+            nvimpager
             swayidle
             alacritty
             swaybg
@@ -57,7 +57,6 @@ let
             ;
         })
         ++ [
-          regression.nvimpager
           pkgs.gnome.gnome-system-monitor
           pkgs.swaynotificationcenter
           pkgs.xfce.thunar

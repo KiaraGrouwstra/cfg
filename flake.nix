@@ -125,7 +125,6 @@
       inputs.flake-schemas.follows = "flake-schemas";
       url = "github:DeterminateSystems/nix-src/flake-schemas";
     };
-    cachix.url = "github:cachix/cachix";
   };
 
   outputs = {
