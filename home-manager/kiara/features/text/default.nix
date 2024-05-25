@@ -9,20 +9,26 @@
     ./helix.nix
   ];
 
-  home.packages = with pkgs; [
-    ## text editors
-    vim
-    amp
-    gnome-text-editor
-
-    ## command-line document viewers / editors
-    unixtools.column # lesspipe
-
-    ## document viewers / editors
-    evince
-    calibre
-    libreoffice-fresh
-  ];
+  home.packages =
+    [
+      ## command-line document viewers / editors
+      pkgs.unixtools.column # lesspipe
+    ]
+    ++ lib.attrValues {
+      inherit
+        (pkgs)
+        ## text editors
+        
+        vim
+        amp
+        gnome-text-editor
+        ## document viewers / editors
+        
+        evince
+        calibre
+        libreoffice-fresh
+        ;
+    };
 
   programs.less.keys =
     if config.keyboard.active == "workman"

@@ -14,13 +14,13 @@ in {
     (lib.homeFolder ./dotfiles)
     # keys: ls ~/.local/share/applications/
     # vals: ls ~/.nix-profile/bin/
-    // autoStartLinks (with pkgs; {
-      "org.keepassxc.KeePassXC" = keepassxc;
+    // autoStartLinks {
+      "org.keepassxc.KeePassXC" = pkgs.keepassxc;
       # "codium" = config.programs.vscode.package;
       "firefox" = config.programs.firefox.package;
       # "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
       "org.wezfurlong.wezterm" = config.programs.wezterm.package;
-    })
+    }
     // {
       # must `git add .` or new files won't be found
       ".config/swaync/configSchema.json".source = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";

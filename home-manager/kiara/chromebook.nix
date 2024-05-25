@@ -8,5 +8,5 @@
   '';
 
   # call graphical programs with: `nixGLMesa my-program`
-  home.packages = with pkgs; [nixgl.nixGLMesa];
+  home.packages = lib.attrValues { inherit (pkgs) nixgl.nixGLMesa; };
 }

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./lazygit.nix
   ];
@@ -12,36 +16,45 @@
     ];
   };
 
-  home.packages = with pkgs; [
-    ## terminals
-    kitty
-    wezterm
-
-    ## command-line utilities
-    zsh
-    thefuck
-    pandoc # lesspipe
-    docker-client
-    arion
-
-    ## command-line dropins (ish)
-    xxh
-    ripgrep
-    fd
-    just
-
-    ## credentials / security
-    (pass.withExtensions (exts:
-      with exts; [
-        pass-otp
-        pass-import
-        pass-genphrase
-        pass-checkup
-        pass-update
-      ]))
-    browserpass
-    gnupg
-  ];
+  home.packages =
+    [
+      ## credentials / security
+      (pkgs.pass.withExtensions (exts:
+        lib.attrValues {
+          inherit
+            (exts)
+            pass-otp
+            pass-import
+            pass-genphrase
+            pass-checkup
+            pass-update
+            ;
+        }))
+    ]
+    ++ lib.attrValues {
+      inherit
+        (pkgs)
+        browserpass
+        gnupg
+        ## terminals
+        
+        kitty
+        wezterm
+        ## command-line utilities
+        
+        zsh
+        thefuck
+        pandoc # lesspipe
+        docker-client
+        arion
+        ## command-line dropins (ish)
+        
+        xxh
+        ripgrep
+        fd
+        just
+        ;
+    };
 
   programs = {
     ## command-line utilities

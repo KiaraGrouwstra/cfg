@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    nodePackages.bash-language-server
+  home.packages = [
+    pkgs.nodePackages.bash-language-server
   ];
 }

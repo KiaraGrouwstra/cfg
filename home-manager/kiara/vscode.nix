@@ -3,8 +3,8 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    nodePackages.vscode-json-languageserver
+  home.packages = [
+    pkgs.nodePackages.vscode-json-languageserver
   ];
 
   programs.vscode = {
@@ -15,19 +15,21 @@
     mutableExtensionsDir = false;
     # porting installed extensions: `codium --list-extensions | awk '{print tolower($0)}'`
     # finding new extensions: https://marketplace.visualstudio.com/vscode
-    extensions = with (import ./vscode-extensions) {inherit lib pkgs;}; [
+    extensions = let
+      ext = (import ./vscode-extensions) {inherit lib pkgs;};
+    in [
       # convenience
-      mkhl.direnv
-      mikestead.dotenv
-      arrterian.nix-env-selector
+      ext.mkhl.direnv
+      ext.mikestead.dotenv
+      ext.arrterian.nix-env-selector
       # asvetliakov.vscode-neovim
-      kahole.magit
-      foam.foam-vscode
-      editorconfig.editorconfig
-      continue.continue
+      ext.kahole.magit
+      ext.foam.foam-vscode
+      ext.editorconfig.editorconfig
+      ext.continue.continue
 
       # styling
-      pkief.material-icon-theme
+      ext.pkief.material-icon-theme
     ];
     userSettings = let
       # "b" -> { a = 1; } -> { b_a = 1; }

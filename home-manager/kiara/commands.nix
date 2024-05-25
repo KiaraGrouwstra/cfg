@@ -12,106 +12,118 @@ let
     (lib.concatLines ((lib.mapAttrsToList (k: v: ''export ${k}="$(cat ${config.sops.secrets."${v}".path})"'') vars)
         ++ ["${lib.getExe pkg} $@"])));
   inherit (pkgs) system;
-  binaries = with pkgs; (
+  binaries = (
     lib.listToAttrs
     (
       lib.lists.map
       # key = binary name = package name
-      lib.attrsFromPackage ([
-          git
-          nix
-          tree
-          bat
-          eza
-          hexyl
-          pistol
-          viu
-          timg
-          jaq
-          swayidle
-          alacritty
-          swaybg
-          tor-browser
-          gum
+      lib.attrsFromPackage ((lib.attrValues {
+          inherit
+            (pkgs)
+            git
+            nix
+            tree
+            bat
+            eza
+            hexyl
+            pistol
+            viu
+            timg
+            jaq
+            swayidle
+            alacritty
+            swaybg
+            tor-browser
+            gum
+            ripdrag
+            just
+            wallust
+            networkmanager_dmenu
+            cliphist
+            light
+            playerctl
+            pamixer
+            pavucontrol
+            nixd
+            nil
+            shfmt
+            alejandra
+            less
+            glow
+            lynx # lesspipe
+            visidata
+            keepassxc
+            libnotify
+            ;
+        })
+        ++ [
           regression.nvimpager
-          ripdrag
-          just
-          wallust
-          networkmanager_dmenu
-          cliphist
-          light
-          playerctl
-          pamixer
-          pavucontrol
-          nixd
-          nil
-          shfmt
-          alejandra
-          less
-          glow
-          lynx # lesspipe
-          visidata
-          keepassxc
-          libnotify
-          gnome.gnome-system-monitor
-          swaynotificationcenter
-          xfce.thunar
-          (wrapSecrets {GITHUB_TOKEN = "github-pat";} nixpkgs-review)
+          pkgs.gnome.gnome-system-monitor
+          pkgs.swaynotificationcenter
+          pkgs.xfce.thunar
+          (wrapSecrets {GITHUB_TOKEN = "github-pat";} pkgs.nixpkgs-review)
         ]
         ++ (lib.attrVals lib.scripts.sh pkgs)
         ++ lib.attrValues
         {
           inherit
-            (nodePackages)
+            (pkgs.nodePackages)
             webtorrent-cli
             vscode-css-languageserver-bin
             bash-language-server
             typescript-language-server
             ;
         }
-        ++ (with config.programs;
-          lib.lists.map (lib.getAttr "package") [
-            # programs.<name>.package
-            fzf
-            waybar
-            kitty
-            wezterm
-            yazi
-            swaylock
-            firefox
-            vscode
-            helix
-          ]))
+        # programs.<name>.package
+        ++ (
+          lib.catAttrs "package" (lib.attrValues {
+            inherit
+              (config.programs)
+              fzf
+              waybar
+              kitty
+              wezterm
+              yazi
+              swaylock
+              firefox
+              vscode
+              helix
+              ;
+          })
+        ))
     )
     //
     # package name differs but binary name = key
-    ((with config.programs;
+    ((let
+        inherit (config.programs) kitty;
+      in
         lib.mapVals (lib.getAttr "package") {
           # programs.<name>.package
           kitten = kitty;
         })
       // {
-        nmtui = networkmanager;
-        xdg-open = xdg-utils;
-        kdeconnect-indicator = kdeconnect;
-        dbus-update-activation-environment = dbus;
-        swaync-client = swaynotificationcenter;
-        systemctl = systemd;
-        wl-copy = wl-clipboard;
-        wl-paste = wl-clipboard;
-        wpctl = wireplumber;
-        clangd = clang-tools;
+        nmtui = pkgs.networkmanager;
+        xdg-open = pkgs.xdg-utils;
+        kdeconnect-indicator = pkgs.kdeconnect;
+        dbus-update-activation-environment = pkgs.dbus;
+        swaync-client = pkgs.swaynotificationcenter;
+        systemctl = pkgs.systemd;
+        wl-copy = pkgs.wl-clipboard;
+        wl-paste = pkgs.wl-clipboard;
+        wpctl = pkgs.wireplumber;
+        clangd = pkgs.clang-tools;
         inherit
-          (nodePackages)
+          (pkgs.nodePackages)
           typescript
           ;
       }
-      // (with inputs; {
-        inherit (anyrun.packages.${system}) anyrun;
-        inherit (anyrun.packages.${system}) symbols;
-      }))
+      // {
+        inherit (inputs.anyrun.packages.${system}) anyrun symbols;
+      })
   );
-  commands = with pkgs;
+  commands = let
+    inherit (pkgs) wezterm rofi-systemd;
+  in
     lib.dryCommands binaries
     //
     # misc: either using args, or key != package name.
@@ -125,7 +137,7 @@ let
 in {
   # refactor imports to options/config to factor out arg noise
   options.commands = lib.mkOption {
-    type = with lib.types; attrsOf (either str (functionTo str));
+    type = let inherit (lib.types) either str functionTo attrsOf; in attrsOf (either str (functionTo str));
     default = null;
     description = "binary reference to use throughout my config";
     example = {bash = "${pkgs.bash}/bin/bash";};
@@ -134,7 +146,9 @@ in {
   config.commands =
     commands
     // (
-      with commands;
+      let
+        inherit (commands) nix wezterm;
+      in
         {
           # command wrappers
           # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui'"

@@ -1,5 +1,12 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    ansible-language-server
-  ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      ansible-language-server
+      ;
+  };
 }

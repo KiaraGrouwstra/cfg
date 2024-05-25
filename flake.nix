@@ -130,8 +130,18 @@
 
   outputs = {
     self,
+    lix-module,
     nixpkgs,
     home-manager,
+    nur,
+    nixos-hardware,
+    disko,
+    impermanence,
+    sops-nix,
+    nix-index-database,
+    flake-programs-sqlite,
+    niri,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -152,10 +162,10 @@
     # [ overlay ]
     overlays =
       builtins.attrValues overlaysAttrs
-      ++ (with inputs; [
-        nur.overlay
-        nixgl.overlay
-      ]);
+      ++ lib.lists.map (k: inputs."${k}".overlay) [
+        "nur"
+        "nixgl"
+      ];
     # for each system: nixpkgs
     pkgsFor =
       forSystem
@@ -193,15 +203,15 @@
 
     nixosModules = import ./modules/nixos;
 
-    homeModules = with inputs; [
+    homeModules = [
       impermanence.nixosModules.home-manager.impermanence
       nur.nixosModules.nur
       sops-nix.homeManagerModules.sops
-      ./modules/home-manager
       nix-index-database.hmModules.nix-index
       stylix.homeManagerModules.stylix
-      ./home-manager/kiara/home.nix
       flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
+      ./modules/home-manager
+      ./home-manager/kiara/home.nix
     ];
   in {
     # This facilitates consuming my custom packages thru the flake
@@ -243,20 +253,20 @@
       in
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs; # pkgs
-          modules = with inputs; [
-            ./cache.nix
+          modules = [
             lix-module.nixosModules.default
-            {imports = lib.attrValues nixosModules;}
             disko.nixosModules.disko
             impermanence.nixosModule
             nur.nixosModules.nur
-            {nixpkgs = {inherit overlays;};}
-            ./hosts/hammer/configuration.nix
-            ./hosts/hammer/imports.nix
             nixos-hardware.nixosModules.lenovo-ideapad-slim-5
             niri.nixosModules.niri
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            ./cache.nix
+            {imports = lib.attrValues nixosModules;}
+            {nixpkgs = {inherit overlays;};}
+            ./hosts/hammer/configuration.nix
+            ./hosts/hammer/imports.nix
             {
               home-manager = {
                 extraSpecialArgs = specialArgs;

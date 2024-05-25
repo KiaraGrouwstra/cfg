@@ -1,5 +1,5 @@
-{lib, ...}:
-with lib; let
+{lib, ...}: let
+  inherit (lib) getAttr foldl' mapAttrs' last getExe removeSuffix filterAttrs hasSuffix nameValuePair mapAttrs readFile flatten lists strings elemAt splitString attrNames attrValues hasAttr attrsets attrsToList listToAttrs;
   mapVals = f: mapAttrs (_: f);
 
   # get an object of files in a directory with a given suffix

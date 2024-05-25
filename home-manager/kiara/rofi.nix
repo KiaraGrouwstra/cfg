@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   home.persistence."/persist/home/kiara".directories = [
     ".local/share/rofi"
     ".local/share/rofimoji"
@@ -10,21 +14,24 @@
     cycle = true;
     terminal = "wezterm";
 
-    plugins = with pkgs; [
-      rofi-vpn
-      rofi-mpd
-      rofi-menugen
-      rofi-systemd
-      pinentry-rofi
-      rofi-bluetooth
-      rofi-power-menu
-      rofi-pulse-select
-      rofimoji
-      rofi-top
-      rofi-calc
-      rofi-screenshot
-      rofi-file-browser
-    ];
+    plugins = lib.attrValues {
+      inherit
+        (pkgs)
+        rofi-vpn
+        rofi-mpd
+        rofi-menugen
+        rofi-systemd
+        pinentry-rofi
+        rofi-bluetooth
+        rofi-power-menu
+        rofi-pulse-select
+        rofimoji
+        rofi-top
+        rofi-calc
+        rofi-screenshot
+        rofi-file-browser
+        ;
+    };
     xoffset = 50;
     yoffset = 80;
     location = "center";
@@ -45,5 +52,5 @@
     };
   };
 
-  home.packages = with pkgs; [rofi-systemd rofimoji];
+  home.packages = lib.attrValues {inherit (pkgs) rofi-systemd rofimoji;};
 }

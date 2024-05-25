@@ -1,5 +1,12 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    kotlin-language-server
-  ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      kotlin-language-server
+      ;
+  };
 }

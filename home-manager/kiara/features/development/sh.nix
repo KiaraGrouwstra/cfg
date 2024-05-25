@@ -1,5 +1,12 @@
-{pkgs, ...}: {
-  programs.neovim.plugins = with pkgs.vimPlugins; [
-    coc-sh
-  ];
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  programs.neovim.plugins = lib.attrValues {
+    inherit
+      (pkgs.vimPlugins)
+      coc-sh
+      ;
+  };
 }

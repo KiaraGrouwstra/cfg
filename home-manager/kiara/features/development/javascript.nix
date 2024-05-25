@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  programs.neovim.plugins = with pkgs.vimPlugins; [
+{pkgs, lib, ...}: {
+  programs.neovim.plugins = lib.attrValues { inherit (pkgs.vimPlugins)
     coc-eslint
-  ];
+  ; }
 }

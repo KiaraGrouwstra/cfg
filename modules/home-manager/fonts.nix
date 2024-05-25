@@ -28,10 +28,10 @@ in {
 
   config = lib.mkIf cfg.enable {
     fonts.fontconfig.enable = true;
-    home.packages = with cfg; [
-      monospace.package
-      regular.package
-      emoji.package
+    home.packages = [
+      cfg.monospace.package
+      cfg.regular.package
+      cfg.emoji.package
     ];
   };
 }

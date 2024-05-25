@@ -14,7 +14,9 @@
 
   # keyboard.active = "workman";
 
-  home.sessionVariables = with config.commands; {
+  home.sessionVariables = let
+    inherit (config.commands) nvimpager terminal;
+  in {
     PAGER = nvimpager;
     MANPAGER = "$PAGER";
     TERMINAL = terminal;

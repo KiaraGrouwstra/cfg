@@ -29,7 +29,9 @@
           select = "underline";
         };
       };
-      keys = with config.keyboard.vi; {
+      keys = let
+        inherit (config.keyboard.vi) d f h j k l e n y o w E O N J K L H Y;
+      in {
         normal = {
           space.space = "file_picker";
           space.w = ":w";
@@ -181,7 +183,9 @@
       };
     };
     # https://docs.helix-editor.com/languages.html
-    languages = with config.commands; {
+    languages = let
+      inherit (config.commands) nil nixd alejandra css-languageserver shfmt;
+    in {
       language-server = {
         vscode-css-language-server = {
           command = css-languageserver;

@@ -2,6 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
+  lib,
   config,
   pkgs,
   userConfig,
@@ -86,11 +87,14 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    nix-schema
-  ];
+  environment.systemPackages = lib.attrValues {
+    inherit
+      (pkgs)
+      nix-schema
+      ;
+  };
 
-  environment.shells = with pkgs; [zsh];
+  environment.shells = lib.attrValues {inherit (pkgs) zsh;};
 
   # List services that you want to enable:
 

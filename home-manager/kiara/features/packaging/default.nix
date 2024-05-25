@@ -1,9 +1,17 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    ## nix
-    any-nix-shell
-    cachix
-  ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      ## nix
+      
+      any-nix-shell
+      cachix
+      ;
+  };
 
   programs = {
     nix-index = {

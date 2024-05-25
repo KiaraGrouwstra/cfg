@@ -3,17 +3,25 @@
   pkgs,
   ...
 }: {
-  programs.neovim.plugins = with pkgs.vimPlugins; [
-    coc-python
-    coc-pyright
-  ];
+  programs.neovim.plugins = lib.attrValues {
+    inherit
+      (pkgs.vimPlugins)
+      coc-python
+      coc-pyright
+      ;
+  };
   programs.vscode.extensions = let
     exts = (import ../../vscode-extensions) {inherit lib pkgs;};
   in
-    with exts; [
-      ms-python.python
-      ms-python.black-formatter
-      ms-python.mypy-type-checker
-      charliermarsh.ruff
-    ];
+    [
+      exts.charliermarsh.ruff
+    ]
+    ++ lib.attrValues {
+      inherit
+        (exts.ms-python)
+        python
+        black-formatter
+        mypy-type-checker
+        ;
+    };
 }

@@ -6,7 +6,9 @@
   };
   programs.lazygit = {
     enable = true;
-    settings = with config.commands; {
+    settings = let
+      inherit (config.commands) git xdg-open;
+    in {
       "gui" = {
         "windowSize" = "normal";
         "scrollHeight" = 2;
@@ -140,7 +142,9 @@
       "disableStartupPopups" = true;
       "notARepository" = "prompt";
       "promptToReturnFromSubprocess" = true;
-      "keybinding" = with config.keyboard.vi; {
+      "keybinding" = let
+        inherit (config.keyboard.vi) e h j k l n o H J K L N O;
+      in {
         "universal" = {
           "quit" = "q";
           "quit-alt1" = "<c-c>";

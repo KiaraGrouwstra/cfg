@@ -3,16 +3,18 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    nixpkgs-fmt
-    nixd
-    nil
-  ];
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      nixpkgs-fmt
+      nixd
+      nil
+      ;
+  };
   programs.vscode.extensions = let
     exts = (import ../../vscode-extensions) {inherit lib pkgs;};
-  in
-    with exts; [
-      jnoortheen.nix-ide
-      kamadorueda.alejandra
-    ];
+  in [
+    exts.jnoortheen.nix-ide
+    exts.kamadorueda.alejandra
+  ];
 }

@@ -1,34 +1,48 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.persistence."/persist/home/kiara".directories = [
     ".local/share/nvim"
   ];
 
-  home.packages = with pkgs; [
-    nodejs # for coc
-  ];
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      nodejs # for coc
+      ;
+  };
 
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      LanguageClient-neovim
-      pywal-nvim
-      nvchad
-      nvchad-ui
-      # chadtree
-      nvim-treesitter.withAllGrammars # TODO: split up as per https://mynixos.com/nixpkgs/packages/vimPlugins.nvim-treesitter-parsers
-      coc-fzf
-      coc-prettier
-      coc-snippets
-      coc-explorer
-      coc-stylelint
-      coc-highlight
-      coc-diagnostic
-      coc-spell-checker
-      coc-solargraph
-      coc-smartf
-    ];
+    plugins =
+      [
+        pkgs.vimPlugins.nvim-treesitter.withAllGrammars # TODO: split up as per https://mynixos.com/nixpkgs/packages/vimPlugins.nvim-treesitter-parsers
+      ]
+      ++ lib.attrValues {
+        inherit
+          (pkgs.vimPlugins)
+          LanguageClient-neovim
+          pywal-nvim
+          nvchad
+          nvchad-ui
+          # chadtree
+          
+          coc-fzf
+          coc-prettier
+          coc-snippets
+          coc-explorer
+          coc-stylelint
+          coc-highlight
+          coc-diagnostic
+          coc-spell-checker
+          coc-solargraph
+          coc-smartf
+          ;
+      };
     extraConfig = ''
       set number
       set cc=80

@@ -29,18 +29,21 @@
     # https://github.com/Kirottu/anyrun/blob/master/examples/config.ron
     config = {
       # https://github.com/Kirottu/anyrun#plugins
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
-        applications
-        symbols
-        rink
-        shell
-        translate # uses google
-        kidex
-        randr
-        stdin
-        dictionary
-        websearch # https://github.com/Kirottu/anyrun/blob/master/plugins/websearch/README.md
-      ];
+      plugins = lib.attrValues {
+        inherit
+          (inputs.anyrun.packages.${pkgs.system})
+          applications
+          symbols
+          rink
+          shell
+          translate # uses google
+          kidex
+          randr
+          stdin
+          dictionary
+          websearch # https://github.com/Kirottu/anyrun/blob/master/plugins/websearch/README.md
+          ;
+      };
 
       # Position/size fields use an enum for the value, it can be either:
       # Absolute(n): The absolute value in pixels

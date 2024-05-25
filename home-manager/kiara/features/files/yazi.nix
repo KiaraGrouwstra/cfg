@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   ...
@@ -7,9 +8,12 @@
     ".config/yazi"
   ];
 
-  home.packages = with pkgs; [
-    exiftool
-  ];
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      exiftool
+      ;
+  };
 
   programs.yazi = {
     enable = true;
@@ -17,7 +21,9 @@
     # https://yazi-rs.github.io/docs/configuration/keymap
     # https://yazi-rs.github.io/docs/quick-start/#keybindings
     # https://github.com/sxyazi/yazi/blob/latest/yazi-config/preset/keymap.toml
-    keymap = with config.keyboard.vi; {
+    keymap = let
+      inherit (config.keyboard.vi) e h j k l n o y H J K L N O Y;
+    in {
       input.keymap = [
         # https://yazi-rs.github.io/docs/tips/#close-input-by-esc
         {
@@ -253,7 +259,9 @@
         # https://yazi-rs.github.io/docs/tips/#selected-files-to-clipboard
         {
           on = [y];
-          run = with config.commands; [
+          run = let
+            inherit (config.commands) wl-copy;
+          in [
             "yank"
             ''
               shell --confirm 'for path in "$@"; do echo "file://$path"; done | ${wl-copy} -t text/uri-list'

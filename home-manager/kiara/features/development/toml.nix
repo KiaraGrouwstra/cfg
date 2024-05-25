@@ -3,14 +3,16 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [taplo];
-  programs.neovim.plugins = with pkgs.vimPlugins; [
-    coc-toml
-  ];
+  home.packages = lib.attrValues {inherit (pkgs) taplo;};
+  programs.neovim.plugins = lib.attrValues {
+    inherit
+      (pkgs.vimPlugins)
+      coc-toml
+      ;
+  };
   programs.vscode.extensions = let
     exts = (import ../../vscode-extensions) {inherit lib pkgs;};
-  in
-    with exts; [
-      tamasfe.even-better-toml
-    ];
+  in [
+    exts.tamasfe.even-better-toml
+  ];
 }

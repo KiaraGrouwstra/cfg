@@ -1,9 +1,8 @@
 {
+  lib,
   pkgs,
-  config,
   ...
-}:
-with config.commands; {
+}: {
   imports = [
     ./yazi.nix
     ./pistol.nix
@@ -15,15 +14,21 @@ with config.commands; {
     ".local/share/Nextcloud"
   ];
 
-  home.packages = with pkgs; [
-    ## compression
-    unar
-
-    # security
-    rage
-    sops
-    gnome.seahorse
-  ];
+  home.packages =
+    [
+      # security
+      pkgs.gnome.seahorse
+    ]
+    ++ lib.attrValues {
+      inherit
+        (pkgs)
+        rage
+        sops
+        ## compression
+        
+        unar
+        ;
+    };
 
   services.nextcloud-client = {
     enable = true;

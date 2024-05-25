@@ -1,5 +1,6 @@
-{config, ...}:
-with config.commands; {
+{config, ...}: let
+  inherit (config.commands) pistol fzf wl-copy;
+in {
   programs.fzf = {
     enable = true;
     # https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh

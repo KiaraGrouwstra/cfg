@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     # ./ansible.nix
     ./bash.nix
@@ -29,20 +33,24 @@
     ./vim.nix
     ./yaml.nix
   ];
-  home.packages = with pkgs; [
-    ## development
-    treefmt
-    editorconfig-checker
-
-    ## version control
-    git
-    git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
-    git-interactive-rebase-tool
-    gitg
-
-    ## debugging
-    lldb
-  ];
+  home.packages = lib.attrValues {
+    inherit
+      (pkgs)
+      ## development
+      
+      treefmt
+      editorconfig-checker
+      ## version control
+      
+      git
+      git-crypt # sudo ln -s $(which git-crypt) /usr/bin/git-crypt
+      git-interactive-rebase-tool
+      gitg
+      ## debugging
+      
+      lldb
+      ;
+  };
 
   editorconfig = {
     enable = true;
@@ -76,7 +84,7 @@
       enable = true;
       gitCredentialHelper.enable = true;
       # https://github.com/topics/gh-extension
-      extensions = with pkgs; [gh-dash gh-markdown-preview];
+      extensions = lib.attrValues {inherit (pkgs) gh-dash gh-markdown-preview;};
       settings = {
         version = 1;
         git_protocol = "ssh";

@@ -6,7 +6,9 @@
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
-    settings = with config.commands; {
+    settings = let
+      inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu;
+    in {
       mainBar = {
         layer = "top";
         position = "bottom";

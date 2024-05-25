@@ -21,7 +21,9 @@ in {
       size = 48;
     };
 
-    fonts = with config.fontProfiles; {
+    fonts = let
+      inherit (config.fontProfiles) regular monospace emoji;
+    in {
       inherit monospace emoji;
       serif = regular;
       sansSerif = regular;
@@ -87,10 +89,10 @@ in {
   };
 
   # https://search.nixos.org/packages?query=kde+theme
-  home.packages = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
-    catppuccin-qt5ct
-    (catppuccin-kvantum.override {
+  home.packages = [
+    pkgs.libsForQt5.qtstyleplugin-kvantum
+    pkgs.catppuccin-qt5ct
+    (pkgs.catppuccin-kvantum.override {
       # https://github.com/catppuccin/kde#previews
       variant = "Mocha";
       # https://github.com/catppuccin/catppuccin#-palette
