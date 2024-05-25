@@ -2,8 +2,9 @@
   lib,
   config,
   ...
-}:
-with config.commands; {
+}: let
+  inherit (config.commands) bat eza hexyl glow viu timg;
+in {
   # TODO: reconciliate with MIME associations
   programs.pistol = {
     enable = true;
