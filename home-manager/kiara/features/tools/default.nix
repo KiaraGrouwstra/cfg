@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./lazygit.nix
+    ./nushell.nix
   ];
   home.persistence."/persist/home/kiara" = {
     directories = [
