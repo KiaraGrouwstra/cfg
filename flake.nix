@@ -165,6 +165,7 @@
           pkgs = import nixpkgs {
             inherit system overlays;
             # config.allowUnfree = true;
+            config.allowNonSource = false;
           };
         });
     # for each system: apply pkgs to a function
