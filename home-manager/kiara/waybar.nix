@@ -174,6 +174,9 @@
         color: #fdf6e3;
       }
 
+      #custom-start {
+        color: #6666aa;
+      }
       #custom-right-arrow-dark,
       #custom-left-arrow-dark {
         color: #1a1a1a;
