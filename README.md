@@ -202,6 +202,7 @@ Application keybinds, tweaked to layout by setting `config.keyboard.active`:
 
 | module | left-click | right-click | scroll |
 |-|-|-|-|
+| start button | open [`anyrun`](https://github.com/anyrun-org/anyrun) application launcher | toggle [`swaync`](https://github.com/ErikReider/SwayNotificationCenter/) notifications | - |
 | media player | toggle play/pause | skip ahead | previous/next |
 | clock | - | toggle month/year in calendar pop-up | previous/next in calendar pop-up |
 | volume | toggle mute | [Pulse Audio Volume Control](https://freedesktop.org/software/pulseaudio/pavucontrol/#overview) | change volume |

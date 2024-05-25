@@ -7,12 +7,13 @@
   programs.waybar = {
     enable = true;
     settings = let
-      inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu;
+      inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu toggle anyrun swaync-client;
     in {
       mainBar = {
         layer = "top";
         position = "bottom";
         modules-left = [
+          "custom/start"
           "custom/right-arrow-dark"
           "mpris"
         ];
@@ -30,6 +31,11 @@
           "tray"
         ];
 
+        "custom/start" = {
+          format = "";
+          on-click = "${toggle anyrun} --plugins libapplications.so";
+          on-click-right = "${swaync-client} --toggle-panel";
+        };
         "custom/left-arrow-dark" = {
           format = "";
           tooltip = false;
