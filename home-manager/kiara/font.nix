@@ -12,8 +12,12 @@
     };
     # https://search.nixos.org/packages?query=emoji
     emoji = {
-      package = pkgs.noto-fonts-emoji-blob-bin;
-      name = "Blobmoji";
+      # package = pkgs.noto-fonts-emoji;
+      # name = "Noto Color Emoji";
+      # package = pkgs.noto-fonts-emoji-blob-bin;
+      # name = "Blobmoji";
+      package = pkgs.twitter-color-emoji;
+      name = "Twitter Color Emoji";
     };
   };
 }

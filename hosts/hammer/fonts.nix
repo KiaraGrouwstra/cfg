@@ -7,7 +7,7 @@
     inherit
       (pkgs)
       powerline-fonts
-      twemoji-color-font
+      twitter-color-emoji
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
