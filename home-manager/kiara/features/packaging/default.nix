@@ -19,6 +19,7 @@
       symlinkToCacheHome = true;
       enableBashIntegration = false;
       enableZshIntegration = false;
+      # enableNushellIntegration = true;
     };
 
     nix-index-database.comma.enable = true;

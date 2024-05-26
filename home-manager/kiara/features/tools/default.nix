@@ -90,12 +90,14 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
     # argument completer
     carapace = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
     browserpass = {

@@ -18,6 +18,7 @@
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    enableNushellIntegration = true;
     # https://yazi-rs.github.io/docs/configuration/keymap
     # https://yazi-rs.github.io/docs/quick-start/#keybindings
     # https://github.com/sxyazi/yazi/blob/latest/yazi-config/preset/keymap.toml
