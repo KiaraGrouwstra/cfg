@@ -4,6 +4,6 @@
   default = pkgs.mkShell {
     # Enable experimental features without having to specify the argument
     NIX_CONFIG = "experimental-features = nix-command flakes";
-    nativeBuildInputs = lib.attrValues {inherit (pkgs) nix home-manager git vim;};
+    nativeBuildInputs = builtins.attrValues {inherit (pkgs) nix home-manager git vim;};
   };
 }
