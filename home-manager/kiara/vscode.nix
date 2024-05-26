@@ -90,6 +90,8 @@
             }
           ];
         };
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
       };
     keybindings = [
       {
