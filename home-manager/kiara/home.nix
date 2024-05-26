@@ -33,6 +33,7 @@
     defaultSopsFile = ../../secrets.enc.yml;
     secrets = {
       github-pat = {};
+      dav-pw = {};
     };
   };
 

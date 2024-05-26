@@ -4,8 +4,11 @@
   ...
 }: {
   imports = [
+    ./khal.nix
+    ./khard.nix
     ./lazygit.nix
     ./nushell.nix
+    ./vdirsyncer.nix
   ];
   home.persistence."/persist/home/kiara" = {
     directories = [
