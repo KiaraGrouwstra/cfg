@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   nixpkgs.overlays = [inputs.niri.overlays.niri];
@@ -13,5 +14,20 @@
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
+  };
+
+  xdg.portal = {
+    enable = true;
+    lxqt = {
+      enable = true;
+      styles = [pkgs.libsForQt5.qtstyleplugin-kvantum];
+    };
+    extraPortals = lib.attrValues {
+      inherit
+        (pkgs)
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        ;
+    };
   };
 }
