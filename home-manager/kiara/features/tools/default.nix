@@ -80,6 +80,12 @@
       ];
     };
 
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = false;
+      enableNushellIntegration = true;
+    };
+
     tealdeer = {
       enable = true;
       # https://dbrgn.github.io/tealdeer/config.html
