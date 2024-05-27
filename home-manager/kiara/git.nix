@@ -6,12 +6,7 @@ _: {
     enable = true;
     userName = "Kiara Grouwstra";
     userEmail = "kiara.grouwstra@gmail.com";
-    difftastic = {
-      enable = true;
-      color = "auto";
-      display = "inline";
-      background = "dark";
-    };
+    diff-so-fancy.enable = true;
     aliases = {
       # commit staged changes to main branch
       main = "!export BRANCH=$(git rev-parse --abbrev-ref HEAD) && git stash --keep-index --include-untracked && git switch main && git commit && git push && git switch $BRANCH && git rebase main && git push --force && git stash pop";
