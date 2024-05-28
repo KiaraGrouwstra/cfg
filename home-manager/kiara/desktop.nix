@@ -3,8 +3,9 @@
   lib,
   config,
   ...
-}:
-with config.commands; {
+}: let
+  inherit (config.commands) term' less glow lynx decompress pistol open-with webtorrent ide exo-open;
+in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/
   # - nixos user: /etc/profiles/per-user/USER/
