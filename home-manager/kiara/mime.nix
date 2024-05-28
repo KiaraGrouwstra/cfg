@@ -405,7 +405,7 @@
       "application/vnd.smart.notebook" = ["less"];
       "x-scheme-handler/magnet" = ["webtorrent" "stremio"];
       "x-scheme-handler/irc" = ["halloy"];
-      "application/x-desktop" = ["xdg-open"];
+      "application/x-desktop" = ["exo-open"];
     }
   ]);
 in {

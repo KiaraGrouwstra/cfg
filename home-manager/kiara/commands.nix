@@ -67,6 +67,7 @@ let
         {
           inherit
             (pkgs.nodePackages)
+            typescript
             webtorrent-cli
             vscode-css-languageserver-bin
             bash-language-server
@@ -111,10 +112,7 @@ let
         wl-paste = pkgs.wl-clipboard;
         wpctl = pkgs.wireplumber;
         clangd = pkgs.clang-tools;
-        inherit
-          (pkgs.nodePackages)
-          typescript
-          ;
+        exo-open = pkgs.xfce.exo;
       }
       // {
         inherit (inputs.anyrun.packages.${system}) anyrun symbols;

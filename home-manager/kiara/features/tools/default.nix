@@ -22,6 +22,7 @@
 
   home.packages =
     [
+      pkgs.xfce.exo
 
       ## credentials / security
       (pkgs.pass.withExtensions (exts:

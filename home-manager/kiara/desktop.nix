@@ -38,7 +38,7 @@ with config.commands; {
       "application/pdf" # poppler_utils
     ])
 
-    (commandDesktop "xdg-open" xdg-open ["application/x-desktop"])
+    (commandDesktop "exo-open" exo-open ["application/x-desktop"])
 
     (commandDesktop "glow" "${glow} -p" ["text/markdown"])
 
