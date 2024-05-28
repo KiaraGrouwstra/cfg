@@ -233,6 +233,11 @@
         }
       ];
       manager.keymap = [
+        {
+          on = ["q"];
+          run = "close";
+          desc = "Exit the process";
+        }
         # https://yazi-rs.github.io/docs/tips/#dropping-to-shell
         {
           on = ["<C-s>"];
@@ -275,7 +280,7 @@
           run = "plugin --sync arrow --args=-1";
         }
         {
-          on = ["<Up"];
+          on = ["<Up>"];
           run = "plugin --sync arrow --args=-1";
         }
         {
@@ -283,7 +288,7 @@
           run = "plugin --sync arrow --args=1";
         }
         {
-          on = ["<Down"];
+          on = ["<Down>"];
           run = "plugin --sync arrow --args=1";
         }
         {
