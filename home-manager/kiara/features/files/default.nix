@@ -27,6 +27,9 @@
         ## compression
         
         unar
+        ## file sync
+        
+        nextcloud-client
         ;
     };
 
