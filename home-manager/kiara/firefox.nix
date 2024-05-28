@@ -26,7 +26,6 @@
     };
     profiles = {
       kiara = {
-        containers = {};
         # search = {
         #   # Whether to force replace the existing search configuration
         #   force = true;
