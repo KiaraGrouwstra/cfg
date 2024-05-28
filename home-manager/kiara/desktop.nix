@@ -17,6 +17,9 @@ in {
       desktopName = name;
       genericName = name;
       tryExec = command;
+      # terminal = true;
+      # exec = command;
+      # exec = "${command} %f"; # Unable to spawn ... because it doesn't exist on the filesystem (ENOENT: No such file or directory)
       exec = term' "${command} %f";
       icon = "utilities-terminal";
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
