@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -22,6 +23,7 @@
       ext.mkhl.direnv
       ext.mikestead.dotenv
       ext.arrterian.nix-env-selector
+      ext.jnoortheen.nix-ide
       # asvetliakov.vscode-neovim
       ext.kahole.magit
       ext.foam.foam-vscode
@@ -35,13 +37,22 @@
       # "b" -> { a = 1; } -> { b_a = 1; }
       inNamespace = prefix: lib.mapKeys (k: "${prefix}.${k}");
     in
-      (inNamespace "nix" {
+      (inNamespace "nix" (let
+        inherit (config.commands) nixd alejandra;
+      in {
         enableLanguageServer = true;
-        serverPath = "nixd";
+        serverPath = nixd;
         serverSettings = {
-          nil = {formatting = {command = ["nixpkgs-fmt"];};};
+          nil = {formatting = {command = [alejandra "-q"];};};
+          nixd = {
+            formatting.command = [alejandra "-q"];
+            options = {
+              nixos.expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.default.options";
+              home-manager.expr = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.default.options";
+            };
+          };
         };
-      })
+      }))
       // (inNamespace "git" {
         confirmSync = false;
         autofetch = true;
