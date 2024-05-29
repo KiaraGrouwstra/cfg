@@ -852,30 +852,6 @@
         "type": "github"
       }
     },
-    "nix-software-center": {
-      "inputs": {
-        "nixos-appstream-data": "nixos-appstream-data",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": [
-          "flake-utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1714856183,
-        "narHash": "sha256-Ue7xV+rZqImux4DDj3VMla4LIH2g8VeXbTJwgvX7wOo=",
-        "owner": "vlinkz",
-        "repo": "nix-software-center",
-        "rev": "b9e0f53536e1e94e7d8c3cda3c6866b3f9d01386",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vlinkz",
-        "repo": "nix-software-center",
-        "type": "github"
-      }
-    },
     "nix-test-runner": {
       "flake": false,
       "locked": {
@@ -926,32 +902,6 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixos-appstream-data": {
-      "inputs": {
-        "flake-utils": [
-          "nix-software-center",
-          "utils"
-        ],
-        "nixpkgs": [
-          "nix-software-center",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1712858390,
-        "narHash": "sha256-XE7gr+zU3N4SHPAhsgk8cVAFp1iBg+Lxxp3y4dUF1vE=",
-        "owner": "korfuri",
-        "repo": "nixos-appstream-data",
-        "rev": "0465d42a4433faa63b7a5eb0b8d397937c9fc13a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "korfuri",
-        "ref": "flake",
-        "repo": "nixos-appstream-data",
         "type": "github"
       }
     },
@@ -1195,7 +1145,6 @@
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
         "nix-schema": "nix-schema",
-        "nix-software-center": "nix-software-center",
         "nixgl": "nixgl",
         "nixos": "nixos",
         "nixos-hardware": "nixos-hardware",

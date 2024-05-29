@@ -7,7 +7,6 @@
   ...
 }: (
   lib.dryFlakes pkgs inputs [
-    "nix-software-center"
   ]
   //
   # non-flakes: import from remaining `pkgs/*.nix` files

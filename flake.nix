@@ -24,11 +24,6 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";
     };
-    nix-software-center = {
-      url = "github:vlinkz/nix-software-center";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
-    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     sops-nix = {
       url = "github:mic92/sops-nix";
