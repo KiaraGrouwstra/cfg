@@ -955,32 +955,6 @@
         "type": "github"
       }
     },
-    "nixos-conf-editor": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "snowfall-lib": [
-          "snowfall-lib"
-        ]
-      },
-      "locked": {
-        "lastModified": 1707338010,
-        "narHash": "sha256-UtLeZzDdk96sLTRcWsGrkWCslNUDytrGe0VmOTB/iig=",
-        "owner": "vlinkz",
-        "repo": "nixos-conf-editor",
-        "rev": "27b5e92f580f794c690093503869aab242f075ab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vlinkz",
-        "repo": "nixos-conf-editor",
-        "type": "github"
-      }
-    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1716173274,
@@ -1224,45 +1198,17 @@
         "nix-software-center": "nix-software-center",
         "nixgl": "nixgl",
         "nixos": "nixos",
-        "nixos-conf-editor": "nixos-conf-editor",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "nur": "nur",
         "regression": "regression",
-        "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "systems": "systems_5",
         "treefmt-nix": "treefmt-nix",
         "workman-vim": "workman-vim",
         "yazi-mime": "yazi-mime"
-      }
-    },
-    "snowfall-lib": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat"
-        ],
-        "flake-utils-plus": [
-          "flake-utils-plus"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1716511874,
-        "narHash": "sha256-h1cj+qotlb+UJRaOGemtBFst8V0OFwjml4jDp2f7V2g=",
-        "owner": "snowfallorg",
-        "repo": "lib",
-        "rev": "439d463a8af79082bf51f8ba76b3db3da1aa2193",
-        "type": "github"
-      },
-      "original": {
-        "owner": "snowfallorg",
-        "repo": "lib",
-        "type": "github"
       }
     },
     "sops-nix": {

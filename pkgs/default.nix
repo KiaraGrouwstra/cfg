@@ -8,7 +8,6 @@
 }: (
   lib.dryFlakes pkgs inputs [
     "nix-software-center"
-    "nixos-conf-editor"
   ]
   //
   # non-flakes: import from remaining `pkgs/*.nix` files
