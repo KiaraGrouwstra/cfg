@@ -17,7 +17,6 @@
       openai-whisper-cpp
       # AI
       
-      local-ai
       mods
       gpt4all
       ;

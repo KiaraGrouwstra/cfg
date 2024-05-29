@@ -49,8 +49,6 @@
         ## command-line utilities
         
         xdg-terminal-exec
-        xterm-256color
-        x-terminal-emulator
         zsh
         thefuck
         pandoc # lesspipe

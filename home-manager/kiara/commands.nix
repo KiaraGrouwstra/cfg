@@ -62,7 +62,7 @@ let
           pkgs.xfce.thunar
           (wrapSecrets {GITHUB_TOKEN = "github-pat";} pkgs.nixpkgs-review)
         ]
-        ++ (lib.attrVals lib.scripts.sh pkgs)
+        ++ (lib.attrVals (lib.attrNames (import ../../packages.nix {inherit inputs lib pkgs;})) pkgs)
         ++ lib.attrValues
         {
           inherit

@@ -87,13 +87,6 @@ in {
     };
   };
 
-  environment.systemPackages = lib.attrValues {
-    inherit
-      (pkgs)
-      nix-schema
-      ;
-  };
-
   environment.shells = lib.attrValues {inherit (pkgs) zsh;};
 
   # List services that you want to enable:
