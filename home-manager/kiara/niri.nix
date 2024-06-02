@@ -17,7 +17,7 @@
         ;
     };
   programs.niri.settings = let
-    inherit (config.commands) term firefox wpctl wl-paste playerctl swaync-client tor-browser codium thunar main-menu nmtui power anyrun alacritty zfxtop pick-character font-preview pick-wallpaper networkmanager_dmenu kdeconnect-indicator cliphist dbus-update-activation-environment waybar swaybg wallust gnome-system-monitor toggle jit rofi swaylock light wezterm random-wallpaper;
+    inherit (config.commands) term firefox wpctl wl-paste playerctl swaync-client tor-browser codium thunar main-menu nmtui power anyrun alacritty zfxtop pick-character font-preview pick-wallpaper networkmanager_dmenu kdeconnect-indicator cliphist dbus-update-activation-environment waybar swaybg wallust gnome-system-monitor toggle jit rofi swaylock light wezterm random-wallpaper yy keepassxc-menu;
     sh = cmd: ["sh" "-c" (lib.escape ["\""] cmd)];
   in {
     input = {
@@ -50,7 +50,7 @@
         dwt = false;
         dwtp = false;
         tap-button-map = "left-middle-right";
-        click-method = "button-areas";
+        click-method = "clickfinger";
       };
       mouse = {
         natural-scroll = false;
@@ -288,7 +288,7 @@
         "Mod+Shift+W" = tor-browser;
         "Mod+V" = codium;
         "Mod+Shift+E" = "${thunar} Downloads/";
-        "Mod+E" = term "yy.sh ${config.home.homeDirectory}/Downloads/";
+        "Mod+E" = term "${yy} ${config.home.homeDirectory}/Downloads/";
         "Mod+Shift+Ctrl+Alt+Space" = term "${pick-character} ${./emoji.txt}";
         # "Mod+N" = "${systemctl} suspend-then-hibernate";
         "Mod+F3" = term font-preview;
@@ -296,7 +296,7 @@
         "Mod+I" = term nmtui;
         "Mod+Shift+I" = networkmanager_dmenu;
         "Mod+U" = term power;
-        "Mod+Y" = "keepassxc.sh -d ~/Nextcloud/keepass.kdbx";
+        "Mod+Y" = "${keepassxc-menu} -d ~/Nextcloud/keepass.kdbx";
         "Mod+B" = "${anyrun} --plugins libsymbols.so";
         "Ctrl+Alt+Delete" = gnome-system-monitor;
         "Ctrl+Shift+Escape" = "${alacritty} -e ${zfxtop}";
