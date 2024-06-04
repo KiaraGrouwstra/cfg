@@ -11,6 +11,7 @@
       inherit
         (pkgs)
         mono
+        xwayland-run
         ## nix
         
         any-nix-shell
