@@ -3,15 +3,19 @@
   pkgs,
   ...
 }: {
-  home.packages = lib.attrValues {
-    inherit
-      (pkgs)
-      ## nix
-      
-      any-nix-shell
-      cachix
-      ;
-  };
+  home.packages =
+    [
+      pkgs.wineWowPackages.waylandFull
+    ]
+    ++ lib.attrValues {
+      inherit
+        (pkgs)
+        ## nix
+        
+        any-nix-shell
+        cachix
+        ;
+    };
 
   programs = {
     nix-index = {
