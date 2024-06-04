@@ -27,6 +27,7 @@
         evince
         calibre
         libreoffice-fresh
+        yarr
         ;
     };
 
