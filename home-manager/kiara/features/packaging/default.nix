@@ -10,6 +10,7 @@
     ++ lib.attrValues {
       inherit
         (pkgs)
+        mono
         ## nix
         
         any-nix-shell
