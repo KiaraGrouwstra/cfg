@@ -502,7 +502,7 @@
       {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}
     ];
 
-    # general before specific
+    # general before specific, get info by `wlrctl window list`
     window-rules = [
       {
         matches = [];
