@@ -120,7 +120,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 |----------------|--------------|
 | Nix interpreter                                                       | [Lix](https://lix.systems/) |
 | [DM](https://codeberg.org/kiara/cfg/issues?labels=201797)             | [TUIgreet](https://github.com/apognu/tuigreet) |
-| [Compositor](https://codeberg.org/kiara/cfg/issues?labels=201796)     | [Niri](https://github.com/YaLTeR/niri/) |
+| [Compositor](https://codeberg.org/kiara/cfg/issues?labels=201796)     | [Niri](https://github.com/YaLTeR/niri/)[^1] |
 | [Bar](https://codeberg.org/kiara/cfg/issues?labels=201795)            | [Waybar](https://github.com/Alexays/Waybar/) |
 | [Notifications](https://codeberg.org/kiara/cfg/issues?labels=201793)  | [Swaynotificationcenter](https://github.com/ErikReider/SwayNotificationCenter/) |
 | [Menu](https://codeberg.org/kiara/cfg/issues?labels=201794)           | [Anyrun](https://github.com/Kirottu/anyrun) |
@@ -134,6 +134,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 | Pager          | [Nvimpager](https://github.com/lucc/nvimpager) |
 | Text-to-speech | [Piper](https://rhasspy.github.io/piper-samples/) thru [LocalAI](https://localai.io/)
 
+[^1]: While Niri uses [Wayland](https://wayland.freedesktop.org/), X11 applications can be emulated thru [`xwayland-run`](https://gitlab.freedesktop.org/ofourdan/xwayland-run).
 ## style
 
 - theming module: [Stylix](https://danth.github.io/stylix/)
@@ -154,6 +155,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 - [Flatpak](https://flathub.org/)
 - [AppImage](https://appimagehub.com/)
 - [Progressive Web Apps](https://pwasforfirefox.filips.si/)
+- [Windows](https://www.winehq.org/)
 
 ## command drop-ins
 
