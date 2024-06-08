@@ -122,7 +122,7 @@
       };
       "os" = {
         "copyToClipboardCmd" = "";
-        "editPreset" = "";
+        "editPreset" = "helix (hx)";
         "edit" = "";
         "editAtLine" = "";
         "editAtLineAndWait" = "";
