@@ -37,6 +37,9 @@
           mode = "0700";
         }
         ".local/share/nix" # trusted settings and repl history
+        ".local/share/mime"
+        ".local/share/icons"
+        ".wine"
         ".cache/nix"
         ".config/sops/age"
       ];
