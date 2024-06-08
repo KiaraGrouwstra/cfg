@@ -685,6 +685,22 @@
         "type": "github"
       }
     },
+    "lime3ds": {
+      "locked": {
+        "lastModified": 1717343674,
+        "narHash": "sha256-Z6sLrE39jeXcH43tEFTXGEaXZ/boK3wFSLlZT4qS/ow=",
+        "owner": "arthsmn",
+        "repo": "nixpkgs",
+        "rev": "60c881713318031a3cedab89b25cddbb89f5c0d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arthsmn",
+        "ref": "lime3ds",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "lix": {
       "flake": false,
       "locked": {
@@ -1139,6 +1155,7 @@
         "flake-utils-plus": "flake-utils-plus",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "lime3ds": "lime3ds",
         "lix": "lix",
         "lix-module": "lix-module",
         "niri": "niri",

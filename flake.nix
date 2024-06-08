@@ -89,6 +89,7 @@
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     regression.url = "github:nixos/nixpkgs/23.11";
+    lime3ds.url = "github:arthsmn/nixpkgs/lime3ds";
     workman-vim = {
       url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
@@ -156,7 +157,7 @@
           inherit inputs lib;
           pkgs = import nixpkgs {
             inherit system overlays;
-            # config.allowUnfree = true;
+            config.allowUnfree = true;
             config.allowNonSource = false;
           };
         });
@@ -167,16 +168,23 @@
     packages =
       forAllSystems
       (pkgs: forSystem (system: pkgsFor.${system}));
-    specialFor = forSystem (system: {
-      inherit system lib inputs outputs;
-      # pkgs = pkgsFor.${system};
-      unfree = inputs.nixpkgs-unfree.legacyPackages.${system};
-      regression = inputs.regression.legacyPackages.${system};
-      userConfig = {
-        inherit name;
-        home = "/home/${name}";
-      };
-    });
+    specialFor = forSystem (system:
+      {
+        inherit system lib inputs outputs;
+        # pkgs = pkgsFor.${system};
+        userConfig = {
+          inherit name;
+          home = "/home/${name}";
+        };
+      }
+      // lib.mapVals (nixpkgs': nixpkgs'.legacyPackages.${system}) {
+        inherit
+          (inputs)
+          unfree
+          regression
+          lime3ds
+          ;
+      });
 
     # Eval the treefmt modules from ./treefmt.nix
     treefmtEval =
@@ -250,6 +258,7 @@
             ./hosts/hammer/configuration.nix
             ./hosts/hammer/imports.nix
             {
+              nixpkgs.config.allowUnfree = true;
               home-manager = {
                 extraSpecialArgs = specialArgs;
                 users.${name}.imports =
