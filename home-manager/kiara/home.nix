@@ -22,7 +22,7 @@
     TERMINAL = terminal;
     # TERM     = terminal; # breaks gpg with error 'screen or window too small'
     EDITOR = "hx";
-    VISUAL = "nvim";
+    VISUAL = "hx";
     BROWSER = "firefox";
   };
 
