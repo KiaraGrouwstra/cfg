@@ -176,6 +176,7 @@
     specialFor = forSystem (system:
       {
         inherit system lib inputs outputs userConfig;
+        # pkgs = pkgsFor.${system};
       }
       // lib.mapVals (nixpkgs': nixpkgs'.legacyPackages.${system}) {
         inherit
