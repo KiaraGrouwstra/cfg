@@ -87,7 +87,6 @@ let
               swaylock
               firefox
               vscode
-              helix
               ;
           })
         ))
@@ -95,11 +94,12 @@ let
     //
     # package name differs but binary name = key
     ((let
-        inherit (config.programs) kitty;
+        inherit (config.programs) kitty helix;
       in
         lib.mapVals (lib.getAttr "package") {
           # programs.<name>.package
           kitten = kitty;
+          hx = helix;
         })
       // {
         nmtui = pkgs.networkmanager;
