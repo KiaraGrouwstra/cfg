@@ -184,9 +184,14 @@
     };
     # https://docs.helix-editor.com/languages.html
     languages = let
-      inherit (config.commands) nil nixd alejandra css-languageserver shfmt;
+      inherit (config.commands) helix-gpt nil nixd alejandra css-languageserver shfmt;
     in {
       language-server = {
+        gpt = {
+          command = helix-gpt;
+          args = ["--handler" "ollama" "--ollamaModel" "deepseek-coder:6.7b"];
+        };
+
         vscode-css-language-server = {
           command = css-languageserver;
           args = ["--stdio"];
@@ -225,7 +230,10 @@
         {
           name = "nix";
           roots = ["flake.nix" "flake.lock"];
-          language-servers = ["nixd"];
+          language-servers = [
+            "nixd"
+            "gpt"
+          ];
           auto-format = true;
           formatter = {
             command = alejandra;
