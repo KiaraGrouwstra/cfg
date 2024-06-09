@@ -547,6 +547,15 @@
         ];
         opacity = 0.65;
       }
+
+      {
+        matches = [
+          {
+            app-id = "Xwayland";
+          }
+        ];
+        open-maximized = true;
+      }
     ];
   };
 }
