@@ -64,3 +64,6 @@ decode:
 age:
   check-age
 
+# Patch persisted wine/steam desktop entries to run xwayland
+patch-desktop-xwayland:
+  patch-desktop-xwayland
