@@ -155,7 +155,7 @@
           interval = 5;
           format = "󱛟  {percentage_used:2}%";
           path = "/";
-          on-click = hold "${just} -f ${../../Justfile} gc";
+          on-click = hold "${just} -f ${../../justfile} gc";
           on-click-right = hold dust;
         };
         tray = {icon-size = 20;};
