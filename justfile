@@ -32,7 +32,7 @@ up:
 
 # Update specific input. Usage: just upp nixpkgs
 upp input:
-  nix flake lock --update-input {{input}}
+  nix flake update {{input}}
 
 # Show what has yet to be persisted in a folder. Usage: just ephemeral $HOME | $PAGER
 ephemeral dir="$HOME":
