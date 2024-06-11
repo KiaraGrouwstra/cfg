@@ -46,6 +46,7 @@
       inherit
         (pkgs)
         lutris
+        antimicrox
         retro-gtk
         retroarch
         # retroarchFull
