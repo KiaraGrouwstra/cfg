@@ -184,7 +184,7 @@
     };
     # https://docs.helix-editor.com/languages.html
     languages = let
-      inherit (config.commands) helix-gpt nix nil nixd css-languageserver shfmt;
+      inherit (config.commands) helix-gpt nil nixd alejandra css-languageserver shfmt;
     in {
       language-server = {
         gpt = {
@@ -235,8 +235,8 @@
           ];
           auto-format = true;
           formatter = {
-            command = nix;
-            args = ["fmt"];
+            command = alejandra;
+            args = ["-q"];
           };
         }
         {
