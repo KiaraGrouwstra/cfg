@@ -203,7 +203,6 @@
           command = nixd;
           config = {
             nixpkgs.expr = "import <nixpkgs> { }";
-            formatting.command = [alejandra "-q"];
             options = {
               nixos.expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.default.options";
               home-manager.expr = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.default.options";
