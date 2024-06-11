@@ -233,7 +233,7 @@
             "nixd"
             "gpt"
           ];
-          auto-format = true;
+          auto-format = false;
           formatter = {
             command = alejandra;
             args = ["-q"];
