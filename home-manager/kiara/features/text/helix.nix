@@ -56,8 +56,8 @@
             "${l}" = "goto_line_end";
             "${y}" = "goto_type_definition";
             "${n}" = "goto_next_buffer";
-            "${j}" = "move_line_up";
-            "${k}" = "move_line_down";
+            "${k}" = "move_line_up";
+            "${j}" = "move_line_down";
           };
           "${o}" = "open_below";
           "${O}" = "open_above";
