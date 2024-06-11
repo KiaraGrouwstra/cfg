@@ -129,6 +129,7 @@ in {
     # It's also possible to use a ssh key, but only when it has no password:
     #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
     defaultSopsFile = ../../secrets.enc.yml;
+    # if neededForUsers then /run/secrets-for-user else /run/secrets
     secrets = {
       age-keys = {};
       "user-password-${userConfig.name}".neededForUsers = true;
