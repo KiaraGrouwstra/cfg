@@ -1149,6 +1149,7 @@
         "nur": "nur",
         "regression": "regression",
         "sops-nix": "sops-nix",
+        "stable": "stable",
         "stylix": "stylix",
         "systems": "systems_5",
         "treefmt-nix": "treefmt-nix",
@@ -1177,6 +1178,22 @@
       "original": {
         "owner": "mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "stable": {
+      "locked": {
+        "lastModified": 1717179513,
+        "narHash": "sha256-vboIEwIQojofItm2xGCdZCzW96U85l9nDW3ifMuAIdM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "63dacb46bf939521bdc93981b4cbb7ecb58427a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "24.05",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },

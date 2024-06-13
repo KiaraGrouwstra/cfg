@@ -89,6 +89,7 @@
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     regression.url = "github:nixos/nixpkgs/23.11";
+    stable.url = "github:nixos/nixpkgs/24.05";
     lime3ds.url = "github:arthsmn/nixpkgs/lime3ds";
     workman-vim = {
       url = "gitlab:ajgrf/workman-vim-bindings";
@@ -168,20 +169,20 @@
     packages =
       forAllSystems
       (pkgs: forSystem (system: pkgsFor.${system}));
+    userConfig = {
+      inherit name;
+      home = "/home/${name}";
+    };
     specialFor = forSystem (system:
       {
-        inherit system lib inputs outputs;
-        # pkgs = pkgsFor.${system};
-        userConfig = {
-          inherit name;
-          home = "/home/${name}";
-        };
+        inherit system lib inputs outputs userConfig;
       }
       // lib.mapVals (nixpkgs': nixpkgs'.legacyPackages.${system}) {
         inherit
           (inputs)
           unfree
           regression
+          stable
           lime3ds
           ;
       });
@@ -237,12 +238,9 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .'
     nixosConfigurations = forSystem (
-      system: let
-        specialArgs = specialFor.${system};
-        pkgs = pkgsFor.${system};
-      in
-        nixpkgs.lib.nixosSystem {
-          inherit system specialArgs; # pkgs
+      system: inputs.stable.lib.nixosSystem {
+          inherit system;
+          specialArgs = {inherit system lib inputs outputs userConfig;};
           modules = [
             lix-module.nixosModules.default
             disko.nixosModules.disko
@@ -260,7 +258,7 @@
             {
               nixpkgs.config.allowUnfree = true;
               home-manager = {
-                extraSpecialArgs = specialArgs;
+                extraSpecialArgs = specialFor.${system};
                 users.${name}.imports =
                   homeModules
                   ++ [
