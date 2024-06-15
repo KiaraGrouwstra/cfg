@@ -54,7 +54,6 @@ let
             visidata
             keepassxc
             libnotify
-            helix-gpt
             ;
         })
         ++ [
