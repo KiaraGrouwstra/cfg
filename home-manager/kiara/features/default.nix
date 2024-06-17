@@ -5,6 +5,7 @@
     ./text/default.nix
     ./creative/default.nix
     ./communication/default.nix
+    ./gaming/default.nix
     ./accessibility/default.nix
     ./packaging/default.nix
     ./desktop/default.nix
