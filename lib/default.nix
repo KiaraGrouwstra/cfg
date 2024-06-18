@@ -27,7 +27,7 @@
   mapKeys = f: mapAttrs' (k: v: nameValuePair (f k) v);
 
   # { b = 0; } -> { c = { a = 1; } } -> { c = { b = 0; a = 1; } }
-  default = defaults: mapVals (v: defaults // v);
+  default = lib.attrsets.recursiveUpdate;
 
   # ".ext" -> ./subdir -> { "foo" = "<CONTENTS OF a/b/foo.ext>"; "bar" = "<CONTENTS OF a/b/bar.ext>"; }
   dirContents = suffix: path: mapAttrs (_: readFile) (dirAttrs suffix path);
