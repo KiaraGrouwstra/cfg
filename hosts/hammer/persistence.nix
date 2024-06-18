@@ -22,6 +22,7 @@
         "Music"
         "Pictures"
         "Documents"
+        "Calendars"
         "Videos"
         "Nextcloud"
         {
