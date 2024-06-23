@@ -240,6 +240,11 @@
       manager = {
         show_hidden = true;
         sort_dir_first = true;
+        ratio = [
+          1 # parent
+          2 # current
+          5 # preview
+        ];
         prepend_keymap = [
           {
             on = ["q"];
