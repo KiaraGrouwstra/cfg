@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.commands) term' less glow lynx decompress pistol open-with webtorrent ide exo-open;
+  inherit (config.commands) hold' less glow lynx decompress pistol open-with webtorrent ide exo-open;
 in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/
@@ -20,7 +20,7 @@ in {
       # terminal = true;
       # exec = command;
       # exec = "${command} %f"; # Unable to spawn ... because it doesn't exist on the filesystem (ENOENT: No such file or directory)
-      exec = term' "${command} %f";
+      exec = hold' "${command} %f";
       icon = "utilities-terminal";
       categories = ["Office" "Viewer"]; # https://askubuntu.com/a/674411/332744
     });

@@ -87,6 +87,7 @@ let
               swaylock
               firefox
               vscode
+              zsh
               ;
           })
         ))
@@ -144,7 +145,8 @@ in {
     commands
     // (
       let
-        inherit (commands) nix wezterm;
+        inherit (commands) nix wezterm zsh;
+        shell = zsh;
       in
         {
           # command wrappers
@@ -152,8 +154,8 @@ in {
           term = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}'";
           term' = args: ''${wezterm} -e --always-new-process sh -c "${lib.escape ["\""] args}"'';
           # "nmtui" -> "wezterm -e --always-new-process sh -c 'nmtui; $SHELL'"
-          hold = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}; $SHELL'";
-          hold' = args: ''${wezterm} -e --always-new-process sh -c "${lib.escape ["\""] args}; $SHELL"'';
+          hold = args: "${wezterm} -e --always-new-process sh -c '${lib.escape ["'"] args}; ${shell}'";
+          hold' = args: ''${wezterm} -e --always-new-process sh -c "${lib.escape ["\""] args}; ${shell}"'';
           # "/bin/wofi" -> "(pidof wofi && kill -9 $(pidof wofi)) || wofi"
           toggle = program: "(pidof ${builtins.baseNameOf program} && kill -9 $(pidof ${builtins.baseNameOf program})) || ${program}";
         }
