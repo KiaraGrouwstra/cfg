@@ -69,7 +69,7 @@
         map-to-output = "eDP-1";
       };
       warp-mouse-to-focus = true;
-      focus-follows-mouse = true;
+      focus-follows-mouse = false;
       workspace-auto-back-and-forth = true;
 
       # By default, niri will take over the power button to make it sleep
