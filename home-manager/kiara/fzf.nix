@@ -40,5 +40,5 @@ in {
     ];
   };
 
-  home.sessionVariables.ENHANCD_FILTER = "${fzf} --preview '${pistol} {}'";
+  home.sessionVariables.ENHANCD_FILTER = "${fzf} --reverse --preview '${pistol} {}'";
 }
