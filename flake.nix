@@ -91,6 +91,7 @@
     regression.url = "github:nixos/nixpkgs/23.11";
     stable.url = "github:nixos/nixpkgs/24.05";
     lime3ds.url = "github:arthsmn/nixpkgs/lime3ds";
+    arion.url = "github:AkechiShiro/nixpkgs/arion-use-docker-compose-v2";
     workman-vim = {
       url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
@@ -185,6 +186,7 @@
           regression
           stable
           lime3ds
+          arion
           ;
       });
 
