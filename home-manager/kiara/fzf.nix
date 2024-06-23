@@ -13,6 +13,7 @@ in {
     #   "fg+" = "#000000";
     # };
     defaultOptions = [
+      "--reverse"
       "--sort"
       "--height 100%"
       "--border"
