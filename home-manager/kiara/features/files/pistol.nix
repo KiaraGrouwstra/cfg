@@ -28,6 +28,10 @@ in {
           command = "${glow} -s dark";
         }
         {
+          mime = "image/webp";
+          command = timg;
+        }
+        {
           mime = "image/*";
           command = viu;
         }
