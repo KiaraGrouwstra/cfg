@@ -144,7 +144,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 - fonts:
   - regular: [DejaVu Sans](https://www.fontsquirrel.com/fonts/dejavu-sans)
   - monospace [MartianMono](https://github.com/evilmartians/mono)
-  - emoji: [Noto Color Emoji](https://github.com/googlefonts/noto-emoji)
+  - emoji: [Twemoji](https://github.com/jdecked/twemoji)
 
 ## package types
 
