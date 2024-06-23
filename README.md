@@ -6,18 +6,194 @@
 
 This is my setup for [NixOS](https://nixos.org/).
 
-<!-- ![screenshot showing niri with neofetch and yazi in wezterm. thefuck plugin for zsh filled the JIT-install command for the missing app neofetch.](./screenshot.png) -->
+## philosophy
+
+- reproducible
+  - NixOS with flakes to lock versions
+  - [ephemeral root](https://wiki.nixos.org/wiki/Impermanence) to stay conscious about unreproduced state
+- ergonomics
+  - keyboard-first favoring vim-like keybinds
+- intuitiveness
+  - scrollable tiling
+
+## screenshots
+
+(credit: [wallpaper](https://www.artstation.com/artwork/LyG3K) by Alena Aenami.)
 
 <details>
 <summary>
-Screenshot
+JIT-installed neofetch
 </summary>
 
-![screenshot showing niri with neofetch and yazi in wezterm.](https://codeberg.org/kiara/cfg/raw/branch/main/screenshot.png)
+![neofetch](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/neofetch.png)
 
-screenshot showing niri with neofetch and yazi in wezterm.
-thefuck plugin for zsh filled the JIT-install command for the missing app neofetch.
-[wallpaper](https://www.artstation.com/artwork/LyG3K) by Alena Aenami.
+thefuck plugin for zsh (hit double `Esc`) filled the JIT-install command for the missing app neofetch.
+the expanded notification bar [`SwayNotificationCenter`](https://github.com/ErikReider/SwayNotificationCenter/) is shown with a notification about a completed rebuild. this menu can be opened using `Super+\`` or by right-clicking the 'Windows' button.
+
+</details>
+
+<details>
+<summary>
+file managers
+</summary>
+
+![yazi](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/files.png)
+
+[`yazi`](https://yazi-rs.github.io/) is a terminal-based file manager with vim-like keybindings.
+[`thunar`](https://gitlab.xfce.org/xfce/thunar) is available as a graphical alternative.
+
+![thunar](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/notifications-files.png)
+
+</details>
+
+<details>
+<summary>
+firefox
+</summary>
+
+![firefox](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/firefox.png)
+
+Firefox is used as a web browser, with some [basic add-ons](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/firefox.nix).
+
+</details>
+
+<details>
+<summary>
+terminal-based IDE
+</summary>
+
+![helix](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/ide.png)
+
+running `ide` in the WezTerm terminal opens a terminal-based IDE at that directory, consisting of:
+
+- Git TUI [`lazygit`](https://github.com/jesseduffield/lazygit), offering a terminal-based way to work with Git repositories, including vim keybindings.
+- [`helix`](https://helix-editor.com/), featuring language servers for nix (thru [`nixd`](https://github.com/nix-community/nixd)) and others
+- a shell, using [Zsh](https://www.zsh.org/) and decorated using [`powerline-go`](https://github.com/justjanne/powerline-go)
+
+![lazygit](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/lazygit.png)
+
+As a back-up, the graphical [VSCodium](https://vscodium.com/) is provided (with some [plugins](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/vscode.nix)).
+
+</details>
+
+<details>
+<summary>
+application menu
+</summary>
+
+![anyrun](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/runner.png)
+
+Application menu [`anyrun`](https://github.com/anyrun-org/anyrun) can be opened using `Super+Space` or by left-clicking the 'Windows' button.
+
+</details>
+
+<details>
+<summary>
+JIT application menu
+</summary>
+
+![jit menu](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/jit.png)
+
+A menu to JIT-install and run applications can be opened using `Super+Shift+Space`.
+
+</details>
+
+<details>
+<summary>
+audio volume 
+</summary>
+
+![volume control](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/volume.png)
+
+Right-clicking the volume icon in the bar opens [Pulse Audio Volume Control](https://freedesktop.org/software/pulseaudio/pavucontrol/#overview).
+
+</details>
+
+<details>
+<summary>
+wifi
+</summary>
+
+![nmtui](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/wifi.png)
+
+Pressing `Super+i` or right-clicking the wifi icon opens the [Network Manager TUI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmtui).
+
+</details>
+
+<details>
+<summary>
+show dependency age
+</summary>
+
+![just age](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/age.png)
+
+command `just age` showing the age of any dependencies included in `flake.lock`
+
+</details>
+
+<details>
+<summary>
+emoji picker
+</summary>
+
+![emoji picker](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/emoji-picker.png)
+
+pressing the Microsoft keyboard's emoji key](https://support.microsoft.com/en-us/topic/use-microsoft-ergonomic-keyboard-c917dad0-3797-d97b-efb3-fbe27ac9703c#ID0EDFBBDDD) (`Super-Ctrl-Alt-Shift-Space`) triggers an emoji picker using fuzzy picker [fzf](https://github.com/junegunn/fzf).
+
+</details>
+
+<details>
+<summary>
+symbol picker
+</summary>
+
+![anyrun symbols](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/anyrun-symbols.png)
+
+keybind `Super+B` lets the user pick symbols using [`anyrun`'s `symbols` plugin](https://github.com/anyrun-org/anyrun/blob/master/plugins/symbols/README.md)
+
+</details>
+
+<details>
+<summary>
+btop
+</summary>
+
+![btop](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/btop.png)
+
+right-clicking the CPU or RAM bar indicators opens the resource-monitor [`btop`](https://github.com/aristocratos/btop)
+
+</details>
+
+<details>
+<summary>
+file picker
+</summary>
+
+![file picker](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/file-picker.png)
+
+pressing `CTRL-T` in the shell opens [`fzf`'s file picker](https://github.com/junegunn/fzf#key-bindings-for-command-line), copying the selected file or directory path to the clipboard.
+
+</details>
+
+<details>
+<summary>
+ctrl-alt-delete
+</summary>
+
+![gnome monitor](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/gnome-monitor.png)
+
+`ctrl+alt+delete` triggers [Gnome System Monitor](https://wiki.gnome.org/Apps/SystemMonitor)
+
+</details>
+
+<details>
+<summary>
+zfxtop
+</summary>
+
+![zfxtop](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/zfxtop.png)
+
+Pressing `Ctrl-Shift-Escape` or left-clicking the CPU icon opens monitoring tool [`zfxtop`](https://github.com/ssleert/zfxtop).
 
 </details>
 
@@ -32,8 +208,19 @@ This configuration was made with the following devices in mind:
 
 ## usage
 
+### prerequisites
+
+- update [`./hosts/<PROFILE>/hardware-configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/hardware-configuration.nix)
+- on an existing system, [disable impermanence](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/ephemeral.nix#L3) to prevent existing files not [opted into persistence](https://github.com/search?q=repo%3AKiaraGrouwstra%2Fcfg%20persistence&type=code) from being [wiped on boot](https://wiki.nixos.org/wiki/Impermanence)
+- replace currently [hardcoded values](https://codeberg.org/kiara/cfg/issues/320)
+- get a user password by either:
+  - [setting one](https://nixos.org/manual/nixos/stable/options#opt-users.users._name_.initialPassword) in [`./hosts/<PROFILE>/configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/configuration.nix)
+  - decoding secrets by adding the [`age`](https://github.com/FiloSottile/age) keys file to `/etc/nixos/keys.txt`
+
+### installation
+
 <details>
-<summary>clean install from NixOS USB</summary>
+<summary>clean install from [NixOS USB](https://nixos.org/download/#nixos-iso)</summary>
 
 ```sh
 cd Downloads
@@ -51,13 +238,14 @@ cp /etc/{machine-id,group,passwd,shadow} /persist/etc
 
 </details>
 
-### prerequisites
+<details>
+<summary>install from [existing](https://nixos.org/manual/nixos/stable/#sec-installation) NixOS system</summary>
 
-- [install](https://nixos.org/manual/nixos/stable/#sec-installation) NixOS
-- update [`./hosts/<PROFILE>/hardware-configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/hardware-configuration.nix)
-- get a user password by either:
-  - [setting one](https://nixos.org/manual/nixos/stable/options#opt-users.users._name_.initialPassword) in [`./hosts/<PROFILE>/configuration.nix`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/hammer/configuration.nix)
-  - decoding secrets by adding the [`age`](https://github.com/FiloSottile/age) keys file to `/etc/nixos/keys.txt`
+```sh
+$ nix --experimental-features "nix-command flakes" run nixpkgs#just -- switch
+```
+
+</details>
 
 ### commands
 
