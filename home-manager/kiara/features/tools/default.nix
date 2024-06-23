@@ -79,7 +79,7 @@
         "jobs"
         "exit"
         "root"
-        "vi-mode"
+        # "vi-mode"
       ];
     };
 
