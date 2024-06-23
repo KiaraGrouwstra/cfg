@@ -7,7 +7,7 @@ set -euo pipefail
 APPS=$(nix-locate --minimal --regex '/share/applications/.*\.desktop$' |
   sed 's/\.out$//;/(.*)/d' |
   sort -u)
-SELECTION=$(fzf --reverse --border --prompt='Demo Application: ' <<<"$APPS")
+SELECTION=$(fzf --reverse --bind=tab:down --bind=shift-tab:up --border --prompt='Demo Application: ' <<<"$APPS")
 # tighten the sandbox to what you need
 # $HOME is tmpfs to the app so it puts its trash into a trash can
 # bwrap --dev-bind / / \

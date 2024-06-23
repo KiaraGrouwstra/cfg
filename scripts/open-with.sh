@@ -8,7 +8,7 @@ count=$(echo $apps | wc -w)
 if [ $count = "1" ]; then
   app=$apps
 else
-  app=$(echo $apps | tr " " "\n" | fzf --reverse)
+  app=$(echo $apps | tr " " "\n" | fzf --reverse --bind=tab:down --bind=shift-tab:up)
 fi
 # it won't pick up on gtk-launch otherwise somehow
 nix shell nixpkgs#gtk3 --command gtk-launch $app $file
