@@ -341,6 +341,7 @@
         "Mod+R" = "switch-preset-column-width";
         "Mod+A" = "maximize-column";
         "Mod+Shift+A" = "fullscreen-window";
+        "F11" = "fullscreen-window";
         "Mod+C" = "center-column";
 
         # screenshots
