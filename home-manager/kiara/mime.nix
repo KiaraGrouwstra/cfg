@@ -350,6 +350,10 @@
     "text/x-c++"
     "text/*"
   ];
+  torrents = [
+    "application/x-bittorrent"
+    "x-scheme-handler/magnet"
+  ];
   directories = [
     "inode/directory"
     "inode/mount-point"
@@ -383,6 +387,7 @@
     (lib.genAttrs models (_: ["PrusaSlicer"]))
     (lib.genAttrs ["text/x-gcode"] (_: ["PrusaGcodeviewer"]))
     (lib.genAttrs cad (_: ["org.freecadweb.FreeCAD"]))
+    (lib.genAttrs torrents (_: ["rqbit" "stremio"]))
     (lib.genAttrs directories (_: [
       "yazi"
       "thunar"
@@ -403,7 +408,6 @@
       "application/json" = browsers;
       "text/csv" = ["calc" "visidata" "less" "org.gnome.TextEditor"];
       "application/vnd.smart.notebook" = ["less"];
-      "x-scheme-handler/magnet" = ["rqbit" "stremio"];
       "x-scheme-handler/irc" = ["halloy"];
       "application/x-desktop" = ["exo-open"];
     }
