@@ -4,6 +4,22 @@
   config,
   ...
 }: {
+
+  systemd.user.services = lib.mapVals (ExecStart: {
+    Unit.After = ["niri.service"];
+    Install.WantedBy = ["niri.service"];
+    Service = {
+      Type = "simple";
+      Restart = "on-failure";
+      inherit ExecStart;
+    };
+  }) (let
+    inherit (config.commands) swaybg waybar kdeconnect-indicator;
+  in {
+    inherit waybar kdeconnect-indicator;
+    swaybg = "${swaybg} -m fill -i ${config.home.homeDirectory}/Pictures/wallpaper";
+  });
+
   home.packages =
     [
       pkgs.qt6.qtwayland
@@ -486,10 +502,6 @@
     # Note that running niri as a session supports xdg-desktop-autostart,
     # which may be more convenient to use.
     spawn-at-startup = [
-      {command = [waybar];}
-
-      {command = [kdeconnect-indicator];}
-
       # screen sharing
       {command = sh "${dbus-update-activation-environment} --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP";}
 
@@ -499,7 +511,6 @@
       {command = sh "${wl-paste} --type text --watch ${cliphist} store";} # Stores only text data
       {command = sh "${wl-paste} --type image --watch ${cliphist} store";} # Stores only image data
 
-      {command = sh "${swaybg} -m fill -i ${config.home.homeDirectory}/Pictures/wallpaper";}
       {command = sh "${wallust} run `cat ~/.cache/wal/wal`";}
     ];
 
