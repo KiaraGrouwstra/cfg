@@ -10,7 +10,7 @@
     Install.WantedBy = ["niri.service"];
     Service = {
       Type = "simple";
-      Restart = "on-failure";
+      Restart = lib.mkForce "on-failure";
       inherit ExecStart;
     };
   }) (let
