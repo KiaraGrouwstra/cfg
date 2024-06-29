@@ -301,6 +301,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
   - nix commands
   - 'command not found' errors
 - `nix flake show` is fixed using [Flake Schemas](https://github.com/NixOS/nix/pull/8892)
+- `$SHELL` is retained in `nix shell`
 
 ## used software
 
