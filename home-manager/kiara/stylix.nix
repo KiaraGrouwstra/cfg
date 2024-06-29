@@ -15,6 +15,7 @@ in {
 
   stylix = {
     enable = true;
+    autoEnable = true;
 
     cursor = {
       # https://github.com/catppuccin/cursors#previews
