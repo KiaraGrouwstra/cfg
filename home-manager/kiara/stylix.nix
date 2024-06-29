@@ -14,6 +14,8 @@ in {
   };
 
   stylix = {
+    enable = true;
+
     cursor = {
       # https://github.com/catppuccin/cursors#previews
       package = pkgs.catppuccin-cursors.mochaDark;
