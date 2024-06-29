@@ -145,13 +145,6 @@ in {
   # let file managers access trash and remotes
   services.gvfs.enable = true;
 
-  systemd.services.local-ai = let
-    port = "8080";
-  in {
-    wantedBy = ["multi-user.target"];
-    serviceConfig.ExecStart = "${pkgs.local-ai}/bin/local-ai --address :${port} --models-path /persist${userConfig.home}/.config/piper/voices/";
-  };
-
   nix = {
     settings = {
       trusted-users = [

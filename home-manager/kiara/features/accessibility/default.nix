@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./local-ai.nix
+  ];
+
   home.packages = lib.attrValues {
     inherit
       (pkgs)

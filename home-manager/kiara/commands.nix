@@ -54,6 +54,7 @@ let
             visidata
             keepassxc
             libnotify
+            local-ai
             ;
         })
         ++ [
