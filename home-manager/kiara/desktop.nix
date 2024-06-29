@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.commands) hold' less glow lynx decompress pistol open-with webtorrent ide exo-open;
+  inherit (config.commands) hold' less glow lynx decompress pistol open-with rqbit ide exo-open;
 in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/
@@ -70,7 +70,7 @@ in {
       "application/x-7z-compressed"
     ])
 
-    (commandDesktop "webtorrent" "${webtorrent} download"
+    (commandDesktop "rqbit" "${rqbit} download -o ~/Downloads"
       ["x-scheme-handler/magnet"])
 
     (commandDesktop "ide" ide

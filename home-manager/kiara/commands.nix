@@ -54,6 +54,7 @@ let
             visidata
             keepassxc
             libnotify
+            rqbit
             local-ai
             ;
         })
@@ -69,7 +70,6 @@ let
           inherit
             (pkgs.nodePackages)
             typescript
-            webtorrent-cli
             vscode-css-languageserver-bin
             bash-language-server
             typescript-language-server

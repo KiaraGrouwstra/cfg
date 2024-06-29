@@ -403,7 +403,7 @@
       "application/json" = browsers;
       "text/csv" = ["calc" "visidata" "less" "org.gnome.TextEditor"];
       "application/vnd.smart.notebook" = ["less"];
-      "x-scheme-handler/magnet" = ["webtorrent" "stremio"];
+      "x-scheme-handler/magnet" = ["rqbit" "stremio"];
       "x-scheme-handler/irc" = ["halloy"];
       "application/x-desktop" = ["exo-open"];
     }
