@@ -240,7 +240,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .'
     nixosConfigurations = forSystem (
-      system: inputs.stable.lib.nixosSystem {
+      system: inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {inherit system lib inputs outputs userConfig;};
           modules = [
