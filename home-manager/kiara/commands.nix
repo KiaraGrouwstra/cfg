@@ -19,6 +19,7 @@ let
       lib.attrsFromPackage ((lib.attrValues {
           inherit
             (pkgs)
+            curl
             git
             nix
             tree

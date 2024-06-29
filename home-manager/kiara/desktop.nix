@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.commands) hold' less glow lynx decompress pistol open-with rqbit ide curl xdg-open exo-open;
+  inherit (config.commands) hold' less glow lynx decompress pistol open-with rqbit ide curl xdg-open exo-open post-torrent;
 in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/
@@ -31,17 +31,10 @@ in {
       }
       // attrs));
   in [
-    (let
-      name = "rqbit";
-    in pkgs.makeDesktopItem {
-      inherit name;
-      desktopName = name;
-      genericName = name;
-      mimeTypes = ["x-scheme-handler/magnet"];
-      tryExec = rqbit;
-      exec = hold' "${rqbit} download -o ~/Downloads %f || ${curl} -d %f http://127.0.0.1:3029/torrents && ${xdg-open} http://127.0.0.1:3029/web/";
-      icon = "utilities-terminal";
-    })
+    (commandDesktop "rqbit" post-torrent [
+      "application/x-bittorrent"
+      "x-scheme-handler/magnet"
+    ])
 
     # TODO: populate as per lesspipe
     # https://github.com/wofr06/lesspipe?tab=readme-ov-file#41-supported-compression-methods-and-archive-formats
