@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  lime3ds,
+  nixpkgs,
   ...
 }: {
   home.persistence."/persist/home/kiara".directories = [
@@ -39,7 +39,7 @@
   ];
   home.packages =
     [
-      lime3ds.lime3ds
+      nixpkgs.lime3ds
     ]
     ++ lib.attrValues {
       inherit

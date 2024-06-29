@@ -90,7 +90,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     regression.url = "github:nixos/nixpkgs/23.11";
     stable.url = "github:nixos/nixpkgs/24.05";
-    lime3ds.url = "github:arthsmn/nixpkgs/lime3ds";
     arion.url = "github:AkechiShiro/nixpkgs/arion-use-docker-compose-v2";
     workman-vim = {
       url = "gitlab:ajgrf/workman-vim-bindings";
@@ -177,15 +176,15 @@
     specialFor = forSystem (system:
       {
         inherit system lib inputs outputs userConfig;
-        # pkgs = pkgsFor.${system};
+        # pkgs = pkgsFor.${system};  # programs/k9s: attribute 'formats' missing
       }
       // lib.mapVals (nixpkgs': nixpkgs'.legacyPackages.${system}) {
         inherit
           (inputs)
+          nixpkgs
           unfree
           regression
           stable
-          lime3ds
           arion
           ;
       });
