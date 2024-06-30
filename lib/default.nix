@@ -59,6 +59,8 @@
         }))
     deps));
 
+  # merge two attrset of lists to have the higher-priority attrset's
+  # list elements come before the lower-priority ones on shared keys
   prioritize = lower: higher:
     foldl' (o: k:
       o
@@ -72,7 +74,8 @@
       })
     higher (attrNames lower);
 
-  # dry mime list
+  # merge a list of attrsets of lists to have the later attrsets'
+  # list elements come earlier on shared keys; used to dry mime list
   prioritizeList = foldl' prioritize {};
 
   # recursively symlink any files in a directory from $HOME
