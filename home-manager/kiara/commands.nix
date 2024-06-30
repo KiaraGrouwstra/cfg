@@ -57,6 +57,8 @@ let
             libnotify
             rqbit
             local-ai
+            anyrun
+            symbols
             ;
         })
         ++ [
@@ -117,9 +119,6 @@ let
         wpctl = pkgs.wireplumber;
         clangd = pkgs.clang-tools;
         exo-open = pkgs.xfce.exo;
-      }
-      // {
-        inherit (inputs.anyrun.packages.${system}) anyrun symbols;
       })
   );
   commands = let

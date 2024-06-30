@@ -146,9 +146,9 @@
     # [ overlay ]
     overlays =
       builtins.attrValues overlaysAttrs
+      # external overlays
       ++ lib.lists.map (k: inputs."${k}".overlay) [
         "nur"
-        "nixgl"
       ];
     # for each system: nixpkgs
     pkgsFor =
