@@ -22,12 +22,5 @@
       enable = true;
       styles = [pkgs.libsForQt5.qtstyleplugin-kvantum];
     };
-    extraPortals = lib.attrValues {
-      inherit
-        (pkgs)
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        ;
-    };
   };
 }
