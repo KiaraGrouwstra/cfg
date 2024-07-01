@@ -220,7 +220,7 @@ This configuration was made with the following devices in mind:
 ### installation
 
 <details>
-<summary>clean install from [NixOS USB](https://nixos.org/download/#nixos-iso)</summary>
+<summary>clean install from <a href="https://nixos.org/download/#nixos-iso">NixOS USB</a></summary>
 
 ```sh
 cd Downloads
@@ -239,7 +239,7 @@ cp /etc/{machine-id,group,passwd,shadow} /persist/etc
 </details>
 
 <details>
-<summary>install from [existing](https://nixos.org/manual/nixos/stable/#sec-installation) NixOS system</summary>
+<summary>install from <a href="https://nixos.org/manual/nixos/stable/#sec-installation">existing</a> NixOS system</summary>
 
 ```sh
 $ nix --experimental-features "nix-command flakes" run nixpkgs#just -- switch
