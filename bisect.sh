@@ -14,6 +14,7 @@ TARGET_COMMIT=$(git rev-parse HEAD)
 sed -E -i "s/$CURRENT_COMMIT/$TARGET_COMMIT/g" $LOCK_FILE
 CURRENT_HASH=$(jaq -r ".nodes[\"${DEPENDENCY_INPUT}\"].locked.narHash" $LOCK_FILE)
 TARGET_HASH=$(nix-hash --to-sri --type sha256 $(nix-prefetch-url --unpack "${DEPENDENCY_URL}/archive/${TARGET_COMMIT}.zip" --type sha256))
+sed -E -i "s/$CURRENT_HASH/$TARGET_HASH/g" $LOCK_FILE 
 export DEPENDENCY_PATH=$PWD
 cd $SYSTEM_REPO
 sudo nixos-rebuild boot --flake .#default
