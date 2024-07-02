@@ -23,7 +23,6 @@
     ./swaylock.nix
     ./stylix.nix
     ./vscode.nix
-    ./waybar.nix
     ./wezterm.nix
     ./zathura.nix
     ./zsh.nix

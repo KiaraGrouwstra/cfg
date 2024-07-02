@@ -269,6 +269,7 @@
                   homeModules
                   ++ [
                     ./home-manager/kiara/niri.nix
+                    ./home-manager/kiara/waybar.nix
                   ];
               };
             }
