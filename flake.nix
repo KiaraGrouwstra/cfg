@@ -139,7 +139,7 @@
       // home-manager.lib
       // (import ./lib {inherit (nixpkgs) lib;});
     forSystem = f: let
-      o = lib.genAttrs ["aarch64-linux" "i686-linux" "x86_64-linux"] f;
+      o = lib.genAttrs ["aarch64-linux" "x86_64-linux"] f;
     in
       o
       // {
