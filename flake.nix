@@ -24,7 +24,10 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware";
+    # updating needs newer system:
+    # https://github.com/NixOS/nixos-hardware/commit/231274268ff2250d4730e274b808f66ef91b6381
+    # https://github.com/NixOS/nixos-hardware/commit/cc634b69c8312c4e88469d3c7e8fb5ecc72e7dc6
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=083823b7904e43a4fc1c7229781417e875359a42";
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,7 +55,8 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     niri = {
-      url = "github:sodiboo/niri-flake";
+      # https://github.com/sodiboo/niri-flake/issues/351
+      url = "github:sodiboo/niri-flake?rev=bc4dd7b28a40ff2c75b12d5d76c3e42fc4aea699";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       # inputs.crate2nix.follows = "crate2nix";
@@ -240,7 +244,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .'
     nixosConfigurations = forSystem (
-      system: inputs.nixpkgs.lib.nixosSystem {
+      system: inputs.stable.lib.nixosSystem {
           inherit system;
           specialArgs = {inherit system lib inputs outputs userConfig;};
           modules = [

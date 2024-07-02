@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  nixpkgs,
   ...
 }: {
   home.persistence."/persist/home/kiara".directories = [
@@ -36,15 +37,18 @@
     ".local/share/applications/Proton Experimental.desktop"
     ".local/share/applications/Monster Hunter World.desktop"
   ];
-  home.packages = lib.attrValues {
-    inherit
-      (pkgs)
-      lime3ds
-      lutris
-      antimicrox
-      retro-gtk
-      retroarch
-      # retroarchFull
-      ;
+  home.packages =
+    [
+      nixpkgs.lime3ds
+    ]
+    ++ lib.attrValues {
+      inherit
+        (pkgs)
+        lutris
+        antimicrox
+        retro-gtk
+        retroarch
+        # retroarchFull
+        ;
     };
 }
