@@ -162,7 +162,7 @@
           pkgs = import nixpkgs {
             inherit system overlays;
             config.allowUnfree = true;
-            config.allowNonSource = false;
+            # config.allowNonSource = false;  # fails for cargo-bootstrap
           };
       in
         pkgs //
