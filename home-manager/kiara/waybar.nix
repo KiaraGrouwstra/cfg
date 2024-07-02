@@ -7,7 +7,8 @@
   programs.waybar = {
     enable = true;
     settings = let
-      inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu toggle anyrun swaync-client niri;
+      inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu toggle anyrun swaync-client;
+      niri = lib.getExe config.programs.niri.package;
     in {
       mainBar = {
         layer = "top";

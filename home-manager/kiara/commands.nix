@@ -93,7 +93,6 @@ let
               firefox
               vscode
               zsh
-              niri
               ;
           })
         ))
