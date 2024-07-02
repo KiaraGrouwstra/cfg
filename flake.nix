@@ -288,13 +288,21 @@
     defaultPackage = forSystem (system: nixpkgs.legacyPackages.${system}.just);
     # defaultPackage = forSystem (system: home-manager.defaultPackage.${system});
 
-    homeConfigurations = forSystem (system:
+    homeConfigurations = let
+      bySystem = forSystem (system:
       home-manager.lib.homeManagerConfiguration {
         # inherit overlays;
         pkgs = pkgsFor.${system};
         extraSpecialArgs = specialFor.${system};
         modules = homeModules;
       });
+      in bySystem // {
+        krost = bySystem.x86_64-linux // {
+          imports = [
+            ./home-manager/kiara/chromebook.nix
+          ];
+        };
+      };
 
     # Apps make it easy to run my scripts from the flake
     apps = forSystem (system: let

@@ -13,11 +13,9 @@
   //
   (let
     inherit (lib.mapVals (input: input.packages."${pkgs.system}") inputs)
-      nixgl
       anyrun
     ;
   in {
-    inherit (nixgl) nixGLDefault;
     inherit (anyrun) anyrun symbols;
   })
   //
