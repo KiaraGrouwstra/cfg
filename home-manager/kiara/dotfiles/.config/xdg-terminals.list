@@ -1,3 +1,4 @@
 /enable_cache
 org.wezfurlong.wezterm.desktop:
 kitty-open.desktop:
+org.gnome.Terminal.desktop:
