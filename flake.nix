@@ -158,13 +158,16 @@
     pkgsFor =
       forSystem
       (system:
-        import ./packages.nix {
-          inherit inputs lib;
+      let
           pkgs = import nixpkgs {
             inherit system overlays;
             config.allowUnfree = true;
             config.allowNonSource = false;
           };
+      in
+        pkgs //
+        import ./packages.nix {
+          inherit inputs lib pkgs;
         });
     # for each system: apply pkgs to a function
     forAllSystems = f: forSystem (system: f pkgsFor.${system});
