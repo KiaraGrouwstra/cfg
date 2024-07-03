@@ -56,7 +56,7 @@
         #   #     definedAliases = [ "@nms" ];
         #   #   };
         #   #   "NixOS-Wiki Search" = {
-        #   #     urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}&go=Go"; }];
+        #   #     urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}&go=Go"; }];
         #   #     iconUpdateURL = "https://nixos.org/favicon.png";
         #   #     definedAliases = [ "@nws" ];
         #   #   };
@@ -120,7 +120,7 @@
         #       {
         #         name = "wiki";
         #         tags = [ "wiki" "nix" ];
-        #         url = "https://nixos.wiki/";
+        #         url = "https://wiki.nixos.org/";
         #       }
         #     ];
         #   }
