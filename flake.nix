@@ -52,8 +52,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     niri = {
-      # https://github.com/sodiboo/niri-flake/issues/351
-      url = "github:sodiboo/niri-flake?rev=bc4dd7b28a40ff2c75b12d5d76c3e42fc4aea699";
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       # inputs.crate2nix.follows = "crate2nix";
