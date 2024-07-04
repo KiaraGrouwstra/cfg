@@ -3,6 +3,7 @@
   config,
   lib,
   inputs,
+  regression,
   ...
 }: let
   nix-colors-lib = inputs.nix-colors.lib.contrib {inherit pkgs;};
@@ -82,7 +83,7 @@ in {
     theme = lib.mkForce {
       # https://github.com/catppuccin/gtk
       name = "Catppuccin-Mocha-Compact-Maroon-Dark";
-      package = pkgs.catppuccin-gtk.override {
+      package = regression.catppuccin-gtk.override {
         variant = "mocha";
         size = "compact";
         accents = ["maroon"];

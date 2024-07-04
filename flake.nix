@@ -24,10 +24,7 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";
     };
-    # updating needs newer system:
-    # https://github.com/NixOS/nixos-hardware/commit/231274268ff2250d4730e274b808f66ef91b6381
-    # https://github.com/NixOS/nixos-hardware/commit/cc634b69c8312c4e88469d3c7e8fb5ecc72e7dc6
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=083823b7904e43a4fc1c7229781417e875359a42";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -92,7 +89,7 @@
     nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    regression.url = "github:nixos/nixpkgs/23.11";
+    regression.url = "github:nixos/nixpkgs/24.05";
     stable.url = "github:nixos/nixpkgs/24.05";
     arion.url = "github:AkechiShiro/nixpkgs/arion-use-docker-compose-v2";
     workman-vim = {
@@ -244,7 +241,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .'
     nixosConfigurations = forSystem (
-      system: inputs.stable.lib.nixosSystem {
+      system: inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {inherit system lib inputs outputs userConfig;};
           modules = [

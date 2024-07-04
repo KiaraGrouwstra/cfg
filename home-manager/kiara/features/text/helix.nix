@@ -187,11 +187,6 @@
       inherit (config.commands) nil nixd alejandra css-languageserver shfmt;
     in {
       language-server = {
-        vscode-css-language-server = {
-          command = css-languageserver;
-          args = ["--stdio"];
-        };
-
         nil.command = nil;
 
         nixd = {

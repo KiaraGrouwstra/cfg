@@ -14,14 +14,11 @@
     ".local/share/Nextcloud"
   ];
 
-  home.packages =
-    [
-      # security
-      pkgs.gnome.seahorse
-    ]
-    ++ lib.attrValues {
+  home.packages = lib.attrValues {
       inherit
         (pkgs)
+        # security
+        seahorse
         rage
         sops
         ## compression

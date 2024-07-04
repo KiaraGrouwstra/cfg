@@ -1,5 +1,5 @@
 _: {
-  sound.enable = true;
+  # sound.enable = true;  # https://github.com/NixOS/nixpkgs/issues/319809
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

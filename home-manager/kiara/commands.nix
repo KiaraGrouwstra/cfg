@@ -73,7 +73,7 @@ let
           inherit
             (pkgs.nodePackages)
             typescript
-            vscode-css-languageserver-bin
+            vscode-langservers-extracted
             bash-language-server
             typescript-language-server
             ;

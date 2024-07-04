@@ -15,10 +15,7 @@ in {
     # keys: ls ~/.local/share/applications/
     # vals: ls ~/.nix-profile/bin/
     // autoStartLinks {
-      "org.keepassxc.KeePassXC" = pkgs.keepassxc;
-      # "codium" = config.programs.vscode.package;
       "firefox" = config.programs.firefox.package;
-      # "com.nextcloud.desktopclient.nextcloud" = nextcloud-client;
       "org.wezfurlong.wezterm" = config.programs.wezterm.package;
     }
     // {
