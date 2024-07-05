@@ -157,18 +157,17 @@
     # for each system: nixpkgs
     pkgsFor =
       forSystem
-      (system:
-      let
-          pkgs = import nixpkgs {
-            inherit system overlays;
-            config.allowUnfree = true;
-            # config.allowNonSource = false;  # fails for cargo-bootstrap
-          };
+      (system: let
+        pkgs = import nixpkgs {
+          inherit system overlays;
+          config.allowUnfree = true;
+        };
       in
-        pkgs //
-        import ./packages.nix {
+        pkgs
+        // import ./packages.nix {
           inherit inputs lib pkgs;
-        });
+        }
+        );
     # for each system: apply pkgs to a function
     forAllSystems = f: forSystem (system: f pkgsFor.${system});
     # Your custom packages, acessible through 'nix build', 'nix shell', etc
@@ -247,7 +246,8 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .'
     nixosConfigurations = forSystem (
-      system: inputs.nixpkgs.lib.nixosSystem {
+      system:
+        inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {inherit system lib inputs outputs userConfig;};
           modules = [

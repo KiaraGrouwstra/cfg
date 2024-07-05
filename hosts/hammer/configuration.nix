@@ -29,7 +29,7 @@ in {
     # Windows disks
     supportedFilesystems = ["ntfs"];
     # cross-compilation
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    binfmt.emulatedSystems = ["aarch64-linux"];
   };
 
   environment.etc."machine-id".text = "26aa8d2d944441d7b2944058d4e69fb0";
