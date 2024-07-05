@@ -8,6 +8,7 @@
 }: (
   lib.dryFlakes pkgs inputs [
     "nix-search"
+    "noshell"
   ]
   //
   (let

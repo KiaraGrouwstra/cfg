@@ -1590,6 +1590,26 @@
         "type": "github"
       }
     },
+    "noshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717396029,
+        "narHash": "sha256-NPIhvnTYkJZqTY+aabbZ6CAaMAgG6IISvh7GZo1MTfQ=",
+        "owner": "viperML",
+        "repo": "noshell",
+        "rev": "4d194d838a50ea106cd0e47c024e47afc154ab42",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "noshell",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
         "lastModified": 1720071889,
@@ -1787,6 +1807,7 @@
         "nixos": "nixos",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
+        "noshell": "noshell",
         "nur": "nur",
         "regression": "regression",
         "sops-nix": "sops-nix",

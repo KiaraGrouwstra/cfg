@@ -2,7 +2,11 @@
   config,
   userConfig,
   ...
-}: {
+}:
+let
+  inherit (config.commands) nvimpager terminal zsh;
+in
+{
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [./imports.nix];
@@ -12,11 +16,12 @@
   home.username = "kiara";
   home.homeDirectory = "/home/kiara";
 
+  # set shell in home-manager
+  xdg.configFile."shell".source = zsh;
+
   # keyboard.active = "workman";
 
-  home.sessionVariables = let
-    inherit (config.commands) nvimpager terminal zsh;
-  in {
+  home.sessionVariables = {
     SHELL = zsh;
     PAGER = nvimpager;
     MANPAGER = "$PAGER";
