@@ -78,6 +78,7 @@ let
             bash-language-server
             typescript-language-server
             ;
+          inherit (pkgs.python312Packages) python-lsp-server;
         }
         # programs.<name>.package
         ++ (
