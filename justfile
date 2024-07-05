@@ -16,7 +16,7 @@ dry:
 
 # Rebuild the home config
 home:
-  home-manager switch --flake .#default switch --show-trace
+  home-manager switch -b backup --flake .#default switch --show-trace
 
 # Format code
 fmt:
