@@ -15,8 +15,9 @@
   # keyboard.active = "workman";
 
   home.sessionVariables = let
-    inherit (config.commands) nvimpager terminal;
+    inherit (config.commands) nvimpager terminal zsh;
   in {
+    SHELL = zsh;
     PAGER = nvimpager;
     MANPAGER = "$PAGER";
     TERMINAL = terminal;
