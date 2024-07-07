@@ -7,6 +7,7 @@
   ...
 }: (
   lib.dryFlakes pkgs inputs [
+    "nix-search"
   ]
   //
   (let

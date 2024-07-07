@@ -110,6 +110,10 @@
       inputs.flake-schemas.follows = "flake-schemas";
       url = "github:DeterminateSystems/nix-src/flake-schemas";
     };
+    nix-search = {
+      url = "github:diamondburned/nix-search";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
