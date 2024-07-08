@@ -11,6 +11,8 @@
       inherit
         (pkgs)
         mono
+        xwayland
+        xwayland-satellite
         xwayland-run
         ## nix
         
