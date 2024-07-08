@@ -410,6 +410,7 @@
       "application/vnd.smart.notebook" = ["less"];
       "x-scheme-handler/irc" = ["halloy"];
       "application/x-desktop" = ["exo-open"];
+      "application/vnd.microsoft.portable-executable" = ["wine"];
     }
   ]);
 in {
