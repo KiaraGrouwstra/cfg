@@ -59,7 +59,9 @@
       # Next sections include libinput settings.
       # Omitting settings disables them, or leaves them at their default values.
       touchpad = {
+        enable = true;
         natural-scroll = true;
+        scroll-method = "two-finger";
         accel-speed = 0.2;
         accel-profile = "flat";
         tap = true;
@@ -69,11 +71,14 @@
         click-method = "clickfinger";
       };
       mouse = {
+        enable = true;
         natural-scroll = false;
+        scroll-method = "on-button-down";
         accel-speed = 0.2;
         accel-profile = "flat";
       };
       trackpoint = {
+        enable = true;
         natural-scroll = true;
         accel-speed = 0.2;
         accel-profile = "flat";
@@ -177,17 +182,17 @@
       # - "always", the focused column will always be centered.
       center-focused-column = "never";
       # Set gaps around windows in logical pixels.
-      gaps = 16;
+      gaps = 16.0;
       # Struts shrink the area occupied by windows, similarly to layer-shell panels.
       # You can think of them as a kind of outer gaps. They are set in logical pixels.
       # Left and right struts will cause the next window to the side to always be visible.
       # Top and bottom struts will simply add outer gaps in addition to the area occupied by
       # layer-shell panels and regular gaps.
       struts = {
-        left = 64;
-        right = 64;
-        # top = 64;
-        # bottom = 64;
+        left = 64.0;
+        right = 64.0;
+        # top = 64.0;
+        # bottom = 64.0;
       };
     };
 
