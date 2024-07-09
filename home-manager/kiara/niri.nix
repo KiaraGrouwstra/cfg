@@ -399,11 +399,31 @@
         inherit substitutions;
         prefixes = {
           Mod = "focus";
+        };
+        suffixes = {
+          # right hand
+          Left = "column-left-or-last";
+          Right = "column-right-or-first";
+          # left hand
+          "${config.keyboard.keys.D}" = "column-left-or-last";
+          "${config.keyboard.keys.F}" = "column-right-or-first";
+        };
+      })
+      // (binds {
+        inherit substitutions;
+        prefixes = {
+          "Mod+Shift" = "move";
+        };
+        suffixes = columns;
+      })
+      // (binds {
+        inherit substitutions;
+        prefixes = {
+          Mod = "focus";
           "Mod+Shift" = "move";
         };
         suffixes =
-          columns
-          // {
+          {
             # right hand
             Up = "window-up";
             Down = "window-down";
