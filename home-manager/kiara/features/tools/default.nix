@@ -2,6 +2,8 @@
   lib,
   pkgs,
   arion,
+  inputs,
+  system,
   ...
 }: {
   imports = [
@@ -68,7 +70,10 @@
   programs = {
     ## command-line utilities
 
-    command-not-found.enable = true;
+    command-not-found = {
+      enable = true;
+      dbPath = inputs.flake-programs-sqlite.packages.${system}.programs-sqlite;
+    };
 
     powerline-go = {
       enable = true;
