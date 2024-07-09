@@ -59,6 +59,7 @@ let
             local-ai
             anyrun
             symbols
+            xwayland-satellite
             ;
         })
         ++ [

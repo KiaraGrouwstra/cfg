@@ -25,6 +25,7 @@
     EDITOR = "hx";
     VISUAL = "hx";
     BROWSER = "firefox";
+    DISPLAY = ":0";  # xwayland-satellite.service
   };
 
   home.persistence."/persist${userConfig.home}".allowOther = false;

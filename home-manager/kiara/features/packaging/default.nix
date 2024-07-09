@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./xwayland-satellite.nix
+  ];
+  
   home.packages =
     [
       pkgs.wineWowPackages.waylandFull
@@ -12,7 +16,6 @@
         (pkgs)
         mono
         xwayland
-        xwayland-satellite
         xwayland-run
         ## nix
         
