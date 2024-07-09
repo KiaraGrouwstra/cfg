@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, ...}: {
   home.persistence."/persist/home/kiara".directories = [
     # ".config/waybar"
   ];
