@@ -156,6 +156,7 @@
       builtins.attrValues overlaysAttrs
       # external overlays
       ++ lib.lists.map (k: inputs."${k}".overlay) [
+        "nixgl"
         "nur"
       ];
     # for each system: nixpkgs
