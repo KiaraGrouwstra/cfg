@@ -1,4 +1,4 @@
-# https://nixos.wiki/wiki/Installing_Nix_on_Crostini
+# https://wiki.nixos.org/wiki/Installing_Nix_on_Crostini
 {pkgs, ...}: {
   # register desktop applications
   xdg.configFile."systemd/user/cros-garcon.service.d/override.conf".text = ''
