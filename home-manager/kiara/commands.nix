@@ -124,7 +124,7 @@ let
     lib.dryCommands binaries
     //
     # misc: either using args, or key != package name.
-    # in case of args, consider a [wrapping overlay/script](https://nixos.wiki/wiki/Wrappers_vs._Dotfiles).
+    # in case of args, consider a [wrapping overlay/script](https://wiki.nixos.org/wiki/Wrappers_vs._Dotfiles).
     {
       rofi = "${config.programs.rofi.package}/bin/rofi -i";
       rofi-systemd = "${rofi-systemd}/bin/.rofi-systemd-wrapped";

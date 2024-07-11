@@ -222,10 +222,10 @@ Application keybinds, tweaked to layout by setting `config.keyboard.active`:
 | [system configuration](https://search.nixos.org/options) | [`./hosts/`](https://codeberg.org/kiara/cfg/src/branch/main/hosts/) |
 | [home-manager configuration](https://nix-community.github.io/home-manager/options.xhtml) | [`./home-manager/`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/) |
 | binaries and command wrappers | [`./home-manager/kiara/commands.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/commands.nix) |
-| reusable [modules](https://nixos.wiki/wiki/Module) | [`./modules/`](https://codeberg.org/kiara/cfg/src/branch/main/modules) |
+| reusable [modules](https://wiki.nixos.org/wiki/Module) | [`./modules/`](https://codeberg.org/kiara/cfg/src/branch/main/modules) |
 | custom [functions](https://noogle.dev/) | [`./lib/`](https://codeberg.org/kiara/cfg/src/branch/main/lib) |
 | [custom packages](https://blog.ielliott.io/nix-docs/mkDerivation.html) | [`./pkgs/*.nix`](https://codeberg.org/kiara/cfg/src/branch/main/pkgs) (from flake inputs: [`./pkgs/default.nix`](https://codeberg.org/kiara/cfg/src/branch/main/pkgs/default.nix)) |
-| [overlays](https://nixos.wiki/wiki/Overlays) | [`./overlays/*.nix`](https://codeberg.org/kiara/cfg/src/branch/main/overlays) (from flake inputs: [`./flake.nix`](https://codeberg.org/kiara/cfg/src/branch/main/flake.nix)) |
+| [overlays](https://wiki.nixos.org/wiki/Overlays) | [`./overlays/*.nix`](https://codeberg.org/kiara/cfg/src/branch/main/overlays) (from flake inputs: [`./flake.nix`](https://codeberg.org/kiara/cfg/src/branch/main/flake.nix)) |
 | [LSP](https://langserver.org/) (vscodium / [coc.nvim](https://github.com/neoclide/coc.nvim)) | [`./home-manager/kiara/features/development/`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/features/development/) |
 | shell scripts | [`./home-manager/kiara/scripts/*.sh`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/scripts/) |
 | [dotfiles](https://www.freecodecamp.org/news/dotfiles-what-is-a-dot-file-and-how-to-create-it-in-mac-and-linux/) | [`./home-manager/kiara/dotfiles/`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/dotfiles/) + [`./home-manager/kiara/dotfiles.nix`](https://codeberg.org/kiara/cfg/src/branch/main/home-manager/kiara/dotfiles.nix) |
