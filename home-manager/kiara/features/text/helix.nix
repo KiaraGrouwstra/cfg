@@ -76,6 +76,8 @@
           "p" = "paste_clipboard_after";
           "P" = "paste_clipboard_before";
           "R" = "replace_selections_with_clipboard";
+          "c" = ["yank_to_clipboard" "change_selection_noyank"];
+          "d" = ["yank_to_clipboard" "delete_selection_noyank"];
           "${J}" = "join_selections";
           # "A-${J}" = "join_selections_space";
           "${K}" = "keep_selections";
