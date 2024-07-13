@@ -72,7 +72,10 @@
           # };
           "${n}" = "search_next";
           "${N}" = "search_prev";
-          "${y}" = "yank";
+          "${y}" = "yank_to_clipboard";
+          "p" = "replace_selections_with_clipboard";
+          "P" = "paste_clipboard_before";
+          "R" = "replace_selections_with_clipboard";
           "${J}" = "join_selections";
           # "A-${J}" = "join_selections_space";
           "${K}" = "keep_selections";
@@ -129,6 +132,8 @@
             "${Y}" = "yank_main_selection_to_clipboard";
             "${h}" = "select_references_to_symbol_under_cursor";
             "p" = "replace_selections_with_clipboard";
+            "P" = "paste_clipboard_before";
+            "R" = "replace_selections_with_clipboard";
           };
           "z" = {
             "${k}" = "scroll_up";
@@ -152,7 +157,7 @@
           };
         };
         select = {
-          "${y}" = "yank";
+          "${y}" = "yank_to_clipboard";
           "${h}" = "extend_char_left";
           "${j}" = "extend_visual_line_down";
           "${k}" = "extend_visual_line_up";
