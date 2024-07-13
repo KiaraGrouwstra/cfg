@@ -73,7 +73,7 @@
           "${n}" = "search_next";
           "${N}" = "search_prev";
           "${y}" = "yank_to_clipboard";
-          "p" = "replace_selections_with_clipboard";
+          "p" = "paste_clipboard_after";
           "P" = "paste_clipboard_before";
           "R" = "replace_selections_with_clipboard";
           "${J}" = "join_selections";
@@ -131,7 +131,7 @@
             "${y}" = "yank_to_clipboard";
             "${Y}" = "yank_main_selection_to_clipboard";
             "${h}" = "select_references_to_symbol_under_cursor";
-            "p" = "replace_selections_with_clipboard";
+            "p" = "paste_clipboard_after";
             "P" = "paste_clipboard_before";
             "R" = "replace_selections_with_clipboard";
           };
