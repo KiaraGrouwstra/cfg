@@ -42,8 +42,8 @@
           "A-${d}" = "page_up";
           "A-${f}" = "page_down";
           "x" = "select_regex";
-          "s" = "extend_line_below";
-          "S" = "extend_to_line_bounds";
+          "s" = "select_line_below";
+          "S" = "select_line_above";
           "${h}" = "move_char_left";
           "${j}" = "move_visual_line_down";
           "${k}" = "move_visual_line_up";
