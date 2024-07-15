@@ -200,7 +200,7 @@
             --    action--  = wezterm.action{AdjustPaneSize = {"Up",1}},
             -- },
             {
-               key = 'f',
+               key = 'g',
                mods = 'ALT',
                action = wezterm.action{Search = {CaseSensitiveString=""}},
             },
