@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  home.persistence."/persist/home/kiara".directories = [
-    ".local/share/castero"
-  ];
   home.packages =
     lib.attrValues {
       inherit
@@ -15,7 +12,6 @@
         imv
         ## audio
         
-        castero
         cava
         ## video
         
@@ -27,7 +23,6 @@
         ## 3d printing
         
         prusa-slicer
-        freecad
         ;
     };
 }

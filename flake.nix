@@ -90,7 +90,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     regression.url = "github:nixos/nixpkgs/24.05";
     stable.url = "github:nixos/nixpkgs/24.05";
-    arion.url = "github:AkechiShiro/nixpkgs/arion-use-docker-compose-v2";
     workman-vim = {
       url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
@@ -196,7 +195,6 @@
           unfree
           regression
           stable
-          arion
           ;
       });
 

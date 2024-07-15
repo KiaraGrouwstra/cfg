@@ -3,6 +3,7 @@
   lib,
   inputs,
   config,
+  regression,
   ...
 }:
 # TODO: JIT'ify? (#152)
@@ -52,7 +53,6 @@ let
             less
             glow
             lynx # lesspipe
-            visidata
             keepassxc
             libnotify
             rqbit
@@ -64,6 +64,7 @@ let
             ;
         })
         ++ [
+          regression.visidata
           pkgs.gnome.gnome-system-monitor
           pkgs.swaynotificationcenter
           pkgs.xfce.thunar

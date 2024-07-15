@@ -22,22 +22,6 @@
         "type": "github"
       }
     },
-    "arion": {
-      "locked": {
-        "lastModified": 1719151454,
-        "narHash": "sha256-LX5XGJ8lrXRbQlGXRpPe1JS2rja64wa7J/tCeOkapzI=",
-        "owner": "AkechiShiro",
-        "repo": "nixpkgs",
-        "rev": "059a0e5c3b952f5cbdcb6e17f6bc92aa18b03054",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AkechiShiro",
-        "ref": "arion-use-docker-compose-v2",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -1576,11 +1560,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1720027103,
-        "narHash": "sha256-Q92DHQjIvaMLpawMdXnbKQjCkzAWqjhjWJYS5RcKujY=",
+        "lastModified": 1721016451,
+        "narHash": "sha256-Cypl9ORr5UjtBsbjXMTJRepTe362yNVrPrntUvHiTaw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "61684d356e41c97f80087e89659283d00fe032ab",
+        "rev": "a14c5d651cee9ed70f9cd9e83f323f1e531002db",
         "type": "github"
       },
       "original": {
@@ -1785,7 +1769,6 @@
     "root": {
       "inputs": {
         "anyrun": "anyrun",
-        "arion": "arion",
         "devshell": "devshell",
         "disko": "disko",
         "flake-compat": "flake-compat",

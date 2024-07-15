@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  arion,
   inputs,
   system,
   ...
@@ -27,7 +26,6 @@
   home.packages =
     [
       pkgs.xfce.exo
-      arion.arion
 
       ## credentials / security
       (pkgs.pass.withExtensions (exts:
@@ -58,6 +56,7 @@
         thefuck
         pandoc # lesspipe
         docker-client
+        arion
         ## command-line dropins (ish)
         
         xxh
