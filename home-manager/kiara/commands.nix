@@ -60,6 +60,7 @@ let
             anyrun
             symbols
             xwayland-satellite
+            typos-lsp
             ;
         })
         ++ [

@@ -191,9 +191,11 @@
     };
     # https://docs.helix-editor.com/languages.html
     languages = let
-      inherit (config.commands) nil nixd alejandra css-languageserver shfmt;
+      inherit (config.commands) nil nixd alejandra shfmt typos-lsp;
     in {
       language-server = {
+        typos.command = typos-lsp;
+        
         nil.command = nil;
 
         nixd = {
@@ -217,6 +219,7 @@
             command = shfmt;
             args = ["-i" "2" "-"];
           };
+          language-servers = [ "bash-language-server" "typos" ];
         }
         {
           name = "clojure";
@@ -226,12 +229,19 @@
         {
           name = "nix";
           roots = ["flake.nix" "flake.lock"];
-          language-servers = ["nixd"];
+          language-servers = ["nixd" "typos"];
           auto-format = false;
           formatter = {
             command = alejandra;
             args = ["-q"];
           };
+        }
+        {
+          name = "python";
+          file-types = ["py"];
+          roots = ["pyproject.toml" "setup.py" "poetry.lock" "pyrightconfig.json"];
+          language-servers = ["pylsp" "typos"];
+          indent = { tab-width = 4; unit = "    "; };
         }
         {
           name = "rust";
