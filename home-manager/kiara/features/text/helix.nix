@@ -214,7 +214,7 @@
       language = [
         {
           name = "bash";
-          auto-format = true;
+          auto-format = false;
           formatter = {
             command = shfmt;
             args = ["-i" "2" "-"];
