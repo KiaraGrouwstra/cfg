@@ -213,6 +213,14 @@
       # https://github.com/helix-editor/helix/blob/master/book/src/languages.md#language-configuration
       language = [
         {
+          name = "markdown";
+          scope = "source.md";
+          file-types = ["md" { glob = "PULLREQ_EDITMSG"; }];
+          language-servers = [ "marksman" "typos" ];
+          indent = { tab-width = 2; unit = "  "; };
+          block-comment-tokens = { start = "<!--"; end = "-->"; };
+        }
+        {
           name = "bash";
           auto-format = false;
           formatter = {
