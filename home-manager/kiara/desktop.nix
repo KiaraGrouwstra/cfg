@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.commands) hold' less glow lynx decompress pistol open-with rqbit ide curl xdg-open exo-open post-torrent;
+  inherit (config.commands) hold' less glow lynx decompress pistol open-with rqbit ide curl xdg-open exo-open post-torrent iso;
 in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/
@@ -48,6 +48,8 @@ in {
     ])
 
     (commandDesktop "exo-open" exo-open ["application/x-desktop"])
+
+    (commandDesktop "iso" iso ["application/vnd.efi.iso"])
 
     (commandDesktop "glow" "${glow} -p" ["text/markdown"])
 
