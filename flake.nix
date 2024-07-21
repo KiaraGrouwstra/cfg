@@ -117,6 +117,10 @@
       url = "github:viperML/noshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hullcaster = {
+      url = "github:KiaraGrouwstra/shellcaster/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

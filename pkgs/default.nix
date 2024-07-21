@@ -9,6 +9,7 @@
   lib.dryFlakes pkgs inputs [
     "nix-search"
     "noshell"
+    "hullcaster"
   ]
   //
   (let
