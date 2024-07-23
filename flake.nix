@@ -118,7 +118,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hullcaster = {
-      url = "github:KiaraGrouwstra/shellcaster/nix";
+      url = "github:gilcu3/hullcaster";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
