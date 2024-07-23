@@ -1251,17 +1251,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721554617,
-        "narHash": "sha256-FqbDq06Tp2kx26JyjQClgetIyLDNht35LexLS3t3yMI=",
-        "owner": "KiaraGrouwstra",
-        "repo": "shellcaster",
-        "rev": "ec15e445d0a896f3c594f7d6962be0ec6afa1807",
+        "lastModified": 1721723519,
+        "narHash": "sha256-cq+Q9EPJVzfBdaEy6wjBOqgcH0ktxQrCPhmMovzFPdA=",
+        "owner": "gilcu3",
+        "repo": "hullcaster",
+        "rev": "0d159b101b66d3e5ccc694af8c49671284bbb1e5",
         "type": "github"
       },
       "original": {
-        "owner": "KiaraGrouwstra",
-        "ref": "nix",
-        "repo": "shellcaster",
+        "owner": "gilcu3",
+        "repo": "hullcaster",
         "type": "github"
       }
     },
