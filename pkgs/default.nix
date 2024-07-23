@@ -9,7 +9,7 @@
   lib.dryFlakes pkgs inputs [
     "nix-search"
     "noshell"
-    "hullcaster"
+    # "hullcaster"  # https://codeberg.org/kiara/cfg/issues/361
   ]
   //
   (let
