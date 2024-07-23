@@ -3,6 +3,9 @@
   pkgs,
   ...
 }: {
+  home.persistence."/persist/home/kiara".directories = [
+    ".config/hullcaster"
+  ];
   home.packages =
     lib.attrValues {
       inherit
