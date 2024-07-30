@@ -35,7 +35,7 @@
       auth = ''
         key_mgmt=WPA-EAP
         eap=PWD
-        identity="bfdmg@edu.nl"
+        identity="kiara.grouwstra@student.ou.nl"
         password="${config.sops.secrets.wifi-password-eduroam.path}"
       '';
     };
