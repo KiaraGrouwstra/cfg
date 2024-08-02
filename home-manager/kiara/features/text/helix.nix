@@ -16,6 +16,7 @@
       theme = lib.mkForce "base16_transparent";
       editor = {
         auto-save = true;
+        auto-format = false;
         # line-number = "relative";
         soft-wrap.enable = true;
         lsp.display-messages = true;
