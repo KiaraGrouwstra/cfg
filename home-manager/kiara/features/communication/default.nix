@@ -29,6 +29,9 @@
       wget
       curl
       nyxt
+
+      ## torrents
+      transmission_4
       ;
   };
 }
