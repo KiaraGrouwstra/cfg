@@ -39,6 +39,8 @@
           space.q = ":q";
           space.x = ":buffer-close";
           esc = ["collapse_selection" "keep_primary_selection"];
+          "A-tab" = "goto_next_buffer";
+          "A-S-tab" = "goto_previous_buffer";
           "A-m" = "toggle_comments";
           "A-${d}" = "page_up";
           "A-${f}" = "page_down";
