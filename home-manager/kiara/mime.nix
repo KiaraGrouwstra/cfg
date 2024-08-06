@@ -397,6 +397,7 @@
       "codium"
       "lapce"
       "less"
+      "vlc"
     ])) # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
     {
       "x-scheme-handler/mailto" = ["betterbird"];
