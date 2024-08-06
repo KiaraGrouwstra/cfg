@@ -359,7 +359,9 @@
     "inode/mount-point"
   ];
 
-  # .desktop names: ~/.local/share/applications/
+  # .desktop names:
+  # - /etc/profiles/per-user/kiara/share/applications/
+  # - ~/.local/share/applications/
   browsers = ["firefox"];
   editors = ["codium" "lapce" "kate"];
   # MIME associations: specific items go lower left
@@ -377,8 +379,8 @@
     (lib.genAttrs images (_: ["imv"]))
     (lib.genAttrs urls (_: browsers))
     (lib.genAttrs readable (_: ["org.gnome.Evince"]))
-    (lib.genAttrs audio (_: ["mpv"]))
-    (lib.genAttrs video (_: ["mpv"]))
+    (lib.genAttrs audio (_: ["vlc" "mpv"]))
+    (lib.genAttrs video (_: ["vlc" "mpv"]))
     (lib.genAttrs archives
       (_: ["unar" "org.gnome.FileRoller" "thunar"]))
     (lib.genAttrs documents (_: ["writer" "less"]))
