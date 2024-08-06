@@ -514,6 +514,10 @@
             run = "xdg-open \"$1\"";
             desc = "Open";
           }
+        	{
+            run = "open-with \"$1\"";
+            desc = "Open With";
+          }
         ];
         reveal = [
         	{
