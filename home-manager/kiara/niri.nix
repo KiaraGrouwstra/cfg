@@ -90,7 +90,7 @@
         map-to-output = "eDP-1";
       };
       warp-mouse-to-focus = true;
-      focus-follows-mouse = false;
+      focus-follows-mouse.enable = true;
       workspace-auto-back-and-forth = true;
 
       # By default, niri will take over the power button to make it sleep
@@ -153,7 +153,17 @@
       # If you don't like that, you should uncomment `prefer-no-csd` below.
       # Niri will draw focus ring and border *around* windows that agree to omit their
       # client-side decorations.
-      focus-ring.enable = false;
+      focus-ring = {
+        enable = false;
+        width = 4;
+        # https://css-gradient.com
+        active.gradient = {
+          from = "#670114";
+          to = "#000000";
+          angle = 135;
+        };
+        # inactive-gradient = {};
+      };
 
       # How many logical pixels the border extends. It's similar to the focus ring, but always visible.
       border.width = 4;
@@ -412,7 +422,7 @@
       // (binds {
         inherit substitutions;
         prefixes = {
-          "Mod+Shift" = "move";
+          "Mod+Shift" = "move";  # alternative: move-column-L/R-or-to-monitor-L/R
         };
         suffixes = columns;
       })

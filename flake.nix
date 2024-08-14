@@ -55,16 +55,7 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      # inputs.crate2nix.follows = "crate2nix";
     };
-    # crate2nix = {
-    #   url = "github:nix-community/crate2nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-parts.follows = "flake-parts";
-    #   inputs.flake-compat.follows = "flake-compat";
-    #   inputs.devshell.follows = "devshell";
-    #   inputs.crate2nix_stable.follows = "crate2nix";
-    # };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
