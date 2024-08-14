@@ -3,6 +3,9 @@
   lib,
   ...
 }: {
+  imports = [
+    ./kanshi.nix
+  ];
   home.packages =
     [
       ## utilities
