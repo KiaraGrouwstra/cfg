@@ -37,6 +37,22 @@
       }; }
 
       { profile = {
+        name = "extend";
+        outputs = [
+          {
+            criteria = "HDMI-A-1";
+            status = "enable";
+            position = "0,0";
+          }
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "1920x1200@60Hz";
+          }
+        ];
+      }; }
+
+      { profile = {
         name = "external";
         outputs = [
           {
@@ -46,20 +62,6 @@
           {
             criteria = "eDP-1";
             status = "disable";
-          }
-        ];
-      }; }
-
-      { profile = {
-        name = "extend";
-        outputs = [
-          {
-            criteria = "HDMI-A-1";
-            status = "enable";
-          }
-          {
-            criteria = "eDP-1";
-            status = "enable";
           }
         ];
       }; }
