@@ -169,7 +169,7 @@
         );
     # for each system: apply pkgs to a function
     forAllSystems = f: forSystem (system: f pkgsFor.${system});
-    # Your custom packages, acessible through 'nix build', 'nix shell', etc
+    # Your custom packages, accessible through 'nix build', 'nix shell', etc
     # for each system: packages including overlays
     packages =
       forAllSystems
@@ -228,7 +228,7 @@
     });
 
     # Devshell for bootstrapping
-    # Acessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
+    # Accessible through 'nix develop -c $SHELL' or 'nix-shell' (legacy)
     devShells = forAllSystems (pkgs: import ./shell.nix {inherit pkgs;});
 
     # Your custom packages and modifications, exported as overlays
