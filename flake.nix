@@ -238,7 +238,7 @@
       inputs.flake-schemas.schemas
       // import ./lib/schemas.nix {inherit (inputs) flake-schemas;};
 
-    # Allow partioning with `disko -f .#hammer`
+    # Allow partitioning with `disko -f .#hammer`
     diskoConfigurations.hammer = import ./hosts/hammer/disko-config.nix;
 
     # NixOS configuration entrypoint
