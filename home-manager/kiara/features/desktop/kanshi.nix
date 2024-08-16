@@ -37,10 +37,28 @@
       }; }
 
       { profile = {
-        name = "extend";
+        name = "home";
         outputs = [
           {
             criteria = "HDMI-A-1";
+            status = "enable";
+            mode = "1366x768@59.790Hz";
+            position = "0,0";
+          }
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "1920x1200@60Hz";
+            position = "1366,0";
+          }
+        ];
+      }; }
+
+      { profile = {
+        name = "extend";
+        outputs = [
+          {
+            criteria = "*";
             status = "enable";
             position = "0,0";
           }
