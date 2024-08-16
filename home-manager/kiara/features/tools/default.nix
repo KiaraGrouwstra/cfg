@@ -21,6 +21,9 @@
       ".cache/tealdeer"
       ".local/share/zoxide"
     ];
+    files = [
+      "gurobi.lic"
+    ];
   };
 
   home.packages =
@@ -57,6 +60,7 @@
         pandoc # lesspipe
         docker-client
         arion
+        gurobi
         ## command-line dropins (ish)
         
         xxh
