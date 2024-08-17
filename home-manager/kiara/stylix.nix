@@ -20,8 +20,8 @@ in {
 
     cursor = {
       # https://github.com/catppuccin/cursors#previews
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Amber";
       size = 48;
     };
 
