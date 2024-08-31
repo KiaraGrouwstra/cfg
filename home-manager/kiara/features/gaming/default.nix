@@ -5,13 +5,16 @@
 }: {
   home.persistence."/persist/home/kiara".directories = [
     ".local/share/applications/wine"
-    ".local/share/Steam"
     ".local/share/lutris"
     ".local/share/citra-emu"
-    ".steam"
     "Desktop"
     ".config/antimicrox"
     ".config/citra-emu"
+    # steam
+    ".local/share/flatpak"
+    ".var"
+    ".steam"
+    ".local/share/Steam"
   ];
   home.persistence."/persist/home/kiara".files = [
     ".local/share/applications/wine-extension-chm.desktop"
