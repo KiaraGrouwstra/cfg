@@ -65,7 +65,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yazi-mime = {
-      url = "github:DreamMaoMao/mime.yazi";
+      url = "git+https://gitee.com/DreamMaoMao/mime-ext.yazi.git";
       flake = false;
     };
     nixgl = {
