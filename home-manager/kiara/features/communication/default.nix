@@ -10,6 +10,7 @@
     ".config/nyxt"
     ".config/Signal"
     ".local/share/nyxt"
+    ".tor project"
   ];
 
   home.packages = lib.attrValues {
@@ -17,7 +18,7 @@
       (pkgs)
       ## email
       
-      thunderbird
+      thunderbird-bin
       offlineimap
       hydroxide
       ## chat / communications
