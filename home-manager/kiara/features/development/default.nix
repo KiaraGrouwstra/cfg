@@ -72,6 +72,7 @@
   home.persistence."/persist/home/kiara".directories = [
     ".config/gh"
     ".local/share/direnv"
+    ".config/opentofu"
   ];
   programs = {
     direnv = {
