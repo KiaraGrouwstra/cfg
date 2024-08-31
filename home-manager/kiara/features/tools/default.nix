@@ -20,6 +20,7 @@
       ".cache/keepassxc"
       ".cache/tealdeer"
       ".local/share/zoxide"
+      "micromamba"
     ];
   };
 
