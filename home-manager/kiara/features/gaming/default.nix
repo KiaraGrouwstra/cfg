@@ -41,6 +41,7 @@
     ".local/share/applications/Crush Crush.desktop"
     ".local/share/applications/Proton Experimental.desktop"
     ".local/share/applications/Monster Hunter World.desktop"
+    ".local/share/applications/Disco Elysium.desktop"
   ];
   home.packages = lib.attrValues {
     inherit
