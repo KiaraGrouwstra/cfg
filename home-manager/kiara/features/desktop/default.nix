@@ -6,14 +6,12 @@
   imports = [
     ./kanshi.nix
   ];
-  home.packages =
-    [
-      ## utilities
-      pkgs.gnome.gnome-maps
-    ]
-    ++ lib.attrValues {
+  home.packages = lib.attrValues {
       inherit
         (pkgs)
+        ## utilities
+        gnome-maps
+
         ## UI
         
         waybar
