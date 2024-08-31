@@ -20,7 +20,6 @@
         ## text editors
         
         vim
-        amp
         gnome-text-editor
         ## document viewers / editors
         
