@@ -10,6 +10,7 @@
     "nix-search"
     "noshell"
     # "hullcaster"  # https://codeberg.org/kiara/cfg/issues/361
+    "wezterm"
   ]
   //
   (let

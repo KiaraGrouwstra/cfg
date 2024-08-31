@@ -1,9 +1,15 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  system,
+  ...
+}: {
   home.persistence."/persist/home/kiara".directories = [
     ".config/wezterm"
   ];
   programs.wezterm = {
     enable = true;
+    package = inputs.wezterm.packages.${system}.default;
     extraConfig = let
       inherit (config.keyboard.vi) j k;
     in

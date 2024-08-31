@@ -49,7 +49,6 @@
         ## terminals
         
         kitty
-        wezterm
         ## command-line utilities
         
         xdg-terminal-exec

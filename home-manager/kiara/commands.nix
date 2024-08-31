@@ -125,7 +125,8 @@ let
       })
   );
   commands = let
-    inherit (pkgs) wezterm rofi-systemd;
+    inherit (pkgs) rofi-systemd;
+    wezterm = config.programs.wezterm.package;
   in
     lib.dryCommands binaries
     //

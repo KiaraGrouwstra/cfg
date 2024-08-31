@@ -111,6 +111,11 @@
       url = "github:gilcu3/hullcaster";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # https://github.com/NixOS/nixpkgs/issues/336069
+    wezterm = {
+      url = "github:wez/wezterm/main?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
