@@ -17,7 +17,7 @@
       (pkgs)
       ## email
       
-      betterbird
+      thunderbird
       offlineimap
       hydroxide
       ## chat / communications

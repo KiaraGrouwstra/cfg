@@ -400,7 +400,7 @@
       "vlc"
     ])) # gets hijacked: https://github.com/microsoft/vscode/issues/41037#issuecomment-369339898
     {
-      "x-scheme-handler/mailto" = ["betterbird"];
+      "x-scheme-handler/mailto" = ["thunderbird"];
       "text/calendar" = ["org.gnome.Calendar"];
       "application/pdf" = ["org.pwmt.zathura" "less"];
       "text/plain" = ["codium" "org.gnome.TextEditor" "lapce" "less"];
