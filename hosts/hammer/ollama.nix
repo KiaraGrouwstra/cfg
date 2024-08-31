@@ -1,6 +1,6 @@
 {
   services.ollama = {
-    enable = true;
+    enable = false;
     host = "127.0.0.1";
     port = 11434;
     acceleration = "rocm";
