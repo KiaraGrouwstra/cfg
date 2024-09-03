@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  unstable,
   ...
 }: {
   home.persistence."/persist/home/kiara".directories = [
@@ -11,7 +12,12 @@
     ".tor project"
   ];
 
-  home.packages = lib.attrValues {
+  home.packages = [
+      ## chat / communications
+      
+      unstable.signal-desktop
+      unstable.telegram-desktop
+  ] ++ lib.attrValues {
     inherit
       (pkgs)
       ## email
@@ -19,10 +25,6 @@
       thunderbird-bin
       offlineimap
       hydroxide
-      ## chat / communications
-      
-      telegram-desktop
-      signal-desktop
       ## web browsers
       
       wget
