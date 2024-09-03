@@ -7,9 +7,7 @@
     ".thunderbird"
     ".cache/thunderbird"
     ".local/share/TelegramDesktop"
-    ".config/nyxt"
     ".config/Signal"
-    ".local/share/nyxt"
     ".tor project"
   ];
 
@@ -29,7 +27,6 @@
       
       wget
       curl
-      nyxt
 
       ## torrents
       transmission_4
