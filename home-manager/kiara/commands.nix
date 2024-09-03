@@ -56,7 +56,6 @@ let
             lynx # lesspipe
             keepassxc
             libnotify
-            rqbit
             local-ai
             anyrun
             symbols

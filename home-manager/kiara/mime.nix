@@ -389,7 +389,7 @@
     (lib.genAttrs models (_: ["PrusaSlicer"]))
     (lib.genAttrs ["text/x-gcode"] (_: ["PrusaGcodeviewer"]))
     (lib.genAttrs cad (_: ["org.freecadweb.FreeCAD"]))
-    (lib.genAttrs torrents (_: ["rqbit" "stremio"]))
+    (lib.genAttrs torrents (_: ["stremio"]))
     (lib.genAttrs directories (_: [
       "yazi"
       "thunar"

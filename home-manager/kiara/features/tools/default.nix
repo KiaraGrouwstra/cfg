@@ -10,7 +10,6 @@
     ./khard.nix
     ./lazygit.nix
     ./nushell.nix
-    ./rqbit.nix
     ./vdirsyncer.nix
   ];
   home.persistence."/persist/home/kiara" = {
