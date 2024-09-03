@@ -7,7 +7,6 @@
     ./databases.nix
     ./fonts.nix
     ./greetd.nix
-    ./guix.nix
     ./locale.nix
     ./niri.nix
     ./ollama.nix

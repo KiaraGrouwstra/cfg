@@ -49,10 +49,6 @@
                     mountpoint = "/nix";
                     mountOptions = ["compress=zstd" "noatime"];
                   };
-                  "/guix" = {
-                    mountpoint = "/gnu";
-                    mountOptions = ["compress=zstd" "noatime"];
-                  };
                   "/swap" = {
                     mountpoint = "/.swapvol";
                     swap.swapfile.size = "32G";

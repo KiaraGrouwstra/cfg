@@ -341,7 +341,6 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 - [Nix](https://search.nixos.org/)
   - [NUR](https://nur.nix-community.org/)
   - [Flakes](https://flakestry.dev/)
-- [Guix](https://packages.guix.gnu.org/)
 - [Flatpak](https://flathub.org/)
 - [AppImage](https://appimagehub.com/)
 - [Progressive Web Apps](https://pwasforfirefox.filips.si/)
