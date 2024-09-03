@@ -9,9 +9,6 @@
   home.packages = lib.attrValues {
       inherit
         (pkgs)
-        ## utilities
-        gnome-maps
-
         ## UI
         
         waybar
