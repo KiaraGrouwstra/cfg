@@ -4,6 +4,7 @@
   inputs,
   config,
   regression,
+  unstable,
   ...
 }:
 # TODO: JIT'ify? (#152)
@@ -59,12 +60,12 @@ let
             local-ai
             anyrun
             symbols
-            xwayland-satellite
             typos-lsp
             swaynotificationcenter
             ;
         })
         ++ [
+          unstable.xwayland-satellite
           regression.visidata
           pkgs.gnome.gnome-system-monitor
           pkgs.xfce.thunar

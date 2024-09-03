@@ -1,5 +1,4 @@
 {
-  lib,
   config,
   pkgs,
   ...
@@ -32,10 +31,7 @@ in {
   };
 
   # arion: https://github.com/hercules-ci/arion/issues/122#issuecomment-908413975
-  boot.kernelParams = [
-    "systemd.unified_cgroup_hierachy=0"
-    "SYSTEMD_CGROUP_ENABLE_LEGACY_FORCE=1"
-  ];
+  systemd.enableUnifiedCgroupHierarchy = false;
 
   programs.singularity = {
     enable = true;

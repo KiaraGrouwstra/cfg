@@ -24,7 +24,7 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=3980e7816c99d9e4da7a7b762e5b294055b73b2f";  # unstable nixpkgs: no branch
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,7 +77,8 @@
     };
     nur.url = "github:nix-community/NUR";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/24.05";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     regression.url = "github:nixos/nixpkgs/24.05";
     stable.url = "github:nixos/nixpkgs/24.05";
     workman-vim = {
@@ -194,6 +195,7 @@
           unfree
           regression
           stable
+          unstable
           ;
       });
 

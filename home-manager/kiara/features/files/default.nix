@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  unstable,
   ...
 }: {
   imports = [
@@ -14,11 +15,12 @@
     ".local/share/Nextcloud"
   ];
 
-  home.packages = lib.attrValues {
+  home.packages = [
+    # security
+    unstable.seahorse
+  ] ++ lib.attrValues {
       inherit
         (pkgs)
-        # security
-        seahorse
         rage
         sops
         ## compression
