@@ -6,10 +6,8 @@
   home.persistence."/persist/home/kiara".directories = [
     ".local/share/applications/wine"
     ".local/share/lutris"
-    ".local/share/citra-emu"
     "Desktop"
     ".config/antimicrox"
-    ".config/citra-emu"
     # steam
     ".local/share/flatpak"
     ".var"
@@ -46,7 +44,6 @@
   home.packages = lib.attrValues {
     inherit
       (pkgs)
-      lime3ds
       lutris
       antimicrox
       retro-gtk
