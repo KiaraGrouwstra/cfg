@@ -61,12 +61,12 @@ let
             symbols
             xwayland-satellite
             typos-lsp
+            swaynotificationcenter
             ;
         })
         ++ [
           regression.visidata
           pkgs.gnome.gnome-system-monitor
-          pkgs.swaynotificationcenter
           pkgs.xfce.thunar
           (wrapSecrets {GITHUB_TOKEN = "github-pat";} pkgs.nixpkgs-review)
         ]
