@@ -5,7 +5,6 @@
 }: {
   home.persistence."/persist/home/kiara".directories = [
     ".local/share/applications/wine"
-    ".local/share/lutris"
     "Desktop"
     ".config/antimicrox"
     # steam
@@ -44,7 +43,6 @@
   home.packages = lib.attrValues {
     inherit
       (pkgs)
-      lutris
       antimicrox
     ;
   };
