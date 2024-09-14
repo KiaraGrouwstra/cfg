@@ -308,6 +308,7 @@ to ensure you can persist useful state on an ephemeral system, you can find say:
 | Component      | Software     |
 |----------------|--------------|
 | Nix interpreter                                                       | [Lix](https://lix.systems/) |
+| Nix shell                                                             | [Lorri](https://github.com/nix-community/lorri) |
 | [DM](https://codeberg.org/kiara/cfg/issues?labels=201797)             | [TUIgreet](https://github.com/apognu/tuigreet) |
 | [Compositor](https://codeberg.org/kiara/cfg/issues?labels=201796)     | [Niri](https://github.com/YaLTeR/niri/)[^1] |
 | [Bar](https://codeberg.org/kiara/cfg/issues?labels=201795)            | [Waybar](https://github.com/Alexays/Waybar/) |
