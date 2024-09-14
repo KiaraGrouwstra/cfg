@@ -1,6 +1,6 @@
-_: {
+{
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam"; # https://github.com/NixOS/nixpkgs/pull/284641
+  time.timeZone = "Europe/Amsterdam";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
