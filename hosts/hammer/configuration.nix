@@ -146,6 +146,9 @@ in {
   # let file managers access trash and remotes
   services.gvfs.enable = true;
 
+  # fancier nix shell
+  services.lorri.enable = true;
+
   nix = {
     settings = {
       trusted-users = [
