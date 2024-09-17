@@ -155,7 +155,7 @@ in {
         "root"
         userConfig.name
       ];
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
       auto-optimise-store = true;
     };
     gc = {
