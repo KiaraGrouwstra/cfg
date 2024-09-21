@@ -11,7 +11,6 @@
         (pkgs)
         ## UI
         
-        waybar
         pinentry-curses
         ## clipboard
         

@@ -1,4 +1,4 @@
-{config, lib, ...}: {
+{config, lib, unstable, ...}: {
   home.persistence."/persist/home/kiara".directories = [
     # ".config/waybar"
   ];
@@ -6,6 +6,7 @@
   # https://github.com/Alexays/Waybar/wiki/Examples#cjbassis-configuration
   programs.waybar = {
     enable = true;
+    package = unstable.waybar;
     settings = let
       inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu toggle anyrun swaync-client;
       niri = lib.getExe config.programs.niri.package;
@@ -16,6 +17,8 @@
         modules-left = [
           "custom/start"
           "custom/right-arrow-dark"
+          "niri/workspaces"
+          # "niri/window"
           "mpris"
         ];
         modules-center = ["custom/left-arrow-dark" "clock" "custom/right-arrow-dark"];
@@ -28,9 +31,41 @@
           "disk"
           "custom/left-arrow-light"
           "network"
+          "niri/language"
           "custom/left-arrow-dark"
           "tray"
         ];
+
+        "niri/language" = {
+          format = "{shortDescription}";
+          on-click = "${niri} msg action switch-layout next";
+          on-click-right = "${niri} msg action switch-layout prev";
+        };
+
+        "niri/workspaces" = {
+          all-outputs = false;
+          format = "{icon}";
+          format-icons = {
+            "1" = "壱";
+            "2" = "弐";
+            "3" = "参";
+            "4" = "肆";
+            "5" = "伍";
+            "6" = "陸";
+            "7" = "柒";
+            "8" = "捌";
+            "9" = "玖";
+            "10" = "拾";
+            default = "";
+          };
+        };
+
+        "niri/window" = {
+          separate-outputs = true;
+          icon = true;
+          format = "";
+          rewrite = {};
+        };
 
         "custom/start" = {
           format = "";
@@ -233,6 +268,23 @@
 
       #network.disconnected {
         color: #ff0000;
+      }
+
+      #workspaces button {
+        padding: 0 2px;
+        color: #9d9683;
+      }
+      #workspaces button.focused {
+        color: #ea999c;
+      }
+      #workspaces button.urgent {
+        background-color: red;
+      }
+      #workspaces button:hover {
+        background: #1a1a1a;
+        border: #1a1a1a;
+        box-shadow: inherit;
+        text-shadow: inherit;
       }
     '';
   };
