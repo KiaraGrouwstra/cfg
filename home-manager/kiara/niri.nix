@@ -395,6 +395,7 @@
         prefixes = {
           Mod = "focus-workspace";
           "Mod+Shift" = "move-column-to-workspace";
+          "Mod+Alt" = "move-workspace";
         };
         suffixes = {
           # right hand
