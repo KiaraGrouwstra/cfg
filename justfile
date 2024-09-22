@@ -54,11 +54,11 @@ gc:
 
 # Encode secrets
 encode:
-  sops -e secrets.yml > secrets.enc.yml
+  sops -e secrets.yaml > secrets.enc.yaml
 
 # Decode secrets
 decode:
-  sops -d secrets.enc.yml > secrets.yml
+  sops -d secrets.enc.yaml > secrets.yaml
 
 # Check when inputs were last updated
 age:

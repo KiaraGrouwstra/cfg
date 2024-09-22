@@ -7,7 +7,7 @@ keys:
     - &hammer age19ulsktcwmnh2xkt2jkm0e9h0p0cd5qepnsq6kdjcalspsp90538qvmw80m
 
 creation_rules:
-  - path_regex: secrets(\.enc)?\.yml$
+  - path_regex: secrets(\.enc)?\.yaml$
     key_groups:
     - age:
       - *hammer

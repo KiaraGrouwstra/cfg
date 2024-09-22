@@ -1,1 +1,1 @@
-**/*.enc.yml diff=sopsdiffer
+**/*.enc.yaml diff=sopsdiffer

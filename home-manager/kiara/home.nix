@@ -37,7 +37,7 @@ in
 
   sops = {
     age.keyFile = "/persist${userConfig.home}/.config/sops/age/keys.txt";
-    defaultSopsFile = ../../secrets.enc.yml;
+    defaultSopsFile = ../../secrets.enc.yaml;
     # $HOME/.config/sops-nix/secrets
     secrets = {
       github-pat = {};
