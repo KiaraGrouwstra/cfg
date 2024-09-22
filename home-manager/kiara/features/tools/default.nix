@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./direnv.nix
     ./khal.nix
     ./khard.nix
     ./lazygit.nix
