@@ -155,45 +155,12 @@ keybind `Super+B` lets the user pick symbols using [`anyrun`'s `symbols` plugin]
 
 <details>
 <summary>
-btop
-</summary>
-
-![btop](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/btop.png)
-
-right-clicking the CPU or RAM bar indicators opens the resource-monitor [`btop`](https://github.com/aristocratos/btop)
-
-</details>
-
-<details>
-<summary>
 file picker
 </summary>
 
 ![file picker](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/file-picker.png)
 
 pressing `CTRL-T` in the shell opens [`fzf`'s file picker](https://github.com/junegunn/fzf#key-bindings-for-command-line), copying the selected file or directory path to the clipboard.
-
-</details>
-
-<details>
-<summary>
-ctrl-alt-delete
-</summary>
-
-![gnome monitor](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/gnome-monitor.png)
-
-`ctrl+alt+delete` triggers [Gnome System Monitor](https://wiki.gnome.org/Apps/SystemMonitor)
-
-</details>
-
-<details>
-<summary>
-zfxtop
-</summary>
-
-![zfxtop](https://codeberg.org/kiara/cfg/raw/branch/main/screenshots/zfxtop.png)
-
-Pressing `Ctrl-Shift-Escape` or left-clicking the CPU icon opens monitoring tool [`zfxtop`](https://github.com/ssleert/zfxtop).
 
 </details>
 
@@ -397,8 +364,8 @@ Application keybinds, tweaked to layout by setting `config.keyboard.active`:
 | media player | toggle play/pause | skip ahead | previous/next |
 | clock | - | toggle month/year in calendar pop-up | previous/next in calendar pop-up |
 | volume | toggle mute | [Pulse Audio Volume Control](https://freedesktop.org/software/pulseaudio/pavucontrol/#overview) | change volume |
-| memory | manage processes with [Gnome System Monitor](https://wiki.gnome.org/Apps/SystemMonitor) | manage processes with [`btop`](https://github.com/aristocratos/btop) | - |
-| CPU | open monitoring tool [`zfxtop`](https://github.com/ssleert/zfxtop) | manage processes with [`btop`](https://github.com/aristocratos/btop) | - |
+| memory | manage processes with [Bottom](https://github.com/ClementTsang/bottom) | - | - |
+| CPU | manage processes with [Bottom](https://github.com/ClementTsang/bottom) | - | - |
 | battery | run battery viewer `powersupply` | - | - |
 | storage | garbage-collect nix | show big files/folders using [`dust`](https://github.com/bootandy/dust) | - |
 | network | manage network by [`networkmanager_dmenu`](https://github.com/firecat53/networkmanager-dmenu) | manage network by [`nmtui`](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmtui) | - |

@@ -33,7 +33,7 @@
         ;
     };
   programs.niri.settings = let
-    inherit (config.commands) term firefox wpctl wl-paste playerctl swaync-client tor-browser codium thunar main-menu nmtui power anyrun alacritty zfxtop pick-character font-preview pick-wallpaper networkmanager_dmenu kdeconnect-indicator cliphist dbus-update-activation-environment waybar swaybg wallust gnome-system-monitor toggle jit rofi swaylock light wezterm random-wallpaper yy keepassxc-menu;
+    inherit (config.commands) term firefox wpctl wl-paste playerctl swaync-client tor-browser codium thunar main-menu nmtui power anyrun pick-character font-preview pick-wallpaper networkmanager_dmenu kdeconnect-indicator cliphist dbus-update-activation-environment waybar swaybg wallust btm toggle jit rofi swaylock light wezterm random-wallpaper yy keepassxc-menu;
     sh = cmd: ["sh" "-c" (lib.escape ["\""] cmd)];
   in {
     input = {
@@ -329,8 +329,7 @@
         "Mod+U" = term power;
         "Mod+Y" = "${keepassxc-menu} -d ~/Nextcloud/keepass.kdbx";
         "Mod+B" = "${anyrun} --plugins libsymbols.so";
-        "Ctrl+Alt+Delete" = gnome-system-monitor;
-        "Ctrl+Shift+Escape" = "${alacritty} -e ${zfxtop}";
+        "Ctrl+Alt+Delete" = term btm;
         "Mod+L" = swaylock;
         # "Alt+Space" = "${swaync-client} --close-latest";
         "Mod+Escape" = "${swaync-client} --close-all";

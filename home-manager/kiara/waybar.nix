@@ -8,7 +8,7 @@
     enable = true;
     package = unstable.waybar;
     settings = let
-      inherit (config.commands) term gnome-system-monitor pavucontrol pamixer powersupply zfxtop wpctl btop nmtui playerctl hold just dust alacritty networkmanager_dmenu toggle anyrun swaync-client;
+      inherit (config.commands) term pavucontrol pamixer powersupply btm wpctl nmtui playerctl hold just dust networkmanager_dmenu toggle anyrun swaync-client;
       niri = lib.getExe config.programs.niri.package;
     in {
       mainBar = {
@@ -168,14 +168,12 @@
         memory = {
           interval = 5;
           format = "  {}%";
-          on-click = gnome-system-monitor;
-          on-click-right = term btop;
+          on-click = term btm;
         };
         cpu = {
           interval = 5;
           format = "󱛟  {usage:2}%";
-          on-click = "${alacritty} -e ${zfxtop}";
-          on-click-right = term btop;
+          on-click = term btm;
         };
         battery = {
           states = {

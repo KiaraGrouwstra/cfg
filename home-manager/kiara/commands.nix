@@ -66,7 +66,6 @@ let
         ++ [
           unstable.xwayland-satellite
           regression.visidata
-          pkgs.gnome.gnome-system-monitor
           pkgs.xfce.thunar
           (wrapSecrets {GITHUB_TOKEN = "github-pat";} pkgs.nixpkgs-review)
         ]
@@ -122,6 +121,7 @@ let
         wpctl = pkgs.wireplumber;
         clangd = pkgs.clang-tools;
         exo-open = pkgs.xfce.exo;
+        btm = pkgs.bottom;
       })
   );
   commands = let
@@ -173,8 +173,6 @@ in {
         # JIT: binary name = package name
         # "curl" -> "nix run nixpkgs#curl"
         // (lib.genAttrs [
-          "zfxtop"
-          "btop"
           "powersupply"
         ] (program: "${nix} run nixpkgs#${program}"))
     );
