@@ -87,7 +87,6 @@ in {
       enable = true;
       binfmt = true;
     };
-    steam.enable = true;
   };
 
   environment.shells = lib.attrValues {inherit (pkgs) zsh;};

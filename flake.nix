@@ -159,7 +159,6 @@
       (system: let
         pkgs = import nixpkgs {
           inherit system overlays;
-          config.allowUnfree = true;
         };
       in
         pkgs
@@ -264,7 +263,6 @@
             ./hosts/hammer/configuration.nix
             ./hosts/hammer/imports.nix
             {
-              nixpkgs.config.allowUnfree = true;
               home-manager = {
                 extraSpecialArgs = specialFor.${system};
                 users.${name}.imports =

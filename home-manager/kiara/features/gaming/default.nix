@@ -7,11 +7,6 @@
     ".local/share/applications/wine"
     "Desktop"
     ".config/antimicrox"
-    # steam
-    ".local/share/flatpak"
-    ".var"
-    ".steam"
-    ".local/share/Steam"
   ];
   home.persistence."/persist/home/kiara".files = [
     ".local/share/applications/wine-extension-chm.desktop"
@@ -30,15 +25,6 @@
     ".local/share/applications/wine-extension-vbs.desktop"
     ".local/share/applications/wine-extension-wri.desktop"
     ".local/share/applications/wine-extension-xml.desktop"
-    ".local/share/applications/Smash MAGA! Trump Zombie Apocalypse.desktop"
-    ".local/share/applications/Crypt of the NecroDancer.desktop"
-    ".local/share/applications/Steam Linux Runtime 3.0 (sniper).desktop"
-    ".local/share/applications/Battle for Wesnoth.desktop"
-    ".local/share/applications/Resonite.desktop"
-    ".local/share/applications/Crush Crush.desktop"
-    ".local/share/applications/Proton Experimental.desktop"
-    ".local/share/applications/Monster Hunter World.desktop"
-    ".local/share/applications/Disco Elysium.desktop"
   ];
   home.packages = lib.attrValues {
     inherit
