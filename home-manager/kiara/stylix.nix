@@ -3,7 +3,6 @@
   config,
   lib,
   inputs,
-  regression,
   ...
 }: let
   nix-colors-lib = inputs.nix-colors.lib.contrib {inherit pkgs;};
@@ -11,7 +10,7 @@ in {
   # If I can't dance to it, it's not my revolution. - Emma Goldman
 
   home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Mocha-Compact-Maroon-Dark";
+    GTK_THEME = config.gtk.theme.name;
   };
 
   stylix = {
@@ -71,6 +70,7 @@ in {
   };
 
   gtk = {
+    enable = true;
     iconTheme = {
       # https://github.com/catppuccin/papirus-folders#previews
       package = pkgs.catppuccin-papirus-folders.override {
@@ -81,14 +81,8 @@ in {
     };
     # used by e.g. pkgs.gitg
     theme = lib.mkForce {
-      # https://github.com/catppuccin/gtk
-      name = "Catppuccin-Mocha-Compact-Maroon-Dark";
-      package = regression.catppuccin-gtk.override {
-        variant = "mocha";
-        size = "compact";
-        accents = ["maroon"];
-        tweaks = ["rimless" "black"];
-      };
+      package = pkgs.materia-theme;
+      name = "Materia-dark-compact";
     };
   };
 
