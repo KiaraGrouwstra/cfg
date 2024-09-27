@@ -3,10 +3,9 @@
 
 partial alphanumeric_keys
 xkb_symbols "workman-p" {
+    include "us(basic)"
 
     name[Group1]= "English (Workman-P)";
-
-    include "us(basic)"
 
     // Alphanumeric section
     key <AE01> {  [        exclam,  1   ] };
@@ -59,10 +58,9 @@ xkb_symbols "workman-p" {
 
 // partial alphanumeric_keys
 // xkb_symbols "workman-p-intl" {
+//     include "us(intl)"
 
 //     name[Group1]= "English (Workman-P, international with dead keys)";
-
-//     include "us(intl)"
 
 //     // Alphanumeric section
 //     key <AE01> {  [        exclam,  1   ] };
