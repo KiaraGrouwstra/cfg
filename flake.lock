@@ -1256,22 +1256,6 @@
         "type": "github"
       }
     },
-    "regression": {
-      "locked": {
-        "lastModified": 1726899271,
-        "narHash": "sha256-xx1Sb/n4/FERARj0A3aPZmOmUTc2Ec4Ir8a1vZvR1v4=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "f038cd2fed91dfef60c20fea26e14cbaea3ac842",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "release-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "anyrun": "anyrun",
@@ -1299,7 +1283,6 @@
         "nixpkgs": "nixpkgs_3",
         "noshell": "noshell",
         "nur": "nur",
-        "regression": "regression",
         "sops-nix": "sops-nix",
         "stable": "stable",
         "stylix": "stylix",

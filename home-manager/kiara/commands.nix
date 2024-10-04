@@ -3,7 +3,6 @@
   lib,
   inputs,
   config,
-  regression,
   unstable,
   ...
 }:
@@ -61,11 +60,11 @@ let
             symbols
             typos-lsp
             swaynotificationcenter
+            visidata
             ;
         })
         ++ [
           unstable.xwayland-satellite
-          regression.visidata
           pkgs.xfce.thunar
           (wrapSecrets {GITHUB_TOKEN = "github-pat";} pkgs.nixpkgs-review)
         ]
