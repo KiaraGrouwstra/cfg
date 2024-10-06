@@ -307,6 +307,11 @@
                action = wezterm.action{CloseCurrentTab = {confirm=false}},
             },
             {
+               key = 'w',
+               mods = 'CTRL|SHIFT',
+               action = wezterm.action{CloseCurrentTab = {confirm=false}},
+            },
+            {
                key = 'x',
                mods = 'ALT',
                action = wezterm.action.ActivateCopyMode,
