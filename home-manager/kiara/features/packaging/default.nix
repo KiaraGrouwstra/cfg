@@ -20,7 +20,6 @@
         ## nix
         
         any-nix-shell
-        cachix
         ;
     };
 
