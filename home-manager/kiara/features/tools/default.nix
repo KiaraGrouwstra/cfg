@@ -17,6 +17,7 @@
     directories = [
       ".config/keepassxc"
       ".config/thefuck"
+      ".config/hcloud"
       ".cache/keepassxc"
       ".cache/tealdeer"
       ".local/share/zoxide"
