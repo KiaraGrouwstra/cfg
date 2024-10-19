@@ -21,6 +21,7 @@
       ".cache/keepassxc"
       ".cache/tealdeer"
       ".local/share/zoxide"
+      ".aws"
       "micromamba"
     ];
   };
