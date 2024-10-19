@@ -30,9 +30,6 @@ in {
     };
   };
 
-  # arion: https://github.com/hercules-ci/arion/issues/122#issuecomment-908413975
-  systemd.enableUnifiedCgroupHierarchy = false;
-
   programs.singularity = {
     enable = true;
     package = pkgs.apptainer;
