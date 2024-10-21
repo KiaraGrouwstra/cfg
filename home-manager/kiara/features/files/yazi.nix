@@ -246,7 +246,7 @@
           2 # current
           5 # preview
         ];
-        mouse_events   = [ "click" "scroll" "touch" "move" "drag" ];
+        mouse_events = ["click" "scroll" "touch" "move" "drag"];
         prepend_keymap = [
           {
             on = ["q"];
@@ -502,7 +502,7 @@
       };
       opener = {
         edit = [
-        	{
+          {
             run = "\${EDITOR} \"$@\"";
             desc = "$EDITOR";
             block = true;
@@ -510,23 +510,23 @@
           }
         ];
         open = [
-        	{
+          {
             run = "xdg-open \"$1\"";
             desc = "Open";
           }
-        	{
+          {
             run = "open-with \"$1\"";
             desc = "Open With";
           }
         ];
         reveal = [
-        	{
+          {
             run = ''
               xdg-open "$(dirname \"$1\")"
             '';
             desc = "Reveal";
           }
-        	{
+          {
             run = ''
               exiftool "$1"; echo "Press enter to exit"; read _
             '';
@@ -535,22 +535,22 @@
           }
         ];
         extract = [
-        	{
+          {
             run = "ya pub extract --list \"$@\"";
             desc = "Extract here";
           }
         ];
         play = [
-        	{
+          {
             run = "vlc --fullscreen \"$@\"";
             # run = "mpv --force-window \"$@\"";
             orphan = true;
           }
-        	{
+          {
             run = "mpv --force-window \"$@\"";
             orphan = true;
           }
-        	{
+          {
             run = ''
               mediainfo "$1"; echo "Press enter to exit"; read _
             '';

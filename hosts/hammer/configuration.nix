@@ -118,7 +118,7 @@ in {
     # # qt wayland: https://discourse.nixos.org/t/problem-with-qt-apps-styling/29450/8
     # QT_QPA_PLATFORM = "wayland";
     # QT_QPA_PLATFORMTHEME = "qt5ct";
-    DISPLAY = ":0";  # xwayland-satellite.service
+    DISPLAY = ":0"; # xwayland-satellite.service
   };
 
   services.flatpak.enable = true;

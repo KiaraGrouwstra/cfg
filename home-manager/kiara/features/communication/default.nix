@@ -12,26 +12,28 @@
     ".tor project"
   ];
 
-  home.packages = [
+  home.packages =
+    [
       ## chat / communications
-      
+
       unstable.signal-desktop
       unstable.telegram-desktop
-  ] ++ lib.attrValues {
-    inherit
-      (pkgs)
-      ## email
-      
-      thunderbird-bin
-      offlineimap
-      hydroxide
-      ## web browsers
-      
-      wget
-      curl
-
-      ## torrents
-      transmission_4
-      ;
-  };
+    ]
+    ++ lib.attrValues {
+      inherit
+        (pkgs)
+        ## email
+        
+        thunderbird-bin
+        offlineimap
+        hydroxide
+        ## web browsers
+        
+        wget
+        curl
+        ## torrents
+        
+        transmission_4
+        ;
+    };
 }

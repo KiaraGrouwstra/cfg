@@ -4,21 +4,21 @@
   config,
   ...
 }: {
-
-  systemd.user.services = lib.mapVals (ExecStart: {
-    Unit.After = ["niri.service"];
-    Install.WantedBy = ["niri.service"];
-    Service = {
-      Type = "simple";
-      Restart = lib.mkForce "on-failure";
-      inherit ExecStart;
-    };
-  }) (let
-    inherit (config.commands) swaybg waybar kdeconnect-indicator;
-  in {
-    inherit waybar kdeconnect-indicator;
-    swaybg = "${swaybg} -m fill -i ${config.home.homeDirectory}/Pictures/wallpaper";
-  });
+  systemd.user.services =
+    lib.mapVals (ExecStart: {
+      Unit.After = ["niri.service"];
+      Install.WantedBy = ["niri.service"];
+      Service = {
+        Type = "simple";
+        Restart = lib.mkForce "on-failure";
+        inherit ExecStart;
+      };
+    }) (let
+      inherit (config.commands) swaybg waybar kdeconnect-indicator;
+    in {
+      inherit waybar kdeconnect-indicator;
+      swaybg = "${swaybg} -m fill -i ${config.home.homeDirectory}/Pictures/wallpaper";
+    });
 
   home.packages =
     [
@@ -33,7 +33,7 @@
         ;
     };
   programs.niri.settings = let
-    inherit (config.commands) term firefox wpctl wl-paste playerctl swaync-client tor-browser codium thunar main-menu nmtui power anyrun pick-character font-preview pick-wallpaper networkmanager_dmenu kdeconnect-indicator cliphist dbus-update-activation-environment waybar swaybg wallust btm toggle jit rofi swaylock light wezterm random-wallpaper yy keepassxc-menu;
+    inherit (config.commands) term firefox wpctl wl-paste playerctl swaync-client tor-browser codium thunar main-menu nmtui power anyrun pick-character font-preview pick-wallpaper networkmanager_dmenu cliphist dbus-update-activation-environment wallust btm toggle jit rofi swaylock light wezterm random-wallpaper yy keepassxc-menu;
     sh = cmd: ["sh" "-c" (lib.escape ["\""] cmd)];
   in {
     input = {
@@ -422,7 +422,7 @@
       // (binds {
         inherit substitutions;
         prefixes = {
-          "Mod+Shift" = "move";  # alternative: move-column-L/R-or-to-monitor-L/R
+          "Mod+Shift" = "move"; # alternative: move-column-L/R-or-to-monitor-L/R
         };
         suffixes = columns;
       })
@@ -432,15 +432,14 @@
           Mod = "focus";
           "Mod+Shift" = "move";
         };
-        suffixes =
-          {
-            # right hand
-            Up = "window-up";
-            Down = "window-down";
-            # left hand
-            X = "window-down";
-            Z = "window-up";
-          };
+        suffixes = {
+          # right hand
+          Up = "window-up";
+          Down = "window-down";
+          # left hand
+          X = "window-down";
+          Z = "window-up";
+        };
       })
       // (binds {
         prefixes = {

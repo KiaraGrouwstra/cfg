@@ -34,15 +34,19 @@ in {
     defaultOptions = common;
     # hotkeys: https://github.com/junegunn/fzf#key-bindings-for-command-line
     # CTRL-T: take file
-    fileWidgetOptions = common ++ [
-      "--preview '${pistol} {}'"
-    ];
+    fileWidgetOptions =
+      common
+      ++ [
+        "--preview '${pistol} {}'"
+      ];
     # CTRL-R: redo
     historyWidgetOptions = common;
     # ALT-C: cd
-    changeDirWidgetOptions = common ++ [
-      "--preview '${pistol} {}'"
-    ];
+    changeDirWidgetOptions =
+      common
+      ++ [
+        "--preview '${pistol} {}'"
+      ];
   };
 
   home.sessionVariables.ENHANCD_FILTER = "${fzf} ${lib.concatStringsSep " " common} --preview '${pistol} {}'";

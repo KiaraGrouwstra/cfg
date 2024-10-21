@@ -6,7 +6,7 @@
   imports = [
     ./xwayland-satellite.nix
   ];
-  
+
   home.packages =
     [
       pkgs.wineWowPackages.waylandFull

@@ -1,8 +1,4 @@
-{
-  config,
-  ...
-}:
-let
+{config, ...}: let
   inherit (config.commands) xwayland-satellite;
 in {
   systemd.user.services.xwayland-satellite = {

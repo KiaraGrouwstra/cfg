@@ -30,6 +30,6 @@
     inherit
       (pkgs)
       antimicrox
-    ;
+      ;
   };
 }

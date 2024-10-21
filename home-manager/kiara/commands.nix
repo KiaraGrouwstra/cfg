@@ -11,8 +11,7 @@ let
   wrapSecrets = vars: pkg: (pkgs.writeShellScriptBin pkg.pname
     (lib.concatLines ((lib.mapAttrsToList (k: v: ''export ${k}="$(cat ${config.sops.secrets."${v}".path})"'') vars)
         ++ ["${lib.getExe pkg} $@"])));
-  inherit (pkgs) system;
-  binaries = (
+  binaries =
     lib.listToAttrs
     (
       lib.lists.map
@@ -121,8 +120,7 @@ let
         clangd = pkgs.clang-tools;
         exo-open = pkgs.xfce.exo;
         btm = pkgs.bottom;
-      })
-  );
+      });
   commands = let
     inherit (pkgs) rofi-systemd;
     wezterm = config.programs.wezterm.package;

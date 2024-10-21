@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }: {
   nixpkgs.overlays = [inputs.niri.overlays.niri];

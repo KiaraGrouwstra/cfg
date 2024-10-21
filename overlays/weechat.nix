@@ -19,6 +19,7 @@ pkgs.weechat.override {
         colorize_nicks
         buffer_autoset
         # weechat-matrix  # insecure dep: libolm
+        
         weechat-autosort
         weechat-notify-send
         ;

@@ -198,7 +198,7 @@
     in {
       language-server = {
         typos.command = typos-lsp;
-        
+
         nil.command = nil;
 
         nixd = {
@@ -218,10 +218,16 @@
         {
           name = "markdown";
           scope = "source.md";
-          file-types = ["md" { glob = "PULLREQ_EDITMSG"; }];
-          language-servers = [ "marksman" "typos" ];
-          indent = { tab-width = 2; unit = "  "; };
-          block-comment-tokens = { start = "<!--"; end = "-->"; };
+          file-types = ["md" {glob = "PULLREQ_EDITMSG";}];
+          language-servers = ["marksman" "typos"];
+          indent = {
+            tab-width = 2;
+            unit = "  ";
+          };
+          block-comment-tokens = {
+            start = "<!--";
+            end = "-->";
+          };
         }
         {
           name = "bash";
@@ -230,7 +236,7 @@
             command = shfmt;
             args = ["-i" "2" "-"];
           };
-          language-servers = [ "bash-language-server" "typos" ];
+          language-servers = ["bash-language-server" "typos"];
         }
         {
           name = "clojure";
@@ -252,7 +258,10 @@
           file-types = ["py"];
           roots = ["pyproject.toml" "setup.py" "poetry.lock" "pyrightconfig.json"];
           language-servers = ["pylsp" "typos"];
-          indent = { tab-width = 4; unit = "    "; };
+          indent = {
+            tab-width = 4;
+            unit = "    ";
+          };
         }
         {
           name = "rust";

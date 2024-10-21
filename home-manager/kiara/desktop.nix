@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.commands) hold' less glow lynx decompress pistol open-with ide curl xdg-open exo-open iso;
+  inherit (config.commands) hold' less glow lynx decompress pistol open-with ide exo-open iso;
 in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/

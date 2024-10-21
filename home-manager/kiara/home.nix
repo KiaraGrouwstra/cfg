@@ -2,11 +2,9 @@
   config,
   userConfig,
   ...
-}:
-let
+}: let
   inherit (config.commands) nvimpager terminal zsh;
-in
-{
+in {
   home.enableNixpkgsReleaseCheck = false;
 
   imports = [./imports.nix];
@@ -30,7 +28,7 @@ in
     EDITOR = "hx";
     VISUAL = "hx";
     BROWSER = "firefox";
-    DISPLAY = ":0";  # xwayland-satellite.service
+    DISPLAY = ":0"; # xwayland-satellite.service
   };
 
   home.persistence."/persist${userConfig.home}".allowOther = false;

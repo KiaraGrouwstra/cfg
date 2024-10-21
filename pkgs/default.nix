@@ -11,11 +11,11 @@
     "noshell"
     # "hullcaster"  # https://codeberg.org/kiara/cfg/issues/361
   ]
-  //
-  (let
-    inherit (lib.mapVals (input: input.packages."${pkgs.system}") inputs)
+  // (let
+    inherit
+      (lib.mapVals (input: input.packages."${pkgs.system}") inputs)
       anyrun
-    ;
+      ;
   in {
     inherit (anyrun) anyrun symbols;
   })

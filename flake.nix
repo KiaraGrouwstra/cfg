@@ -24,7 +24,7 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "flake-utils";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=3980e7816c99d9e4da7a7b762e5b294055b73b2f";  # unstable nixpkgs: no branch
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=3980e7816c99d9e4da7a7b762e5b294055b73b2f"; # unstable nixpkgs: no branch
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -155,23 +155,24 @@
     # for each system: nixpkgs
     pkgsFor =
       forSystem
-      (system: let
-        pkgs = import nixpkgs {
-          inherit system overlays;
-        };
-      in
-        pkgs
-        // import ./packages.nix {
-          inherit inputs lib pkgs;
-        }
-        );
+      (
+        system: let
+          pkgs = import nixpkgs {
+            inherit system overlays;
+          };
+        in
+          pkgs
+          // import ./packages.nix {
+            inherit inputs lib pkgs;
+          }
+      );
     # for each system: apply pkgs to a function
     forAllSystems = f: forSystem (system: f pkgsFor.${system});
     # Your custom packages, accessible through 'nix build', 'nix shell', etc
     # for each system: packages including overlays
     packages =
       forAllSystems
-      (pkgs: forSystem (system: pkgsFor.${system}));
+      (_pkgs: forSystem (system: pkgsFor.${system}));
     userConfig = {
       inherit name;
       home = "/home/${name}";
@@ -281,18 +282,22 @@
 
     homeConfigurations = let
       bySystem = forSystem (system:
-      home-manager.lib.homeManagerConfiguration {
-        # inherit overlays;
-        pkgs = pkgsFor.${system};
-        extraSpecialArgs = specialFor.${system};
-        modules = homeModules;
-      });
-      in bySystem // {
-        krost = bySystem.x86_64-linux // {
-          imports = [
-            ./home-manager/kiara/chromebook.nix
-          ];
-        };
+        home-manager.lib.homeManagerConfiguration {
+          # inherit overlays;
+          pkgs = pkgsFor.${system};
+          extraSpecialArgs = specialFor.${system};
+          modules = homeModules;
+        });
+    in
+      bySystem
+      // {
+        krost =
+          bySystem.x86_64-linux
+          // {
+            imports = [
+              ./home-manager/kiara/chromebook.nix
+            ];
+          };
       };
 
     # Apps make it easy to run my scripts from the flake

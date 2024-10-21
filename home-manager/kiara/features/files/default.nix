@@ -15,10 +15,12 @@
     ".local/share/Nextcloud"
   ];
 
-  home.packages = [
-    # security
-    unstable.seahorse
-  ] ++ lib.attrValues {
+  home.packages =
+    [
+      # security
+      unstable.seahorse
+    ]
+    ++ lib.attrValues {
       inherit
         (pkgs)
         rage
