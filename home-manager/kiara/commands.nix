@@ -95,7 +95,17 @@ let
               zsh
               ;
           })
-        ))
+        )
+        # services.<name>.package
+        ++ (
+          lib.catAttrs "package" (lib.attrValues {
+            inherit
+              (config.services)
+              nextcloud-client
+              ;
+          })
+        )
+      )
     )
     //
     # package name differs but binary name = key
