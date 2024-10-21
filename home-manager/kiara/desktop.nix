@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.commands) hold' less glow lynx decompress pistol open-with ide exo-open iso;
+  inherit (config.commands) hold' less glow lynx decompress pistol open-with ide exo-open iso clone;
 in {
   # desktop entries will show up in `share/applications/` of either:
   # - nixos system: /run/current-system/sw/
@@ -74,6 +74,8 @@ in {
 
     (commandDesktop "ide" ide
       ["inode/directory" "inode/mount-point"])
+
+    (commandDesktop "clone" clone ["x-scheme-handler/git"])
 
     # fallback option delegating MIME handling to pistol
     (
