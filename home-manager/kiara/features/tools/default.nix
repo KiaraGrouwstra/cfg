@@ -15,6 +15,7 @@
   ];
   home.persistence."/persist/home/kiara" = {
     directories = [
+      ".config/nix"
       ".config/keepassxc"
       ".config/thefuck"
       ".config/hcloud"
