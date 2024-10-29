@@ -84,15 +84,6 @@
       url = "gitlab:ajgrf/workman-vim-bindings";
       flake = false;
     };
-    lix = {
-      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.91.1";
-      flake = false;
-    };
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=refs/heads/nogit-urls";
-      inputs.lix.follows = "lix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-schemas.url = "github:gvolpe/flake-schemas";
     ## nix client with schema support: see https://github.com/NixOS/nix/pull/8892
     nix-schema = {
@@ -115,7 +106,6 @@
 
   outputs = {
     self,
-    lix-module,
     nixpkgs,
     home-manager,
     nur,
@@ -248,7 +238,6 @@
           inherit system;
           specialArgs = {inherit system lib inputs outputs userConfig;};
           modules = [
-            lix-module.nixosModules.default
             disko.nixosModules.disko
             impermanence.nixosModule
             nur.nixosModules.nur

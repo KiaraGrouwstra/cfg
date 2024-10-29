@@ -149,6 +149,7 @@ in {
   services.lorri.enable = true;
 
   nix = {
+    package = pkgs.lix;
     settings = {
       trusted-users = [
         "root"

@@ -118,6 +118,7 @@ let
           hx = helix;
         })
       // {
+        nix = pkgs.lix;
         nmtui = pkgs.networkmanager;
         xdg-open = pkgs.xdg-utils;
         kdeconnect-indicator = pkgs.kdeconnect;
