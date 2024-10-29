@@ -147,9 +147,7 @@
       forSystem
       (
         system: let
-          pkgs = import nixpkgs {
-            inherit system overlays;
-          };
+          pkgs = nixpkgs.legacyPackages.${system};
         in
           pkgs
           // import ./packages.nix {
@@ -198,6 +196,7 @@
       flake-programs-sqlite.nixosModules.programs-sqlite # command-not-found
       ./modules/home-manager
       ./home-manager/kiara/home.nix
+      {nixpkgs = {inherit overlays;};}
     ];
   in {
     # This facilitates consuming my custom packages thru the flake
