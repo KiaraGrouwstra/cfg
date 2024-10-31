@@ -16,7 +16,8 @@ let
     (
       lib.lists.map
       # key = binary name = package name
-      lib.attrsFromPackage ((lib.attrValues {
+      lib.attrsFromPackage (
+        (lib.attrValues {
           inherit
             (pkgs)
             curl

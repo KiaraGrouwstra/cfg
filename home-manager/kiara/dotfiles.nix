@@ -17,7 +17,7 @@ in {
     // autoStartLinks {
       "firefox" = config.programs.firefox.package;
       "org.wezfurlong.wezterm" = config.programs.wezterm.package;
-      "com.nextcloud.desktopclient.nextcloud" = config.services.nextcloud-client.package; 
+      "com.nextcloud.desktopclient.nextcloud" = config.services.nextcloud-client.package;
     }
     // {
       # must `git add .` or new files won't be found
