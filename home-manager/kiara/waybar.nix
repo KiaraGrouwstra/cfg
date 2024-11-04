@@ -13,7 +13,7 @@
     enable = true;
     package = unstable.waybar;
     settings = let
-      inherit (config.commands) term pavucontrol pamixer powersupply btm wpctl nmtui playerctl hold just dust networkmanager_dmenu toggle anyrun swaync-client;
+      inherit (config.commands) term pavucontrol pamixer powersupply btm wpctl nmtui playerctl hold just dust networkmanager_dmenu toggle anyrun swaync-client bluetuith;
       niri = lib.getExe config.programs.niri.package;
     in {
       mainBar = {
@@ -30,6 +30,7 @@
         modules-right = [
           "custom/left-arrow-dark"
           "pulseaudio"
+          "bluetooth"
           "memory"
           "cpu"
           "battery"
@@ -155,6 +156,12 @@
             on-scroll-down = "shift_up";
           };
         };
+        bluetooth = {
+          format = " {num_connections}";
+          tooltip-format = "{device_alias}: {status}";
+          on-click = hold bluetuith;
+          on-click-right = hold bluetuith;
+        };
         pulseaudio = {
           format = "{icon}   {volume:2}%";
           format-bluetooth = "{icon}   {volume}%";
@@ -229,6 +236,7 @@
       }
 
       #clock,
+      #bluetooth,
       #pulseaudio,
       #memory,
       #cpu,
@@ -288,6 +296,9 @@
         border: #1a1a1a;
         box-shadow: inherit;
         text-shadow: inherit;
+      }
+      #bluetooth {
+        color: DarkRed;
       }
     '';
   };

@@ -363,6 +363,7 @@ Application keybinds, tweaked to layout by setting `config.keyboard.active`:
 | start button | open [`anyrun`](https://github.com/anyrun-org/anyrun) application launcher | toggle [`swaync`](https://github.com/ErikReider/SwayNotificationCenter/) notifications | - |
 | media player | toggle play/pause | skip ahead | previous/next |
 | clock | - | toggle month/year in calendar pop-up | previous/next in calendar pop-up |
+| bluetooth | [`bluetuith`](https://github.com/darkhz/bluetuith) | `bluetuith` | - |
 | volume | toggle mute | [Pulse Audio Volume Control](https://freedesktop.org/software/pulseaudio/pavucontrol/#overview) | change volume |
 | memory | manage processes with [Bottom](https://github.com/ClementTsang/bottom) | - | - |
 | CPU | manage processes with [Bottom](https://github.com/ClementTsang/bottom) | - | - |

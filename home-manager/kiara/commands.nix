@@ -61,6 +61,7 @@ let
             typos-lsp
             swaynotificationcenter
             visidata
+            bluetuith
             ;
         })
         ++ [
